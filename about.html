@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Attractive Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <title>Tentang | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Maklumat tentang Klinik Dr. Al Baghdadi di Putra Nilai dan fokus perubatan am">
+    <meta name="description" content="Klinik Dr. Al Baghdadi (Klinik Usraa) di Putra Nilai. Fokus kepada perubatan am, kesihatan keluarga, sakit lutut & sendi serta kesihatan lelaki dengan layanan mesra & profesional.">
     <style>
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: #1f2933;
             background: linear-gradient(180deg, #e0f7fa 0%, #f7f9fb 40%, #ffffff 100%);
             background-attachment: fixed;
@@ -29,24 +35,72 @@
 
         main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
         h1 { font-size:1.9rem; margin-bottom:0.4rem; }
-        .subtitle { color:#7b8794; max-width:620px; margin-bottom:1.5rem; }
+        .subtitle { color:#4b5563; max-width:680px; margin-bottom:1.5rem; font-size:0.96rem; }
+
         .two-col { display:grid; grid-template-columns:1.5fr 1fr; gap:2rem; margin-top:1.5rem; }
+
         .card {
             background:#fff;
             border-radius:1rem;
             padding:1.3rem 1.4rem;
             box-shadow:0 8px 24px rgba(15,23,42,.08);
-            font-size:0.95rem;
+            font-size:0.93rem;
             transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
         }
+
         ul { margin-left:1.1rem; margin-top:0.4rem; }
         li { margin-bottom:0.2rem; }
-        .tag { display:inline-block; font-size:0.8rem; padding:0.25rem 0.6rem; border-radius:999px; background:#e0f7fa; color:#08747c; margin-bottom:0.6rem; }
+
+        .tag {
+            display:inline-block;
+            font-size:0.8rem;
+            padding:0.25rem 0.6rem;
+            border-radius:999px;
+            background:#e0f7fa;
+            color:#08747c;
+            margin-bottom:0.6rem;
+            font-weight:600;
+        }
         .highlight { color:#08747c; font-weight:600; }
+
+        .pill-row {
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.5rem;
+            margin:0.8rem 0 0.4rem;
+        }
+        .pill {
+            font-size:0.8rem;
+            padding:0.2rem 0.6rem;
+            border-radius:999px;
+            background:#ecfeff;
+            border:1px solid #bae6fd;
+            color:#0369a1;
+        }
+
+        .mini-note {
+            font-size:0.85rem;
+            color:#7b8794;
+            margin-top:0.4rem;
+        }
+
+        .cta-strip {
+            margin-top:1.6rem;
+            padding:0.9rem 1.1rem;
+            border-radius:0.9rem;
+            background:linear-gradient(135deg,#e0f2fe,#ecfeff);
+            font-size:0.9rem;
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.6rem;
+            align-items:center;
+        }
+        .cta-strip strong { color:#0369a1; }
+        .cta-strip a { color:#08747c; font-weight:600; }
 
         footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
         footer span { color:#08747c; font-weight:600; }
@@ -86,25 +140,79 @@
 <main>
     <h1>Tentang Klinik Dr. Al Baghdadi</h1>
     <p class="subtitle">
-        Klinik Dr. Al Baghdadi
-        ialah sebuah klinik perubatan am (GP) yang terletak di Putra Nilai, Negeri Sembilan.
+        <span class="highlight">Klinik Dr. Al Baghdadi (Klinik Usraa)</span> ialah sebuah klinik perubatan am (GP)
+        di Putra Nilai yang memberi fokus kepada <span class="highlight">kesihatan keluarga</span>,
+        <span class="highlight">sakit lutut &amp; sendi</span> serta aspek tertentu <span class="highlight">kesihatan lelaki</span>,
+        dengan penerangan yang mudah difahami dan suasana yang mesra.
     </p>
 
     <div class="two-col">
         <div>
-            <div class="tag">Perubatan Am </div>
+            <div class="tag">Perubatan Am · Sakit Lutut &amp; Kesihatan Lelaki</div>
+
             <p>
-                Kami menyediakan rawatan menyeluruh untuk seisi keluarga – daripada
-                rawatan penyakit harian, saringan kesihatan sehinggalah prosedur klinikal
-                tertentu dan khidmat berkaitan kulit.
+                Ramai pesakit hari ini inginkan <span class="highlight">rawatan menyeluruh di satu tempat</span> –
+                dari demam dan batuk biasa, sehinggalah pemeriksaan kesihatan, masalah sendi seperti sakit lutut,
+                serta isu khusus kesihatan lelaki. Di sinilah kami cuba memudahkan anda:
+                <span class="highlight">satu klinik, pelbagai keperluan kesihatan harian</span>.
             </p>
+
             <p>
-                Fokus kami adalah pada rawatan yang selamat, beretika dan berasaskan
-                bukti (evidence-based), di samping memastikan komunikasi yang jelas
-                supaya pesakit benar-benar faham keadaan mereka.
+                Kami percaya pengalaman di klinik tidak sepatutnya menakutkan atau mengelirukan.
+                Sebab itu, setiap pesakit akan dijelaskan tentang:
             </p>
+            <ul>
+                <li><strong>punca kemungkinan</strong> masalah kesihatan anda,</li>
+                <li><strong>pilihan rawatan yang praktikal</strong> untuk situasi anda, dan</li>
+                <li><strong>apa yang perlu dipantau</strong> selepas pulang ke rumah.</li>
+            </ul>
+
+            <div class="pill-row">
+                <span class="pill">Penjagaan keluarga</span>
+                <span class="pill">Sakit lutut &amp; sakit sendi</span>
+                <span class="pill">Kesihatan lelaki</span>
+                <span class="pill">Pendekatan mesra pesakit</span>
+            </div>
+
+            <p>
+                Selain merawat apabila anda sakit, kami menekankan <span class="highlight">pencegahan</span>.
+                Saringan kesihatan berkala, pemantauan tekanan darah, pemeriksaan darah asas dan
+                nasihat gaya hidup boleh membantu mengesan masalah lebih awal sebelum menjadi
+                lebih serius.
             </p>
+
+            <p>
+                Ramai juga yang berdepan <span class="highlight">sakit lutut, sakit belakang atau sakit sendi</span>
+                akibat kerja, pergerakan berat, sukan atau faktor usia. Kami membantu dengan penilaian
+                klinikal awal, rawatan yang sesuai dan, jika perlu, rujukan lanjut kepada pakar.
+            </p>
+
+            <p>
+                Untuk <span class="highlight">kesihatan lelaki</span>, sesetengah isu agak sensitif untuk dibincangkan.
+                Di klinik ini, anda boleh berbincang secara sulit tentang masalah seperti:
+            </p>
+            <ul>
+                <li>rasa cepat letih &amp; kurang tenaga,</li>
+                <li>tekanan darah &amp; risiko jantung,</li>
+                <li>simptom yang mengganggu kerja &amp; keluarga.</li>
+            </ul>
+            <p class="mini-note">
+                Perbincangan adalah sulit dan mengikut etika profesional perubatan.
+            </p>
+
+            <p>
+                Lokasi kami di <span class="highlight">L1-5A, Menara A (Akasia) @ Youth City Residence</span>,
+                Bandar Wawasan Putra Nilai menjadikan klinik ini mudah diakses oleh penduduk sekitar
+                Putra Nilai, kawasan perumahan berdekatan, pelajar universiti dan pekerja sekitar Nilai.
+            </p>
+
+            <div class="cta-strip">
+                <strong>Ada soalan sebelum datang?</strong>
+                <span>Anda digalakkan untuk WhatsApp kami terlebih dahulu jika ingin tanya tentang simptom atau kos anggaran.</span>
+                <a href="https://wa.me/60103434711" target="_blank">WhatsApp +60 10‑343 4711 &rarr;</a>
+            </div>
         </div>
+
         <div class="card">
             <strong>Maklumat Lokasi &amp; Alamat</strong>
             <ul>
@@ -112,21 +220,40 @@
                 <li>Jalan Bandar Belia 1/1, Bandar Wawasan Putra Nilai,</li>
                 <li>71800 Nilai, Negeri Sembilan.</li>
             </ul>
+
             <p style="margin-top:0.7rem;">
-                <strong>Telefon / WhatsApp:</strong><br>
-                +60 10‑343 4711
+                <strong>Telefon / WhatsApp utama:</strong><br>
+                <span class="highlight"><a href="tel:+60103434711">+60 10‑343 4711</a></span>
             </p>
-            <p style="margin-top:0.7rem;font-size:0.85rem;color:#7b8794;">
-                Disarankan untuk menghubungi klinik atau menghantar WhatsApp
-                untuk kepastian <span class="highlight">waktu operasi terkini</span>
-                sebelum hadir.
+
+            <p class="mini-note">
+                &bull; Hubungi atau WhatsApp bila‑bila untuk bertanya tentang
+                waktu operasi, jenis perkhidmatan, atau anggaran kos asas.<br>
+                &bull; Kami akan cuba menjawab dengan bahasa yang ringkas dan jelas
+                supaya anda rasa lebih yakin sebelum datang.
+            </p>
+
+            <p style="margin-top:0.8rem;">
+                <strong>Siapa yang sesuai datang ke klinik ini?</strong>
+            </p>
+            <ul>
+                <li>Individu &amp; keluarga yang perlukan <span class="highlight">klinik GP tetap</span> di kawasan Putra Nilai.</li>
+                <li>Ibu bapa yang mencari tempat untuk <span class="highlight">ujian jaundis bayi, saringan asas &amp; cucian telinga</span>.</li>
+                <li>Pesakit dengan <span class="highlight">penyakit kronik</span> yang perlukan susulan &amp; pemantauan ubat.</li>
+                <li>Mereka yang mengalami <span class="highlight">sakit lutut, sakit belakang atau sakit sendi</span>.</li>
+                <li>Lelaki yang ingin berbincang secara sulit tentang <span class="highlight">kesihatan lelaki</span>.</li>
+            </ul>
+
+            <p class="mini-note">
+                Jika anda tidak pasti sama ada masalah anda boleh dirawat di sini, hubungi kami –
+                kami akan beritahu jika perlu dirujuk ke hospital atau pakar tertentu.
             </p>
         </div>
     </div>
 </main>
 
 <footer>
-    &copy; <span>Klinik Dr. Al Baghdadi</span> ·
+    &copy; <span>Klinik Dr. Al Baghdadi · Klinik Usraa</span> ·
     Semua hak cipta terpelihara.
 </footer>
 
