@@ -107,6 +107,23 @@
             form { grid-template-columns:minmax(0,1fr); }
         }
     </style>
+    /* Pop hover for contact card and button */
+.contact-card {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
+}
+
+.btn-primary {
+    transition: transform 0.13s ease, box-shadow 0.13s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 15px 26px rgba(12, 159, 170, 0.35);
+}
+
 </head>
 <body>
 <header>
