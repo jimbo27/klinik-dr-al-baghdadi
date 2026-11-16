@@ -227,7 +227,6 @@
             color: var(--primary-dark);
         }
 
-        /* highlight class */
         .hl {
             color: var(--primary-dark);
             font-weight: 600;
@@ -263,7 +262,7 @@
         /* LOGO PANEL SECTION */
         .logo-panel {
             margin-top: 2.8rem;
-            padding: 1.4rem 1.5rem;
+            padding: 1.4rem 1.5rem 1.6rem;
             background: rgba(255, 255, 255, 0.92);
             border-radius: 1.5rem;
             box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
@@ -274,32 +273,34 @@
             text-transform: uppercase;
             letter-spacing: 0.12em;
             color: var(--text-muted);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
         }
 
         .logo-panel-row {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 1.8rem;
+            gap: 1.2rem;
         }
 
-        .logo-panel-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .logo-panel-img {
-            height: 42px;
-            width: auto;
-            border-radius: 6px;
-            object-fit: contain;
-        }
-
-        .logo-panel-text {
+        .logo-pill {
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            font-weight: 600;
+            color: #0f172a;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .logo-pill span {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         footer {
@@ -314,7 +315,6 @@
             font-weight: 600;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(18px); }
             to { opacity: 1; transform: translateY(0); }
@@ -453,23 +453,25 @@
         </div>
     </section>
 
-    <!-- LOGO PANEL BAWAH -->
+    <!-- LOGO PANEL BAWAH dengan PMCare, CompuMed, Great Eastern, RedAlert -->
     <section class="logo-panel">
-        <div class="logo-panel-title">Panel / Jenama Berkaitan</div>
+        <div class="logo-panel-title">Panel &amp; Rakan Kerjasama</div>
         <div class="logo-panel-row">
-            <div class="logo-panel-item">
-                <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-panel-img">
-                <div class="logo-panel-text">
-                    <strong>Klinik Dr. Al Baghdadi</strong><br>
-                    Klinik Usraa · Putra Nilai
-                </div>
+            <div class="logo-pill">
+                PMCare
+                <span>panel</span>
             </div>
-
-            <div class="logo-panel-item">
-                <div class="logo-panel-text">
-                    Ruang untuk logo panel insurans / rakan kerjasama.<br>
-                    Contoh: panel TPA, korporat, dll. (boleh ditambah kemudian).
-                </div>
+            <div class="logo-pill">
+                CompuMed
+                <span>panel</span>
+            </div>
+            <div class="logo-pill">
+                Great Eastern
+                <span>rakan</span>
+            </div>
+            <div class="logo-pill">
+                RedAlert
+                <span>rakan</span>
             </div>
         </div>
     </section>
