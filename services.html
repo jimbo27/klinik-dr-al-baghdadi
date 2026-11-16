@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perkhidmatan | Klinik Dr. Al Baghdadi</title>
+    <meta name="description" content="Senarai perkhidmatan Klinik Dr. Al Baghdadi: perubatan am, keluarga, saringan kesihatan, ujian jaundis bayi, cucian telinga, minor surgery dan estetika asas.">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #1f2933;
+            background: #f7f9fb;
+            line-height: 1.6;
+        }
+        header { position: sticky; top:0; background:#fff; box-shadow:0 2px 10px rgba(15,23,42,.08); z-index:1000; }
+        .nav { max-width:1100px; margin:0 auto; padding:0.8rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+        .logo { display:flex; align-items:center; gap:0.6rem; font-weight:700; color:#08747c; }
+        .logo-img { height:40px; width:auto; }
+        a { text-decoration:none; color:inherit; }
+        .nav-links { display:flex; gap:1.5rem; font-size:0.95rem; }
+        .nav-links a { color:#7b8794; font-weight:500; position:relative; }
+        .nav-links a.active { color:#08747c; }
+        .nav-links a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#0c9faa; transition:width .2s; }
+        .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+        .nav-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
+        .nav-toggle span { width:22px; height:2px; background:#1f2933; }
+
+        main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
+        h1 { font-size:1.9rem; margin-bottom:0.4rem; }
+        .subtitle { color:#7b8794; max-width:620px; margin-bottom:1.5rem; }
+
+        .services-grid {
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:1.5rem;
+            margin-top:1.5rem;
+        }
+        .service-card {
+            background:#fff;
+            border-radius:1rem;
+            padding:1.3rem 1.4rem;
+            box-shadow:0 8px 24px rgba(15,23,42,.06);
+            font-size:0.9rem;
+        }
+        .service-title {
+            font-weight:600;
+            margin-bottom:0.2rem;
+        }
+        .service-icon {
+            font-size:1.3rem;
+            margin-bottom:0.4rem;
+        }
+        ul { margin-left:1.1rem; margin-top:0.4rem; }
+        li { margin-bottom:0.2rem; }
+
+        footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
+        footer span { color:#08747c; font-weight:600; }
+
+        @media (max-width:900px) {
+            .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        }
+        @media (max-width:700px) {
+            .nav-links { position:absolute; top:54px; right:0; background:#fff; flex-direction:column; padding:0.8rem 1.5rem 1rem; box-shadow:0 10px 20px rgba(15,23,42,.15); display:none; }
+            .nav-links.open { display:flex; }
+            .nav-toggle { display:flex; }
+            main { padding:1.5rem 1.1rem 2.5rem; }
+            .services-grid { grid-template-columns:minmax(0,1fr); }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <a href="index.html" class="logo">
+            <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
+            <div>
+                Klinik<br>Dr. Al Baghdadi
+            </div>
+        </a>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Utama</a>
+            <a href="about.html">Tentang</a>
+            <a href="services.html" class="active">Perkhidmatan</a>
+            <a href="contact.html">Hubungi</a>
+        </nav>
+        <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h1>Perkhidmatan Klinik</h1>
+    <p class="subtitle">
+        Berikut adalah rangkaian utama perkhidmatan yang ditawarkan di Klinik Dr. Al Baghdadi
+        (Klinik Usraa / Wellness &amp; Skin Centre) di Putra Nilai.
+    </p>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">💊</div>
+            <div class="service-title">Perubatan Am (GP)</div>
+            <p>Rawatan bagi masalah kesihatan harian.</p>
+            <ul>
+                <li>Demam, batuk &amp; selesema</li>
+                <li>Sakit kepala, migrain, gastrik</li>
+                <li>Penyakit kulit ringan</li>
+                <li>Konsultasi kesihatan umum</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">👨‍👩‍👧</div>
+            <div class="service-title">Kesihatan Keluarga</div>
+            <p>Penjagaan menyeluruh untuk semua peringkat umur.</p>
+            <ul>
+                <li>Saringan kesihatan berkala</li>
+                <li>Pengurusan penyakit kronik (contoh: diabetes, darah tinggi)</li>
+                <li>Nasihat gaya hidup &amp; pemakanan sihat</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🧪</div>
+            <div class="service-title">Saringan &amp; Ujian</div>
+            <p>Pengesanan awal untuk kesihatan yang lebih baik.</p>
+            <ul>
+                <li>Saringan kesihatan asas</li>
+                <li>Ujian darah asas &amp; ujian makmal tertentu</li>
+                <li>Ujian air kencing &amp; ujian kehamilan</li>
+                <li>Ujian jaundis bayi</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">👂</div>
+            <div class="service-title">Prosedur Klinik</div>
+            <p>Prosedur mudah yang dilakukan di klinik.</p>
+            <ul>
+                <li>Cucian telinga</li>
+                <li>Minor surgery (pembedahan kecil tertentu)</li>
+                <li>Dressing luka asas</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">💉</div>
+            <div class="service-title">Vaksinasi</div>
+            <p>Vaksin asas tertentu bergantung kepada stok &amp; kelayakan.</p>
+            <ul>
+                <li>Vaksin dewasa / kanak-kanak terpilih</li>
+                <li>Maklumat vaksin terkini – sila hubungi klinik</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">✨</div>
+            <div class="service-title">Estetika &amp; Wellness</div>
+            <p>Perkhidmatan asas berkaitan kulit &amp; kesejahteraan.</p>
+            <ul>
+                <li>Konsultasi kulit &amp; estetika asas</li>
+                <li>Pakej wellness tertentu (mengikut promosi &amp; pengumuman)</li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; <span>Klinik Dr. Al Baghdadi · Klinik Usraa · Wellness &amp; Skin Centre</span> ·
+    Semua hak cipta terpelihara.
+</footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+</script>
+</body>
+</html>
