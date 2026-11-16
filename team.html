@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Attractive Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Team Kami | Klinik Dr. Al Baghdadi</title>
+    <meta name="description" content="Kenali team Klinik Dr. Al Baghdadi di Putra Nilai – doktor, jururawat dan staf yang komited untuk penjagaan kesihatan keluarga anda.">
+    <style>
+        body {
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #1f2933;
+            background: linear-gradient(180deg, #e0f7fa 0%, #f7f9fb 40%, #ffffff 100%);
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+        header { position: sticky; top:0; background:#fff; box-shadow:0 2px 10px rgba(15,23,42,.08); z-index:1000; }
+        .nav { max-width:1100px; margin:0 auto; padding:0.8rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+
+        /* LOGO + HOVER EFFECT */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-weight: 700;
+            color: #08747c;
+            font-size: 1.1rem;
+            transition: transform 0.18s ease;
+        }
+        .logo-img {
+            height: 54px;
+            width: auto;
+        }
+        .logo-text {
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            transition: transform 0.18s ease, color 0.18s ease;
+        }
+        .logo-text span {
+            font-size: 1.05em;
+            color: #065f73;
+            transition: color 0.18s ease;
+        }
+        .logo:hover .logo-text {
+            transform: scale(1.08);
+            color: #065f73;
+        }
+        .logo:hover .logo-text span {
+            color: #044e5f;
+        }
+
+        a { text-decoration:none; color:inherit; }
+        .nav-links { display:flex; gap:1.5rem; font-size:0.95rem; }
+        .nav-links a { color:#7b8794; font-weight:500; position:relative; }
+        .nav-links a.active { color:#08747c; }
+        .nav-links a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#0c9faa; transition:width .2s; }
+        .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+        .nav-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
+        .nav-toggle span { width:22px; height:2px; background:#1f2933; }
+
+        main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
+        h1 { font-size:1.9rem; margin-bottom:0.4rem; }
+        .subtitle { color:#7b8794; max-width:700px; margin-bottom:1.5rem; font-size:0.95rem; }
+        .hl { color:#08747c; font-weight:600; }
+
+        .team-grid {
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:1.5rem;
+            margin-top:1.5rem;
+        }
+        .team-card {
+            background:#fff;
+            border-radius:1.2rem;
+            padding:1.4rem 1.3rem;
+            box-shadow:0 8px 24px rgba(15,23,42,.08);
+            text-align:center;
+            font-size:0.9rem;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.18);
+        }
+        .team-avatar {
+            width:72px;
+            height:72px;
+            border-radius:999px;
+            background:linear-gradient(135deg,#e0f2fe,#fce7f3);
+            margin:0 auto 0.8rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            color:#0f172a;
+            font-size:1.1rem;
+        }
+        .team-name {
+            font-weight:600;
+            margin-bottom:0.1rem;
+        }
+        .team-role {
+            font-size:0.85rem;
+            color:#08747c;
+            margin-bottom:0.3rem;
+        }
+        .team-meta {
+            font-size:0.8rem;
+            color:#6b7280;
+        }
+
+        footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
+        footer span { color:#08747c; font-weight:600; }
+
+        @media (max-width:900px) {
+            .team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        }
+        @media (max-width:700px) {
+            .nav-links { position:absolute; top:54px; right:0; background:#fff; flex-direction:column; padding:0.8rem 1.5rem 1rem; box-shadow:0 10px 20px rgba(15,23,42,.15); display:none; }
+            .nav-links.open { display:flex; }
+            .nav-toggle { display:flex; }
+            main { padding:1.5rem 1.1rem 2.5rem; }
+            .team-grid { grid-template-columns:minmax(0,1fr); }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <a href="index.html" class="logo">
+            <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
+            <div class="logo-text">
+                Klinik<br><span>Dr. Al Baghdadi</span>
+            </div>
+        </a>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Utama</a>
+            <a href="about.html">Tentang</a>
+            <a href="services.html">Perkhidmatan</a>
+            <a href="team.html" class="active">Team Kami</a>
+            <a href="contact.html">Hubungi</a>
+        </nav>
+        <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h1>Team Kami</h1>
+    <p class="subtitle">
+        Team di <span class="hl">Klinik Dr. Al Baghdadi</span> terdiri daripada doktor, jururawat dan staf
+        sokongan yang komited untuk memberikan pengalaman klinik yang mesra, profesional dan mudah difahami.
+    </p>
+
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-avatar">AB</div>
+            <div class="team-name">Dr. Al Baghdadi</div>
+            <div class="team-role">Pengamal Perubatan Am (GP)</div>
+            <div class="team-meta">
+                Fokus kepada <span class="hl">kesihatan keluarga</span>, <span class="hl">sakit lutut &amp; sendi</span>,
+                penyakit harian dan pengurusan penyakit kronik seperti darah tinggi &amp; diabetes.
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">DK</div>
+            <div class="team-name">Doktor Klinikal</div>
+            <div class="team-role">Perubatan Am</div>
+            <div class="team-meta">
+                Membantu dalam konsultasi harian, saringan kesihatan, rawatan jangkitan biasa
+                dan susulan pesakit kronik.
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">JR</div>
+            <div class="team-name">Jururawat Terlatih</div>
+            <div class="team-role">Sokongan Kejururawatan</div>
+            <div class="team-meta">
+                Mengurus prosedur seperti <span class="hl">cucian telinga</span>, pengambilan darah,
+                ujian jaundis bayi, dressing luka dan bantuan semasa prosedur doktor.
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">FR</div>
+            <div class="team-name">Front Desk / Admin</div>
+            <div class="team-role">Pendaftaran &amp; Temu Janji</div>
+            <div class="team-meta">
+                Menyambut pesakit, mengurus pendaftaran, bayaran dan membantu pelanggan
+                membuat <span class="hl">temu janji melalui WhatsApp</span> dengan lancar.
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">AS</div>
+            <div class="team-name">Pembantu Klinik</div>
+            <div class="team-role">Sokongan Operasi</div>
+            <div class="team-meta">
+                Membantu memastikan aliran pesakit yang teratur, kebersihan bilik rawatan dan
+                stok asas klinik sentiasa tersedia.
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">PK</div>
+            <div class="team-name">Pasukan Sokongan</div>
+            <div class="team-role">Sokongan Harian</div>
+            <div class="team-meta">
+                Bekerja di belakang tabir untuk memastikan operasi klinik berjalan lancar
+                dan pesakit dilayan dengan sebaik mungkin.
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; <span>Klinik Dr. Al Baghdadi · Klinik Usraa</span> ·
+    Semua hak cipta terpelihara.
+</footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+</script>
+</body>
+</html>
