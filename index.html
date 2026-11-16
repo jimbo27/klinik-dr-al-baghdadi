@@ -288,47 +288,70 @@
         }
 
         /* LOGO PANEL SECTION */
-        .logo-panel {
-            margin-top: 2.8rem;
-            padding: 1.4rem 1.5rem 1.6rem;
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-        }
+        /* LOGO PANEL SECTION */
+.logo-panel {
+    margin-top: 2.8rem;
+    padding: 1.4rem 1.5rem 1.6rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
 
-        .logo-panel-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-        }
+.logo-panel-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+}
 
-        .logo-panel-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1.2rem;
-        }
+.logo-panel-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;  /* susun dalam baris */
+    gap: 1.5rem;
+}
 
-        .logo-pill {
-            padding: 0.5rem 0.9rem;
-            border-radius: 999px;
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #0f172a;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
+/* setiap logo dalam “card” kecil */
+.logo-panel-item {
+    background: #f1f5f9;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    cursor: default;
+}
 
-        .logo-pill span {
-            font-size: 0.75rem;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+/* efek pop-up bila hover */
+.logo-panel-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    background: #e0f2fe;
+}
+
+.logo-panel-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-panel-caption {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* mobile: susun ke bawah */
+@media (max-width: 700px) {
+    .logo-panel-row {
+        flex-wrap: wrap;
+        gap: 0.9rem;
         }
 
         footer {
