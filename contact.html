@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Attractive Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <title>Hubungi | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Hubungi Klinik Dr. Al Baghdadi di Putra Nilai. Nombor telefon, WhatsApp, alamat dan borang permintaan temu janji.">
+    <meta name="description" content="Hubungi Klinik Dr. Al Baghdadi di Putra Nilai. Telefon/WhatsApp utama +60 10-343 4711, alamat dan borang permintaan temu janji.">
     <style>
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: #1f2933;
             background:
                 radial-gradient(circle at bottom, #e0f2fe 0%, #f7f9fb 40%, #ffffff 100%);
@@ -47,6 +53,7 @@
         .contact-item { margin-bottom:0.8rem; }
         .contact-label { font-size:0.8rem; text-transform:uppercase; color:#7b8794; letter-spacing:.05em; }
         .contact-value { font-weight:600; }
+        .hl { color:#08747c; font-weight:700; }
 
         form { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem 1rem; font-size:0.9rem; }
         form .full { grid-column:1 / -1; }
@@ -141,28 +148,26 @@
 <main>
     <h1>Hubungi Klinik Dr. Al Baghdadi</h1>
     <p class="subtitle">
-        Gunakan maklumat di bawah untuk panggilan, WhatsApp atau lawatan ke klinik
-        di Putra Nilai. Anda juga boleh menghantar permintaan temu janji melalui borang.
+        Untuk pertanyaan pantas atau tempahan slot, sila hubungi / WhatsApp nombor
+        <span class="hl">utama klinik</span> di bawah atau gunakan borang permintaan temu janji.
     </p>
 
     <div class="content">
         <div class="contact-card">
             <div class="contact-item">
-                <div class="contact-label">Telefon / WhatsApp</div>
+                <div class="contact-label">Telefon / WhatsApp Utama</div>
                 <div class="contact-value">
-                    <div><a href="tel:+601161889969">+60 11‑6188 9969</a></div>
-                    <div><a href="tel:+601162286295">+60 11‑6228 6295</a></div>
-                    <div><a href="tel:+60103434711">+60 10‑343 4711</a></div>
+                    <a href="tel:+60103434711" class="hl">+60 10‑343 4711</a>
                 </div>
             </div>
+
             <div class="contact-item">
                 <div class="contact-label">Pautan WhatsApp</div>
                 <div class="contact-value">
-                    <div><a href="https://wa.me/601161889969" target="_blank">WhatsApp 1</a></div>
-                    <div><a href="https://wa.me/601162286295" target="_blank">WhatsApp 2</a></div>
-                    <div><a href="https://wa.me/60103434711" target="_blank">WhatsApp 3</a></div>
+                    <a href="https://wa.me/60103434711" target="_blank" class="hl">WhatsApp Klinik Dr. Al Baghdadi</a>
                 </div>
             </div>
+
             <div class="contact-item">
                 <div class="contact-label">Alamat</div>
                 <div class="contact-value">
@@ -172,13 +177,14 @@
                     71800 Nilai, Negeri Sembilan
                 </div>
             </div>
+
             <div class="contact-item">
                 <div class="contact-label">Waktu Operasi</div>
                 <div class="contact-value">
-                    Isnin – Jumaat: 9:00 pagi – 10:00 malam<br>
-                    Sabtu – Ahad: 9:00 pagi – 6:00 petang<br>
+                    Isnin – Jumaat: <span class="hl">9:00 pagi – 10:00 malam</span><br>
+                    Sabtu – Ahad: <span class="hl">9:00 pagi – 6:00 petang</span><br>
                     <span style="font-size:0.8rem;color:#7b8794;">
-                        (Ahad sesetengah masa bermula 3:00 petang – 9:00 malam; disarankan hubungi dahulu.)
+                        (Ahad sesetengah masa bermula 3:00 petang – 9:00 malam; disarankan WhatsApp dahulu.)
                     </span>
                 </div>
             </div>
@@ -201,7 +207,7 @@
                 </div>
                 <div>
                     <label for="phone">No. telefon / WhatsApp</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Contoh: 011-6188 9969">
+                    <input type="tel" id="phone" name="phone" placeholder="Contoh: 010-343 4711">
                 </div>
                 <div>
                     <label for="date">Tarikh pilihan</label>
@@ -213,13 +219,14 @@
                 </div>
                 <div class="full">
                     <label for="reason">Sebab lawatan</label>
-                    <textarea id="reason" name="reason" placeholder="Contoh: demam, saringan kesihatan, ujian jaundis bayi, cucian telinga, dll."></textarea>
+                    <textarea id="reason" name="reason" placeholder="Contoh: demam, saringan kesihatan, sakit lutut, cucian telinga, dll."></textarea>
                 </div>
                 <div class="full">
                     <button type="button" class="btn-primary">Hantar permintaan temu janji</button>
                     <p class="form-note">
                         * Buat masa ini borang ini tidak terus menghantar ke WhatsApp/email.
-                        Sila hubungi nombor WhatsApp di sebelah untuk pengesahan segera.
+                        Untuk pengesahan segera, sila WhatsApp atau hubungi
+                        <span class="hl">+60 10‑343 4711</span>.
                     </p>
                 </div>
             </form>
@@ -228,7 +235,7 @@
 </main>
 
 <footer>
-    &copy; <span>Klinik Dr. Al Baghdadi · Klinik Usraa · Wellness &amp; Skin Centre</span> ·
+    &copy; <span>Klinik Dr. Al Baghdadi · Klinik Usraa</span> ·
     Semua hak cipta terpelihara.
 </footer>
 
