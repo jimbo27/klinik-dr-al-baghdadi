@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laman Utama | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Laman rasmi Klinik Dr. Al Baghdadi (Klinik Usraa / Wellness & Skin Centre) di Putra Nilai. Perubatan am (GP), keluarga & estetika.">
+    <meta name="description" content="Laman rasmi Klinik Dr. Al Baghdadi di Putra Nilai. Perubatan am (GP), keluarga">
     <style>
         :root {
             --primary: #0c9faa;
@@ -300,6 +300,79 @@
             font-weight: 600;
         }
 
+        /* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply to hero sections */
+.hero-left-anim {
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.hero-right-anim {
+    animation: fadeInRight 0.7s ease-out forwards;
+    animation-delay: 0.1s;
+}
+
+/* Card & button hover "pop" */
+.quick-card,
+.hero-right,
+.service-card,
+.contact-card {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, translate 0.18s;
+}
+
+.quick-card:hover,
+.hero-right:hover,
+.service-card:hover,
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
+}
+
+button.btn-primary,
+button.btn-secondary {
+    transition: transform 0.13s ease, box-shadow 0.13s ease, background 0.13s ease;
+}
+
+button.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 15px 26px rgba(12, 159, 170, 0.35);
+}
+
+button.btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.2);
+}
+
+/* Nav link hover pop */
+.nav-links a {
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.nav-links a:hover {
+    transform: translateY(-1px);
+}
+
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: minmax(0, 1fr);
@@ -426,9 +499,7 @@
             </div>
 
             <div class="hero-card-contact">
-                <div><strong>Telefon / WhatsApp 1:</strong> <a href="tel:+601161889969">+60 11‑6188 9969</a></div>
-                <div><strong>Telefon / WhatsApp 2:</strong> <a href="tel:+601162286295">+60 11‑6228 6295</a></div>
-                <div><strong>Telefon / WhatsApp 3:</strong> <a href="tel:+60103434711">+60 10‑343 4711</a></div>
+                <div><strong>Telefon / WhatsApp 1:</strong> <a href="tel:+601161889969">+60 11‑6188 9969</a></div>         
                 <div style="margin-top:0.4rem;">
                     <strong>Alamat:</strong><br>
                     L1-5A, Menara A (Akasia) @ Youth City Residence,<br>
@@ -464,7 +535,7 @@
 </main>
 
 <footer>
-    &copy; <span>Klinik Dr. Al Baghdadi · Klinik Usraa · Wellness &amp; Skin Centre</span> ·
+    &copy; <span>Klinik Dr. Al Baghdadi</span> ·
     Semua hak cipta terpelihara.
 </footer>
 
