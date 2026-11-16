@@ -55,13 +55,23 @@
             justify-content: space-between;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
+       .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* Add this new class */
+.logo-img {
+    height: 36px;        /* adjust size as needed */
+    width: auto;
+    border-radius: 6px;  /* remove if you don't want rounded corners */
+}
+
+/* You can keep .logo-icon or delete it if not used anywhere else */
+
 
         .logo-icon {
             width: 32px;
@@ -562,12 +572,13 @@
 <body>
 <header>
     <div class="nav">
-        <a href="#home" class="logo">
-            <div class="logo-icon">KB</div>
-            <div>
-                Klinik<br>Dr. Al Baghdadi
-            </div>
-        </a>
+       <a href="#home" class="logo">
+    <img src="logo.png" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
+    <div>
+        Klinik<br>Dr. Al Baghdadi
+    </div>
+</a>
+
         <nav class="nav-links" id="navLinks">
             <a href="#home">Utama</a>
             <a href="#about">Tentang</a>
