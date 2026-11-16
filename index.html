@@ -130,9 +130,8 @@
             border-radius: 1.8rem;
             box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
             display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            gap: 2.5rem;
-            align-items: center;
+            grid-template-columns: minmax(0, 1.2fr);
+            gap: 2rem;
             position: relative;
         }
 
@@ -228,73 +227,10 @@
             color: var(--primary-dark);
         }
 
-        .hero-right {
-            background: var(--white);
-            border-radius: 1.5rem;
-            padding: 1.3rem 1.2rem;
-            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-        }
-
-        .hero-right:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
-        }
-
-        .hero-card-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .hero-card-title {
+        /* highlight class */
+        .hl {
+            color: var(--primary-dark);
             font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .status-pill {
-            padding: 0.25rem 0.7rem;
-            border-radius: 999px;
-            background: rgba(34, 197, 94, 0.1);
-            color: #16a34a;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .hours-list {
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-        }
-
-        .hours-list div {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.2rem 0;
-        }
-
-        .hero-card-contact {
-            margin-top: 1.2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(15, 23, 42, 0.06);
-            font-size: 0.9rem;
-        }
-
-        .hero-card-contact div {
-            margin-bottom: 0.3rem;
-        }
-
-        .hero-map-placeholder {
-            margin-top: 1rem;
-            height: 150px;
-            border-radius: 1rem;
-            background: linear-gradient(135deg, #e0f7fa, #f1f5f9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 0 1rem;
         }
 
         .quick-links {
@@ -322,12 +258,6 @@
             font-weight: 600;
             margin-bottom: 0.3rem;
             color: var(--primary-dark);
-        }
-
-        /* highlight class */
-        .hl {
-            color: var(--primary-dark);
-            font-weight: 600;
         }
 
         /* LOGO PANEL SECTION */
@@ -390,27 +320,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(18px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
         .hero-left-anim {
             animation: fadeInUp 0.7s ease-out forwards;
-        }
-
-        .hero-right-anim {
-            animation: fadeInRight 0.7s ease-out forwards;
-            animation-delay: 0.1s;
         }
 
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: minmax(0, 1fr);
                 padding: 1.7rem 1.5rem;
-            }
-            .hero-right {
-                order: -1;
             }
             .quick-links {
                 grid-template-columns: minmax(0, 1fr);
@@ -499,55 +416,12 @@
                     <span>Waktu Operasi</span>
                     Isnin – Jumaat<br><strong>9:00 pagi – 10:00 malam</strong>
                 </div>
-                <div class="hero-info-item">
-                    <span>Hujung Minggu</span>
-                    Sabtu – Ahad<br><strong>9:00 pagi – 6:00 petang</strong><br>
-                    <small>(Ahad kadangkala 3:00 – 9:00 mlm, sila WhatsApp dahulu)</small>
-                </div>
+                <!-- Hujung Minggu item deleted as requested -->
                 <div class="hero-info-item">
                     <span>Lokasi</span>
                     <strong>L1-5A, Menara A (Akasia)</strong><br>
                     Youth City Residence, Putra Nilai
                 </div>
-            </div>
-        </div>
-        <div class="hero-right hero-right-anim">
-            <div class="hero-card-header">
-                <div>
-                    <div class="hero-card-title">Maklumat Klinik</div>
-                    <div style="font-size:0.85rem;color:var(--text-muted);">
-                        Klinik Dr. Al Baghdadi · Klinik Usraa
-                    </div>
-                </div>
-                <div class="status-pill">Dibuka</div>
-            </div>
-
-            <div>
-                <strong>Waktu Operasi</strong>
-                <div class="hours-list">
-                    <div><span>Isnin – Jumaat</span><span>9:00 pagi – 10:00 malam</span></div>
-                    <div><span>Sabtu – Ahad</span><span>9:00 pagi – 6:00 petang</span></div>
-                    <div><span>Nota</span><span>Ahad kadangkala 3:00 – 9:00 mlm*</span></div>
-                </div>
-                <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">
-                    * Waktu operasi tertakluk kepada pengumuman semasa. Disarankan
-                    <span class="hl">WhatsApp / panggil dahulu</span> sebelum datang.
-                </p>
-            </div>
-
-            <div class="hero-card-contact">
-                <div><strong>Telefon / WhatsApp:</strong> <a href="tel:+60103434711" class="hl">+60 10‑343 4711</a></div>
-                <div style="margin-top:0.4rem;">
-                    <strong>Alamat:</strong><br>
-                    L1-5A, Menara A (Akasia) @ Youth City Residence,<br>
-                    Jalan Bandar Belia 1/1, Bandar Wawasan Putra Nilai,<br>
-                    71800 Nilai, Negeri Sembilan
-                </div>
-            </div>
-
-            <div class="hero-map-placeholder">
-                Peta Google Maps interaktif dimasukkan di halaman <span class="hl">Hubungi</span>.<br>
-                Klik “Hubungi” di menu untuk lihat peta &amp; borang temu janji.
             </div>
         </div>
     </section>
