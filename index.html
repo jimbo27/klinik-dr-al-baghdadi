@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Klinik Dr. Al Baghdadi ialah klinik perubatan am (GP) di Putra Nilai, Negeri Sembilan.">
+    <title>Laman Utama | Klinik Dr. Al Baghdadi</title>
+    <meta name="description" content="Laman rasmi Klinik Dr. Al Baghdadi (Klinik Usraa / Wellness & Skin Centre) di Putra Nilai. Perubatan am (GP), keluarga & estetika.">
     <style>
         :root {
             --primary: #0c9faa;
@@ -16,32 +16,24 @@
             --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: var(--text-dark);
-            background-color: var(--bg-light);
+            background:
+                radial-gradient(circle at top left, #e0f7fa, #f7f9fb),
+                linear-gradient(to bottom right, #f7f9fb, #e0f2fe);
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
 
-        /* Header / Navbar */
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.97);
             box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
             z-index: 1000;
         }
@@ -55,32 +47,17 @@
             justify-content: space-between;
         }
 
-       .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-}
-
-/* Add this new class */
-.logo-img {
-    height: 36px;       
-    width: auto;
-    border-radius: 6px;  
-}
-
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        .logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 0.9rem;
+            gap: 0.6rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -95,6 +72,10 @@
             position: relative;
         }
 
+        .nav-links a.active {
+            color: var(--primary-dark);
+        }
+
         .nav-links a::after {
             content: "";
             position: absolute;
@@ -106,11 +87,11 @@
             transition: width 0.2s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
-        /* Mobile nav */
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -124,11 +105,18 @@
             background: var(--text-dark);
         }
 
-        /* Hero section */
-        .hero {
+        main {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 7rem 1.5rem 4rem;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .hero {
+            margin-top: 1.5rem;
+            padding: 2.5rem 2rem;
+            background: var(--white);
+            border-radius: 1.8rem;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
             display: grid;
             grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
             gap: 2.5rem;
@@ -156,7 +144,7 @@
         }
 
         .hero h1 {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             margin-bottom: 0.8rem;
         }
 
@@ -217,8 +205,8 @@
         .hero-right {
             background: var(--white);
             border-radius: 1.5rem;
-            padding: 1.5rem;
-            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.1);
+            padding: 1.3rem 1.2rem;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
         }
 
         .hero-card-header {
@@ -277,236 +265,26 @@
             padding: 0 1rem;
         }
 
-        /* Sections general */
-        section {
-            padding: 3rem 1.5rem;
-        }
-
-        .section-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            max-width: 620px;
-            margin-bottom: 2rem;
-        }
-
-        /* About */
-        #about .content {
-            display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-            gap: 2rem;
-        }
-
-        #about p {
-            margin-bottom: 0.8rem;
-        }
-
-        .about-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .about-stat-item span {
-            display: block;
-        }
-
-        .about-stat-number {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .about-highlight {
-            background: var(--white);
-            padding: 1.2rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
-            font-size: 0.9rem;
-        }
-
-        .about-highlight li {
-            margin-left: 1rem;
-            margin-top: 0.2rem;
-        }
-
-        /* Services */
-        .services-grid {
+        .quick-links {
+            margin-top: 2.2rem;
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
-        .service-card {
-            background: var(--white);
-            padding: 1.3rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+        .quick-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 1.1rem;
+            padding: 1rem 1.1rem;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
             font-size: 0.9rem;
         }
 
-        .service-card-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 999px;
-            background: rgba(12, 159, 170, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-dark);
-            margin-bottom: 0.6rem;
-            font-size: 1.2rem;
-        }
-
-        .service-card h3 {
-            font-size: 1rem;
+        .quick-card-title {
+            font-weight: 600;
             margin-bottom: 0.3rem;
         }
 
-        .service-list {
-            margin-top: 0.4rem;
-            padding-left: 1rem;
-        }
-
-        .service-list li {
-            margin-bottom: 0.15rem;
-        }
-
-        /* Doctors */
-        .doctors-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
-
-        .doctor-card {
-            background: var(--white);
-            border-radius: 1.2rem;
-            padding: 1.2rem;
-            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        .doctor-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #e0f2fe, #fce7f3);
-            margin: 0 auto 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .doctor-name {
-            font-weight: 700;
-            margin-bottom: 0.1rem;
-        }
-
-        .doctor-specialty {
-            color: var(--primary-dark);
-            font-size: 0.85rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .doctor-meta {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        /* Contact */
-        #contact .content {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
-            gap: 2rem;
-        }
-
-        .contact-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 1.2rem;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-            font-size: 0.9rem;
-        }
-
-        .contact-item {
-            margin-bottom: 0.8rem;
-        }
-
-        .contact-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-        }
-
-        .contact-value {
-            font-weight: 600;
-        }
-
-        form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        form .full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.25rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.5rem 0.7rem;
-            border-radius: 0.7rem;
-            border: 1px solid rgba(15, 23, 42, 0.12);
-            font: inherit;
-            resize: vertical;
-        }
-
-        textarea {
-            min-height: 90px;
-        }
-
-        .form-submit {
-            margin-top: 0.5rem;
-        }
-
-        .map-embed {
-            margin-top: 1.2rem;
-            border-radius: 1.2rem;
-            overflow: hidden;
-            height: 260px;
-            background: #e2e8f0;
-        }
-
-        .map-embed iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Footer */
         footer {
             padding: 1.5rem;
             text-align: center;
@@ -519,17 +297,16 @@
             font-weight: 600;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: minmax(0, 1fr);
+                padding: 1.7rem 1.5rem;
             }
-            #about .content,
-            #contact .content {
+            .hero-right {
+                order: -1;
+            }
+            .quick-links {
                 grid-template-columns: minmax(0, 1fr);
-            }
-            .services-grid, .doctors-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
@@ -553,16 +330,8 @@
                 display: flex;
             }
 
-            .hero {
-                padding-top: 5.5rem;
-            }
-
-            .services-grid, .doctors-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            form {
-                grid-template-columns: minmax(0, 1fr);
+            main {
+                padding: 1.5rem 1.1rem 2.5rem;
             }
         }
     </style>
@@ -570,20 +339,18 @@
 <body>
 <header>
     <div class="nav">
-       <a href="#home" class="logo">
-    <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
-    <div>
-        Klinik<br>Dr. Al Baghdadi
-    </div>
-</a>
-
-
+        <a href="index.html" class="logo">
+            <!-- Guna gambar logo anda, sesuaikan nama fail jika perlu -->
+            <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
+            <div>
+                Klinik<br>Dr. Al Baghdadi
+            </div>
+        </a>
         <nav class="nav-links" id="navLinks">
-            <a href="#home">Utama</a>
-            <a href="#about">Tentang</a>
-            <a href="#services">Perkhidmatan</a>
-            <a href="#doctors">Doktor</a>
-            <a href="#contact">Hubungi</a>
+            <a href="index.html" class="active">Utama</a>
+            <a href="about.html">Tentang</a>
+            <a href="services.html">Perkhidmatan</a>
+            <a href="contact.html">Hubungi</a>
         </nav>
         <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
@@ -591,8 +358,7 @@
     </div>
 </header>
 
-<main id="home">
-    <!-- Hero -->
+<main>
     <section class="hero">
         <div>
             <div class="hero-tag">
@@ -604,10 +370,8 @@
                 di Putra Nilai.
             </h1>
             <p class="hero-subtitle">
-                Klinik Dr. Al Baghdadi (juga dikenali sebagai <strong>Klinik Usraa</strong> /
-                <strong>Klinik Dr Al Baghdadi Wellness &amp; Skin Centre</strong>) ialah
-                klinik perubatan am (GP) dan estetika yang terletak di kawasan Putra Nilai,
-                Negeri Sembilan.
+                Klinik Dr. Al Baghdadi (Klinik Usraa / Klinik Dr Al Baghdadi Wellness &amp; Skin Centre)
+                ialah klinik perubatan am (GP) dan estetika di Putra Nilai, Negeri Sembilan.
             </p>
             <div class="hero-cta">
                 <a href="https://wa.me/601161889969" target="_blank">
@@ -650,11 +414,11 @@
                 <div class="hours-list">
                     <div><span>Isnin – Jumaat</span><span>9:00 pagi – 10:00 malam</span></div>
                     <div><span>Sabtu – Ahad</span><span>9:00 pagi – 6:00 petang</span></div>
-                    <div><span>Nota</span><span>Ahad kadangkala 3:00 – 9:00 malam*</span></div>
+                    <div><span>Nota</span><span>Ahad kadangkala 3:00 – 9:00 mlm*</span></div>
                 </div>
                 <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">
-                    * Waktu operasi tertakluk kepada pengumuman dan perubahan semasa.
-                    Disarankan untuk menghubungi klinik/WhatsApp sebelum datang.
+                    * Waktu operasi tertakluk kepada pengumuman semasa. Disarankan hubungi
+                    klinik / WhatsApp sebelum datang.
                 </p>
             </div>
 
@@ -671,278 +435,27 @@
             </div>
 
             <div class="hero-map-placeholder">
-                Peta Google Maps klinik boleh dimasukkan di sini menggunakan kod embed
-                (Google Maps &rarr; Share &rarr; Embed map).
+                Peta Google Maps interaktif dimasukkan di halaman Hubungi.
+                Klik “Hubungi” di menu untuk lihat peta & borang temu janji.
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-        <div class="section-inner">
-            <h2 class="section-title">Tentang Klinik Dr. Al Baghdadi</h2>
-            <p class="section-subtitle">
-                Sebuah klinik perubatan am (GP) dan estetika di Putra Nilai yang
-                memberi fokus kepada kesihatan keluarga serta penjagaan kulit dan
-                estetika yang selamat.
-            </p>
-            <div class="content">
-                <div>
-                    <p>
-                        Klinik Dr. Al Baghdadi (juga dikenali sebagai <strong>Klinik Usraa</strong> /
-                        <strong>Klinik Dr Al Baghdadi Wellness &amp; Skin Centre</strong>) menawarkan
-                        rawatan menyeluruh merangkumi perubatan am, kesihatan keluarga dan
-                        perkhidmatan estetika asas.
-                    </p>
-                    <p>
-                        Kami komited untuk menyediakan rawatan yang profesional, beretika dan
-                        berpatutan, dengan penekanan kepada komunikasi yang jelas dan
-                        suasana klinik yang selesa untuk seisi keluarga.
-                    </p>
-
-                    <div class="about-stats">
-                        <div class="about-stat-item">
-                            <span class="about-stat-number">GP &amp; Estetika</span>
-                            <span>Fokus utama klinik</span>
-                        </div>
-                        <div class="about-stat-item">
-                            <span class="about-stat-number">Putra Nilai</span>
-                            <span>Lokasi strategik di Youth City</span>
-                        </div>
-                        <div class="about-stat-item">
-                            <span class="about-stat-number">Mesra</span>
-                            <span>Persekitaran klinik & staf</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-highlight">
-                    <strong>Maklumat Lokasi &amp; Akses</strong>
-                    <ul>
-                        <li>Alamat: L1-5A, Menara A (Akasia) @ Youth City Residence,
-                            Jalan Bandar Belia 1/1, Bandar Wawasan Putra Nilai,
-                            71800 Nilai, Negeri Sembilan
-                        </li>
-                        <li>Terletak di kawasan Putra Nilai dengan akses mudah dari lebuh raya dan bandar berdekatan.</li>
-                        <li>Disarankan hubungi/WhatsApp klinik untuk sahkan waktu operasi terkini sebelum datang.</li>
-                    </ul>
-                </div>
-            </div>
+    <section class="quick-links">
+        <div class="quick-card">
+            <div class="quick-card-title">Perubatan Am &amp; Keluarga</div>
+            <p>Rawatan penyakit biasa, saringan kesihatan, ujian jaundis bayi, cucian telinga &amp; pembedahan kecil.</p>
+            <p><a href="services.html" style="color:var(--primary-dark);font-weight:600;">Lihat senarai perkhidmatan &rarr;</a></p>
         </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-        <div class="section-inner">
-            <h2 class="section-title">Perkhidmatan Utama</h2>
-            <p class="section-subtitle">
-                Klinik menyediakan perkhidmatan perubatan am (GP) &amp; keluarga,
-                di samping perkhidmatan kesihatan dan estetika tertentu.
-            </p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card-icon">💊</div>
-                    <h3>Perubatan Am &amp; Keluarga</h3>
-                    <p>Rawatan penyakit biasa dan masalah kesihatan harian.</p>
-                    <ul class="service-list">
-                        <li>Demam, batuk &amp; selesema</li>
-                        <li>Sakit kepala, migrain &amp; gastrik</li>
-                        <li>Penyakit kulit ringan</li>
-                        <li>Konsultasi kesihatan umum</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-icon">👨‍👩‍👧</div>
-                    <h3>Kesihatan Keluarga</h3>
-                    <p>Fokus kepada kesihatan seisi keluarga di semua peringkat umur.</p>
-                    <ul class="service-list">
-                        <li>Pemeriksaan kesihatan berkala</li>
-                        <li>Pengurusan penyakit kronik (contoh: diabetes, hipertensi)</li>
-                        <li>Konsultasi gaya hidup sihat</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-icon">🧪</div>
-                    <h3>Saringan &amp; Ujian</h3>
-                    <p>Pengesanan awal masalah kesihatan.</p>
-                    <ul class="service-list">
-                        <li>Saringan kesihatan asas</li>
-                        <li>Ujian darah asas &amp; ujian makmal tertentu</li>
-                        <li>Ujian jaundis bayi</li>
-                        <li>Ujian air kencing &amp; ujian kehamilan</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-icon">👂</div>
-                    <h3>Prosedur Klinik</h3>
-                    <p>Prosedur mudah yang dilakukan di klinik.</p>
-                    <ul class="service-list">
-                        <li>Cucian telinga</li>
-                        <li>Minor surgery (pembedahan kecil tertentu)</li>
-                        <li>Dressing luka asas</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-icon">💉</div>
-                    <h3>Vaksinasi</h3>
-                    <p>Vaksin asas tertentu bergantung kepada stok dan kelayakan.</p>
-                    <ul class="service-list">
-                        <li>Vaksin mengikut jadual &amp; keperluan tertentu</li>
-                        <li>Sila hubungi klinik untuk maklumat terkini vaksin</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-icon">✨</div>
-                    <h3>Estetika &amp; Wellness</h3>
-                    <p>Perkhidmatan berkaitan penjagaan kulit &amp; kesejahteraan (bergantung pakej semasa).</p>
-                    <ul class="service-list">
-                        <li>Konsultasi kulit &amp; estetika asas</li>
-                        <li>Pakej wellness tertentu (rujuk klinik)</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="quick-card">
+            <div class="quick-card-title">Tentang Klinik</div>
+            <p>Ketahui lebih lanjut tentang latar belakang, fokus rawatan dan lokasi Klinik Dr. Al Baghdadi di Putra Nilai.</p>
+            <p><a href="about.html" style="color:var(--primary-dark);font-weight:600;">Baca lanjut &rarr;</a></p>
         </div>
-    </section>
-
-    <!-- Doctors -->
-    <section id="doctors">
-        <div class="section-inner">
-            <h2 class="section-title">Doktor &amp; Pasukan</h2>
-            <p class="section-subtitle">
-                Pasukan perubatan dan staf sokongan yang komited untuk memberikan
-                pengalaman rawatan yang mesra dan profesional.
-            </p>
-            <div class="doctors-grid">
-                <div class="doctor-card">
-                    <div class="doctor-avatar">AB</div>
-                    <div class="doctor-name">Dr. Al Baghdadi</div>
-                    <div class="doctor-specialty">Pengamal Perubatan Am (GP)</div>
-                    <div class="doctor-meta">
-                        Berpengalaman dalam perubatan keluarga, rawatan penyakit umum dan
-                        pengurusan penyakit kronik, dengan minat dalam aspek wellness &amp; kulit.
-                    </div>
-                </div>
-
-                <div class="doctor-card">
-                    <div class="doctor-avatar">TM</div>
-                    <div class="doctor-name">Team Klinikal</div>
-                    <div class="doctor-specialty">Doktor &amp; Pembantu Perubatan</div>
-                    <div class="doctor-meta">
-                        Membantu dalam konsultasi, prosedur, ujian makmal asas dan pemantauan
-                        pesakit mengikut keperluan.
-                    </div>
-                </div>
-
-                <div class="doctor-card">
-                    <div class="doctor-avatar">NS</div>
-                    <div class="doctor-name">Jururawat &amp; Staf</div>
-                    <div class="doctor-specialty">Sokongan Kejururawatan</div>
-                    <div class="doctor-meta">
-                        Menyokong operasi klinik harian, memastikan aliran pesakit yang teratur
-                        dan suasana mesra di klinik.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <div class="section-inner">
-            <h2 class="section-title">Hubungi &amp; Temu Janji</h2>
-            <p class="section-subtitle">
-                Untuk pertanyaan, semakan waktu operasi terkini atau tempahan temu janji,
-                sila hubungi kami melalui telefon, WhatsApp atau borang di bawah.
-            </p>
-            <div class="content">
-                <div class="contact-card">
-                    <div class="contact-item">
-                        <div class="contact-label">Telefon / WhatsApp</div>
-                        <div class="contact-value">
-                            <div><a href="tel:+601161889969">+60 11‑6188 9969</a></div>
-                            <div><a href="tel:+601162286295">+60 11‑6228 6295</a></div>
-                            <div><a href="tel:+60103434711">+60 10‑343 4711</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">WhatsApp pautan pantas</div>
-                        <div class="contact-value">
-                            <div><a href="https://wa.me/601161889969" target="_blank">WhatsApp 1: +60 11‑6188 9969</a></div>
-                            <div><a href="https://wa.me/601162286295" target="_blank">WhatsApp 2: +60 11‑6228 6295</a></div>
-                            <div><a href="https://wa.me/60103434711" target="_blank">WhatsApp 3: +60 10‑343 4711</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Alamat Klinik</div>
-                        <div class="contact-value">
-                            L1-5A, Menara A (Akasia) @ Youth City Residence,<br>
-                            Jalan Bandar Belia 1/1,<br>
-                            Bandar Wawasan Putra Nilai,<br>
-                            71800 Nilai, Negeri Sembilan
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Waktu Operasi</div>
-                        <div class="contact-value">
-                            Isnin – Jumaat: 9:00 pagi – 10:00 malam<br>
-                            Sabtu – Ahad: 9:00 pagi – 6:00 petang<br>
-                            <span style="font-size:0.8rem;color:var(--text-muted);">
-                                (Ahad sesetengah masa bermula 3:00 petang – 9:00 malam;
-                                disarankan hubungi dahulu.)
-                            </span>
-                        </div>
-                    </div>
-                    <div class="map-embed">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=YOUR_LONG_CODE_HERE"
-        loading="lazy"
-        style="border:0;"
-        allowfullscreen=""
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
-
-                </div>
-
-                <div>
-                    <h3 style="margin-bottom:0.8rem;">Borang Permintaan Temu Janji</h3>
-                    <form>
-                        <div>
-                            <label for="name">Nama penuh</label>
-                            <input type="text" id="name" name="name" placeholder="Nama anda">
-                        </div>
-                        <div>
-                            <label for="phone">No. telefon / WhatsApp</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Contoh: 011-6188 9969">
-                        </div>
-                        <div>
-                            <label for="date">Tarikh pilihan</label>
-                            <input type="date" id="date" name="date">
-                        </div>
-                        <div>
-                            <label for="time">Masa pilihan</label>
-                            <input type="time" id="time" name="time">
-                        </div>
-                        <div class="full">
-                            <label for="reason">Sebab lawatan</label>
-                            <textarea id="reason" name="reason" placeholder="Contoh: demam, saringan kesihatan, ujian jaundis bayi, cucian telinga, dll."></textarea>
-                        </div>
-                        <div class="form-submit full">
-                            <button type="button" class="btn-primary">
-                                Hantar permintaan temu janji
-                            </button>
-                            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.4rem;">
-                                * Buat masa ini borang ini tidak terus menghantar ke WhatsApp/email.
-                                Sila hubungi nombor WhatsApp yang tertera untuk pengesahan segera.
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="quick-card">
+            <div class="quick-card-title">Buat Temu Janji</div>
+            <p>Hubungi melalui WhatsApp / telefon atau hantar permintaan temu janji melalui borang yang disediakan.</p>
+            <p><a href="contact.html" style="color:var(--primary-dark);font-weight:600;">Ke halaman Hubungi &rarr;</a></p>
         </div>
     </section>
 </main>
@@ -953,19 +466,11 @@
 </footer>
 
 <script>
-    // Mobile nav toggle
     const navToggle = document.getElementById("navToggle");
     const navLinks = document.getElementById("navLinks");
 
-    navToggle.addEventListener("click", () => {
+    navToggle?.addEventListener("click", () => {
         navLinks.classList.toggle("open");
-    });
-
-    // Close nav when clicking link (mobile)
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("open");
-        });
     });
 </script>
 </body>
