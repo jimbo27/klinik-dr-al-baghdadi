@@ -250,12 +250,13 @@
                     <textarea id="reason" name="reason" placeholder="Contoh: demam, saringan kesihatan, sakit lutut, cucian telinga, dll."></textarea>
                 </div>
                 <div class="full">
-                    <button type="button" class="btn-primary">Hantar permintaan temu janji</button>
-                    <p class="form-note">
-                        * Buat masa ini borang ini tidak terus menghantar ke WhatsApp/email.
-                        Untuk pengesahan segera, sila WhatsApp atau hubungi
-                        <span class="hl">+60 10‑343 4711</span>.
-                    </p>
+                   <button type="button" class="btn-primary" onclick="sendToWhatsApp()">
+    Hantar ke WhatsApp Klinik
+</button>
+<p class="form-note">
+    * Selepas klik, WhatsApp akan dibuka bersama mesej yang diisi. Anda hanya perlu tekan “Send”.
+</p>
+
                 </div>
             </form>
         </div>
@@ -271,6 +272,37 @@
     const navToggle = document.getElementById("navToggle");
     const navLinks = document.getElementById("navLinks");
     navToggle?.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+
+    // Fungsi untuk hantar isi borang ke WhatsApp
+    function sendToWhatsApp() {
+        // Nombor WhatsApp klinik (tanpa + dan dash)
+        const phone = "60103434711";
+
+        // Ambil nilai dari borang
+        const name   = document.getElementById("name").value.trim();
+        const tel    = document.getElementById("phone").value.trim();
+        const date   = document.getElementById("date").value;
+        const time   = document.getElementById("time").value;
+        const reason = document.getElementById("reason").value.trim();
+
+        // Sediakan mesej (boleh ubah wording ikut kesukaan)
+        let message = "Permintaan Temu Janji Klinik Dr. Al Baghdadi%0A%0A";
+        message += "*Nama:* " + (name || "-") + "%0A";
+        message += "*No. Telefon / WhatsApp:* " + (tel || "-") + "%0A";
+        message += "*Tarikh Pilihan:* " + (date || "-") + "%0A";
+        message += "*Masa Pilihan:* " + (time || "-") + "%0A";
+        message += "*Sebab Lawatan:* " + (reason || "-") + "%0A";
+
+        // Buka WhatsApp (di mobile app atau WhatsApp Web)
+        const url = "https://wa.me/" + phone + "?text=" + message;
+        window.open(url, "_blank");
+    }
+</script>
+</body>
+</html>
+
         navLinks.classList.toggle("open");
     });
 </script>
