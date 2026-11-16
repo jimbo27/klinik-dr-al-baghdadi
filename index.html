@@ -55,17 +55,45 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-weight: 700;
+    color: #08747c;
+    font-size: 1.1rem;
+    transition: transform 0.18s ease;
+}
 
-        .logo-img {
-            height: 100px;
-            width: auto;
-        }
+/* Bigger logo image */
+.logo-img {
+    height: 54px;
+    width: auto;
+}
+
+/* Text beside logo */
+.logo-text {
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    transition: transform 0.18s ease, color 0.18s ease;
+}
+
+/* Emphasis on “Dr. Al Baghdadi” */
+.logo-text span {
+    font-size: 1.05em;
+    color: #065f73;
+    transition: color 0.18s ease;
+}
+
+/* HOVER EFFECT – text slightly bigger and darker */
+.logo:hover .logo-text {
+    transform: scale(1.08);
+    color: #065f73;
+}
+
+.logo:hover .logo-text span {
+    color: #044e5f;
+}
+
 
         .nav-links {
             display: flex;
