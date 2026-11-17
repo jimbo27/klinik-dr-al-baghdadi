@@ -475,6 +475,25 @@
             font-weight:600;
         }
 
+        /* VIDEO WRAPPER UNTUK MP4 */
+        .pakej-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 ratio */
+            border-radius: 0.9rem;
+            overflow: hidden;
+            margin-bottom: 0.8rem;
+            background:#000;
+        }
+        .pakej-video-wrapper video {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
         footer {
             padding: 1.5rem;
             text-align: center;
@@ -633,7 +652,6 @@
     <section class="logo-panel">
         <div class="logo-panel-title">Panel &amp; Rakan Kerjasama</div>
         <div class="logo-panel-track">
-            <!-- Set pertama -->
             <div class="logo-panel-item">
                 <img src="pm care logo.png" alt="PMCare" class="logo-panel-img">
                 <div class="logo-panel-caption">PMCare</div>
@@ -731,7 +749,7 @@
                     Fokus kepada mereka yang kerap sakit lutut, belakang dan sendi.
                 </p>
                 <p class="pakej-mini">
-                    Klik untuk lihat apa yang termasuk dalam penilaian.
+                    Klik untuk lihat apa yang termasuk, bersama video penerangan.
                 </p>
             </div>
         </div>
@@ -809,6 +827,10 @@
             title: "Pakej Sakit Lutut &amp; Sendi",
             sub: "Fokus pada masalah sakit lutut, belakang dan sendi harian.",
             body: `
+                <div class="pakej-video-wrapper">
+                    <!-- GANTI src DENGAN NAMA FAIL VIDEO ANDA -->
+                    <video src="pakej-lutut.mp4" controls></video>
+                </div>
                 <p>Pakej ini membantu:</p>
                 <ul>
                     <li>Pesakit yang kerap sakit lutut bila naik/turun tangga.</li>
@@ -821,7 +843,7 @@
                     <li>Cadangan ubat tahan sakit / anti‑radang yang sesuai.</li>
                     <li>Nasihat senaman, posisi kerja &amp; penjagaan sendi di rumah.</li>
                 </ul>
-                <p><strong>Promosi semasa:</strong> Sebarang diskaun atau pakej tambahan (contoh: rawatan susulan) akan dimaklumkan apabila anda hubungi kami.</p>
+                <p><strong>Promosi semasa:</strong> Sebarang diskaun atau pakej tambahan (contoh: rawatan susulan) akan dimaklumkan apabila anda hubungi kami melalui WhatsApp.</p>
             `
         }
     };
@@ -851,7 +873,7 @@
         }
     });
 
-    // Aktifkan kad pakej
+    // Aktifkan kad pakej + animasi
     const pakejCards = document.querySelectorAll(".pakej-card");
     pakejCards.forEach((card, index) => {
         card.addEventListener("click", () => {
