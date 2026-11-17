@@ -64,24 +64,20 @@
             font-size: 1.1rem;
             transition: transform 0.18s ease;
         }
-        /* Bigger logo image */
         .logo-img {
             height: 100px;
             width: auto;
         }
-        /* Text beside logo */
         .logo-text {
             line-height: 1.1;
             letter-spacing: 0.02em;
             transition: transform 0.18s ease, color 0.18s ease;
         }
-        /* Emphasis on “Dr. Al Baghdadi” */
         .logo-text span {
             font-size: 1.05em;
             color: #065f73;
             transition: color 0.18s ease;
         }
-        /* HOVER EFFECT – text slightly bigger and darker */
         .logo:hover .logo-text {
             transform: scale(1.08);
             color: #065f73;
@@ -344,6 +340,141 @@
             100% { transform: translateX(-50%); }
         }
 
+        /* SEKSYEN PAKEJ / PROMOSI */
+        .pakej-section {
+            margin-top: 2.8rem;
+        }
+
+        .pakej-header {
+            margin-bottom: 1.2rem;
+        }
+
+        .pakej-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pakej-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 700px;
+        }
+
+        .pakej-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.3rem;
+        }
+
+        .pakej-card {
+            background:#ffffff;
+            border-radius:1rem;
+            padding:1.2rem 1.3rem;
+            box-shadow:0 8px 24px rgba(15,23,42,.08);
+            font-size:0.9rem;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, opacity 0.4s ease;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .pakej-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pakej-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
+            background:#f8fafc;
+        }
+
+        .pakej-tag {
+            font-size:0.8rem;
+            text-transform:uppercase;
+            letter-spacing:0.08em;
+            color:#6b7280;
+            margin-bottom:0.25rem;
+        }
+        .pakej-title {
+            font-size:1.05rem;
+            font-weight:600;
+            color:#0f172a;
+            margin-bottom:0.3rem;
+        }
+        .pakej-desc {
+            color:#4b5563;
+            margin-bottom:0.4rem;
+        }
+        .pakej-mini {
+            font-size:0.82rem;
+            color:#6b7280;
+        }
+
+        /* MODAL PAKEJ */
+        .modal-backdrop-pakej {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        .modal-pakej {
+            background:#ffffff;
+            max-width: 520px;
+            width: 92%;
+            border-radius: 1rem;
+            box-shadow: 0 25px 60px rgba(15,23,42,.45);
+            padding: 1.4rem 1.5rem 1.3rem;
+            position: relative;
+        }
+        .modal-pakej-title {
+            font-size:1.1rem;
+            font-weight:600;
+            margin-bottom:0.4rem;
+            color:#0f172a;
+        }
+        .modal-pakej-sub {
+            font-size:0.85rem;
+            color:#6b7280;
+            margin-bottom:0.8rem;
+        }
+        .modal-pakej-body {
+            font-size:0.9rem;
+            color:#1f2933;
+        }
+        .modal-pakej-body ul {
+            margin-left:1.1rem;
+            margin-top:0.4rem;
+        }
+        .modal-pakej-body li {
+            margin-bottom:0.2rem;
+        }
+        .modal-pakej-close {
+            position:absolute;
+            top:0.7rem;
+            right:0.9rem;
+            border:none;
+            background:transparent;
+            font-size:1.1rem;
+            cursor:pointer;
+            color:#6b7280;
+        }
+        .modal-pakej-close:hover {
+            color:#0f172a;
+        }
+        .modal-pakej-actions {
+            margin-top:0.9rem;
+            font-size:0.82rem;
+            color:#6b7280;
+        }
+        .modal-pakej-actions a {
+            color:#08747c;
+            font-weight:600;
+        }
+
         footer {
             padding: 1.5rem;
             text-align: center;
@@ -372,6 +503,9 @@
             }
             .quick-links {
                 grid-template-columns: minmax(0, 1fr);
+            }
+            .pakej-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
@@ -403,6 +537,10 @@
                 animation-duration: 22s;
                 gap: 1.8rem;
             }
+
+            .pakej-grid {
+                grid-template-columns:minmax(0, 1fr);
+            }
         }
     </style>
 </head>
@@ -412,7 +550,7 @@
         <a href="index.html" class="logo">
             <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
             <div class="logo-text">
-                KLINIK DR AL‑BAGHDADI</span>
+                <span>KLINIK DR AL‑BAGHDADI</span>
             </div>
         </a>
         <nav class="nav-links" id="navLinks">
@@ -548,7 +686,71 @@
             </div>
         </div>
     </section>
+
+    <!-- SEKSYEN PAKEJ / PROMOSI -->
+    <section class="pakej-section" id="pakej">
+        <div class="pakej-header">
+            <h2>Pakej &amp; Promosi Klinik</h2>
+            <p>
+                Pilih pakej yang sesuai dengan keperluan anda. Klik pada mana‑mana pakej
+                untuk melihat maklumat ringkas &amp; promosi semasa. Untuk harga tepat,
+                sila WhatsApp klinik.
+            </p>
+        </div>
+
+        <div class="pakej-grid">
+            <!-- Pakej 1 -->
+            <div class="pakej-card" data-pakej="asas">
+                <div class="pakej-tag">Pakej 1</div>
+                <div class="pakej-title">Pakej Saringan Asas</div>
+                <p class="pakej-desc">
+                    Pemeriksaan asas untuk pantau kesihatan umum secara berkala.
+                </p>
+                <p class="pakej-mini">
+                    Klik untuk lihat apa yang termasuk &amp; cara tempah.
+                </p>
+            </div>
+
+            <!-- Pakej 2 -->
+            <div class="pakej-card" data-pakej="lengkap">
+                <div class="pakej-tag">Pakej 2</div>
+                <div class="pakej-title">Pakej Saringan Lengkap</div>
+                <p class="pakej-desc">
+                    Saringan menyeluruh dengan ujian darah makmal terpilih.
+                </p>
+                <p class="pakej-mini">
+                    Klik untuk butiran ujian dan cadangan kegunaan.
+                </p>
+            </div>
+
+            <!-- Pakej 3 -->
+            <div class="pakej-card" data-pakej="lutut">
+                <div class="pakej-tag">Pakej 3</div>
+                <div class="pakej-title">Pakej Sakit Lutut &amp; Sendi</div>
+                <p class="pakej-desc">
+                    Fokus kepada mereka yang kerap sakit lutut, belakang dan sendi.
+                </p>
+                <p class="pakej-mini">
+                    Klik untuk lihat apa yang termasuk dalam penilaian.
+                </p>
+            </div>
+        </div>
+    </section>
 </main>
+
+<!-- MODAL Pakej -->
+<div class="modal-backdrop-pakej" id="pakejModalBackdrop">
+    <div class="modal-pakej" id="pakejModalBox">
+        <button class="modal-pakej-close" onclick="closePakejModal()">×</button>
+        <div class="modal-pakej-title" id="pakejModalTitle"></div>
+        <div class="modal-pakej-sub" id="pakejModalSub"></div>
+        <div class="modal-pakej-body" id="pakejModalBody"></div>
+        <div class="modal-pakej-actions">
+            Untuk sebut harga &amp; tempahan slot, WhatsApp
+            <a href="https://wa.me/60103434711" target="_blank">+60 10‑343 4711</a>.
+        </div>
+    </div>
+</div>
 
 <footer>
     &copy; <span>Klinik Dr. Al Baghdadi</span> ·
@@ -562,6 +764,114 @@
     navToggle?.addEventListener("click", () => {
         navLinks.classList.toggle("open");
     });
+
+    // Data Pakej / Promosi
+    const pakejDetails = {
+        asas: {
+            title: "Pakej Saringan Asas",
+            sub: "Pemeriksaan asas untuk pemantauan kesihatan berkala.",
+            body: `
+                <p>Pakej ini sesuai untuk:</p>
+                <ul>
+                    <li>Semakan kesihatan tahunan yang ringkas.</li>
+                    <li>Mereka yang baru mula jaga pemakanan / senaman.</li>
+                    <li>Mereka yang jarang ke klinik &amp; ingin “check up” asas.</li>
+                </ul>
+                <p>Termasuk dalam pakej:</p>
+                <ul>
+                    <li>Pemeriksaan doktor &amp; sejarah ringkas kesihatan.</li>
+                    <li>Tekanan darah, nadi, BMI &amp; pemeriksaan fizikal asas.</li>
+                    <li>Ujian gula &amp; kolesterol asas (ujian pantas – tertakluk ketersediaan).</li>
+                </ul>
+                <p><strong>Promosi semasa:</strong> Sila WhatsApp klinik untuk maklumat harga pakej terkini.</p>
+            `
+        },
+        lengkap: {
+            title: "Pakej Saringan Lengkap",
+            sub: "Saringan lebih menyeluruh dengan panel ujian darah makmal.",
+            body: `
+                <p>Disyorkan untuk:</p>
+                <ul>
+                    <li>Mereka berumur 30 tahun ke atas.</li>
+                    <li>Pesakit dengan risiko seperti berat badan berlebihan, sejarah keluarga kencing manis / darah tinggi.</li>
+                    <li>Mereka yang ingin “full check‑up” tahunan.</li>
+                </ul>
+                <p>Contoh yang boleh termasuk dalam pakej:</p>
+                <ul>
+                    <li>Pemeriksaan doktor terperinci &amp; semakan gaya hidup.</li>
+                    <li>Ujian darah makmal seperti FBC, fungsi buah pinggang &amp; hati, profil lipid penuh.</li>
+                    <li>Ujian tambahan seperti HbA1c (kawalan kencing manis) bergantung keperluan.</li>
+                </ul>
+                <p><strong>Promosi semasa:</strong> Kombinasi ujian &amp; harga boleh disesuaikan mengikut bajet – hubungi kami untuk cadangan.</p>
+            `
+        },
+        lutut: {
+            title: "Pakej Sakit Lutut &amp; Sendi",
+            sub: "Fokus pada masalah sakit lutut, belakang dan sendi harian.",
+            body: `
+                <p>Pakej ini membantu:</p>
+                <ul>
+                    <li>Pesakit yang kerap sakit lutut bila naik/turun tangga.</li>
+                    <li>Mereka yang alami sakit belakang selepas kerja / mengangkat barang.</li>
+                    <li>Pekerja / individu aktif yang guna sendi secara berlebihan.</li>
+                </ul>
+                <p>Termasuk dalam pakej:</p>
+                <ul>
+                    <li>Pemeriksaan &amp; penilaian sendi oleh doktor.</li>
+                    <li>Cadangan ubat tahan sakit / anti‑radang yang sesuai.</li>
+                    <li>Nasihat senaman, posisi kerja &amp; penjagaan sendi di rumah.</li>
+                </ul>
+                <p><strong>Promosi semasa:</strong> Sebarang diskaun atau pakej tambahan (contoh: rawatan susulan) akan dimaklumkan apabila anda hubungi kami.</p>
+            `
+        }
+    };
+
+    const pakejModalBackdrop = document.getElementById("pakejModalBackdrop");
+    const pakejModalTitle    = document.getElementById("pakejModalTitle");
+    const pakejModalSub      = document.getElementById("pakejModalSub");
+    const pakejModalBody     = document.getElementById("pakejModalBody");
+
+    function openPakejModal(key) {
+        const data = pakejDetails[key];
+        if (!data) return;
+        pakejModalTitle.innerHTML = data.title;
+        pakejModalSub.innerHTML   = data.sub;
+        pakejModalBody.innerHTML  = data.body;
+        pakejModalBackdrop.style.display = "flex";
+    }
+
+    function closePakejModal() {
+        pakejModalBackdrop.style.display = "none";
+    }
+
+    // Tutup modal bila klik di luar
+    pakejModalBackdrop.addEventListener("click", (e) => {
+        if (e.target === pakejModalBackdrop) {
+            closePakejModal();
+        }
+    });
+
+    // Aktifkan kad pakej
+    const pakejCards = document.querySelectorAll(".pakej-card");
+    pakejCards.forEach((card, index) => {
+        card.addEventListener("click", () => {
+            const key = card.getAttribute("data-pakej");
+            openPakejModal(key);
+        });
+        card.style.transitionDelay = (index * 0.08) + "s";
+    });
+
+    // Animasi scroll untuk card pakej
+    const observerPakej = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observerPakej.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    pakejCards.forEach(card => observerPakej.observe(card));
 </script>
 </body>
 </html>
