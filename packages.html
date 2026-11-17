@@ -1,57 +1,487 @@
-*{margin:0;padding:0;box-sizing:border-box}
-.btn{display:inline-block;background:#08747c;color:#fff;padding:.7rem 1.6rem;border-radius:30px;font-weight:600;transition:background .2s}
-.btn:hover{background:#065f73}
-.pakej-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
-.pakej{position:relative;background:#fff;border:2px solid #d5eef1;border-radius:16px;padding:2rem 1.5rem;text-align:center;transition:transform .2s,box-shadow .2s}
-.pakej:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(8,116,124,.15)}
-.pakej.popular{border-color:#08747c}
-.badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#ff7a00;color:#fff;font-size:.75rem;font-weight:600;padding:5px 16px;border-radius:20px}
-.pakej h3{color:#08747c;margin-bottom:.5rem}
-.harga{font-size:1.8rem;font-weight:700;color:#065f73;margin:.6rem 0}
-.harga small{font-size:.85rem;font-weight:400;color:#7b8794}
-.pakej ul{list-style:none;text-align:left;margin:1rem 0 1.5rem}
-.pakej li{padding:.45rem 0;border-bottom:1px dashed #dde3e8;font-size:.92rem}
-.pakej li::before{content:"✔ ";color:#25a56a;font-weight:700}
-.nota{text-align:center;font-size:.8rem;color:#7b8794;margin-top:2rem}
-@media(max-width:700px){
-  .nav-toggle{display:flex}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem 1.5rem;box-shadow:0 8px 10px rgba(15,23,42,.08)}
-  .nav-links.open{display:flex}
-}
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>Pakej &amp; <span class="hl">Promosi</span></h1>
-<p class="subtitle">Jaga kesihatan keluarga dengan pakej yang jimat dan teratur.</p>
+    <!-- Attractive Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<div class="pakej-grid">
-  <div class="pakej">
-    <h3>Saringan Asas Keluarga</h3>
-    <div class="harga">RM[XX] <small>/ orang</small></div>
-    <ul><li>Tekanan darah</li><li>Paras gula darah</li><li>Kolesterol asas</li><li>Konsultasi doktor</li></ul>
-    <a class="btn" href="https://wa.me/60123456789?text=Saya%20berminat%20dengan%20Pakej%20Saringan%20Asas">Tempah Sekarang</a>
-  </div>
+    <title>Perkhidmatan | Klinik Dr. Al Baghdadi</title>
+    <meta name="description" content="Perkhidmatan Klinik Dr. Al Baghdadi di Putra Nilai: perubatan am, kesihatan keluarga, sakit lutut & sendi, ujian saringan & diagnostik, cucian telinga dan lain-lain.">
+    <style>
+        body {
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #1f2933;
+            background:
+                radial-gradient(circle at top, #e0f7fa 0%, #f7f9fb 45%),
+                linear-gradient(to bottom, #f7f9fb 45%, #e0f2fe 100%);
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+        header { position: sticky; top:0; background:#fff; box-shadow:0 2px 10px rgba(15,23,42,.08); z-index:1000; }
+        .nav { max-width:1100px; margin:0 auto; padding:0.8rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
 
-  <div class="pakej popular">
-    <span class="badge">PALING POPULAR</span>
-    <h3>Saringan Kesihatan Penuh</h3>
-    <div class="harga">RM[XX] <small>/ orang</small></div>
-    <ul><li>Kiraan darah penuh (FBC)</li><li>Profil kolesterol penuh</li><li>Fungsi hati &amp; buah pinggang</li><li>Gula darah / HbA1c</li></ul>
-    <a class="btn" href="https://wa.me/60123456789?text=Saya%20berminat%20dengan%20Pakej%20Saringan%20Penuh">Tempah Sekarang</a>
-  </div>
+        /* LOGO + HOVER EFFECT */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-weight: 700;
+            color: #08747c;
+            font-size: 1.1rem;
+            transition: transform 0.18s ease;
+        }
+        .logo-img {
+            height: 100px;
+            width: auto;
+        }
+        .logo-text {
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            transition: transform 0.18s ease, color 0.18s ease;
+        }
+        .logo-text span {
+            font-size: 1.05em;
+            color: #065f73;
+            transition: color 0.18s ease;
+        }
+        .logo:hover .logo-text {
+            transform: scale(1.08);
+            color: #065f73;
+        }
+        .logo:hover .logo-text span {
+            color: #044e5f;
+        }
 
-  <div class="pakej">
-    <h3>Konsultasi Rawatan PRP</h3>
-    <div class="harga">RM[XX] <small>/ sesi</small></div>
-    <ul><li>Penilaian sakit lutut &amp; sendi</li><li>Doktor menilai kesesuaian PRP</li><li>Nasihat pemulihan</li></ul>
-    <a class="btn" href="https://wa.me/60123456789?text=Saya%20berminat%20dengan%20Rawatan%20PRP">Tanya Doktor</a>
-  </div>
-</div>
-<p class="nota">*Harga dan kandungan pakej tertakluk kepada penilaian doktor dan ketersediaan klinik.</p>
+        a { text-decoration:none; color:inherit; }
+        .nav-links { display:flex; gap:1.5rem; font-size:0.95rem; }
+        .nav-links a { color:#7b8794; font-weight:500; position:relative; }
+        .nav-links a.active { color:#08747c; }
+        .nav-links a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#0c9faa; transition:width .2s; }
+        .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+        .nav-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
+        .nav-toggle span { width:22px; height:2px; background:#1f2933; }
+
+        main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
+        h1 { font-size:1.9rem; margin-bottom:0.4rem; }
+        .subtitle { color:#7b8794; max-width:700px; margin-bottom:1.5rem; font-size:0.95rem; }
+
+        .hl { color:#08747c; font-weight:600; }
+
+        .services-grid {
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:1.5rem;
+            margin-top:1.5rem;
+        }
+
+        .service-card {
+            background:#fff;
+            border-radius:1rem;
+            padding:1.3rem 1.4rem;
+            box-shadow:0 8px 24px rgba(15,23,42,.06);
+            font-size:0.9rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            /* animasi masuk (scroll) */
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                background 0.18s ease,
+                opacity 0.45s ease;
+        }
+
+        .service-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
+            background:#f1f5f9;
+        }
+
+        .service-icon {
+            font-size:1.8rem;
+            margin-bottom:0.25rem;
+            display:inline-block;
+            animation: floatIcon 3.5s ease-in-out infinite;
+        }
+
+        .service-card:hover .service-icon {
+            animation: bounceIcon 0.6s ease-out;
+            transform: scale(1.15);
+        }
+
+        .service-title {
+            font-weight:600;
+            margin-bottom:0.2rem;
+            color:#0f172a;
+        }
+
+        ul { margin-left:1.1rem; margin-top:0.4rem; }
+        li { margin-bottom:0.2rem; }
+
+        footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
+        footer span { color:#08747c; font-weight:600; }
+
+        /* ANIMASI ICON */
+        @keyframes floatIcon {
+            0%   { transform: translateY(0); }
+            50%  { transform: translateY(-4px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes bounceIcon {
+            0%   { transform: translateY(0) scale(1); }
+            30%  { transform: translateY(-6px) scale(1.15); }
+            60%  { transform: translateY(2px) scale(1.05); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        /* MODAL (POP-UP) */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        .modal {
+            background:#ffffff;
+            max-width: 520px;
+            width: 92%;
+            border-radius: 1rem;
+            box-shadow: 0 25px 60px rgba(15,23,42,.45);
+            padding: 1.4rem 1.5rem 1.3rem;
+            position: relative;
+        }
+        .modal-title {
+            font-size:1.1rem;
+            font-weight:600;
+            margin-bottom:0.4rem;
+            color:#0f172a;
+        }
+        .modal-sub {
+            font-size:0.85rem;
+            color:#6b7280;
+            margin-bottom:0.8rem;
+        }
+        .modal-body {
+            font-size:0.9rem;
+            color:#1f2933;
+        }
+        .modal-body ul {
+            margin-left:1.1rem;
+            margin-top:0.4rem;
+        }
+        .modal-body li {
+            margin-bottom:0.2rem;
+        }
+        .modal-close {
+            position:absolute;
+            top:0.7rem;
+            right:0.9rem;
+            border:none;
+            background:transparent;
+            font-size:1.1rem;
+            cursor:pointer;
+            color:#6b7280;
+        }
+        .modal-close:hover {
+            color:#0f172a;
+        }
+        .modal-actions {
+            margin-top:0.9rem;
+            font-size:0.82rem;
+            color:#6b7280;
+        }
+        .modal-actions a {
+            color:#08747c;
+            font-weight:600;
+        }
+
+        @media (max-width:900px) {
+            .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        }
+        @media (max-width:700px) {
+            .nav-links { position:absolute; top:54px; right:0; background:#fff; flex-direction:column; padding:0.8rem 1.5rem 1rem; box-shadow:0 10px 20px rgba(15,23,42,.15); display:none; }
+            .nav-links.open { display:flex; }
+            .nav-toggle { display:flex; }
+            main { padding:1.5rem 1.1rem 2.5rem; }
+            .services-grid { grid-template-columns:minmax(0,1fr); }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <a href="index.html" class="logo">
+            <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
+            <div class="logo-text">
+                <span>KLINIK DR AL‑BAGHDADI</span>
+            </div>
+        </a>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Utama</a>
+            <a href="about.html">Tentang</a>
+            <a href="services.html">Perkhidmatan</a>
+            <a href="package.html">Pakej/Promosi</a>
+            <a href="team.html">Team Kami</a>
+            <a href="contact.html">Hubungi</a>
+        </nav>
+        <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h1>Perkhidmatan Klinik</h1>
+    <p class="subtitle">
+        Klinik Dr. Al Baghdadi menawarkan pelbagai perkhidmatan <span class="hl">perubatan am &amp; keluarga</span>,
+        termasuk <span class="hl">sakit lutut &amp; sendi</span>, <span class="hl">ujian saringan &amp; diagnostik</span>,
+        <span class="hl">cucian telinga</span> dan beberapa prosedur klinik lain.  
+        <br>Klik pada mana‑mana kotak di bawah untuk lihat maklumat lanjut.
+    </p>
+
+    <div class="services-grid">
+        <div class="service-card" data-service="am">
+            <div class="service-icon">🩺</div>
+            <div class="service-title">Perubatan Am (GP)</div>
+            <p>Rawatan bagi masalah kesihatan harian untuk dewasa &amp; kanak-kanak.</p>
+        </div>
+
+        <div class="service-card" data-service="keluarga">
+            <div class="service-icon">👨‍👩‍👧‍👦</div>
+            <div class="service-title">Kesihatan Keluarga</div>
+            <p>Penjagaan menyeluruh untuk seisi keluarga.</p>
+        </div>
+
+        <div class="service-card" data-service="saringan">
+            <div class="service-icon">🧬</div>
+            <div class="service-title">Ujian Saringan &amp; Diagnostik</div>
+            <p>Pemeriksaan pantas, tepat dan menyeluruh di bawah satu bumbung.</p>
+        </div>
+
+        <div class="service-card" data-service="lutut">
+            <div class="service-icon">🦴</div>
+            <div class="service-title">Sakit Lutut &amp; Sendi</div>
+            <p>Penilaian awal bagi masalah sendi &amp; otot.</p>
+        </div>
+
+        <div class="service-card" data-service="prosedur">
+            <div class="service-icon">🩹</div>
+            <div class="service-title">Prosedur Klinik</div>
+            <p>Prosedur mudah yang dilakukan di klinik.</p>
+        </div>
+
+        <div class="service-card" data-service="lelaki">
+            <div class="service-icon">💪</div>
+            <div class="service-title">Kesihatan Lelaki</div>
+            <p>Ruang yang lebih selesa untuk isu khusus lelaki.</p>
+        </div>
+    </div>
 </main>
 
+<!-- MODAL POP-UP -->
+<div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modalBox">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-sub" id="modalSub"></div>
+        <div class="modal-body" id="modalBody"></div>
+       
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; <span>Klinik Dr. Al Baghdadi</span> ·
+    Semua hak cipta terpelihara.
+</footer>
+
 <script>
-document.getElementById('navToggle').addEventListener('click',function(){
-  document.getElementById('navLinks').classList.toggle('open');
-});
+    const navToggle = document.getElementById("navToggle");
+    const navLinks  = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+
+    // Data untuk modal bagi setiap servis
+    const serviceDetails = {
+        am: {
+            title: "Perubatan Am (GP)",
+            sub: "Kesihatan keluarga anda, keutamaan kami. Rawatan perubatan am (GP) untuk dewasa & kanak-kanak.",
+            body: `
+                <p>Kurang sihat? Dapatkan pemeriksaan menyeluruh dan rawatan yang tepat untuk masalah kesihatan harian anda. Kami sedia membantu merawat:</p>
+                <ul>
+                    <li>Demam, batuk, dan selesema</li>
+                    <li>Sakit kepala, migrain, pening, dan keletihan</li>
+                    <li>Gastrik, kembung perut, dan cirit-birit ringan</li>
+                    <li>Ruam kulit, alahan (alergi), dan kegatalan</li>
+                </ul>
+                <p>Doktor juga akan memberi panduan penjagaan di rumah, bila perlu datang semula dan bila perlu ke hospital jika simptom bertambah teruk.</p>
+            `
+        },
+        keluarga: {
+            title: "Kesihatan Keluarga",
+            sub: "Keluarga sihat, hidup lebih tenang. Penjagaan kesihatan untuk kanak-kanak, dewasa & warga emas.",
+            body: `
+                <p>Uruskan kesihatan insan tersayang dengan lebih mudah dan teratur. Kami menyediakan:</p>
+                <ul>
+                    <li><strong>Ujian saringan asas</strong> – periksa tekanan darah, gula & kolesterol asas.</li>
+                    <li><strong>Pengurusan penyakit kronik</strong> – contohnya darah tinggi & kencing manis.</li>
+                    <li><strong>Pemantauan ubat</strong> – pastikan ubat harian anda diambil dengan betul & selamat.</li>
+                    <li><strong>Nasihat gaya hidup</strong> – cadangan pemakanan & aktiviti harian yang praktikal.</li>
+                </ul>
+                <p>Matlamat kami ialah membantu keluarga anda mengekalkan kesihatan jangka panjang, bukan hanya bila sakit.</p>
+            `
+        },
+        saringan: {
+            title: "Ujian Saringan &amp; Diagnostik",
+            sub: "Pemeriksaan pantas, tepat dan menyeluruh di bawah satu bumbung.",
+            body: `
+                <p>Kami menyediakan pelbagai ujian kesihatan untuk pengesanan awal dan ketenangan fikiran anda:</p>
+
+                <p><strong>Ujian Pantas (Keputusan Segera):</strong></p>
+                <ul>
+                    <li>Pemeriksaan gula, kolesterol, dan asid urik (gout).</li>
+                    <li>Ujian demam Denggi, Influenza (Flu A/B), dan COVID‑19.</li>
+                    <li>Ujian air kencing (kencing kotor), ujian kehamilan (UPT), dan saringan dadah.</li>
+                    <li>Pemeriksaan kuning (jaundis) bayi.</li>
+                </ul>
+
+                <p><strong>Pakej Ujian Darah (Makmal):</strong></p>
+                <ul>
+                    <li><strong>Saringan Kesihatan Penuh:</strong> Kiraan darah (FBC), fungsi buah pinggang, fungsi hati, dan profil kolesterol penuh.</li>
+                    <li><strong>Ujian Khusus:</strong> Kawalan kencing manis (HbA1c), hormon tiroid, ujian alahan (alergi), dan beberapa penanda awal kanser.</li>
+                    <li><strong>Saringan Penyakit Berjangkit:</strong> Hepatitis B &amp; C, HIV, dan penyakit kelamin (STD).</li>
+                </ul>
+
+                <p><strong>Imbasan &amp; Pemeriksaan Fizikal:</strong></p>
+                <ul>
+                    <li><strong>Pemeriksaan Jantung (ECG):</strong> Mengesan masalah ritma jantung tertentu.</li>
+                </ul>
+
+                <p><strong>Kesihatan Wanita:</strong></p>
+                <ul>
+                    <li>Ujian Pap Smear (saringan kanser serviks).</li>
+                    <li>Pemeriksaan masalah keputihan dan simptom berkaitan.</li>
+                </ul>
+
+                <p><strong>Pemeriksaan Kesihatan Rasmi (Medical Check‑up):</strong></p>
+                <ul>
+                    <li>Saringan kemasukan kerja, sambung belajar (IPT) dan lesen memandu (GDL/PSV).</li>
+                    <li>Pemeriksaan FOMEMA (bergantung kelayakan &amp; pendaftaran).</li>
+                    <li>Ujian pra‑perkahwinan tertentu (mengikut keperluan).</li>
+                </ul>
+
+                <p>Tidak pasti ujian mana yang sesuai untuk anda? Doktor kami sedia membantu mencadangkan saringan terbaik mengikut bajet dan keperluan kesihatan anda.</p>
+            `
+        },
+        lutut: {
+            title: "Sakit Lutut &amp; Sendi",
+            sub: "Rawatan Sakit Sendi, Otot & Lutut Kembalikan kelancaran pergerakan anda dan aktif semula tanpa rasa sakit.",
+            body: `
+                <p>Sama ada sakit lutut, pinggang, atau bahu, kami sedia membantu anda melalui:</p>
+                <ul>
+                    <li>Pemeriksaan Punca Sakit: Menilai tahap kesakitan, bengkak, dan had pergerakan anda.</li>
+                    <li>MUbat-ubatan & Kelegaan: Memberikan ubat tahan sakit dan radang yang selamat serta berkesan.</li>
+                    <li>Rawatan Suntikan PRP (Platelet-Rich Plasma): Terapi pemulihan semula jadi menggunakan plasma darah sendiri untuk merawat kehausan sendi/lutut dan kecederaan otot.</li>
+                    <li>Panduan Pemulihan: Nasihat penjagaan harian dan senaman regangan ringkas.</li>
+                    <li>Rujukan Lanjutan: Mengatur imbasan X-ray atau rujukan hospital jika melibatkan kecederaan serius.</li>
+                </ul>
+                <p>Ingin tahu sama ada Suntikan PRP sesuai untuk sakit lutut anda? Kunjungi kami untuk konsultasi hari ini!</p>
+            `
+        },
+        prosedur: {
+            title: "Prosedur Klinik",
+            sub: "Prosedur & Rawatan Asas Klinik Rawatan pantas, bersih dan selamat untuk keselesaan anda.",
+            body: `
+                <p>Tidak perlu ke hospital untuk rawatan ringan. Kami menyediakan prosedur asas mengikut penilaian doktor:</p>
+                <ul>
+                    <li><strong>Cucian telinga</strong> Mengeluarkan tahi telinga yang keras atau tersumbat dengan selamat.</li>
+                    <li><strong>Pembedahan Kecil (Minor Surgery)</strong> Merawat bisul kecil atau mengeluarkan benda asing seperti selumbar pada kulit.</li>
+                    <li><strong>Penjagaan Luka (Dressing)</strong> Mencuci luka asas dan memantau proses penyembuhan agar bebas jangkitan.
+</li>
+                </ul>
+                <p>Jangan risau, doktor kami akan menerangkan setiap langkah, manfaat, dan risiko dengan jelas supaya anda berasa tenang dan selesa sebelum rawatan bermula.</p>
+            `
+        },
+        lelaki: {
+            title: "Kesihatan Lelaki",
+            sub: "Ruang lebih selesa untuk bincang isu khusus lelaki.",
+            body: `
+                <p>Sesetengah isu kesihatan lelaki agak sensitif untuk dibincangkan secara terbuka. Di klinik ini, anda boleh berbincang secara sulit tentang:</p>
+                <ul>
+                    <li>Rasa cepat penat, kurang tenaga atau sukar fokus.</li>
+                    <li>Tekanan darah, risiko jantung dan faktor gaya hidup.</li>
+                    <li>Simptom lain yang mengganggu kerja &amp; kehidupan keluarga.</li>
+                </ul>
+                <p>Doktor akan menilai keadaan anda berdasarkan sejarah kesihatan dan mencadangkan pemeriksaan asas, ubat atau rujukan lanjut jika diperlukan.</p>
+            `
+        }
+    };
+
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const modalTitle    = document.getElementById("modalTitle");
+    const modalSub      = document.getElementById("modalSub");
+    const modalBody     = document.getElementById("modalBody");
+
+    function openModal(key) {
+        const data = serviceDetails[key];
+        if (!data) return;
+        modalTitle.innerHTML = data.title;
+        modalSub.innerHTML   = data.sub;
+        modalBody.innerHTML  = data.body;
+        modalBackdrop.style.display = "flex";
+    }
+
+    function closeModal() {
+        modalBackdrop.style.display = "none";
+    }
+
+    // Tutup modal bila klik di luar kotak
+    modalBackdrop.addEventListener("click", (e) => {
+        if (e.target === modalBackdrop) {
+            closeModal();
+        }
+    });
+
+    // Pasang event pada setiap kad + animasi scroll
+    const cards = document.querySelectorAll(".service-card");
+
+    cards.forEach((card, index) => {
+        // klik → buka modal
+        card.addEventListener("click", () => {
+            const key = card.getAttribute("data-service");
+            openModal(key);
+        });
+        // sedikit delay untuk animasi masuk bertingkat
+        card.style.transitionDelay = (index * 0.08) + "s";
+    });
+
+    // Animasi masuk bila card nampak di skrin
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
 </script>
 </body>
 </html>
