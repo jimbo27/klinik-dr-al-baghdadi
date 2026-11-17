@@ -1,96 +1,57 @@
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+*{margin:0;padding:0;box-sizing:border-box}
+.btn{display:inline-block;background:#08747c;color:#fff;padding:.7rem 1.6rem;border-radius:30px;font-weight:600;transition:background .2s}
+.btn:hover{background:#065f73}
+.pakej-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+.pakej{position:relative;background:#fff;border:2px solid #d5eef1;border-radius:16px;padding:2rem 1.5rem;text-align:center;transition:transform .2s,box-shadow .2s}
+.pakej:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(8,116,124,.15)}
+.pakej.popular{border-color:#08747c}
+.badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#ff7a00;color:#fff;font-size:.75rem;font-weight:600;padding:5px 16px;border-radius:20px}
+.pakej h3{color:#08747c;margin-bottom:.5rem}
+.harga{font-size:1.8rem;font-weight:700;color:#065f73;margin:.6rem 0}
+.harga small{font-size:.85rem;font-weight:400;color:#7b8794}
+.pakej ul{list-style:none;text-align:left;margin:1rem 0 1.5rem}
+.pakej li{padding:.45rem 0;border-bottom:1px dashed #dde3e8;font-size:.92rem}
+.pakej li::before{content:"✔ ";color:#25a56a;font-weight:700}
+.nota{text-align:center;font-size:.8rem;color:#7b8794;margin-top:2rem}
+@media(max-width:700px){
+  .nav-toggle{display:flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem 1.5rem;box-shadow:0 8px 10px rgba(15,23,42,.08)}
+  .nav-links.open{display:flex}
+}
 
-    <!-- Attractive Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<h1>Pakej &amp; <span class="hl">Promosi</span></h1>
+<p class="subtitle">Jaga kesihatan keluarga dengan pakej yang jimat dan teratur.</p>
 
-    <title>Team Kami | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Kenali team Klinik Dr. Al Baghdadi di Putra Nilai – doktor dan staf yang komited untuk penjagaan kesihatan keluarga anda.">
-    <style>
-        body {
-            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            color: #1f2933;
-            background: linear-gradient(180deg, #e0f7fa 0%, #f7f9fb 40%, #ffffff 100%);
-            background-attachment: fixed;
-            line-height: 1.6;
-        }
-        header { position: sticky; top:0; background:#fff; box-shadow:0 2px 10px rgba(15,23,42,.08); z-index:1000; }
-        .nav { max-width:1100px; margin:0 auto; padding:0.8rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+<div class="pakej-grid">
+  <div class="pakej">
+    <h3>Saringan Asas Keluarga</h3>
+    <div class="harga">RM[XX] <small>/ orang</small></div>
+    <ul><li>Tekanan darah</li><li>Paras gula darah</li><li>Kolesterol asas</li><li>Konsultasi doktor</li></ul>
+    <a class="btn" href="https://wa.me/60123456789?text=Saya%20berminat%20dengan%20Pakej%20Saringan%20Asas">Tempah Sekarang</a>
+  </div>
 
-        /* LOGO + HOVER EFFECT */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            font-weight: 700;
-            color: #08747c;
-            font-size: 1.1rem;
-            transition: transform 0.18s ease;
-        }
-        .logo-img {
-            height: 100px;
-            width: auto;
-        }
-        .logo-text {
-            line-height: 1.1;
-            letter-spacing: 0.02em;
-            transition: transform 0.18s ease, color 0.18s ease;
-        }
-        .logo-text span {
-            font-size: 1.05em;
-            color: #065f73;
-            transition: color 0.18s ease;
-        }
-        .logo:hover .logo-text {
-            transform: scale(1.08);
-            color: #065f73;
-        }
-        .logo:hover .logo-text span {
-            color: #044e5f;
-        }
+  <div class="pakej popular">
+    <span class="badge">PALING POPULAR</span>
+    <h3>Saringan Kesihatan Penuh</h3>
+    <div class="harga">RM[XX] <small>/ orang</small></div>
+    <ul><li>Kiraan darah penuh (FBC)</li><li>Profil kolesterol penuh</li><li>Fungsi hati &amp; buah pinggang</li><li>Gula darah / HbA1c</li></ul>
+    <a class="btn" href="https://wa.me/60123456789?text=Saya%20berminat%20dengan%20Pakej%20Saringan%20Penuh">Tempah Sekarang</a>
+  </div>
 
-        a { text-decoration:none; color:inherit; }
-        .nav-links { display:flex; gap:1.5rem; font-size:0.95rem; }
-        .nav-links a { color:#7b8794; font-weight:500; position:relative; }
-        .nav-links a.active { color:#08747c; }
-        .nav-links a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#0c9faa; transition:width .2s; }
-        .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
-        .nav-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
-        .nav-toggle span { width:22px; height:2px; background:#1f2933; }
+  <div class="pakej">
+    <h3>Konsultasi Rawatan PRP</h3>
+    <div class="harga">RM[XX] <small>/ sesi</small></div>
+    <ul><li>Penilaian sakit lutut &amp; sendi</li><li>Doktor menilai kesesuaian PRP</li><li>Nasihat pemulihan</li></ul>
+    <a class="btn" href="https://wa.me/60123456789?text=Saya%20berminat%20dengan%20Rawatan%20PRP">Tanya Doktor</a>
+  </div>
+</div>
+<p class="nota">*Harga dan kandungan pakej tertakluk kepada penilaian doktor dan ketersediaan klinik.</p>
+</main>
 
-        main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
-        h1 { font-size:1.9rem; margin-bottom:0.4rem; }
-        .subtitle { color:#7b8794; max-width:700px; margin-bottom:1.5rem; font-size:0.95rem; }
-        .hl { color:#08747c; font-weight:600; }
-
-         </style>
-</head>
-<body>
-<header>
-    <div class="nav">
-        <a href="index.html" class="logo">
-            <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
-            <div class="logo-text">
-                KLINIK DR AL-BAGHDADI</span>
-            </div>
-        </a>
-        <nav class="nav-links" id="navLinks">
-            <a href="index.html" class="active">Utama</a>
-            <a href="about.html">Tentang</a>
-            <a href="services.html">Perkhidmatan</a>
-            <a href="package.html">Pakej/Promosi</a>
-            <a href="team.html">Team Kami</a>
-            <a href="contact.html">Hubungi</a>
-        </nav>
-        <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-            <span></span><span></span><span></span>
-        </div>
-    </div>
-</header>
-
-<main>
+<script>
+document.getElementById('navToggle').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+</body>
+</html>
