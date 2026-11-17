@@ -128,17 +128,6 @@
             height:100%;
             border:0;
         }
-        .map-placeholder {
-            width:100%;
-            height:100%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:0.85rem;
-            color:#7b8794;
-            padding:0 1rem;
-            text-align:center;
-        }
 
         footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
         footer span { color:#08747c; font-weight:600; }
@@ -161,17 +150,16 @@
         <a href="index.html" class="logo">
             <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
             <div class="logo-text">
-                KLINIK DR AL-BAGHDADI</span>
+                <span>KLINIK DR AL-BAGHDADI</span>
             </div>
         </a>
-       <nav class="nav-links" id="navLinks">
-    <a href="index.html">Utama</a>
-    <a href="about.html">Tentang</a>
-    <a href="services.html">Perkhidmatan</a>
-    <a href="team.html">Team Kami</a>
-    <a href="contact.html" class="active">Hubungi</a>
-</nav>
-
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Utama</a>
+            <a href="about.html">Tentang</a>
+            <a href="services.html">Perkhidmatan</a>
+            <a href="team.html">Team Kami</a>
+            <a href="contact.html" class="active">Hubungi</a>
+        </nav>
         <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </div>
@@ -182,7 +170,7 @@
     <h1>Hubungi Klinik Dr. Al Baghdadi</h1>
     <p class="subtitle">
         Untuk sebarang pertanyaan atau tempahan slot, sila hubungi / WhatsApp nombor
-        <span class="hl">utama klinik</span> di bawah atau boleh isi borang temu janji.
+        <span class="hl">utama klinik</span> di bawah atau isi borang temu janji.
     </p>
 
     <div class="content">
@@ -215,16 +203,15 @@
                 <div class="contact-label">Waktu Operasi</div>
                 <div class="contact-value">
                     Isnin – Jumaat: <span class="hl">10:00 pagi – 10:00 malam</span><br>
-    
                 </div>
             </div>
 
             <div class="map-embed">
-                <!-- GANTIKAN bahagian ini dengan kod embed Google Maps sebenar bila sedia -->
-                <div class="map-placeholder">
-                    Peta Google Maps klinik boleh dimasukkan di sini menggunakan kod embed
-                    (Google Maps &rarr; Share &rarr; Embed map &rarr; Copy HTML).
-                </div>
+                <!-- GANTI komen di bawah dengan kod iframe sebenar daripada Google Maps -->
+                <!-- Contoh:
+                <iframe src="https://www.google.com/maps/embed?pb=..." loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                -->
+                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.985321233111!2d101.79319327702348!3d2.8204166971564866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdc76af42d9b9f%3A0xf259bcd4b401410f!2sKLINIK%20DR.%20AL%20BAGHDADI!5e0!3m2!1sen!2smy!4v1794887921841!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe> -->
             </div>
         </div>
 
@@ -252,13 +239,12 @@
                     <textarea id="reason" name="reason" placeholder="Contoh: demam, saringan kesihatan, sakit lutut, cucian telinga, dll."></textarea>
                 </div>
                 <div class="full">
-                   <button type="button" class="btn-primary" onclick="sendToWhatsApp()">
-    Hantar ke WhatsApp Klinik
-</button>
-<p class="form-note">
-    * Selepas klik, WhatsApp akan dibuka bersama mesej yang diisi. Anda hanya perlu tekan “Send”.
-</p>
-
+                    <button type="button" class="btn-primary" onclick="sendToWhatsApp()">
+                        Hantar ke WhatsApp Klinik
+                    </button>
+                    <p class="form-note">
+                        * Selepas klik, WhatsApp akan dibuka bersama mesej yang diisi. Anda hanya perlu tekan “Send”.
+                    </p>
                 </div>
             </form>
         </div>
@@ -272,24 +258,21 @@
 
 <script>
     const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
+    const navLinks  = document.getElementById("navLinks");
     navToggle?.addEventListener("click", () => {
         navLinks.classList.toggle("open");
     });
 
     // Fungsi untuk hantar isi borang ke WhatsApp
     function sendToWhatsApp() {
-        // Nombor WhatsApp klinik (tanpa + dan dash)
         const phone = "60103434711";
 
-        // Ambil nilai dari borang
         const name   = document.getElementById("name").value.trim();
         const tel    = document.getElementById("phone").value.trim();
         const date   = document.getElementById("date").value;
         const time   = document.getElementById("time").value;
         const reason = document.getElementById("reason").value.trim();
 
-        // Sediakan mesej (boleh ubah wording ikut kesukaan)
         let message = "Permintaan Temu Janji Klinik Dr. Al Baghdadi%0A%0A";
         message += "*Nama:* " + (name || "-") + "%0A";
         message += "*No. Telefon / WhatsApp:* " + (tel || "-") + "%0A";
@@ -297,16 +280,9 @@
         message += "*Masa Pilihan:* " + (time || "-") + "%0A";
         message += "*Sebab Lawatan:* " + (reason || "-") + "%0A";
 
-        // Buka WhatsApp (di mobile app atau WhatsApp Web)
         const url = "https://wa.me/" + phone + "?text=" + message;
         window.open(url, "_blank");
     }
-</script>
-</body>
-</html>
-
-        navLinks.classList.toggle("open");
-    });
 </script>
 </body>
 </html>
