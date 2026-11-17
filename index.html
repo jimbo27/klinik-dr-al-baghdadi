@@ -335,10 +335,13 @@
             font-weight: 600;
         }
 
-        @keyframes logoScroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+       /* Kad pakej “bernafas” perlahan */
+@keyframes floatCard {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
 
         /* SEKSYEN PAKEJ / PROMOSI */
         .pakej-section {
@@ -367,21 +370,31 @@
         }
 
         .pakej-card {
-            background:#ffffff;
-            border-radius:1rem;
-            padding:1.2rem 1.3rem;
-            box-shadow:0 8px 24px rgba(15,23,42,.08);
-            font-size:0.9rem;
-            cursor: pointer;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, opacity 0.4s ease;
-            opacity: 0;
-            transform: translateY(16px);
-        }
+    background:#ffffff;
+    border-radius:1rem;
+    padding:1.2rem 1.3rem;
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+    font-size:0.9rem;
+    cursor: pointer;
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        opacity 0.4s ease;
+    opacity: 0;
+    transform: translateY(16px);
+    /* animasi “nafas” perlahan selepas muncul */
+    animation: floatCard 6s ease-in-out infinite;
+    animation-play-state: paused; /* akan dihidupkan bila in-view */
+}
 
-        .pakej-card.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
+
+       .pakej-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    animation-play-state: running;
+}
+
 
         .pakej-card:hover {
             transform: translateY(-4px);
@@ -877,13 +890,18 @@
     });
 
     // Animasi scroll untuk card pakej
-    const observerPakej = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
-                observerPakej.unobserve(entry.target);
-            }
-        });
+    const pakejCards = document.querySelectorAll(".pakej-card");
+pakejCards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+        const key = card.getAttribute("data-pakej");
+        openPakejModal(key);
+    });
+    // delay untuk animasi masuk
+    card.style.transitionDelay = (index * 0.08) + "s";
+    // delay untuk animasi float (supaya tak gerak serentak)
+    card.style.animationDelay = (index * 0.5) + "s";
+});
+
     }, { threshold: 0.15 });
 
     pakejCards.forEach(card => observerPakej.observe(card));
