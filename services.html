@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <title>Perkhidmatan | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Perkhidmatan Klinik Dr. Al Baghdadi di Putra Nilai: perubatan am, kesihatan keluarga, sakit lutut & sendi, ujian jaundis bayi, cucian telinga dan lain-lain.">
+    <meta name="description" content="Perkhidmatan Klinik Dr. Al Baghdadi di Putra Nilai: perubatan am, kesihatan keluarga, sakit lutut & sendi, ujian saringan & diagnostik, cucian telinga dan lain-lain.">
     <style>
         body {
             font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -77,34 +77,74 @@
             gap:1.5rem;
             margin-top:1.5rem;
         }
+
         .service-card {
             background:#fff;
             border-radius:1rem;
             padding:1.3rem 1.4rem;
             box-shadow:0 8px 24px rgba(15,23,42,.06);
             font-size:0.9rem;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            /* animasi masuk (scroll) */
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                background 0.18s ease,
+                opacity 0.45s ease;
         }
+
+        .service-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
             background:#f1f5f9;
         }
+
+        .service-icon {
+            font-size:1.8rem;
+            margin-bottom:0.25rem;
+            display:inline-block;
+            animation: floatIcon 3.5s ease-in-out infinite;
+        }
+
+        .service-card:hover .service-icon {
+            animation: bounceIcon 0.6s ease-out;
+            transform: scale(1.15);
+        }
+
         .service-title {
             font-weight:600;
             margin-bottom:0.2rem;
             color:#0f172a;
         }
-        .service-icon {
-            font-size:1.3rem;
-            margin-bottom:0.4rem;
-        }
+
         ul { margin-left:1.1rem; margin-top:0.4rem; }
         li { margin-bottom:0.2rem; }
 
         footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
         footer span { color:#08747c; font-weight:600; }
+
+        /* ANIMASI ICON */
+        @keyframes floatIcon {
+            0%   { transform: translateY(0); }
+            50%  { transform: translateY(-4px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes bounceIcon {
+            0%   { transform: translateY(0) scale(1); }
+            30%  { transform: translateY(-6px) scale(1.15); }
+            60%  { transform: translateY(2px) scale(1.05); }
+            100% { transform: translateY(0) scale(1); }
+        }
 
         /* MODAL (POP-UP) */
         .modal-backdrop {
@@ -208,44 +248,44 @@
     <h1>Perkhidmatan Klinik</h1>
     <p class="subtitle">
         Klinik Dr. Al Baghdadi menawarkan pelbagai perkhidmatan <span class="hl">perubatan am &amp; keluarga</span>,
-        termasuk <span class="hl">sakit lutut &amp; sendi</span>, <span class="hl">ujian jaundis bayi</span>,
+        termasuk <span class="hl">sakit lutut &amp; sendi</span>, <span class="hl">ujian saringan &amp; diagnostik</span>,
         <span class="hl">cucian telinga</span> dan beberapa prosedur klinik lain.  
         <br>Klik pada mana‑mana kotak di bawah untuk lihat maklumat lanjut.
     </p>
 
     <div class="services-grid">
         <div class="service-card" data-service="am">
-            <div class="service-icon">💊</div>
+            <div class="service-icon">🩺</div>
             <div class="service-title">Perubatan Am (GP)</div>
             <p>Rawatan bagi masalah kesihatan harian untuk dewasa &amp; kanak-kanak.</p>
         </div>
 
         <div class="service-card" data-service="keluarga">
-            <div class="service-icon">👨‍👩‍👧</div>
+            <div class="service-icon">👨‍👩‍👧‍👦</div>
             <div class="service-title">Kesihatan Keluarga</div>
             <p>Penjagaan menyeluruh untuk seisi keluarga.</p>
         </div>
 
         <div class="service-card" data-service="saringan">
-            <div class="service-icon">🧪</div>
-            <div class="service-title">Saringan &amp; Ujian</div>
-            <p>Pengesanan awal untuk kesihatan yang lebih baik.</p>
+            <div class="service-icon">🧬</div>
+            <div class="service-title">Ujian Saringan &amp; Diagnostik</div>
+            <p>Pemeriksaan pantas, tepat dan menyeluruh di bawah satu bumbung.</p>
         </div>
 
         <div class="service-card" data-service="lutut">
-            <div class="service-icon">🦵</div>
+            <div class="service-icon">🦴</div>
             <div class="service-title">Sakit Lutut &amp; Sendi</div>
             <p>Penilaian awal bagi masalah sendi &amp; otot.</p>
         </div>
 
         <div class="service-card" data-service="prosedur">
-            <div class="service-icon">👂</div>
+            <div class="service-icon">🩹</div>
             <div class="service-title">Prosedur Klinik</div>
             <p>Prosedur mudah yang dilakukan di klinik.</p>
         </div>
 
         <div class="service-card" data-service="lelaki">
-            <div class="service-icon">🧍‍♂️</div>
+            <div class="service-icon">💪</div>
             <div class="service-title">Kesihatan Lelaki</div>
             <p>Ruang yang lebih selesa untuk isu khusus lelaki.</p>
         </div>
@@ -260,7 +300,8 @@
         <div class="modal-sub" id="modalSub"></div>
         <div class="modal-body" id="modalBody"></div>
         <div class="modal-actions">
-           Kunjungi klinik kami hari ini untuk pemeriksaan.
+           Kunjungi klinik kami hari ini untuk pemeriksaan,
+           atau WhatsApp <a href="https://wa.me/60103434711" target="_blank">+60 10‑343 4711</a> untuk pertanyaan.
         </div>
     </div>
 </div>
@@ -272,7 +313,7 @@
 
 <script>
     const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
+    const navLinks  = document.getElementById("navLinks");
     navToggle?.addEventListener("click", () => {
         navLinks.classList.toggle("open");
     });
@@ -308,10 +349,11 @@
             `
         },
         saringan: {
-            title: "Saringan &amp; Ujian",
-            sub: "Perkhidmatan Ujian Saringan & Diagnostik Pemeriksaan pantas, tepat dan menyeluruh di bawah satu bumbung.",
+            title: "Ujian Saringan &amp; Diagnostik",
+            sub: "Pemeriksaan pantas, tepat dan menyeluruh di bawah satu bumbung.",
             body: `
-                <p>Kami menyediakan pelbagai ujian kesihatan untuk pengesanan awal:</p>
+                <p>Kami menyediakan pelbagai ujian kesihatan untuk pengesanan awal dan ketenangan fikiran anda:</p>
+
                 <p><strong>Ujian Pantas (Keputusan Segera):</strong></p>
                 <ul>
                     <li>Pemeriksaan gula, kolesterol, dan asid urik (gout).</li>
@@ -323,14 +365,13 @@
                 <p><strong>Pakej Ujian Darah (Makmal):</strong></p>
                 <ul>
                     <li><strong>Saringan Kesihatan Penuh:</strong> Kiraan darah (FBC), fungsi buah pinggang, fungsi hati, dan profil kolesterol penuh.</li>
-                    <li><strong>Ujian Khusus:</strong> Kawalan kencing manis (HbA1c), hormon tiroid, ujian alahan (alergi), dan penanda awal kanser tertentu.</li>
+                    <li><strong>Ujian Khusus:</strong> Kawalan kencing manis (HbA1c), hormon tiroid, ujian alahan (alergi), dan beberapa penanda awal kanser.</li>
                     <li><strong>Saringan Penyakit Berjangkit:</strong> Hepatitis B &amp; C, HIV, dan penyakit kelamin (STD).</li>
                 </ul>
 
                 <p><strong>Imbasan &amp; Pemeriksaan Fizikal:</strong></p>
                 <ul>
                     <li><strong>Pemeriksaan Jantung (ECG):</strong> Mengesan masalah ritma jantung tertentu.</li>
-                    
                 </ul>
 
                 <p><strong>Kesihatan Wanita:</strong></p>
@@ -354,7 +395,13 @@
             sub: "Penilaian awal untuk masalah sendi dan otot.",
             body: `
                 <p>Bagi pesakit dengan <strong>sakit lutut, sakit belakang, sakit bahu</strong> dan lain-lain sakit sendi/otot, kami boleh:</p>
-               
+                <ul>
+                    <li>Menilai sejarah sakit, corak dan faktor yang mungkin mencetuskan.</li>
+                    <li>Mengesan tanda-tanda bengkak, kelemahan atau pergerakan terhad.</li>
+                    <li>Mencadangkan ubat tahan sakit yang sesuai &amp; langkah berhati-hati.</li>
+                    <li>Memberi nasihat senaman ringkas atau rujukan pakar jika perlu.</li>
+                </ul>
+                <p>Jika sakit terlalu teruk, berlanjutan, atau akibat jatuh / kemalangan, doktor mungkin cadangkan X‑ray atau rujukan hospital.</p>
             `
         },
         prosedur: {
@@ -410,13 +457,30 @@
         }
     });
 
-    // Pasang event pada setiap kad
-    document.querySelectorAll(".service-card").forEach(card => {
+    // Pasang event pada setiap kad + animasi scroll
+    const cards = document.querySelectorAll(".service-card");
+
+    cards.forEach((card, index) => {
+        // klik → buka modal
         card.addEventListener("click", () => {
             const key = card.getAttribute("data-service");
             openModal(key);
         });
+        // sedikit delay untuk animasi masuk bertingkat
+        card.style.transitionDelay = (index * 0.08) + "s";
     });
+
+    // Animasi masuk bila card nampak di skrin
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
 </script>
 </body>
 </html>
