@@ -54,46 +54,41 @@
             justify-content: space-between;
         }
 
+        /* LOGO + HOVER EFFECT */
         .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-weight: 700;
-    color: #08747c;
-    font-size: 1.1rem;
-    transition: transform 0.18s ease;
-}
-
-/* Bigger logo image */
-.logo-img {
-    height: 100px;
-    width: auto;
-}
-
-/* Text beside logo */
-.logo-text {
-    line-height: 1.1;
-    letter-spacing: 0.02em;
-    transition: transform 0.18s ease, color 0.18s ease;
-}
-
-/* Emphasis on “Dr. Al Baghdadi” */
-.logo-text span {
-    font-size: 1.05em;
-    color: #065f73;
-    transition: color 0.18s ease;
-}
-
-/* HOVER EFFECT – text slightly bigger and darker */
-.logo:hover .logo-text {
-    transform: scale(1.08);
-    color: #065f73;
-}
-
-.logo:hover .logo-text span {
-    color: #044e5f;
-}
-
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-weight: 700;
+            color: #08747c;
+            font-size: 1.1rem;
+            transition: transform 0.18s ease;
+        }
+        /* Bigger logo image */
+        .logo-img {
+            height: 100px;
+            width: auto;
+        }
+        /* Text beside logo */
+        .logo-text {
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            transition: transform 0.18s ease, color 0.18s ease;
+        }
+        /* Emphasis on “Dr. Al Baghdadi” */
+        .logo-text span {
+            font-size: 1.05em;
+            color: #065f73;
+            transition: color 0.18s ease;
+        }
+        /* HOVER EFFECT – text slightly bigger and darker */
+        .logo:hover .logo-text {
+            transform: scale(1.08);
+            color: #065f73;
+        }
+        .logo:hover .logo-text span {
+            color: #044e5f;
+        }
 
         .nav-links {
             display: flex;
@@ -287,71 +282,66 @@
             color: var(--primary-dark);
         }
 
-        /* LOGO PANEL SECTION */
-        /* LOGO PANEL SECTION */
-.logo-panel {
-    margin-top: 2.8rem;
-    padding: 1.4rem 1.5rem 1.6rem;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-}
+        /* LOGO PANEL SECTION – RUNNING (MARQUEE STYLE) */
+        .logo-panel {
+            margin-top: 2.8rem;
+            padding: 1.2rem 1.5rem 1.4rem;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+        }
 
-.logo-panel-title {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    margin-bottom: 0.8rem;
-}
+        .logo-panel-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
 
-.logo-panel-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;  /* susun dalam baris */
-    gap: 1.5rem;
-}
+        .logo-panel-track {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            animation: logoScroll 18s linear infinite;
+            will-change: transform;
+        }
 
-/* setiap logo dalam “card” kecil */
-.logo-panel-item {
-    background: #f1f5f9;
-    border-radius: 999px;
-    padding: 0.4rem 0.9rem;
-    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
-    cursor: default;
-}
+        .logo-panel-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            background: #f1f5f9;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+            transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+            cursor: default;
+        }
 
-/* efek pop-up bila hover */
-.logo-panel-item:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
-    background: #e0f2fe;
-}
+        .logo-panel-item:hover {
+            transform: translateY(-3px) scale(1.06);
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.2);
+            background: #e0f2fe;
+        }
 
-.logo-panel-img {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-    display: block;
-}
+        .logo-panel-img {
+            height: 34px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
 
-.logo-panel-caption {
-    font-size: 0.8rem;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
+        .logo-panel-caption {
+            font-size: 0.8rem;
+            color: #0f172a;
+            font-weight: 600;
+        }
 
-/* mobile: susun ke bawah */
-@media (max-width: 700px) {
-    .logo-panel-row {
-        flex-wrap: wrap;
-        gap: 0.9rem;
+        @keyframes logoScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         footer {
@@ -409,9 +399,9 @@
                 padding: 1.5rem 1.1rem 2.5rem;
             }
 
-            .logo-panel-row {
-                flex-direction: column;
-                align-items: flex-start;
+            .logo-panel-track {
+                animation-duration: 22s;
+                gap: 1.8rem;
             }
         }
     </style>
@@ -421,18 +411,17 @@
     <div class="nav">
         <a href="index.html" class="logo">
             <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
-            <div>
-                KLINIK DR AL- BAGHDADI
+            <div class="logo-text">
+                KLINIK<br><span>DR AL‑BAGHDADI</span>
             </div>
         </a>
-       <nav class="nav-links" id="navLinks">
-    <a href="index.html" class="active">Utama</a>
-    <a href="about.html">Tentang</a>
-    <a href="services.html">Perkhidmatan</a>
-    <a href="team.html">Team Kami</a>
-    <a href="contact.html">Hubungi</a>
-</nav>
-
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Utama</a>
+            <a href="about.html">Tentang</a>
+            <a href="services.html">Perkhidmatan</a>
+            <a href="team.html">Team Kami</a>
+            <a href="contact.html">Hubungi</a>
+        </nav>
         <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </div>
@@ -444,17 +433,17 @@
         <div class="hero-left-anim">
             <div class="hero-tag">
                 <div class="hero-tag-dot"></div>
-                KLINIK <span class="hl"> 12 JAM </span>
+                KLINIK <span class="hl">12 JAM</span>
             </div>
             <h1>
                 Klinik <span>Kesihatan KELUARGA</span><br>
                 untuk penduduk <span class="hl">Putra Nilai &amp; sekitar</span>.
             </h1>
             <p class="hero-subtitle">
-                <span class="hl">Klinik Dr. Al Baghdadi</span> ialah klinik Perubatan am (GP)
-                di Putra Nilai yang memberi fokus kepada </span>,
-                <span class="hl">kesihatan keluarga</span>, <span class="hl">sakit lutut &amp; sendi</span> dan
-                <span class="hl">kesihatan lelaki</span>.
+                <span class="hl">Klinik Dr. Al Baghdadi</span> ialah klinik Perubatan Am (GP)
+                di Putra Nilai yang memberi fokus kepada
+                <span class="hl">kesihatan keluarga</span>, <span class="hl">sakit lutut &amp; sendi</span>
+                dan <span class="hl">kesihatan lelaki</span>.
             </p>
             <div class="hero-cta">
                 <a href="https://wa.me/60103434711" target="_blank">
@@ -466,7 +455,6 @@
                     <span>Waktu Operasi</span>
                     Isnin – Jumaat<br><strong>10:00 pagi – 10:00 malam</strong>
                 </div>
-                <!-- Hujung Minggu item deleted as requested -->
                 <div class="hero-info-item">
                     <span>Lokasi</span>
                     <strong>L1-5A, Menara A (Akasia)</strong><br>
@@ -501,36 +489,65 @@
             </p>
             <p><a href="contact.html" style="color:var(--primary-dark);font-weight:600;">WhatsApp untuk pertanyaan &rarr;</a></p>
         </div>
+    </section>
+
+    <!-- PANEL LOGO BERGERAK -->
     <section class="logo-panel">
-    <div class="logo-panel-title">Panel &amp; Rakan Kerjasama</div>
-    <div class="logo-panel-row">
-        <div class="logo-panel-item">
-            <img src="pm care logo.png" alt="PMCare" class="logo-panel-img">
-            <div class="logo-panel-caption">PMCare</div>
-        </div>
-        <div class="logo-panel-item">
-            <img src="compumed logo.jpg" alt="CompuMed" class="logo-panel-img">
-            <div class="logo-panel-caption">CompuMed</div>
-        </div>
-        <div class="logo-panel-item">
-            <img src="ge logo.png" alt="Great Eastern" class="logo-panel-img">
-            <div class="logo-panel-caption">Great Eastern</div>
-        </div>
-        <div class="logo-panel-item">
-            <img src="red alert logo.png" alt="RedAlert" class="logo-panel-img">
-            <div class="logo-panel-caption">RedAlert</div>
-        </div>
-         <div class="logo-panel-item">
-            <img src="fomema logo.jpg" alt="Fomema" class="logo-panel-img">
-            <div class="logo-panel-caption">Fomema</div>
-        </div>
-         <div class="logo-panel-item">
-            <img src="peka b40 logo.jpeg" alt="Peka B40" class="logo-panel-img">
-            <div class="logo-panel-caption">Peka B40</div>
-    </div>
-</section>
+        <div class="logo-panel-title">Panel &amp; Rakan Kerjasama</div>
+        <div class="logo-panel-track">
+            <!-- Set pertama -->
+            <div class="logo-panel-item">
+                <img src="pm care logo.png" alt="PMCare" class="logo-panel-img">
+                <div class="logo-panel-caption">PMCare</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="compumed logo.jpg" alt="CompuMed" class="logo-panel-img">
+                <div class="logo-panel-caption">CompuMed</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="ge logo.png" alt="Great Eastern" class="logo-panel-img">
+                <div class="logo-panel-caption">Great Eastern</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="red alert logo.png" alt="RedAlert" class="logo-panel-img">
+                <div class="logo-panel-caption">RedAlert</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="fomema logo.jpg" alt="Fomema" class="logo-panel-img">
+                <div class="logo-panel-caption">Fomema</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="peka b40 logo.jpeg" alt="Peka B40" class="logo-panel-img">
+                <div class="logo-panel-caption">Peka B40</div>
+            </div>
 
-
+            <!-- Gandakan untuk animasi berterusan -->
+            <div class="logo-panel-item">
+                <img src="pm care logo.png" alt="PMCare" class="logo-panel-img">
+                <div class="logo-panel-caption">PMCare</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="compumed logo.jpg" alt="CompuMed" class="logo-panel-img">
+                <div class="logo-panel-caption">CompuMed</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="ge logo.png" alt="Great Eastern" class="logo-panel-img">
+                <div class="logo-panel-caption">Great Eastern</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="red alert logo.png" alt="RedAlert" class="logo-panel-img">
+                <div class="logo-panel-caption">RedAlert</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="fomema logo.jpg" alt="Fomema" class="logo-panel-img">
+                <div class="logo-panel-caption">Fomema</div>
+            </div>
+            <div class="logo-panel-item">
+                <img src="peka b40 logo.jpeg" alt="Peka B40" class="logo-panel-img">
+                <div class="logo-panel-caption">Peka B40</div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer>
