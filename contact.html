@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5HT9VD33');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -145,6 +152,10 @@
     </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HT9VD33"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <header>
     <div class="nav">
         <a href="index.html" class="logo">
@@ -280,6 +291,10 @@
         message += "*Tarikh Pilihan:* " + (date || "-") + "%0A";
         message += "*Masa Pilihan:* " + (time || "-") + "%0A";
         message += "*Sebab Lawatan:* " + (reason || "-") + "%0A";
+
+        // Hantar event ke Google Tag Manager untuk conversion tracking
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "borang_whatsapp" });
 
         const url = "https://wa.me/" + phone + "?text=" + message;
         window.open(url, "_blank");
