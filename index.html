@@ -9,6 +9,7 @@
     })(window,document,'script','dataLayer','GTM-5HT9VD33');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
+    <link rel="preload" as="image" href="img/hero-bg.svg">
     <link rel="icon" href="img/logo-klinik.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,50 +18,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Laman Utama | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Laman rasmi Klinik Dr. Al Baghdadi di Putra Nilai. Perubatan am (GP), kesihatan keluarga, sakit lutut & kesihatan lelaki.">
-    <style>
-        :root {
-            --primary: #0c9faa;
-            --primary-dark: #08747c;
-            --accent: #f6a623;
-            --bg-light: #f7f9fb;
-            --text-dark: #1f2933;
-            --text-muted: #7b8794;
-            --white: #ffffff;
-        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <title>Klinik Dr. Al Baghdadi | Klinik Keluarga di Putra Nilai</title>
+    <meta name="description" content="Klinik Dr. Al Baghdadi, klinik perubatan am (GP) keluarga di Youth City Residence, Putra Nilai. Buka Isnin – Jumaat, 10 pagi – 10 malam. WhatsApp +60 10-343 4711.">
+    <style>
 
         body {
             font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            color: var(--text-dark);
+            color: #1f2933;
             background:
-                radial-gradient(circle at top left, #e0f7fa, #ffffff),
-                radial-gradient(circle at bottom right, #e0f2fe, #ffffff);
+                radial-gradient(circle at top, #e0f7fa 0%, #f7f9fb 45%),
+                linear-gradient(to bottom, #f7f9fb 45%, #e0f2fe 100%);
             background-attachment: fixed;
             line-height: 1.6;
         }
-
-        a { text-decoration: none; color: inherit; }
-
-        header {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.97);
-            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
-            z-index: 1000;
-        }
-
-        .nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0.8rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        header { position: sticky; top:0; background:#fff; box-shadow:0 2px 10px rgba(15,23,42,.08); z-index:1000; }
+        .nav { max-width:1100px; margin:0 auto; padding:0.8rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
 
         /* LOGO + HOVER EFFECT */
         .logo {
@@ -94,199 +67,79 @@
             color: #044e5f;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.95rem;
+        a { text-decoration:none; color:inherit; }
+        .nav-links { display:flex; gap:1.5rem; font-size:0.95rem; }
+        .nav-links a { color:#7b8794; font-weight:500; position:relative; }
+        .nav-links a.active { color:#08747c; }
+        .nav-links a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#0c9faa; transition:width .2s; }
+        .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+        .nav-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
+        .nav-toggle span { width:22px; height:2px; background:#1f2933; }
+
+        main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
+        h1 { font-size:1.9rem; margin-bottom:0.4rem; }
+        .subtitle { color:#7b8794; max-width:700px; margin-bottom:1.5rem; font-size:0.95rem; }
+
+        .hl { color:#08747c; font-weight:600; }
+
+        footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
+        footer span { color:#08747c; font-weight:600; }
+
+        @media (max-width:700px) {
+            .nav-links { position:absolute; top:54px; right:0; background:#fff; flex-direction:column; padding:0.8rem 1.5rem 1rem; box-shadow:0 10px 20px rgba(15,23,42,.15); display:none; }
+            .nav-links.open { display:flex; }
+            .nav-toggle { display:flex; }
+            main { padding:1.5rem 1.1rem 2.5rem; }
         }
 
-        .nav-links a {
-            color: var(--text-muted);
-            font-weight: 500;
-            position: relative;
-            transition: color 0.15s ease, transform 0.15s ease;
-        }
-
-        .nav-links a.active {
-            color: var(--primary-dark);
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.2s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            transform: translateY(-1px);
-        }
-
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            width: 22px;
-            height: 2px;
-            background: var(--text-dark);
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 3rem;
-        }
-
-        .hero {
-            margin-top: 1.5rem;
-            padding: 2.5rem 2rem;
-            background: var(--white);
-            border-radius: 1.8rem;
-            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr);
-            gap: 2rem;
-            position: relative;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(12, 159, 170, 0.06);
-            color: var(--primary-dark);
-            padding: 0.25rem 0.8rem;
-            border-radius: 999px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .hero-tag-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #22c55e;
-        }
-
-        .hero h1 {
-            font-size: 2.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero h1 span {
-            color: var(--primary-dark);
-        }
-
-        .hero-subtitle {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            max-width: 520px;
-            font-size: 0.95rem;
-        }
-
-        .hero-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-            padding: 0.7rem 1.6rem;
-            border-radius: 999px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 10px 20px rgba(12, 159, 170, 0.25);
-            transition: transform 0.13s ease, box-shadow 0.13s ease, background 0.13s ease;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid rgba(15, 23, 42, 0.12);
-            padding: 0.7rem 1.6rem;
-            border-radius: 999px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            transition: transform 0.13s ease, box-shadow 0.13s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 15px 26px rgba(12, 159, 170, 0.35);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.2);
-        }
-
-        .hero-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .hero-info-item span {
-            display: block;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        .hl {
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .quick-links {
-            margin-top: 2.2rem;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1rem;
-        }
-
-        .quick-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 1.1rem;
-            padding: 1rem 1.1rem;
-            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-            font-size: 0.9rem;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
-        }
-
-        .quick-card-title {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            color: var(--primary-dark);
-        }
-
-        /* LOGO PANEL SECTION – RUNNING (MARQUEE STYLE) */
+        .reveal { opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease; }
+        .reveal.in-view { opacity:1; transform:none; }
+        .t-hero { text-align:center; max-width:720px; margin:0.5rem auto 2.2rem; }
+        .t-kicker { display:inline-block; background:#ccfbf1; color:#0f766e; font-weight:600; font-size:0.8rem; padding:0.3rem 0.9rem; border-radius:999px; letter-spacing:.03em; }
+        .t-hero h1 { font-size:2.1rem; margin:0.7rem 0 0.5rem; line-height:1.2; }
+        .t-hero p { color:#64748b; }
+        .t-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; }
+        .t-card { background:#fff; border-radius:1.3rem; box-shadow:0 12px 32px rgba(15,23,42,.08); overflow:hidden; display:flex; flex-direction:column; }
+        .t-banner { height:96px; background:linear-gradient(120deg,#0b4f6c,#0c9faa); position:relative; }
+        .t-card.staff .t-banner { background:linear-gradient(120deg,#0f766e,#5eead4); }
+        .t-avatar { position:absolute; left:1.5rem; bottom:-44px; width:96px; height:96px; border-radius:50%; background:#fff; border:5px solid #fff;
+                    box-shadow:0 8px 20px rgba(15,23,42,.18); display:flex; align-items:center; justify-content:center; font-size:2.6rem; }
+        .t-avatar span { width:100%; height:100%; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#ecfeff; }
+        .t-body { padding:3.4rem 1.5rem 1.5rem; display:flex; flex-direction:column; flex:1; }
+        .t-name { font-size:1.35rem; font-weight:700; color:#0f172a; }
+        .t-role { display:inline-block; margin-top:0.3rem; font-size:0.78rem; font-weight:600; color:#0b4f6c; background:#e0f2fe; padding:0.2rem 0.75rem; border-radius:999px; }
+        .t-card.staff .t-role { color:#0f766e; background:#ccfbf1; }
+        .t-qual { font-size:0.85rem; color:#64748b; font-weight:600; margin-top:-0.1rem; }
+        .t-creds { list-style:none; margin:0 0 0.8rem; padding:0.8rem 1rem; background:#f8fafc; border-radius:0.8rem; font-size:0.86rem; color:#334155; }
+        .t-creds li { margin:0.25rem 0; }
+        .t-stat { display:flex; align-items:baseline; gap:0.5rem; margin:1rem 0 0.4rem; }
+        .t-stat b { font-size:2.2rem; color:#08747c; line-height:1; }
+        .t-stat span { color:#475569; font-size:0.9rem; }
+        .t-quote { color:#475569; font-size:0.92rem; margin:0.8rem 0 0.6rem; }
+        .t-label { font-weight:600; font-size:0.85rem; color:#08747c; margin-top:0.4rem; }
+        .t-tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.5rem; }
+        .t-tags span { font-size:0.8rem; background:#f1f5f9; color:#334155; padding:0.3rem 0.7rem; border-radius:999px; }
+        .t-section { margin-top:3rem; }
+        .t-section h2 { font-size:1.4rem; text-align:center; margin-bottom:0.3rem; }
+        .t-section > p { text-align:center; color:#64748b; margin-bottom:1.4rem; }
+        .t-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; counter-reset:step; }
+        .t-step { background:#fff; border-radius:1rem; padding:1.2rem 1.1rem; box-shadow:0 8px 24px rgba(15,23,42,.06); position:relative; font-size:0.88rem; }
+        .t-step::before { counter-increment:step; content:counter(step); position:absolute; top:-12px; left:1.1rem; width:26px; height:26px; border-radius:50%;
+                          background:#08747c; color:#fff; font-weight:700; font-size:0.8rem; display:flex; align-items:center; justify-content:center; }
+        .t-step .ic { font-size:1.6rem; }
+        .t-step b { display:block; margin:0.2rem 0; color:#0f172a; }
+        .t-step small { color:#6b7280; }
+        .t-why { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+        .t-why div { background:linear-gradient(180deg,#ffffff,#f0fdfa); border:1px solid #ccfbf1; border-radius:1rem; padding:1.2rem; font-size:0.88rem; color:#475569; }
+        .t-why div::first-line { font-size:1.6rem; }
+        .t-why b { display:block; color:#0f172a; font-size:0.98rem; margin:0.3rem 0; }
+        .t-cta { margin-top:3rem; background:linear-gradient(120deg,#0b4f6c,#0c9faa); color:#fff; border-radius:1.3rem; padding:2rem 1.5rem; text-align:center; }
+        .t-cta h2 { font-size:1.4rem; margin-bottom:0.4rem; }
+        .t-cta p { opacity:.9; margin-bottom:1.1rem; }
+        .t-cta a { display:inline-block; background:#25d366; color:#fff; font-weight:600; padding:0.8rem 1.6rem; border-radius:999px; }
+        .t-cta a:hover { background:#1ebe5a; }
+        @media (max-width:900px) { .t-steps { grid-template-columns:repeat(2,1fr); row-gap:1.6rem; } }
+        @media (max-width:700px) { .t-grid, .t-why { grid-template-columns:1fr; } .t-hero h1 { font-size:1.7rem; } }
         .logo-panel {
             margin-top: 2.8rem;
             padding: 1.2rem 1.5rem 1.4rem;
@@ -300,7 +153,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--text-muted);
+            color: #64748b;
             margin-bottom: 0.6rem;
         }
 
@@ -348,75 +201,115 @@
             100% { transform: translateX(-50%); }
         }
 
-       
-        footer {
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+
+        body { background:#f4fbfc !important; }
+        main.home { max-width:1100px; margin:0 auto; padding:0 1.5rem 3rem; }
+        /* ---------- HERO ---------- */
+        .hero { position:relative; overflow:hidden; color:#fff; min-height:min(84vh,700px); display:flex; align-items:center; isolation:isolate; }
+        .hero-bg-wrap { position:absolute; inset:-8% 0 -8% 0; z-index:-3; will-change:transform; }
+        .hero-bg { position:absolute; inset:0; background:url("img/hero-bg.svg") center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; transform-origin:70% 40%; }
+        @keyframes kenburns { from { transform:scale(1); } to { transform:scale(1.14) translate3d(-2%,-1.5%,0); } }
+        .hero-overlay { position:absolute; inset:0; z-index:-2;
+            background:linear-gradient(100deg, rgba(5,34,48,.92) 0%, rgba(6,52,70,.72) 42%, rgba(6,60,78,.18) 78%, rgba(6,60,78,0) 100%); }
+        .hero-shine { position:absolute; inset:0; z-index:-1; pointer-events:none;
+            background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,.10) 45%, transparent 55%);
+            background-size:250% 100%; animation:shine 9s ease-in-out infinite; }
+        @keyframes shine { 0% { background-position:150% 0; } 60%,100% { background-position:-60% 0; } }
+        .hero-float { position:absolute; inset:0; z-index:-1; pointer-events:none; }
+        .hero-float i { position:absolute; display:block; color:rgba(255,255,255,.22); font-style:normal; font-weight:700; animation:floaty 9s ease-in-out infinite; }
+        @keyframes floaty { 0%,100% { transform:translateY(0) rotate(0); opacity:.5; } 50% { transform:translateY(-22px) rotate(12deg); opacity:1; } }
+        .hero-inner { width:100%; max-width:1100px; margin:0 auto; padding:4.5rem 1.5rem 6.5rem; }
+        .status { display:inline-flex; align-items:center; gap:.55rem; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
+            -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); padding:.4rem .95rem; border-radius:999px; font-size:.85rem; font-weight:600; }
+        .status .dot { width:9px; height:9px; border-radius:50%; background:#22c55e; animation:pulse 1.8s infinite; }
+        .status.rehat .dot { background:#f59e0b; } .status.tutup .dot { background:#f87171; animation:none; }
+        @keyframes pulse { 0% { box-shadow:0 0 0 0 rgba(34,197,94,.7); } 70% { box-shadow:0 0 0 10px rgba(34,197,94,0); } 100% { box-shadow:0 0 0 0 rgba(34,197,94,0); } }
+        .hero h1 { font-size:clamp(2.1rem,5.2vw,3.4rem); line-height:1.1; font-weight:700; margin:1rem 0 .9rem; max-width:640px; letter-spacing:-.01em; }
+        .hero h1 span { color:#5eead4; }
+        .hero p.lead { max-width:560px; font-size:1.02rem; color:rgba(255,255,255,.88); margin:0; }
+        .hero-cta { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.6rem; }
+        .btn { display:inline-flex; align-items:center; gap:.5rem; font-weight:600; padding:.85rem 1.5rem; border-radius:999px; text-decoration:none; transition:transform .15s, background .15s, box-shadow .15s; }
+        .btn:hover { transform:translateY(-2px); }
+        .btn-wa { background:#25d366; color:#fff; box-shadow:0 10px 24px rgba(37,211,102,.35); }
+        .btn-wa:hover { background:#1ebe5a; }
+        .btn-ghost { border:2px solid rgba(255,255,255,.75); color:#fff; }
+        .btn-ghost:hover { background:rgba(255,255,255,.12); }
+        .hero-chips { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem; margin-top:2.2rem; max-width:720px; }
+        .chip { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+            border-radius:1rem; padding:.8rem 1rem; font-size:.82rem; color:rgba(255,255,255,.85); line-height:1.45; }
+        .chip b { display:block; color:#fff; font-size:.9rem; }
+        .hero-wave { position:absolute; left:0; right:0; bottom:-1px; z-index:0; line-height:0; }
+        .hero-wave svg { width:100%; height:70px; display:block; }
+        .hero-anim > * { opacity:0; transform:translateY(18px); animation:up .8s ease forwards; }
+        .hero-anim > *:nth-child(2) { animation-delay:.12s; } .hero-anim > *:nth-child(3) { animation-delay:.24s; }
+        .hero-anim > *:nth-child(4) { animation-delay:.36s; } .hero-anim > *:nth-child(5) { animation-delay:.48s; }
+        @keyframes up { to { opacity:1; transform:none; } }
+
+        /* ---------- STATS ---------- */
+        .stats { position:relative; z-index:2; margin-top:-2.2rem; display:grid; grid-template-columns:repeat(4,1fr); background:#fff; border-radius:1.2rem;
+            box-shadow:0 18px 40px rgba(15,23,42,.10); overflow:hidden; }
+        .stat { padding:1.2rem 1.3rem; border-right:1px solid #eef2f6; }
+        .stat:last-child { border-right:none; }
+        .stat b { display:block; font-size:1.6rem; color:#08747c; line-height:1.15; }
+        .stat span { font-size:.84rem; color:#64748b; }
+
+        /* ---------- SECTIONS ---------- */
+        .h-section { margin-top:3.6rem; }
+        .h-head { display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; margin-bottom:1.3rem; flex-wrap:wrap; }
+        .h-head h2 { font-size:clamp(1.25rem,2.4vw,1.5rem); margin:0; color:#0f172a; }
+        .h-head p { margin:.2rem 0 0; color:#64748b; font-size:.92rem; }
+        .h-head a { color:#08747c; font-weight:600; font-size:.9rem; text-decoration:none; white-space:nowrap; }
+        .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+        .svc { display:flex; gap:.9rem; align-items:flex-start; background:#fff; border-radius:1rem; padding:1.1rem 1.2rem; text-decoration:none; color:inherit;
+            box-shadow:0 8px 24px rgba(15,23,42,.06); transition:transform .18s, box-shadow .18s; }
+        .svc:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(15,23,42,.12); }
+        .svc .ic { flex:none; width:46px; height:46px; border-radius:12px; background:#ecfeff; display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
+        .svc b { display:block; color:#0f172a; font-size:.95rem; }
+        .svc span { color:#64748b; font-size:.84rem; line-height:1.45; }
+
+        .doc { display:grid; grid-template-columns:auto 1fr auto; gap:1.6rem; align-items:center; background:linear-gradient(120deg,#ffffff,#f0fdfa); border:1px solid #ccfbf1;
+            border-radius:1.3rem; padding:1.6rem 1.8rem; }
+        .doc .av { width:88px; height:88px; border-radius:50%; background:#fff; box-shadow:0 8px 20px rgba(15,23,42,.12); display:flex; align-items:center; justify-content:center; font-size:2.6rem; }
+        .doc small { color:#0c9faa; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.75rem; }
+        .doc h3 { margin:.15rem 0 .3rem; font-size:1.2rem; color:#0f172a; }
+        .doc p { margin:0; color:#475569; font-size:.9rem; }
+        .doc .btn-line { border:2px solid #08747c; color:#08747c; padding:.65rem 1.2rem; border-radius:999px; font-weight:600; text-decoration:none; white-space:nowrap; }
+        .doc .btn-line:hover { background:#08747c; color:#fff; }
+
+        .pk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+        .pk { position:relative; overflow:hidden; border-radius:1.1rem; padding:1.3rem 1.3rem 1.2rem; color:#fff; text-decoration:none; min-height:150px;
+            display:flex; flex-direction:column; justify-content:space-between; transition:transform .18s, box-shadow .18s; box-shadow:0 10px 26px rgba(15,23,42,.12); }
+        .pk:hover { transform:translateY(-3px); box-shadow:0 16px 34px rgba(15,23,42,.2); }
+        .pk.a { background:linear-gradient(135deg,#0b4f6c,#0c9faa); } .pk.b { background:linear-gradient(135deg,#0f766e,#14b8a6); } .pk.c { background:linear-gradient(135deg,#1e3a8a,#0ea5e9); }
+        .pk .em { position:absolute; right:-6px; top:-10px; font-size:4.6rem; opacity:.18; }
+        .pk b { font-size:1.1rem; display:block; }
+        .pk span { font-size:.85rem; opacity:.9; }
+        .pk em { font-style:normal; font-weight:600; font-size:.85rem; margin-top:.8rem; }
+
+        .loc { display:grid; grid-template-columns:1.1fr 1fr; gap:1.4rem; align-items:stretch; }
+        .loc-map { border-radius:1.2rem; overflow:hidden; min-height:300px; box-shadow:0 10px 26px rgba(15,23,42,.08); background:#e2e8f0; }
+        .loc-map iframe { width:100%; height:100%; min-height:300px; border:0; display:block; }
+        .loc-info { background:#fff; border-radius:1.2rem; padding:1.5rem; box-shadow:0 10px 26px rgba(15,23,42,.06); display:flex; flex-direction:column; gap:1rem; font-size:.92rem; color:#475569; }
+        .loc-info b { display:block; color:#08747c; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.15rem; }
+        .loc-btns { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:auto; }
+        .loc-btns a { flex:1; text-align:center; padding:.7rem 1rem; border-radius:999px; font-weight:600; font-size:.88rem; text-decoration:none; border:2px solid #08747c; color:#08747c; }
+        .loc-btns a:first-child { background:#08747c; color:#fff; }
+
+        @media (max-width:900px) {
+            .stats { grid-template-columns:1fr 1fr; } .stat:nth-child(2) { border-right:none; } .stat:nth-child(-n+2) { border-bottom:1px solid #eef2f6; }
+            .svc-grid, .pk-grid { grid-template-columns:1fr 1fr; } .loc { grid-template-columns:1fr; }
+            .doc { grid-template-columns:auto 1fr; } .doc .btn-line { grid-column:1 / -1; text-align:center; }
         }
-
-        footer span {
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-left-anim {
-            animation: fadeInUp 0.7s ease-out forwards;
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-                padding: 1.7rem 1.5rem;
-            }
-            .quick-links {
-                grid-template-columns: minmax(0, 1fr);
-            }
-            .pakej-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 700px) {
-            .nav-links {
-                position: absolute;
-                top: 54px;
-                right: 0;
-                background: #ffffff;
-                flex-direction: column;
-                padding: 0.8rem 1.5rem 1rem;
-                box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
-                display: none;
-            }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            main {
-                padding: 1.5rem 1.1rem 2.5rem;
-            }
-
-            .logo-panel-track {
-                animation-duration: 22s;
-                gap: 1.8rem;
-            }
-
-            .pakej-grid {
-                grid-template-columns:minmax(0, 1fr);
-            }
+        @media (max-width:600px) {
+            .hero { min-height:auto; } .hero-inner { padding:3rem 1.2rem 5.5rem; }
+            .hero-overlay { background:linear-gradient(180deg, rgba(5,34,48,.9) 0%, rgba(6,52,70,.78) 60%, rgba(6,60,78,.55) 100%); }
+            .hero-chips { grid-template-columns:1fr; gap:.6rem; } .hero-cta { flex-direction:column; } .btn { width:100%; justify-content:center; padding:.8rem 1.2rem; } .chip { padding:.65rem .9rem; }
+            main.home { padding:0 1.1rem 2.5rem; }
+            .svc-grid, .pk-grid { grid-template-columns:1fr; }
+            .doc { grid-template-columns:1fr; text-align:center; justify-items:center; padding:1.4rem; }
         }
     </style>
+    <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -426,10 +319,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
     <div class="nav">
         <a href="index.html" class="logo">
-            <img src="img/logo-klinik.jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img" width="181" height="100" fetchpriority="high">
-            <div class="logo-text">
-                <span>KLINIK DR AL‑BAGHDADI</span>
-            </div>
+            <img src="img/logo-klinik.jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img" width="105" height="58" fetchpriority="high">
+            <div class="logo-text"><span>KLINIK DR AL‑BAGHDADI</span></div>
         </a>
         <nav class="nav-links" id="navLinks">
             <a href="index.html" class="active">Utama</a>
@@ -439,72 +330,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="team.html">Team Kami</a>
             <a href="contact.html">Hubungi</a>
         </nav>
-        <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <div class="nav-toggle" id="navToggle" aria-label="Buka menu" role="button" tabindex="0">
             <span></span><span></span><span></span>
         </div>
     </div>
 </header>
 
-<main>
-    <section class="hero">
-        <div class="hero-left-anim">
-            <div class="hero-tag">
-                <div class="hero-tag-dot"></div>
-                BUKA <span class="hl">10 PAGI – 10 MALAM</span>
-            </div>
-            <h1>
-                KLINIK <span>KESIHATAN KELUARGA</span><br>
-                untuk penduduk <span class="hl">Putra Nilai &amp; sekitar</span>.
-            </h1>
-            <p class="hero-subtitle">
-                <span class="hl">Klinik Dr. Al Baghdadi</span> ialah klinik Perubatan Am (GP)
-                di Putra Nilai yang memberi fokus kepada
-                <span class="hl">kesihatan keluarga</span>, <span class="hl">sakit lutut &amp; sendi</span>
-                dan <span class="hl">kesihatan lelaki</span>.
-            </p>
-            <div class="hero-cta">
-                <a href="https://wa.me/60103434711" target="_blank">
-                    <button class="btn-primary">WhatsApp +60 10‑343 4711</button>
-                </a>
-            </div>
-            <div class="hero-info">
-                <div class="hero-info-item">
-                    <span>Waktu Operasi</span>
-                    Isnin – Jumaat<br><strong>10:00 pagi – 10:00 malam</strong><br>Rehat: 2:00 – 4:00 petang<br>Sabtu &amp; Ahad: Tutup
-                </div>
-                <div class="hero-info-item">
-                    <span>Lokasi</span>
-                    <strong>L1-5A, Menara A (Akasia)</strong><br>
-                    Youth City Residence, Putra Nilai
-                </div>
-            </div>
+<section class="hero" id="hero">
+    <div class="hero-bg-wrap" id="heroBg"><div class="hero-bg" role="img" aria-label="Ilustrasi bandar Putra Nilai"></div></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-shine"></div>
+    <div class="hero-float" aria-hidden="true"><i style="left:58%;top:18%;font-size:1.6rem;animation-delay:0s">+</i><i style="left:70%;top:62%;font-size:1.1rem;animation-delay:1.5s">+</i><i style="left:86%;top:28%;font-size:2.1rem;animation-delay:3s">+</i><i style="left:48%;top:78%;font-size:1.3rem;animation-delay:4.5s">+</i><i style="left:92%;top:74%;font-size:1.4rem;animation-delay:2.2s">+</i><i style="left:64%;top:40%;font-size:0.9rem;animation-delay:6s">+</i></div>
+    <div class="hero-inner hero-anim">
+        <div><span class="status" id="openStatus"><span class="dot"></span><span id="openText">Isnin – Jumaat · 10:00 pagi – 10:00 malam</span></span></div>
+        <h1>Klinik keluarga anda di <span>Putra Nilai</span></h1>
+        <p class="lead">Klinik perubatan am (GP) di Youth City Residence untuk rawatan harian, penyakit kronik, saringan kesihatan dan sakit sendi, dengan doktor yang sama setiap kali anda datang.</p>
+        <div class="hero-cta">
+            <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20ingin%20membuat%20temu%20janji." target="_blank">💬 WhatsApp untuk temu janji</a>
+            <a class="btn btn-ghost" href="services.html">Lihat perkhidmatan</a>
+        </div>
+        <div class="hero-chips">
+            <div class="chip"><b>🕙 Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div>
+            <div class="chip"><b>📍 Youth City Residence</b>L1‑5A, Menara A (Akasia), Putra Nilai</div>
+            <div class="chip"><b>🪪 6 panel diterima</b>PMCare, PEKA B40, FOMEMA dan lain-lain</div>
+        </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 40 C 240 80 480 0 720 26 S 1200 70 1440 30 V70 H0Z" fill="#f4fbfc"/></svg></div>
+</section>
+
+<main class="home">
+    <section class="stats reveal">
+        <div class="stat"><b>18+</b><span>tahun pengalaman doktor</span></div>
+        <div class="stat"><b>6</b><span>panel &amp; insurans diterima</span></div>
+        <div class="stat"><b>3</b><span>pakej kesihatan</span></div>
+        <div class="stat"><b>1</b><span>doktor residen, rawatan yang konsisten</span></div>
+    </section>
+
+    <section class="h-section reveal">
+        <div class="h-head"><div><h2>Perkhidmatan kami</h2><p>Penjagaan kesihatan untuk seisi keluarga.</p></div><a href="services.html">Semua perkhidmatan &rarr;</a></div>
+        <div class="svc-grid">
+            <a class="svc" href="services.html"><div class="ic">🩺</div><div><b>Perubatan Am (GP)</b><span>Demam, batuk, gastrik dan penyakit harian.</span></div></a>
+            <a class="svc" href="services.html"><div class="ic">❤️</div><div><b>Penyakit Kronik</b><span>Darah tinggi, kencing manis dan kolesterol.</span></div></a>
+            <a class="svc" href="services.html"><div class="ic">🧪</div><div><b>Ujian Saringan</b><span>Ujian pantas, ujian darah dan ECG.</span></div></a>
+            <a class="svc" href="services.html"><div class="ic">🦵</div><div><b>Sakit Lutut &amp; Sendi</b><span>Penilaian, rawatan dan suntikan PRP.</span></div></a>
+            <a class="svc" href="services.html"><div class="ic">🩹</div><div><b>Prosedur Klinik</b><span>Cucian telinga, pembedahan kecil dan dressing.</span></div></a>
+            <a class="svc" href="services.html"><div class="ic">💬</div><div><b>Kesihatan Lelaki</b><span>Perbincangan sulit dan selesa.</span></div></a>
         </div>
     </section>
 
-    <section class="quick-links">
-        <div class="quick-card">
-            <div class="quick-card-title">Perubatan Am &amp; Keluarga</div>
-            <p>
-                Rawatan <span class="hl">demam, batuk, selesema, gastrik</span> &amp; penyakit harian.
-                Sesuai untuk seisi keluarga.
-            </p>
-            <p><a href="services.html" style="color:var(--primary-dark);font-weight:600;">Lihat senarai perkhidmatan &rarr;</a></p>
+    <section class="h-section reveal">
+        <div class="doc">
+            <div class="av">👨‍⚕️</div>
+            <div><small>Kenali doktor anda</small><h3>Dr. Mohd Adnan bin Yaacob</h3><p>MD (UKM) · Berdaftar dengan MMC · Lebih 18 tahun pengalaman di sektor kerajaan dan swasta.</p></div>
+            <a class="btn-line" href="team.html">Kenali team kami</a>
         </div>
-        <div class="quick-card">
-            <div class="quick-card-title">Sakit Lutut &amp; Sendi</div>
-            <p>
-                Penilaian dan rawatan untuk <span class="hl">sakit lutut, sakit belakang &amp; masalah sendi</span>,
-                dengan rujukan lanjut jika perlu.
-            </p>
-            <p><a href="services.html" style="color:var(--primary-dark);font-weight:600;">Lihat perkhidmatan &rarr;</a></p>
-        </div>
-        <div class="quick-card">
-            <div class="quick-card-title">Kesihatan Lelaki</div>
-            <p>
-                Ruang yang selesa &amp; sulit untuk berbincang tentang <span class="hl">kesihatan lelaki</span>,
-                tenaga &amp; kualiti hidup.
-            </p>
-            <p><a href="https://wa.me/60103434711" target="_blank" style="color:var(--primary-dark);font-weight:600;">WhatsApp untuk pertanyaan &rarr;</a></p>
+    </section>
+
+    <section class="h-section reveal">
+        <div class="h-head"><div><h2>Pakej kesihatan</h2><p>Pilihan pakej untuk keperluan yang berbeza.</p></div><a href="packages.html">Lihat semua pakej &rarr;</a></div>
+        <div class="pk-grid">
+            <a class="pk a" href="packages.html"><span class="em">🩸</span><div><b>Pakej Ujian Darah</b><span>FBC, buah pinggang, hati, kolesterol, gula dan asid urik.</span></div><em>Lihat butiran &rarr;</em></a>
+            <a class="pk b" href="packages.html"><span class="em">🦵</span><div><b>Pakej PRP Lutut</b><span>RM200 / sesi (kedua-dua lutut), selepas penilaian doktor.</span></div><em>Lihat butiran &rarr;</em></a>
+            <a class="pk c" href="packages.html"><span class="em">🎓</span><div><b>Pakej Pelajar &amp; Pekerja</b><span>Pemeriksaan untuk IPT, asrama dan kerja baharu.</span></div><em>Lihat butiran &rarr;</em></a>
         </div>
     </section>
 
@@ -566,7 +453,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-   
+    <section class="h-section reveal">
+        <div class="h-head"><div><h2>Lokasi &amp; waktu operasi</h2><p>Mudah ditemui di Youth City Residence, Putra Nilai.</p></div></div>
+        <div class="loc">
+            <div class="loc-map"><iframe loading="lazy" title="Peta lokasi Klinik Dr. Al Baghdadi" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.985321233111!2d101.79319327702348!3d2.8204166971564866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdc76af42d9b9f%3A0xf259bcd4b401410f!2sKLINIK%20DR.%20AL%20BAGHDADI!5e0!3m2!1sen!2smy!4v1794887921841!5m2!1sen!2smy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            <div class="loc-info">
+                <div><b>📍 Alamat</b>L1‑5A, Menara A (Akasia) @ Youth City Residence, Jalan Bandar Belia 1/1, Bandar Wawasan Putra Nilai, 71800 Nilai, Negeri Sembilan</div>
+                <div><b>🕙 Waktu operasi</b>Isnin – Jumaat: 10:00 pagi – 10:00 malam<br>Rehat: 2:00 – 4:00 petang<br>Sabtu &amp; Ahad: Tutup</div>
+                <div><b>📞 Telefon / WhatsApp</b><a href="tel:+60103434711" style="color:#0f172a;text-decoration:none;">+60 10‑343 4711</a></div>
+                <div class="loc-btns">
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Klinik+Dr+Al+Baghdadi+Putra+Nilai" target="_blank">Google Maps</a>
+                    <a href="https://waze.com/ul?q=Klinik%20Dr%20Al%20Baghdadi%20Putra%20Nilai&amp;navigate=yes" target="_blank">Waze</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="t-cta reveal">
+        <h2>Perlu berjumpa doktor?</h2>
+        <p>Hantar mesej WhatsApp untuk bertanya atau menempah slot. Kami akan membalas dalam waktu operasi.</p>
+        <a href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20ingin%20membuat%20temu%20janji." target="_blank">WhatsApp kami</a>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="sf-inner">
+        <div><img src="img/logo-klinik.jpg" alt="Klinik Dr. Al Baghdadi" width="83" height="46" loading="lazy"><p>Klinik perubatan am (GP) keluarga di Youth City Residence, Putra Nilai.</p></div>
+        <div><b>Waktu operasi</b>Isnin – Jumaat<br>10:00 pagi – 10:00 malam<br>Rehat: 2:00 – 4:00 petang<br>Sabtu &amp; Ahad: Tutup</div>
+        <div><b>Alamat</b>L1‑5A, Menara A (Akasia), Youth City Residence, Bandar Wawasan Putra Nilai, 71800 Nilai, Negeri Sembilan</div>
+        <div><b>Hubungi</b><a href="tel:+60103434711">+60 10‑343 4711</a><br><a href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20ada%20pertanyaan." target="_blank">WhatsApp kami</a><br><a href="packages.html">Pakej kesihatan</a></div>
+    </div>
+    <div class="sf-bottom">&copy; 2026 <span>Klinik Dr. Al Baghdadi</span> · Semua hak cipta terpelihara.</div>
+</footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks  = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => navLinks.classList.toggle("open"));
+
+    // Animasi muncul bila skrol
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); } }), { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+    // Kesan parallax pada gambar latar
+    const heroBg = document.getElementById("heroBg");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce) {
+        let ticking = false;
+        window.addEventListener("scroll", () => {
+            if (ticking) return; ticking = true;
+            requestAnimationFrame(() => { const y = Math.min(window.scrollY, 800); heroBg.style.transform = "translate3d(0," + (y * 0.3) + "px,0)"; ticking = false; });
+        }, { passive: true });
+    }
+
+    // Status buka / rehat / tutup (waktu Malaysia)
+    (function () {
+        const el = document.getElementById("openStatus"), txt = document.getElementById("openText");
+        const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" }));
+        const d = now.getDay(), m = now.getHours() * 60 + now.getMinutes();
+        const weekday = d >= 1 && d <= 5;
+        let cls = "tutup", t;
+        if (weekday && ((m >= 600 && m < 840) || (m >= 960 && m < 1320))) { cls = "buka"; t = "Sedang dibuka · tutup 10:00 malam"; if (m < 840) t = "Sedang dibuka · rehat 2:00 petang"; }
+        else if (weekday && m >= 840 && m < 960) { cls = "rehat"; t = "Waktu rehat · dibuka semula 4:00 petang"; }
+        else if (weekday && m < 600) t = "Tutup · dibuka hari ini 10:00 pagi";
+        else if (d >= 1 && d <= 4) t = "Tutup · dibuka esok 10:00 pagi";
+        else t = "Tutup · dibuka Isnin 10:00 pagi";
+        el.classList.add(cls); txt.textContent = t;
+    })();
 </script>
 </body>
 </html>
