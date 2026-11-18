@@ -279,15 +279,20 @@
         .doc .btn-line { border:2px solid #08747c; color:#08747c; padding:.65rem 1.2rem; border-radius:999px; font-weight:600; text-decoration:none; white-space:nowrap; }
         .doc .btn-line:hover { background:#08747c; color:#fff; }
 
-        .gal { display:grid; grid-template-columns:1fr 1fr 1.1fr; gap:1rem; align-items:stretch; }
-        .gal figure { margin:0; position:relative; border-radius:1.2rem; overflow:hidden; box-shadow:0 12px 28px rgba(15,23,42,.12); aspect-ratio:4/5; }
+        .gal { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+        .gal figure { margin:0; position:relative; border-radius:1.2rem; overflow:hidden; box-shadow:0 12px 28px rgba(15,23,42,.12); aspect-ratio:4/5; cursor:zoom-in; background:#e2e8f0; }
+        .gal figure.wide { grid-column:span 2; aspect-ratio:auto; }
         .gal img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
         .gal figure:hover img { transform:scale(1.06); }
-        .gal figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.2rem 1rem .9rem; color:#fff; font-weight:600; font-size:.9rem;
+        .gal figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.2rem 1rem .9rem; color:#fff; font-weight:600; font-size:.88rem;
             background:linear-gradient(0deg, rgba(5,34,48,.85), rgba(5,34,48,0)); }
-        .gal-text { background:#fff; border-radius:1.2rem; padding:1.6rem; box-shadow:0 10px 26px rgba(15,23,42,.06); display:flex; flex-direction:column; justify-content:center; color:#475569; font-size:.92rem; }
-        .gal-text h3 { color:#0f172a; font-size:1.15rem; margin:0 0 .5rem; }
-        .gal-text ul { margin:.6rem 0 0 1.1rem; padding:0; } .gal-text li { margin:.25rem 0; }
+        .lightbox { position:fixed; inset:0; z-index:3000; background:rgba(3,20,30,.88); display:none; align-items:center; justify-content:center; padding:1.2rem; }
+        .lightbox.open { display:flex; animation:fadeIn .25s ease; }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        .lightbox figure { margin:0; max-width:min(92vw,900px); text-align:center; }
+        .lightbox img { max-width:100%; max-height:80vh; border-radius:1rem; box-shadow:0 25px 60px rgba(0,0,0,.5); }
+        .lightbox figcaption { color:#e2e8f0; margin-top:.7rem; font-size:.92rem; }
+        .lightbox button { position:absolute; top:1rem; right:1rem; width:2.6rem; height:2.6rem; border-radius:50%; border:none; background:#fff; font-size:1.4rem; cursor:pointer; }
         .pk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
         .pk { position:relative; overflow:hidden; border-radius:1.1rem; padding:1.3rem 1.3rem 1.2rem; color:#fff; text-decoration:none; min-height:150px;
             display:flex; flex-direction:column; justify-content:space-between; transition:transform .18s, box-shadow .18s; box-shadow:0 10px 26px rgba(15,23,42,.12); }
@@ -309,7 +314,7 @@
 
         @media (max-width:900px) {
             .stats { grid-template-columns:1fr 1fr; } .stat:nth-child(2) { border-right:none; } .stat:nth-child(-n+2) { border-bottom:1px solid #eef2f6; }
-            .svc-grid, .pk-grid { grid-template-columns:1fr 1fr; } .gal { grid-template-columns:1fr 1fr; } .gal-text { grid-column:1 / -1; } .loc { grid-template-columns:1fr; }
+            .svc-grid, .pk-grid { grid-template-columns:1fr 1fr; } .gal { grid-template-columns:1fr 1fr; } .gal figure.wide { aspect-ratio:16/10; } .loc { grid-template-columns:1fr; }
             .doc { grid-template-columns:auto 1fr; } .doc .btn-line { grid-column:1 / -1; text-align:center; }
         }
         @media (max-width:600px) {
@@ -361,22 +366,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20ingin%20membuat%20temu%20janji." target="_blank">💬 WhatsApp untuk temu janji</a>
             <a class="btn btn-ghost" href="services.html">Lihat perkhidmatan</a>
         </div>
-        <div class="hero-chips">
-            <div class="chip"><b>🕙 Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div>
-            <div class="chip"><b>📍 Youth City Residence</b>L1‑5A, Menara A (Akasia), Putra Nilai</div>
-            <div class="chip"><b>🪪 6 panel diterima</b>PMCare, PEKA B40, FOMEMA dan lain-lain</div>
-        </div>
     </div>
     <div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 40 C 240 80 480 0 720 26 S 1200 70 1440 30 V70 H0Z" fill="#f4fbfc"/></svg></div>
 </section>
 
-<main class="home">
-    <section class="stats reveal">
-        <div class="stat"><b>18+</b><span>tahun pengalaman doktor</span></div>
-        <div class="stat"><b>6</b><span>panel &amp; insurans diterima</span></div>
-        <div class="stat"><b>3</b><span>pakej kesihatan</span></div>
-        <div class="stat"><b>1</b><span>doktor residen, rawatan yang konsisten</span></div>
-    </section>
+<main class="home" style="padding-top:1rem;">
 
     <section class="h-section reveal">
         <div class="h-head"><div><h2>Perkhidmatan kami</h2><p>Penjagaan kesihatan untuk seisi keluarga.</p></div><a href="services.html">Semua perkhidmatan &rarr;</a></div>
@@ -399,21 +393,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <section class="h-section reveal">
-        <div class="h-head"><div><h2>Suasana klinik kami</h2><p>Bersih, tenang dan selesa untuk seisi keluarga.</p></div></div>
+        <div class="h-head"><div><h2>Suasana klinik kami</h2><p>Bersih, tenang dan teratur, dari kaunter hingga bilik rawatan. Tekan gambar untuk lihat lebih besar.</p></div></div>
         <div class="gal">
             <figure><img src="img/klinik-kaunter.jpg" alt="Kaunter pendaftaran Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Kaunter pendaftaran</figcaption></figure>
-            <figure><img src="img/klinik-ruang-menunggu.jpg" alt="Ruang menunggu Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Ruang menunggu</figcaption></figure>
-            <div class="gal-text">
-                <h3>Selesa dari saat anda tiba</h3>
-                Ruang menunggu yang lapang dan kaunter yang teratur memudahkan urusan anda.
-                <ul>
-                    <li>Pendaftaran pantas di kaunter</li>
-                    <li>Tempat duduk yang selesa</li>
-                    <li>Bilik rawatan yang bersih dan privasi terjaga</li>
-                </ul>
-            </div>
+            <figure><img src="img/klinik-ruang-menunggu.jpg" alt="Ruang menunggu yang selesa" width="720" height="900" loading="lazy" decoding="async"><figcaption>Ruang menunggu</figcaption></figure>
+            <figure><img src="img/klinik-bilik-rawatan.jpg" alt="Bilik rawatan dengan tirai privasi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Bilik rawatan dengan tirai privasi</figcaption></figure>
+            <figure><img src="img/klinik-peralatan.jpg" alt="Troli prosedur dan ubat yang tersusun" width="720" height="900" loading="lazy" decoding="async"><figcaption>Peralatan prosedur yang tersusun</figcaption></figure>
+            <figure class="wide"><img src="img/klinik-sijil.jpg" alt="Sijil pendaftaran klinik dan doktor dipamerkan" width="1000" height="569" loading="lazy" decoding="async"><figcaption>Sijil pendaftaran doktor &amp; klinik dipamerkan di klinik</figcaption></figure>
         </div>
     </section>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true"><button aria-label="Tutup">×</button><figure><img alt=""><figcaption></figcaption></figure></div>
 
     <section class="h-section reveal">
         <div class="h-head"><div><h2>Pakej kesihatan</h2><p>Pilihan pakej untuk keperluan yang berbeza.</p></div><a href="packages.html">Lihat semua pakej &rarr;</a></div>
@@ -534,6 +524,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             requestAnimationFrame(() => { const y = Math.min(window.scrollY, 800); heroBg.style.transform = "translate3d(0," + (y * 0.3) + "px,0)"; ticking = false; });
         }, { passive: true });
     }
+
+    // Lightbox galeri
+    const lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img"), lbCap = lb.querySelector("figcaption");
+    document.querySelectorAll(".gal figure").forEach(fg => fg.addEventListener("click", () => {
+        const im = fg.querySelector("img"); lbImg.src = im.src; lbImg.alt = im.alt; lbCap.textContent = fg.querySelector("figcaption").textContent;
+        lb.classList.add("open"); document.body.style.overflow = "hidden";
+    }));
+    const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
+    lb.addEventListener("click", e => { if (e.target === lb || e.target.tagName === "BUTTON") closeLb(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
 
     // Status buka / rehat / tutup (waktu Malaysia)
     (function () {
