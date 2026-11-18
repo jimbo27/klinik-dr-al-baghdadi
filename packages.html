@@ -247,6 +247,9 @@
         .pkg-note { font-size:0.78rem; color:#6b7280; margin-top:0.7rem; }
         .pkg-footer-note { margin-top:2rem; font-size:0.85rem; color:#6b7280; max-width:760px; }
         .pkg-card { cursor:pointer; }
+        .pkg-card { scroll-margin-top:100px; }
+        .pkg-card.flash { animation:flash 1.8s ease 2; }
+        @keyframes flash { 0%,100% { box-shadow:0 8px 24px rgba(15,23,42,.06); } 40% { box-shadow:0 0 0 4px #0c9faa, 0 18px 40px rgba(12,159,170,.35); transform:translateY(-4px); } }
         .pkg-hint { font-size:0.78rem; color:#0c9faa; font-weight:600; margin-top:0.2rem; }
         .poster-backdrop { position:fixed; inset:0; background:rgba(15,23,42,.7); display:none; align-items:center; justify-content:center; z-index:2000; padding:1rem; }
         .poster-wrap { position:relative; display:flex; flex-direction:column; align-items:center; gap:0.8rem; max-width:100%; }
@@ -426,7 +429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 
     <div class="pkg-grid">
-        <div class="pkg-card" data-poster="darah">
+        <div class="pkg-card" id="pakej-darah" data-poster="darah">
             <div class="pkg-icon">🩸</div>
             <div class="pkg-title">Pakej Ujian Darah</div>
             <div class="pkg-hint">👆 Klik untuk lihat poster</div>
@@ -446,7 +449,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Ujian%20Darah.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
         </div>
 
-        <div class="pkg-card" data-poster="prp">
+        <div class="pkg-card" id="pakej-prp" data-poster="prp">
             <div class="pkg-icon">🦵</div>
             <div class="pkg-title">Pakej PRP Lutut</div>
             <div class="pkg-hint">👆 Klik untuk lihat poster</div>
@@ -463,7 +466,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pkg-note">Kesesuaian rawatan ditentukan selepas pemeriksaan doktor. Hasil rawatan berbeza bagi setiap individu.</div>
         </div>
 
-        <div class="pkg-card" data-poster="pelajar">
+        <div class="pkg-card" id="pakej-pelajar" data-poster="pelajar">
             <div class="pkg-icon">🎓💼</div>
             <div class="pkg-title">Pakej Pelajar &amp; Pekerja</div>
             <div class="pkg-hint">👆 Klik untuk lihat poster</div>
@@ -479,7 +482,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pkg-price">Harga istimewa pelajar &amp; pekerja<small>Sila bawa IC, kad pelajar / surat tawaran kerja, dan borang perubatan anda.</small></div>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar%20%26%20Pekerja.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
         </div>
-        <div class="pkg-card hero-pk" data-poster="hero">
+        <div class="pkg-card hero-pk" id="pakej-hero" data-poster="hero">
             <div class="pkg-icon">🦸</div>
             <div class="pkg-title">Pakej Hero</div>
             <div class="pkg-hint">👆 Klik untuk lihat poster</div>
@@ -496,7 +499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pkg-note">Tertakluk kepada terma &amp; syarat klinik.</div>
         </div>
 
-        <div class="pkg-card haji wide" data-poster="haji">
+        <div class="pkg-card haji wide" id="pakej-haji" data-poster="haji">
             <div class="pkg-icon">🕋</div>
             <div class="pkg-title">Pakej Haji &amp; Umrah</div>
             <div class="pkg-hint">👆 Klik untuk lihat poster</div>
@@ -589,6 +592,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
     cards.forEach(c => observer.observe(c));
+    // Terus ke pakej bila datang dari pautan (cth. packages.html#pakej-darah)
+    function goToPackage() {
+        const el = location.hash && document.querySelector(location.hash);
+        if (!el || !el.classList.contains("pkg-card")) return;
+        el.classList.add("in-view");
+        setTimeout(() => {
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+            el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+        }, 150);
+    }
+    window.addEventListener("load", goToPackage);
+    window.addEventListener("hashchange", goToPackage);
     const posters = {
         darah:   { tpl: "tpl-darah",   wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Ujian%20Darah.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
         prp:     { video: "media/poster-prp-lutut.mp4", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20PRP%20Lutut.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
