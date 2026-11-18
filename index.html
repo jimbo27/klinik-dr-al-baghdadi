@@ -162,11 +162,11 @@
             display: flex;
             align-items: center;
             gap: 2.5rem;
-            animation: logoScroll 18s linear infinite;
+            animation: logoScroll 30s linear infinite;
             will-change: transform;
         }
 
-        .logo-panel-item {
+        .logo-panel-item { flex-shrink:0;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -191,7 +191,9 @@
             display: block;
         }
 
-        .logo-panel-caption {
+        .logo-badge { height:34px; width:34px; justify-content:center; display:inline-flex; align-items:center; padding:0; border-radius:8px; color:#fff; font-weight:700; font-size:.72rem; letter-spacing:.03em; }
+        .logo-panel-caption { white-space:nowrap;
+
             font-size: 0.8rem;
             color: #0f172a;
             font-weight: 600;
@@ -418,6 +420,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="img/panel-peka-b40.jpg" alt="Peka B40" class="logo-panel-img" loading="lazy" decoding="async">
                 <div class="logo-panel-caption">Peka B40</div>
             </div>
+            <div class="logo-panel-item">
+                <span class="logo-badge" style="background:#0b3d91;" aria-hidden="true">🛡️</span>
+                <div class="logo-panel-caption">PERKESO</div>
+            </div>
+            <div class="logo-panel-item">
+                <span class="logo-badge" style="background:#1f3a8a;" aria-hidden="true">🏛️</span>
+                <div class="logo-panel-caption">LHDN</div>
+            </div>
+            <div class="logo-panel-item">
+                <span class="logo-badge" style="background:linear-gradient(135deg,#f97316,#16a34a);" aria-hidden="true">7</span>
+                <div class="logo-panel-caption">7‑Eleven</div>
+            </div>
 
             <!-- Gandakan untuk animasi berterusan -->
             <div class="logo-panel-item">
@@ -443,6 +457,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="logo-panel-item">
                 <img src="img/panel-peka-b40.jpg" alt="Peka B40" class="logo-panel-img" loading="lazy" decoding="async">
                 <div class="logo-panel-caption">Peka B40</div>
+            </div>
+            <div class="logo-panel-item">
+                <span class="logo-badge" style="background:#0b3d91;" aria-hidden="true">🛡️</span>
+                <div class="logo-panel-caption">PERKESO</div>
+            </div>
+            <div class="logo-panel-item">
+                <span class="logo-badge" style="background:#1f3a8a;" aria-hidden="true">🏛️</span>
+                <div class="logo-panel-caption">LHDN</div>
+            </div>
+            <div class="logo-panel-item">
+                <span class="logo-badge" style="background:linear-gradient(135deg,#f97316,#16a34a);" aria-hidden="true">7</span>
+                <div class="logo-panel-caption">7‑Eleven</div>
             </div>
         </div>
     </section>

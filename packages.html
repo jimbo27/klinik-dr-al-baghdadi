@@ -19,7 +19,7 @@
 
 
     <title>Pakej Kesihatan | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Pakej kesihatan Klinik Dr. Al Baghdadi di Putra Nilai: Pakej Ujian Darah (RM68), Pakej PRP Lutut dan Pakej Pelajar &amp; Pekerja. WhatsApp untuk harga dan temu janji.">
+    <meta name="description" content="Pakej kesihatan Klinik Dr. Al Baghdadi di Putra Nilai: Pakej Ujian Darah (RM68), Pakej PRP Lutut, Pakej Pelajar &amp; Pekerja, Pakej Hero (10% diskaun) dan Pakej Haji &amp; Umrah. WhatsApp untuk harga dan temu janji.">
     <style>
         body {
             font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -276,8 +276,34 @@
         .hp-price span { font-size:2.6cqw; color:#475569; }
         .hp-foot { margin-top:3cqw; background:#0b4f6c; color:#fff; display:grid; grid-template-columns:1fr 1.3fr 1.1fr; gap:2.5cqw; padding:3cqw 4cqw; font-size:2.3cqw; line-height:1.3; }
         .hp-foot b { display:block; font-size:2.6cqw; }
-        @media (max-width:900px) { .pkg-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-        @media (max-width:700px) { .pkg-grid { grid-template-columns:minmax(0,1fr); } }
+        .pkg-card.wide { grid-column:span 2; }
+        .pkg-card.hero-pk { border-top-color:#dc2626; }
+        .pkg-card.haji { border-top-color:#b45309; }
+        .pkg-badge { display:inline-block; background:#fee2e2; color:#b91c1c; font-weight:700; font-size:0.78rem; padding:0.2rem 0.7rem; border-radius:999px; margin-bottom:0.4rem; }
+        .tiers { display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; margin:0.6rem 0 1rem; flex:1; }
+        .tier { border:1px solid #fde68a; background:#fffbeb; border-radius:0.8rem; padding:0.75rem 0.9rem; }
+        .tier.best { border-color:#b45309; background:#fff7ed; position:relative; }
+        .tier.best::after { content:"Paling lengkap"; position:absolute; top:-0.6rem; right:0.7rem; background:#b45309; color:#fff; font-size:0.68rem; font-weight:700; padding:0.1rem 0.55rem; border-radius:999px; }
+        .tier b { display:block; font-size:1.15rem; color:#92400e; }
+        .tier span { display:block; font-weight:600; color:#0f172a; font-size:0.85rem; }
+        .tier small { color:#6b7280; font-size:0.78rem; line-height:1.4; display:block; margin-top:0.2rem; }
+        .agency { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.5rem 0 0.2rem; }
+        .agency span { background:#f1f5f9; border-radius:999px; padding:0.25rem 0.7rem; font-size:0.8rem; }
+        /* poster tiers */
+        .hp-tiers { margin:2.5cqw 5cqw 0; display:grid; grid-template-columns:1fr 1fr; gap:2cqw; }
+        .hp-tier { background:#fff; border-radius:2.5cqw; padding:2.2cqw 2.6cqw; box-shadow:0 1cqw 3cqw rgba(15,23,42,.08); border-top:0.9cqw solid #d97706; }
+        .hp-tier b { display:block; font-size:5.4cqw; color:#92400e; line-height:1.1; }
+        .hp-tier span { display:block; font-weight:700; font-size:2.9cqw; color:#0f172a; margin:0.4cqw 0; }
+        .hp-tier small { display:block; font-size:2.35cqw; color:#475569; line-height:1.35; }
+        .hp.gold { background:linear-gradient(180deg,#ffffff 0%,#fff7e6 60%,#fdecc8 100%); }
+        .hp.gold .hp-title { color:#7c2d12; } .hp.gold .hp-kicker { color:#b45309; } .hp.gold .hp-foot { background:#7c2d12; }
+        .hp.red { background:linear-gradient(180deg,#ffffff 0%,#fff1f2 60%,#ffe4e6 100%); }
+        .hp.red .hp-title { color:#991b1b; } .hp.red .hp-kicker { color:#dc2626; } .hp.red .hp-band { background:#b91c1c; } .hp.red .hp-price { border-color:#dc2626; } .hp.red .hp-price b { color:#991b1b; } .hp.red .hp-foot { background:#7f1d1d; }
+        .hp-big { margin:3cqw 5cqw 0; text-align:center; }
+        .hp-big b { display:block; font-size:22cqw; line-height:.9; color:#b91c1c; font-weight:800; letter-spacing:-.02em; }
+        .hp-big span { font-size:4.2cqw; font-weight:700; color:#7f1d1d; letter-spacing:.08em; }
+        @media (max-width:900px) { .pkg-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .pkg-card.wide { grid-column:1 / -1; } }
+        @media (max-width:700px) { .pkg-grid { grid-template-columns:minmax(0,1fr); } .pkg-card.wide { grid-column:auto; } .tiers { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="css/common.css">
 </head>
@@ -367,6 +393,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pkg-price">Harga istimewa pelajar &amp; pekerja<small>Sila bawa IC, kad pelajar / surat tawaran kerja, dan borang perubatan anda.</small></div>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar%20%26%20Pekerja.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
         </div>
+        <div class="pkg-card hero-pk" data-poster="hero">
+            <div class="pkg-icon">🦸</div>
+            <div class="pkg-title">Pakej Hero</div>
+            <div class="pkg-hint">👆 Klik untuk lihat poster</div>
+            <div class="pkg-desc">Penghargaan khas untuk barisan hadapan negara.</div>
+            <span class="pkg-badge">10% DISKAUN</span>
+            <div class="pkg-label">Untuk warga:</div>
+            <div class="agency"><span>🏥 KKM</span><span>🚒 Bomba</span><span>👮 Polis</span><span>🪖 Tentera (ATM)</span></div>
+            <ul>
+                <li>10% diskaun bagi kos rawatan &amp; konsultasi</li>
+                <li>Termasuk pakej kesihatan di klinik</li>
+            </ul>
+            <div class="pkg-price">10% diskaun<small>Sila tunjukkan kad kuasa / kad pekerja yang sah semasa pendaftaran.</small></div>
+            <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Hero%20%2810%25%20diskaun%29.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" target="_blank">Tanya melalui WhatsApp</a>
+            <div class="pkg-note">Tertakluk kepada terma &amp; syarat klinik.</div>
+        </div>
+
+        <div class="pkg-card haji wide" data-poster="haji">
+            <div class="pkg-icon">🕋</div>
+            <div class="pkg-title">Pakej Haji &amp; Umrah</div>
+            <div class="pkg-hint">👆 Klik untuk lihat poster</div>
+            <div class="pkg-desc">Persediaan kesihatan dan vaksinasi sebelum berangkat ke Tanah Suci. Pilih pakej yang sesuai:</div>
+            <div class="tiers">
+                <div class="tier"><b>RM120</b><span>Pakej Asas</span><small>Pemeriksaan kesihatan, ujian darah FBC &amp; RBS (gula), pemeriksaan jantung (ECG)</small></div>
+                <div class="tier"><b>RM250</b><span>Pakej Asas + Vaksin</span><small>Pakej Asas + vaksin Meningococcal</small></div>
+                <div class="tier"><b>RM470</b><span>Pakej Vaksin</span><small>Vaksin Meningococcal, Pneumococcal &amp; Influenza</small></div>
+                <div class="tier best"><b>RM570</b><span>Pakej Lengkap</span><small>Ketiga-tiga vaksin + pemeriksaan kesihatan, ujian darah &amp; ECG</small></div>
+            </div>
+            <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Haji%20%26%20Umrah.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
+            <div class="pkg-note">Sijil vaksin Meningococcal diperlukan bagi jemaah haji &amp; umrah. Kesesuaian vaksin ditentukan oleh doktor.</div>
+        </div>
     </div>
 
     <p class="pkg-footer-note">
@@ -390,6 +447,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul class="hp-list"><li><i>🧪</i>Kiraan darah penuh (FBC)</li><li><i>🫘</i>Fungsi buah pinggang</li><li><i>🫀</i>Profil kolesterol penuh</li><li><i>🧬</i>Fungsi hati</li><li><i>🍬</i>Paras gula dalam darah</li><li><i>🦶</i>Asid urik (gout)</li><li><i>📊</i>HbA1c (kencing manis)</li><li><i>👨‍⚕️</i>Penerangan keputusan oleh doktor</li></ul>
 <div class="hp-note">* Sesetengah ujian memerlukan puasa 8–10 jam.</div>
 <div class="hp-price"><b>RM68 sahaja</b><span>Tempah slot anda hari ini</span></div>
+<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
+<template id="tpl-hero"><div class="hp red"><div class="hp-top"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
+<div class="hp-kicker">Terima kasih, barisan hadapan negara</div>
+<div class="hp-title">PAKEJ HERO</div>
+<div class="hp-big"><b>10%</b><span>DISKAUN RAWATAN</span></div>
+<ul class="hp-list"><li><i>🏥</i>Warga KKM</li><li><i>🚒</i>Bomba &amp; Penyelamat</li><li><i>👮</i>Polis (PDRM)</li><li><i>🪖</i>Tentera (ATM)</li></ul>
+<div class="hp-note">* Tunjukkan kad kuasa / kad pekerja yang sah semasa pendaftaran. Tertakluk kepada terma &amp; syarat.</div>
+<div class="hp-price"><b>WhatsApp untuk temu janji</b><span>Konsultasi, rawatan &amp; pakej kesihatan</span></div>
+<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
+<template id="tpl-haji"><div class="hp gold"><div class="hp-top"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
+<div class="hp-kicker">Persediaan kesihatan ke Tanah Suci</div>
+<div class="hp-title">PAKEJ HAJI<br>&amp; UMRAH</div>
+<div class="hp-tiers">
+<div class="hp-tier"><b>RM120</b><span>Pakej Asas</span><small>Pemeriksaan kesihatan, ujian darah FBC &amp; RBS, pemeriksaan jantung (ECG)</small></div>
+<div class="hp-tier"><b>RM250</b><span>Asas + Vaksin</span><small>Pakej Asas + vaksin Meningococcal</small></div>
+<div class="hp-tier"><b>RM470</b><span>Pakej Vaksin</span><small>Meningococcal, Pneumococcal &amp; Influenza</small></div>
+<div class="hp-tier"><b>RM570</b><span>Pakej Lengkap</span><small>3 vaksin + pemeriksaan kesihatan, ujian darah &amp; ECG</small></div>
+</div>
+<div class="hp-note">* Sijil vaksin Meningococcal diperlukan bagi jemaah haji &amp; umrah. Kesesuaian vaksin ditentukan oleh doktor.</div>
+<div class="hp-price" style="border-color:#d97706"><b style="color:#7c2d12">WhatsApp untuk tempahan</b><span>Datang sekurang-kurangnya 2 minggu sebelum berlepas</span></div>
 <div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
 <template id="tpl-pelajar"><div class="hp"><div class="hp-top"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
 <div class="hp-kicker">Masuk IPT · Asrama · Kerja baharu</div>
@@ -426,7 +503,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const posters = {
         darah:   { tpl: "tpl-darah",   wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Ujian%20Darah.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
         prp:     { video: "media/poster-prp-lutut.mp4", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20PRP%20Lutut.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
-        pelajar: { tpl: "tpl-pelajar", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar%20%26%20Pekerja.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" }
+        pelajar: { tpl: "tpl-pelajar", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar%20%26%20Pekerja.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
+        hero:    { tpl: "tpl-hero",    wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Hero%20%2810%25%20diskaun%29.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" },
+        haji:    { tpl: "tpl-haji",    wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Haji%20%26%20Umrah.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" }
     };
     const pBackdrop = document.getElementById("posterBackdrop");
     const pMedia = document.getElementById("posterMedia");
