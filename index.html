@@ -9,7 +9,8 @@
     })(window,document,'script','dataLayer','GTM-5HT9VD33');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
-    <link rel="preload" as="image" href="img/hero-bg.svg">
+    <link rel="preload" as="image" href="img/hero-klinik.jpg" media="(min-width: 601px)">
+    <link rel="preload" as="image" href="img/hero-klinik-mobile.jpg" media="(max-width: 600px)">
     <link rel="icon" href="img/logo-klinik.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -205,12 +206,14 @@
         body { background:#f4fbfc !important; }
         main.home { max-width:1100px; margin:0 auto; padding:0 1.5rem 3rem; }
         /* ---------- HERO ---------- */
-        .hero { position:relative; overflow:hidden; color:#fff; min-height:min(84vh,700px); display:flex; align-items:center; isolation:isolate; }
+        .hero { position:relative; overflow:hidden; color:#fff; background:#062d40; min-height:min(84vh,700px); display:flex; align-items:center; isolation:isolate; }
         .hero-bg-wrap { position:absolute; inset:-8% 0 -8% 0; z-index:-3; will-change:transform; }
-        .hero-bg { position:absolute; inset:0; background:url("img/hero-bg.svg") center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; transform-origin:70% 40%; }
+        .hero-bg { position:absolute; inset:0; background:#0b4f6c url("img/hero-klinik.jpg") 50% 40%/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; transform-origin:70% 40%; }
         @keyframes kenburns { from { transform:scale(1); } to { transform:scale(1.14) translate3d(-2%,-1.5%,0); } }
         .hero-overlay { position:absolute; inset:0; z-index:-2;
-            background:linear-gradient(100deg, rgba(5,34,48,.92) 0%, rgba(6,52,70,.72) 42%, rgba(6,60,78,.18) 78%, rgba(6,60,78,0) 100%); }
+            background:linear-gradient(90deg, #062d40 0%, #062d40 34%, rgba(6,45,64,.75) 46%, rgba(6,45,64,.25) 66%, rgba(6,45,64,.05) 100%),
+                       linear-gradient(0deg, rgba(5,34,48,.45), rgba(5,34,48,0) 40%); }
+        @media (min-width:601px) { .hero-bg-wrap { left:34%; } }
         .hero-shine { position:absolute; inset:0; z-index:-1; pointer-events:none;
             background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,.10) 45%, transparent 55%);
             background-size:250% 100%; animation:shine 9s ease-in-out infinite; }
@@ -276,6 +279,15 @@
         .doc .btn-line { border:2px solid #08747c; color:#08747c; padding:.65rem 1.2rem; border-radius:999px; font-weight:600; text-decoration:none; white-space:nowrap; }
         .doc .btn-line:hover { background:#08747c; color:#fff; }
 
+        .gal { display:grid; grid-template-columns:1fr 1fr 1.1fr; gap:1rem; align-items:stretch; }
+        .gal figure { margin:0; position:relative; border-radius:1.2rem; overflow:hidden; box-shadow:0 12px 28px rgba(15,23,42,.12); aspect-ratio:4/5; }
+        .gal img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+        .gal figure:hover img { transform:scale(1.06); }
+        .gal figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.2rem 1rem .9rem; color:#fff; font-weight:600; font-size:.9rem;
+            background:linear-gradient(0deg, rgba(5,34,48,.85), rgba(5,34,48,0)); }
+        .gal-text { background:#fff; border-radius:1.2rem; padding:1.6rem; box-shadow:0 10px 26px rgba(15,23,42,.06); display:flex; flex-direction:column; justify-content:center; color:#475569; font-size:.92rem; }
+        .gal-text h3 { color:#0f172a; font-size:1.15rem; margin:0 0 .5rem; }
+        .gal-text ul { margin:.6rem 0 0 1.1rem; padding:0; } .gal-text li { margin:.25rem 0; }
         .pk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
         .pk { position:relative; overflow:hidden; border-radius:1.1rem; padding:1.3rem 1.3rem 1.2rem; color:#fff; text-decoration:none; min-height:150px;
             display:flex; flex-direction:column; justify-content:space-between; transition:transform .18s, box-shadow .18s; box-shadow:0 10px 26px rgba(15,23,42,.12); }
@@ -297,11 +309,11 @@
 
         @media (max-width:900px) {
             .stats { grid-template-columns:1fr 1fr; } .stat:nth-child(2) { border-right:none; } .stat:nth-child(-n+2) { border-bottom:1px solid #eef2f6; }
-            .svc-grid, .pk-grid { grid-template-columns:1fr 1fr; } .loc { grid-template-columns:1fr; }
+            .svc-grid, .pk-grid { grid-template-columns:1fr 1fr; } .gal { grid-template-columns:1fr 1fr; } .gal-text { grid-column:1 / -1; } .loc { grid-template-columns:1fr; }
             .doc { grid-template-columns:auto 1fr; } .doc .btn-line { grid-column:1 / -1; text-align:center; }
         }
         @media (max-width:600px) {
-            .hero { min-height:auto; } .hero-inner { padding:3rem 1.2rem 5.5rem; }
+            .hero { min-height:auto; } .hero-bg { background-image:url("img/hero-klinik-mobile.jpg"); background-position:50% 30%; } .hero-inner { padding:3rem 1.2rem 5.5rem; }
             .hero-overlay { background:linear-gradient(180deg, rgba(5,34,48,.9) 0%, rgba(6,52,70,.78) 60%, rgba(6,60,78,.55) 100%); }
             .hero-chips { grid-template-columns:1fr; gap:.6rem; } .hero-cta { flex-direction:column; } .btn { width:100%; justify-content:center; padding:.8rem 1.2rem; } .chip { padding:.65rem .9rem; }
             main.home { padding:0 1.1rem 2.5rem; }
@@ -337,7 +349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <section class="hero" id="hero">
-    <div class="hero-bg-wrap" id="heroBg"><div class="hero-bg" role="img" aria-label="Ilustrasi bandar Putra Nilai"></div></div>
+    <div class="hero-bg-wrap" id="heroBg"><div class="hero-bg" role="img" aria-label="Kaunter pendaftaran Klinik Dr. Al Baghdadi"></div></div>
     <div class="hero-overlay"></div>
     <div class="hero-shine"></div>
     <div class="hero-float" aria-hidden="true"><i style="left:58%;top:18%;font-size:1.6rem;animation-delay:0s">+</i><i style="left:70%;top:62%;font-size:1.1rem;animation-delay:1.5s">+</i><i style="left:86%;top:28%;font-size:2.1rem;animation-delay:3s">+</i><i style="left:48%;top:78%;font-size:1.3rem;animation-delay:4.5s">+</i><i style="left:92%;top:74%;font-size:1.4rem;animation-delay:2.2s">+</i><i style="left:64%;top:40%;font-size:0.9rem;animation-delay:6s">+</i></div>
@@ -383,6 +395,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="av">👨‍⚕️</div>
             <div><small>Kenali doktor anda</small><h3>Dr. Mohd Adnan bin Yaacob</h3><p>MD (UKM) · Berdaftar dengan MMC · Lebih 18 tahun pengalaman di sektor kerajaan dan swasta.</p></div>
             <a class="btn-line" href="team.html">Kenali team kami</a>
+        </div>
+    </section>
+
+    <section class="h-section reveal">
+        <div class="h-head"><div><h2>Suasana klinik kami</h2><p>Bersih, tenang dan selesa untuk seisi keluarga.</p></div></div>
+        <div class="gal">
+            <figure><img src="img/klinik-kaunter.jpg" alt="Kaunter pendaftaran Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Kaunter pendaftaran</figcaption></figure>
+            <figure><img src="img/klinik-ruang-menunggu.jpg" alt="Ruang menunggu Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Ruang menunggu</figcaption></figure>
+            <div class="gal-text">
+                <h3>Selesa dari saat anda tiba</h3>
+                Ruang menunggu yang lapang dan kaunter yang teratur memudahkan urusan anda.
+                <ul>
+                    <li>Pendaftaran pantas di kaunter</li>
+                    <li>Tempat duduk yang selesa</li>
+                    <li>Bilik rawatan yang bersih dan privasi terjaga</li>
+                </ul>
+            </div>
         </div>
     </section>
 
