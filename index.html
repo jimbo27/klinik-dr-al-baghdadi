@@ -158,13 +158,23 @@
             margin-bottom: 0.6rem;
         }
 
+        .logo-panel-viewport { position:relative; }
+        .logo-panel-scroll { overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -webkit-overflow-scrolling:touch; cursor:grab; padding:.4rem 0;
+            -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
+        .logo-panel-scroll::-webkit-scrollbar { display:none; }
+        .logo-panel-scroll.dragging { cursor:grabbing; }
+        .logo-panel-scroll.dragging * { pointer-events:none; user-select:none; }
         .logo-panel-track {
             display: flex;
             align-items: center;
             gap: 2.5rem;
-            animation: logoScroll 30s linear infinite;
-            will-change: transform;
+            width: max-content;
         }
+        .lp-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:2.2rem; height:2.2rem; border-radius:50%; border:none; background:#fff;
+            box-shadow:0 4px 14px rgba(15,23,42,.18); color:#08747c; font-size:1.1rem; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+        .lp-arrow:hover { background:#08747c; color:#fff; }
+        .lp-arrow.prev { left:-.4rem; } .lp-arrow.next { right:-.4rem; }
+        .logo-panel-hint { font-size:.75rem; color:#94a3b8; margin-top:.4rem; text-align:center; }
 
         .logo-panel-item { flex-shrink:0;
             display: inline-flex;
@@ -289,13 +299,19 @@
         .gal figure:hover img { transform:scale(1.06); }
         .gal figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.2rem 1rem .9rem; color:#fff; font-weight:600; font-size:.88rem;
             background:linear-gradient(0deg, rgba(5,34,48,.85), rgba(5,34,48,0)); }
-        .lightbox { position:fixed; inset:0; z-index:3000; background:rgba(3,20,30,.88); display:none; align-items:center; justify-content:center; padding:1.2rem; }
+        .lightbox { position:fixed; inset:0; z-index:3000; background:rgba(3,20,30,.97); display:none; flex-direction:column; justify-content:center; }
         .lightbox.open { display:flex; animation:fadeIn .25s ease; }
         @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        .lightbox figure { margin:0; max-width:min(92vw,900px); text-align:center; }
-        .lightbox img { max-width:100%; max-height:80vh; border-radius:1rem; box-shadow:0 25px 60px rgba(0,0,0,.5); }
-        .lightbox figcaption { color:#e2e8f0; margin-top:.7rem; font-size:.92rem; }
-        .lightbox button { position:absolute; top:1rem; right:1rem; width:2.6rem; height:2.6rem; border-radius:50%; border:none; background:#fff; font-size:1.4rem; cursor:pointer; }
+        .lb-track { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; width:100%; -webkit-overflow-scrolling:touch; }
+        .lb-track::-webkit-scrollbar { display:none; }
+        .lb-slide { flex:0 0 100%; scroll-snap-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 3.5rem; }
+        .lb-slide img { max-width:100%; max-height:78vh; border-radius:1rem; box-shadow:0 25px 60px rgba(0,0,0,.5); object-fit:contain; }
+        .lb-slide p { color:#e2e8f0; margin:.8rem 0 0; font-size:.92rem; text-align:center; }
+        .lb-close { position:absolute; top:1rem; right:1rem; z-index:2; width:2.6rem; height:2.6rem; border-radius:50%; border:none; background:#fff; font-size:1.4rem; cursor:pointer; }
+        .lb-nav { position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:2.8rem; height:2.8rem; border-radius:50%; border:none; background:rgba(255,255,255,.9); font-size:1.6rem; font-weight:700; color:#0b4f6c; cursor:pointer; }
+        .lb-nav.prev { left:.8rem; } .lb-nav.next { right:.8rem; }
+        .lb-count { position:absolute; bottom:1.2rem; left:0; right:0; text-align:center; color:#cbd5e1; font-size:.85rem; letter-spacing:.08em; }
+        @media (max-width:600px) { .lb-slide { padding:0 .8rem; } .lb-nav { width:2.3rem; height:2.3rem; font-size:1.3rem; background:rgba(255,255,255,.75); } }
         .pk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
         .pk { position:relative; overflow:hidden; border-radius:1.1rem; padding:1.3rem 1.3rem 1.2rem; color:#fff; text-decoration:none; min-height:150px;
             display:flex; flex-direction:column; justify-content:space-between; transition:transform .18s, box-shadow .18s; box-shadow:0 10px 26px rgba(15,23,42,.12); }
@@ -388,12 +404,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <div class="lightbox" id="lightbox" aria-hidden="true"><button aria-label="Tutup">×</button><figure><img alt=""><figcaption></figcaption></figure></div>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lb-close" aria-label="Tutup">×</button>
+        <button class="lb-nav prev" aria-label="Gambar sebelum">&#8249;</button>
+        <div class="lb-track" id="lbTrack"></div>
+        <button class="lb-nav next" aria-label="Gambar seterusnya">&#8250;</button>
+        <div class="lb-count" id="lbCount"></div>
+    </div>
 
 
     <!-- PANEL LOGO BERGERAK -->
     <section class="logo-panel">
         <div class="logo-panel-title">Panel &amp; Rakan Kerjasama</div>
+        <div class="logo-panel-viewport">
+        <button class="lp-arrow prev" aria-label="Ke kiri">&#8249;</button>
+        <button class="lp-arrow next" aria-label="Ke kanan">&#8250;</button>
+        <div class="logo-panel-scroll" id="panelScroll">
         <div class="logo-panel-track">
             <!-- Set pertama -->
             <div class="logo-panel-item">
@@ -471,6 +497,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="logo-panel-caption">7‑Eleven</div>
             </div>
         </div>
+        </div>
+        </div>
+        <div class="logo-panel-hint">← Leret untuk lihat semua panel →</div>
     </section>
 
 
@@ -511,15 +540,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }, { passive: true });
     }
 
-    // Lightbox galeri
-    const lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img"), lbCap = lb.querySelector("figcaption");
-    document.querySelectorAll(".gal figure").forEach(fg => fg.addEventListener("click", () => {
-        const im = fg.querySelector("img"); lbImg.src = im.src; lbImg.alt = im.alt; lbCap.textContent = fg.querySelector("figcaption").textContent;
+    // Lightbox galeri: leret kiri/kanan untuk gambar lain
+    const lb = document.getElementById("lightbox"), lbTrack = document.getElementById("lbTrack"), lbCount = document.getElementById("lbCount");
+    const figs = [...document.querySelectorAll(".gal figure")];
+    figs.forEach(fg => {
+        const im = fg.querySelector("img"), sl = document.createElement("div");
+        sl.className = "lb-slide";
+        sl.innerHTML = '<img loading="lazy" alt=""><p></p>';
+        sl.querySelector("img").src = im.getAttribute("src"); sl.querySelector("img").alt = im.alt;
+        sl.querySelector("p").textContent = fg.querySelector("figcaption").textContent;
+        lbTrack.appendChild(sl);
+    });
+    const slideW = () => lbTrack.clientWidth;
+    const curIdx = () => Math.round(lbTrack.scrollLeft / slideW());
+    const showCount = () => { lbCount.textContent = (curIdx() + 1) + " / " + figs.length; };
+    const goTo = (i, smooth = true) => { i = (i + figs.length) % figs.length; lbTrack.scrollTo({ left: i * slideW(), behavior: smooth ? "smooth" : "auto" }); };
+    figs.forEach((fg, i) => fg.addEventListener("click", () => {
         lb.classList.add("open"); document.body.style.overflow = "hidden";
+        requestAnimationFrame(() => { goTo(i, false); showCount(); });
     }));
+    lbTrack.addEventListener("scroll", () => requestAnimationFrame(showCount), { passive: true });
+    lb.querySelector(".lb-nav.prev").addEventListener("click", () => goTo(curIdx() - 1));
+    lb.querySelector(".lb-nav.next").addEventListener("click", () => goTo(curIdx() + 1));
     const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
-    lb.addEventListener("click", e => { if (e.target === lb || e.target.tagName === "BUTTON") closeLb(); });
-    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
+    lb.querySelector(".lb-close").addEventListener("click", closeLb);
+    lb.addEventListener("click", e => { if (e.target.classList.contains("lb-slide")) closeLb(); });
+    document.addEventListener("keydown", e => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") closeLb();
+        if (e.key === "ArrowRight") goTo(curIdx() + 1);
+        if (e.key === "ArrowLeft") goTo(curIdx() - 1);
+    });
+
+    // Panel: bergerak sendiri, boleh leret / seret / anak panah
+    (function () {
+        const sc = document.getElementById("panelScroll"); if (!sc) return;
+        const track = sc.querySelector(".logo-panel-track");
+        let paused = false, resumeT, x = 0;
+        const half = () => track.scrollWidth / 2;
+        const pause = (ms = 2500) => { paused = true; clearTimeout(resumeT); resumeT = setTimeout(() => { paused = false; x = sc.scrollLeft; }, ms); };
+        const wrap = () => { const h = half(); if (sc.scrollLeft >= h) sc.scrollLeft -= h; else if (sc.scrollLeft <= 0) sc.scrollLeft += h; };
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function tick() {
+            if (!paused && !reduce && document.visibilityState === "visible") { x += 0.5; sc.scrollLeft = x; if (sc.scrollLeft >= half()) { x -= half(); sc.scrollLeft = x; } }
+            requestAnimationFrame(tick);
+        }
+        sc.addEventListener("scroll", () => { if (paused) wrap(); }, { passive: true });
+        ["touchstart", "wheel"].forEach(ev => sc.addEventListener(ev, () => pause(), { passive: true }));
+        let down = false, sx = 0, sl = 0, moved = false;
+        sc.addEventListener("mousedown", e => { down = true; moved = false; sx = e.pageX; sl = sc.scrollLeft; pause(4000); });
+        window.addEventListener("mousemove", e => { if (!down) return; const d = e.pageX - sx; if (Math.abs(d) > 3) { moved = true; sc.classList.add("dragging"); } sc.scrollLeft = sl - d; wrap(); });
+        window.addEventListener("mouseup", () => { if (down) { down = false; sc.classList.remove("dragging"); pause(); } });
+        const step = () => Math.min(320, sc.clientWidth * 0.7);
+        document.querySelector(".lp-arrow.next").addEventListener("click", () => { pause(3500); sc.scrollBy({ left: step(), behavior: "smooth" }); });
+        document.querySelector(".lp-arrow.prev").addEventListener("click", () => { pause(3500); if (sc.scrollLeft < step()) sc.scrollLeft += half(); sc.scrollBy({ left: -step(), behavior: "smooth" }); });
+        x = sc.scrollLeft = 1; requestAnimationFrame(tick);
+    })();
 
     // Status buka / rehat / tutup (waktu Malaysia)
     (function () {
