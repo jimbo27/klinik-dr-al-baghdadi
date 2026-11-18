@@ -16,8 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Perkhidmatan | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Perkhidmatan Klinik Dr. Al Baghdadi di Putra Nilai: perubatan am, kesihatan keluarga, sakit lutut & sendi, ujian saringan & diagnostik, cucian telinga dan lain-lain.">
+
+    <title>Pakej Kesihatan | Klinik Dr. Al Baghdadi</title>
+    <meta name="description" content="Pakej kesihatan Klinik Dr. Al Baghdadi di Putra Nilai: Pakej Ujian Darah, Pakej PRP Lutut dan Pakej Pelajar. WhatsApp untuk harga dan temujanji.">
     <style>
         body {
             font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -227,6 +228,25 @@
             main { padding:1.5rem 1.1rem 2.5rem; }
             .services-grid { grid-template-columns:minmax(0,1fr); }
         }
+        .pkg-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; margin-top:1.5rem; }
+        .pkg-card { background:#fff; border-radius:1rem; padding:1.5rem 1.4rem 1.4rem; box-shadow:0 8px 24px rgba(15,23,42,.06);
+                    display:flex; flex-direction:column; font-size:0.9rem; border-top:4px solid #0c9faa;
+                    opacity:0; transform:translateY(20px); transition:transform .18s ease, box-shadow .18s ease, opacity .45s ease; }
+        .pkg-card.in-view { opacity:1; transform:translateY(0); }
+        .pkg-card:hover { transform:translateY(-4px); box-shadow:0 14px 35px rgba(15,23,42,.16); }
+        .pkg-icon { font-size:2rem; }
+        .pkg-title { font-size:1.15rem; font-weight:700; color:#0f172a; margin:0.3rem 0 0.2rem; }
+        .pkg-desc { color:#6b7280; margin-bottom:0.6rem; }
+        .pkg-label { font-weight:600; color:#08747c; font-size:0.85rem; margin-top:0.4rem; }
+        .pkg-card ul { flex:1; }
+        .pkg-price { margin:1rem 0 0.8rem; padding:0.7rem 0.9rem; background:#ecfeff; border-radius:0.7rem; font-weight:600; color:#065f73; }
+        .pkg-price small { display:block; font-weight:400; color:#6b7280; font-size:0.78rem; }
+        .pkg-btn { display:block; text-align:center; background:#08747c; color:#fff; font-weight:600; padding:0.75rem 1rem; border-radius:999px; transition:background .18s; }
+        .pkg-btn:hover { background:#065f73; }
+        .pkg-note { font-size:0.78rem; color:#6b7280; margin-top:0.7rem; }
+        .pkg-footer-note { margin-top:2rem; font-size:0.85rem; color:#6b7280; max-width:760px; }
+        @media (max-width:900px) { .pkg-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+        @media (max-width:700px) { .pkg-grid { grid-template-columns:minmax(0,1fr); } }
     </style>
 </head>
 <body>
@@ -243,10 +263,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </a>
         <nav class="nav-links" id="navLinks">
-            <a href="index.html" class="active">Utama</a>
+            <a href="index.html">Utama</a>
             <a href="about.html">Tentang</a>
             <a href="services.html">Perkhidmatan</a>
-            <a href="package.html">Pakej/Promosi</a>
+            <a href="packages.html" class="active">Pakej</a>
             <a href="team.html">Team Kami</a>
             <a href="contact.html">Hubungi</a>
         </nav>
@@ -257,64 +277,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <main>
-    <h1>Perkhidmatan Klinik</h1>
+    <h1>Pakej Kesihatan</h1>
     <p class="subtitle">
-        Klinik Dr. Al Baghdadi menawarkan pelbagai perkhidmatan <span class="hl">perubatan am &amp; keluarga</span>,
-        termasuk <span class="hl">sakit lutut &amp; sendi</span>, <span class="hl">ujian saringan &amp; diagnostik</span>,
-        <span class="hl">cucian telinga</span> dan beberapa prosedur klinik lain.  
-        <br>Klik pada mana‑mana kotak di bawah untuk lihat maklumat lanjut.
+        Pilih pakej yang sesuai untuk anda dan keluarga. Klik <span class="hl">WhatsApp</span> pada mana‑mana pakej
+        untuk tanya harga terkini dan tempah slot.
     </p>
 
-    <div class="services-grid">
-        <div class="service-card" data-service="am">
-            <div class="service-icon">🩺</div>
-            <div class="service-title">Perubatan Am (GP)</div>
-            <p>Rawatan bagi masalah kesihatan harian untuk dewasa &amp; kanak-kanak.</p>
+    <div class="pkg-grid">
+        <div class="pkg-card">
+            <div class="pkg-icon">🩸</div>
+            <div class="pkg-title">Pakej Ujian Darah</div>
+            <div class="pkg-desc">Saringan kesihatan menyeluruh untuk kesan masalah lebih awal.</div>
+            <div class="pkg-label">Termasuk:</div>
+            <ul>
+                <li>Kiraan darah penuh (FBC)</li>
+                <li>Fungsi buah pinggang</li>
+                <li>Fungsi hati</li>
+                <li>Profil kolesterol penuh</li>
+                <li>Paras gula dalam darah</li>
+                <li>Asid urik (gout)</li>
+                <li>Sesi penerangan keputusan bersama doktor</li>
+            </ul>
+            <div class="pkg-price">Harga: WhatsApp untuk harga terkini<small>Sesetengah ujian memerlukan puasa 8–10 jam.</small></div>
+            <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Ujian%20Darah.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">WhatsApp untuk tempah</a>
         </div>
 
-        <div class="service-card" data-service="keluarga">
-            <div class="service-icon">👨‍👩‍👧‍👦</div>
-            <div class="service-title">Kesihatan Keluarga</div>
-            <p>Penjagaan menyeluruh untuk seisi keluarga.</p>
+        <div class="pkg-card">
+            <div class="pkg-icon">🦵</div>
+            <div class="pkg-title">Pakej PRP Lutut</div>
+            <div class="pkg-desc">Suntikan Platelet‑Rich Plasma (PRP) menggunakan plasma darah anda sendiri untuk masalah lutut tertentu.</div>
+            <div class="pkg-label">Termasuk:</div>
+            <ul>
+                <li>Konsultasi &amp; penilaian lutut oleh doktor</li>
+                <li>Pengambilan darah &amp; penyediaan PRP</li>
+                <li>Suntikan PRP pada lutut</li>
+                <li>Nasihat penjagaan &amp; senaman selepas rawatan</li>
+            </ul>
+            <div class="pkg-price">Harga: WhatsApp untuk harga terkini<small>Bilangan sesi bergantung kepada penilaian doktor.</small></div>
+            <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20PRP%20Lutut.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">WhatsApp untuk konsultasi</a>
+            <div class="pkg-note">Kesesuaian rawatan ditentukan selepas pemeriksaan doktor. Hasil rawatan berbeza bagi setiap individu.</div>
         </div>
 
-        <div class="service-card" data-service="saringan">
-            <div class="service-icon">🧬</div>
-            <div class="service-title">Ujian Saringan &amp; Diagnostik</div>
-            <p>Pemeriksaan pantas, tepat dan menyeluruh di bawah satu bumbung.</p>
-        </div>
-
-        <div class="service-card" data-service="lutut">
-            <div class="service-icon">🦴</div>
-            <div class="service-title">Sakit Lutut &amp; Sendi</div>
-            <p>Penilaian awal bagi masalah sendi &amp; otot.</p>
-        </div>
-
-        <div class="service-card" data-service="prosedur">
-            <div class="service-icon">🩹</div>
-            <div class="service-title">Prosedur Klinik</div>
-            <p>Prosedur mudah yang dilakukan di klinik.</p>
-        </div>
-
-        <div class="service-card" data-service="lelaki">
-            <div class="service-icon">💪</div>
-            <div class="service-title">Kesihatan Lelaki</div>
-            <p>Ruang yang lebih selesa untuk isu khusus lelaki.</p>
+        <div class="pkg-card">
+            <div class="pkg-icon">🎓</div>
+            <div class="pkg-title">Pakej Pelajar</div>
+            <div class="pkg-desc">Pemeriksaan kesihatan untuk kemasukan IPT, asrama atau kerja sambilan.</div>
+            <div class="pkg-label">Termasuk:</div>
+            <ul>
+                <li>Pemeriksaan fizikal oleh doktor</li>
+                <li>Tekanan darah, berat, tinggi &amp; BMI</li>
+                <li>Ujian penglihatan</li>
+                <li>Ujian air kencing</li>
+                <li>Pengesahan borang perubatan</li>
+            </ul>
+            <div class="pkg-price">Harga istimewa pelajar<small>Sila bawa kad pelajar / surat tawaran dan borang perubatan anda.</small></div>
+            <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">WhatsApp untuk tempah</a>
         </div>
     </div>
+
+    <p class="pkg-footer-note">
+        Waktu operasi: Isnin – Jumaat, 10:00 pagi – 10:00 malam (rehat 2:00 – 4:00 petang). Sabtu &amp; Ahad tutup.<br>
+        Kandungan pakej dan harga tertakluk kepada perubahan. Sila hubungi klinik untuk maklumat terkini.
+    </p>
 </main>
-
-<!-- MODAL POP-UP -->
-<div class="modal-backdrop" id="modalBackdrop">
-    <div class="modal" id="modalBox">
-        <button class="modal-close" onclick="closeModal()">×</button>
-        <div class="modal-title" id="modalTitle"></div>
-        <div class="modal-sub" id="modalSub"></div>
-        <div class="modal-body" id="modalBody"></div>
-       
-        </div>
-    </div>
-</div>
 
 <footer>
     &copy; <span>Klinik Dr. Al Baghdadi</span> ·
@@ -327,172 +352,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     navToggle?.addEventListener("click", () => {
         navLinks.classList.toggle("open");
     });
-
-    // Data untuk modal bagi setiap servis
-    const serviceDetails = {
-        am: {
-            title: "Perubatan Am (GP)",
-            sub: "Kesihatan keluarga anda, keutamaan kami. Rawatan perubatan am (GP) untuk dewasa & kanak-kanak.",
-            body: `
-                <p>Kurang sihat? Dapatkan pemeriksaan menyeluruh dan rawatan yang tepat untuk masalah kesihatan harian anda. Kami sedia membantu merawat:</p>
-                <ul>
-                    <li>Demam, batuk, dan selesema</li>
-                    <li>Sakit kepala, migrain, pening, dan keletihan</li>
-                    <li>Gastrik, kembung perut, dan cirit-birit ringan</li>
-                    <li>Ruam kulit, alahan (alergi), dan kegatalan</li>
-                </ul>
-                <p>Doktor juga akan memberi panduan penjagaan di rumah, bila perlu datang semula dan bila perlu ke hospital jika simptom bertambah teruk.</p>
-            `
-        },
-        keluarga: {
-            title: "Kesihatan Keluarga",
-            sub: "Keluarga sihat, hidup lebih tenang. Penjagaan kesihatan untuk kanak-kanak, dewasa & warga emas.",
-            body: `
-                <p>Uruskan kesihatan insan tersayang dengan lebih mudah dan teratur. Kami menyediakan:</p>
-                <ul>
-                    <li><strong>Ujian saringan asas</strong> – periksa tekanan darah, gula & kolesterol asas.</li>
-                    <li><strong>Pengurusan penyakit kronik</strong> – contohnya darah tinggi & kencing manis.</li>
-                    <li><strong>Pemantauan ubat</strong> – pastikan ubat harian anda diambil dengan betul & selamat.</li>
-                    <li><strong>Nasihat gaya hidup</strong> – cadangan pemakanan & aktiviti harian yang praktikal.</li>
-                </ul>
-                <p>Matlamat kami ialah membantu keluarga anda mengekalkan kesihatan jangka panjang, bukan hanya bila sakit.</p>
-            `
-        },
-        saringan: {
-            title: "Ujian Saringan &amp; Diagnostik",
-            sub: "Pemeriksaan pantas, tepat dan menyeluruh di bawah satu bumbung.",
-            body: `
-                <p>Kami menyediakan pelbagai ujian kesihatan untuk pengesanan awal dan ketenangan fikiran anda:</p>
-
-                <p><strong>Ujian Pantas (Keputusan Segera):</strong></p>
-                <ul>
-                    <li>Pemeriksaan gula, kolesterol, dan asid urik (gout).</li>
-                    <li>Ujian demam Denggi, Influenza (Flu A/B), dan COVID‑19.</li>
-                    <li>Ujian air kencing (kencing kotor), ujian kehamilan (UPT), dan saringan dadah.</li>
-                    <li>Pemeriksaan kuning (jaundis) bayi.</li>
-                </ul>
-
-                <p><strong>Pakej Ujian Darah (Makmal):</strong></p>
-                <ul>
-                    <li><strong>Saringan Kesihatan Penuh:</strong> Kiraan darah (FBC), fungsi buah pinggang, fungsi hati, dan profil kolesterol penuh.</li>
-                    <li><strong>Ujian Khusus:</strong> Kawalan kencing manis (HbA1c), hormon tiroid, ujian alahan (alergi), dan beberapa penanda awal kanser.</li>
-                    <li><strong>Saringan Penyakit Berjangkit:</strong> Hepatitis B &amp; C, HIV, dan penyakit kelamin (STD).</li>
-                </ul>
-
-                <p><strong>Imbasan &amp; Pemeriksaan Fizikal:</strong></p>
-                <ul>
-                    <li><strong>Pemeriksaan Jantung (ECG):</strong> Mengesan masalah ritma jantung tertentu.</li>
-                </ul>
-
-                <p><strong>Kesihatan Wanita:</strong></p>
-                <ul>
-                    <li>Ujian Pap Smear (saringan kanser serviks).</li>
-                    <li>Pemeriksaan masalah keputihan dan simptom berkaitan.</li>
-                </ul>
-
-                <p><strong>Pemeriksaan Kesihatan Rasmi (Medical Check‑up):</strong></p>
-                <ul>
-                    <li>Saringan kemasukan kerja, sambung belajar (IPT) dan lesen memandu (GDL/PSV).</li>
-                    <li>Pemeriksaan FOMEMA (bergantung kelayakan &amp; pendaftaran).</li>
-                    <li>Ujian pra‑perkahwinan tertentu (mengikut keperluan).</li>
-                </ul>
-
-                <p>Tidak pasti ujian mana yang sesuai untuk anda? Doktor kami sedia membantu mencadangkan saringan terbaik mengikut bajet dan keperluan kesihatan anda.</p>
-            `
-        },
-        lutut: {
-            title: "Sakit Lutut &amp; Sendi",
-            sub: "Rawatan Sakit Sendi, Otot & Lutut Kembalikan kelancaran pergerakan anda dan aktif semula tanpa rasa sakit.",
-            body: `
-                <p>Sama ada sakit lutut, pinggang, atau bahu, kami sedia membantu anda melalui:</p>
-                <ul>
-                    <li>Pemeriksaan Punca Sakit: Menilai tahap kesakitan, bengkak, dan had pergerakan anda.</li>
-                    <li>MUbat-ubatan & Kelegaan: Memberikan ubat tahan sakit dan radang yang selamat serta berkesan.</li>
-                    <li>Rawatan Suntikan PRP (Platelet-Rich Plasma): Terapi pemulihan semula jadi menggunakan plasma darah sendiri untuk merawat kehausan sendi/lutut dan kecederaan otot.</li>
-                    <li>Panduan Pemulihan: Nasihat penjagaan harian dan senaman regangan ringkas.</li>
-                    <li>Rujukan Lanjutan: Mengatur imbasan X-ray atau rujukan hospital jika melibatkan kecederaan serius.</li>
-                </ul>
-                <p>Ingin tahu sama ada Suntikan PRP sesuai untuk sakit lutut anda? Kunjungi kami untuk konsultasi hari ini!</p>
-            `
-        },
-        prosedur: {
-            title: "Prosedur Klinik",
-            sub: "Prosedur & Rawatan Asas Klinik Rawatan pantas, bersih dan selamat untuk keselesaan anda.",
-            body: `
-                <p>Tidak perlu ke hospital untuk rawatan ringan. Kami menyediakan prosedur asas mengikut penilaian doktor:</p>
-                <ul>
-                    <li><strong>Cucian telinga</strong> Mengeluarkan tahi telinga yang keras atau tersumbat dengan selamat.</li>
-                    <li><strong>Pembedahan Kecil (Minor Surgery)</strong> Merawat bisul kecil atau mengeluarkan benda asing seperti selumbar pada kulit.</li>
-                    <li><strong>Penjagaan Luka (Dressing)</strong> Mencuci luka asas dan memantau proses penyembuhan agar bebas jangkitan.
-</li>
-                </ul>
-                <p>Jangan risau, doktor kami akan menerangkan setiap langkah, manfaat, dan risiko dengan jelas supaya anda berasa tenang dan selesa sebelum rawatan bermula.</p>
-            `
-        },
-        lelaki: {
-            title: "Kesihatan Lelaki",
-            sub: "Ruang lebih selesa untuk bincang isu khusus lelaki.",
-            body: `
-                <p>Sesetengah isu kesihatan lelaki agak sensitif untuk dibincangkan secara terbuka. Di klinik ini, anda boleh berbincang secara sulit tentang:</p>
-                <ul>
-                    <li>Rasa cepat penat, kurang tenaga atau sukar fokus.</li>
-                    <li>Tekanan darah, risiko jantung dan faktor gaya hidup.</li>
-                    <li>Simptom lain yang mengganggu kerja &amp; kehidupan keluarga.</li>
-                </ul>
-                <p>Doktor akan menilai keadaan anda berdasarkan sejarah kesihatan dan mencadangkan pemeriksaan asas, ubat atau rujukan lanjut jika diperlukan.</p>
-            `
-        }
-    };
-
-    const modalBackdrop = document.getElementById("modalBackdrop");
-    const modalTitle    = document.getElementById("modalTitle");
-    const modalSub      = document.getElementById("modalSub");
-    const modalBody     = document.getElementById("modalBody");
-
-    function openModal(key) {
-        const data = serviceDetails[key];
-        if (!data) return;
-        modalTitle.innerHTML = data.title;
-        modalSub.innerHTML   = data.sub;
-        modalBody.innerHTML  = data.body;
-        modalBackdrop.style.display = "flex";
-    }
-
-    function closeModal() {
-        modalBackdrop.style.display = "none";
-    }
-
-    // Tutup modal bila klik di luar kotak
-    modalBackdrop.addEventListener("click", (e) => {
-        if (e.target === modalBackdrop) {
-            closeModal();
-        }
-    });
-
-    // Pasang event pada setiap kad + animasi scroll
-    const cards = document.querySelectorAll(".service-card");
-
-    cards.forEach((card, index) => {
-        // klik → buka modal
-        card.addEventListener("click", () => {
-            const key = card.getAttribute("data-service");
-            openModal(key);
-        });
-        // sedikit delay untuk animasi masuk bertingkat
-        card.style.transitionDelay = (index * 0.08) + "s";
-    });
-
-    // Animasi masuk bila card nampak di skrin
+    const cards = document.querySelectorAll(".pkg-card");
+    cards.forEach((c, i) => c.style.transitionDelay = (i * 0.08) + "s");
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
-                observer.unobserve(entry.target);
-            }
-        });
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
-
-    cards.forEach(card => observer.observe(card));
+    cards.forEach(c => observer.observe(c));
 </script>
 </body>
 </html>
