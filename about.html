@@ -9,20 +9,25 @@
     })(window,document,'script','dataLayer','GTM-5HT9VD33');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
+    <link rel="icon" href="img/logo-klinik.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Attractive Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Tentang | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Klinik Dr. Al Baghdadi di Putra Nilai. Fokus kepada perubatan am, kesihatan keluarga, sakit lutut & sendi serta kesihatan lelaki dengan layanan mesra & profesional.">
+
+    <title>Tentang Kami | Klinik Dr. Al Baghdadi</title>
+    <meta name="description" content="Klinik Dr. Al Baghdadi ialah klinik perubatan am (GP) keluarga di Youth City Residence, Putra Nilai. Rawatan harian, penyakit kronik, saringan kesihatan, sakit lutut &amp; sendi dan kesihatan lelaki.">
     <style>
+
         body {
             font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: #1f2933;
-            background: linear-gradient(180deg, #e0f7fa 0%, #f7f9fb 40%, #ffffff 100%);
+            background:
+                radial-gradient(circle at top, #e0f7fa 0%, #f7f9fb 45%),
+                linear-gradient(to bottom, #f7f9fb 45%, #e0f2fe 100%);
             background-attachment: fixed;
             line-height: 1.6;
         }
@@ -61,8 +66,7 @@
             color: #044e5f;
         }
 
-        a { text-decoration:none; color:inherit; transition:color 0.15s ease; }
-        a:hover { color:#0c9faa; }
+        a { text-decoration:none; color:inherit; }
         .nav-links { display:flex; gap:1.5rem; font-size:0.95rem; }
         .nav-links a { color:#7b8794; font-weight:500; position:relative; }
         .nav-links a.active { color:#08747c; }
@@ -73,86 +77,83 @@
 
         main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
         h1 { font-size:1.9rem; margin-bottom:0.4rem; }
-        .subtitle { color:#4b5563; max-width:680px; margin-bottom:1.5rem; font-size:0.96rem; }
+        .subtitle { color:#7b8794; max-width:700px; margin-bottom:1.5rem; font-size:0.95rem; }
 
-        .two-col { display:grid; grid-template-columns:1.5fr 1fr; gap:2rem; margin-top:1.5rem; }
-
-        .card {
-            background:#fff;
-            border-radius:1rem;
-            padding:1.3rem 1.4rem;
-            box-shadow:0 8px 24px rgba(15,23,42,.08);
-            font-size:0.93rem;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
-        }
-
-        ul { margin-left:1.1rem; margin-top:0.4rem; }
-        li { margin-bottom:0.2rem; }
-
-        .tag {
-            display:inline-block;
-            font-size:0.8rem;
-            padding:0.25rem 0.6rem;
-            border-radius:999px;
-            background:#e0f7fa;
-            color:#08747c;
-            margin-bottom:0.6rem;
-            font-weight:600;
-        }
-        .highlight { color:#08747c; font-weight:600; }
         .hl { color:#08747c; font-weight:600; }
-
-        .pill-row {
-            display:flex;
-            flex-wrap:wrap;
-            gap:0.5rem;
-            margin:0.8rem 0 0.4rem;
-        }
-        .pill {
-            font-size:0.8rem;
-            padding:0.2rem 0.6rem;
-            border-radius:999px;
-            background:#ecfeff;
-            border:1px solid #bae6fd;
-            color:#0369a1;
-        }
-
-        .mini-note {
-            font-size:0.85rem;
-            color:#7b8794;
-            margin-top:0.4rem;
-        }
-
-        .cta-strip {
-            margin-top:1.6rem;
-            padding:0.9rem 1.1rem;
-            border-radius:0.9rem;
-            background:linear-gradient(135deg,#e0f2fe,#ecfeff);
-            font-size:0.9rem;
-            display:flex;
-            flex-wrap:wrap;
-            gap:0.6rem;
-            align-items:center;
-        }
-        .cta-strip strong { color:#0369a1; }
-        .cta-strip a { color:#08747c; font-weight:600; }
 
         footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
         footer span { color:#08747c; font-weight:600; }
 
-        @media (max-width:900px) {
-            .two-col { grid-template-columns:minmax(0,1fr); }
-        }
         @media (max-width:700px) {
             .nav-links { position:absolute; top:54px; right:0; background:#fff; flex-direction:column; padding:0.8rem 1.5rem 1rem; box-shadow:0 10px 20px rgba(15,23,42,.15); display:none; }
             .nav-links.open { display:flex; }
             .nav-toggle { display:flex; }
             main { padding:1.5rem 1.1rem 2.5rem; }
         }
+
+        .reveal { opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease; }
+        .reveal.in-view { opacity:1; transform:none; }
+        .t-hero { text-align:center; max-width:720px; margin:0.5rem auto 2.2rem; }
+        .t-kicker { display:inline-block; background:#ccfbf1; color:#0f766e; font-weight:600; font-size:0.8rem; padding:0.3rem 0.9rem; border-radius:999px; letter-spacing:.03em; }
+        .t-hero h1 { font-size:2.1rem; margin:0.7rem 0 0.5rem; line-height:1.2; }
+        .t-hero p { color:#64748b; }
+        .t-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; }
+        .t-card { background:#fff; border-radius:1.3rem; box-shadow:0 12px 32px rgba(15,23,42,.08); overflow:hidden; display:flex; flex-direction:column; }
+        .t-banner { height:96px; background:linear-gradient(120deg,#0b4f6c,#0c9faa); position:relative; }
+        .t-card.staff .t-banner { background:linear-gradient(120deg,#0f766e,#5eead4); }
+        .t-avatar { position:absolute; left:1.5rem; bottom:-44px; width:96px; height:96px; border-radius:50%; background:#fff; border:5px solid #fff;
+                    box-shadow:0 8px 20px rgba(15,23,42,.18); display:flex; align-items:center; justify-content:center; font-size:2.6rem; }
+        .t-avatar span { width:100%; height:100%; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#ecfeff; }
+        .t-body { padding:3.4rem 1.5rem 1.5rem; display:flex; flex-direction:column; flex:1; }
+        .t-name { font-size:1.35rem; font-weight:700; color:#0f172a; }
+        .t-role { display:inline-block; margin-top:0.3rem; font-size:0.78rem; font-weight:600; color:#0b4f6c; background:#e0f2fe; padding:0.2rem 0.75rem; border-radius:999px; }
+        .t-card.staff .t-role { color:#0f766e; background:#ccfbf1; }
+        .t-qual { font-size:0.85rem; color:#64748b; font-weight:600; margin-top:-0.1rem; }
+        .t-creds { list-style:none; margin:0 0 0.8rem; padding:0.8rem 1rem; background:#f8fafc; border-radius:0.8rem; font-size:0.86rem; color:#334155; }
+        .t-creds li { margin:0.25rem 0; }
+        .t-stat { display:flex; align-items:baseline; gap:0.5rem; margin:1rem 0 0.4rem; }
+        .t-stat b { font-size:2.2rem; color:#08747c; line-height:1; }
+        .t-stat span { color:#475569; font-size:0.9rem; }
+        .t-quote { color:#475569; font-size:0.92rem; margin:0.8rem 0 0.6rem; }
+        .t-label { font-weight:600; font-size:0.85rem; color:#08747c; margin-top:0.4rem; }
+        .t-tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.5rem; }
+        .t-tags span { font-size:0.8rem; background:#f1f5f9; color:#334155; padding:0.3rem 0.7rem; border-radius:999px; }
+        .t-section { margin-top:3rem; }
+        .t-section h2 { font-size:1.4rem; text-align:center; margin-bottom:0.3rem; }
+        .t-section > p { text-align:center; color:#64748b; margin-bottom:1.4rem; }
+        .t-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; counter-reset:step; }
+        .t-step { background:#fff; border-radius:1rem; padding:1.2rem 1.1rem; box-shadow:0 8px 24px rgba(15,23,42,.06); position:relative; font-size:0.88rem; }
+        .t-step::before { counter-increment:step; content:counter(step); position:absolute; top:-12px; left:1.1rem; width:26px; height:26px; border-radius:50%;
+                          background:#08747c; color:#fff; font-weight:700; font-size:0.8rem; display:flex; align-items:center; justify-content:center; }
+        .t-step .ic { font-size:1.6rem; }
+        .t-step b { display:block; margin:0.2rem 0; color:#0f172a; }
+        .t-step small { color:#6b7280; }
+        .t-why { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+        .t-why div { background:linear-gradient(180deg,#ffffff,#f0fdfa); border:1px solid #ccfbf1; border-radius:1rem; padding:1.2rem; font-size:0.88rem; color:#475569; }
+        .t-why div::first-line { font-size:1.6rem; }
+        .t-why b { display:block; color:#0f172a; font-size:0.98rem; margin:0.3rem 0; }
+        .t-cta { margin-top:3rem; background:linear-gradient(120deg,#0b4f6c,#0c9faa); color:#fff; border-radius:1.3rem; padding:2rem 1.5rem; text-align:center; }
+        .t-cta h2 { font-size:1.4rem; margin-bottom:0.4rem; }
+        .t-cta p { opacity:.9; margin-bottom:1.1rem; }
+        .t-cta a { display:inline-block; background:#25d366; color:#fff; font-weight:600; padding:0.8rem 1.6rem; border-radius:999px; }
+        .t-cta a:hover { background:#1ebe5a; }
+        @media (max-width:900px) { .t-steps { grid-template-columns:repeat(2,1fr); row-gap:1.6rem; } }
+        @media (max-width:700px) { .t-grid, .t-why { grid-template-columns:1fr; } .t-hero h1 { font-size:1.7rem; } }
+
+        .a-areas { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+        .a-area { background:#fff; border-radius:1.1rem; padding:1.4rem; box-shadow:0 8px 24px rgba(15,23,42,.06); font-size:0.9rem; color:#475569; }
+        .a-area .ic { font-size:1.9rem; }
+        .a-area h3 { font-size:1.05rem; color:#0f172a; margin:0.3rem 0 0.4rem; }
+        .a-area a { color:#08747c; font-weight:600; font-size:0.85rem; display:inline-block; margin-top:0.5rem; }
+        .a-who { display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; }
+        .a-who span { background:#fff; border:1px solid #e2e8f0; border-radius:999px; padding:0.5rem 1rem; font-size:0.88rem; color:#334155; box-shadow:0 4px 12px rgba(15,23,42,.04); }
+        .a-facts { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+        .a-fact { background:#fff; border-radius:1rem; padding:1.1rem 1.2rem; box-shadow:0 8px 24px rgba(15,23,42,.06); font-size:0.86rem; color:#475569; }
+        .a-fact b { display:block; color:#08747c; font-size:0.8rem; letter-spacing:.04em; text-transform:uppercase; margin-bottom:0.3rem; }
+        .t-cta .ghost { background:transparent; border:2px solid rgba(255,255,255,.7); margin-left:0.5rem; }
+        .t-cta .ghost:hover { background:rgba(255,255,255,.12); }
+        @media (max-width:900px) { .a-areas { grid-template-columns:1fr 1fr; } .a-facts { grid-template-columns:1fr 1fr; } }
+        @media (max-width:700px) { .a-areas, .a-facts { grid-template-columns:1fr; } .t-cta .ghost { margin:0.6rem 0 0; } }
     </style>
 </head>
 <body>
@@ -163,20 +164,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
     <div class="nav">
         <a href="index.html" class="logo">
-            <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
+            <img src="img/logo-klinik.jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img" width="181" height="100" fetchpriority="high">
             <div class="logo-text">
-                KLINIK DR AL-BAGHDADI</span>
+                <span>KLINIK DR AL‑BAGHDADI</span>
             </div>
         </a>
         <nav class="nav-links" id="navLinks">
-    <a href="index.html" class="active">Utama</a>
-            <a href="about.html">Tentang</a>
+            <a href="index.html">Utama</a>
+            <a href="about.html" class="active">Tentang</a>
             <a href="services.html">Perkhidmatan</a>
             <a href="packages.html">Pakej</a>
             <a href="team.html">Team Kami</a>
             <a href="contact.html">Hubungi</a>
-</nav>
-
+        </nav>
         <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </div>
@@ -184,55 +184,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <main>
-    <h1>Tentang Klinik Dr. Al Baghdadi</h1>
-    <p class="subtitle">
-        <span class="highlight">Klinik Dr. Al Baghdadi </span> ialah sebuah klinik perubatan am (GP)
-        di Putra Nilai yang memberi fokus kepada <span class="highlight">kesihatan keluarga</span>,
-        <span class="highlight">sakit lutut &amp; sendi</span> serta aspek tertentu <span class="highlight">kesihatan lelaki</span>,
-        dengan penerangan yang mudah difahami dan suasana yang mesra.
+    <section class="t-hero reveal">
+        <span class="t-kicker">TENTANG KAMI</span>
+        <h1>Klinik keluarga untuk <span class="hl">komuniti Putra Nilai</span></h1>
+        <p>Klinik Dr. Al Baghdadi ialah klinik perubatan am (GP) di Youth City Residence, Putra Nilai. Kami merawat penyakit harian, membantu pesakit mengurus penyakit kronik dan menyediakan saringan kesihatan untuk seisi keluarga, dari bayi hingga warga emas.</p>
+    </section>
 
-            <p>
-                Ramai pesakit hari ini inginkan <span class="highlight">rawatan menyeluruh di satu tempat</span> –
-                dari demam dan batuk biasa, sehinggalah pemeriksaan kesihatan, masalah sendi seperti sakit lutut,
-                serta isu khusus kesihatan lelaki. Di sinilah kami cuba memudahkan anda:
-                <span class="highlight">satu klinik dengan pelbagai kemudahan</span>.
-        
-
-            <p>
-                Selain merawat penyakit, kami menekankan <span class="highlight">pencegahan</span>.
-                Saringan kesihatan berkala, pemantauan tekanan darah, pemeriksaan darah asas akan dibuat dalam membantu mengesan masalah/penyakit dengan lebih awal sebelum menjadi
-                lebih serius.
-           <p>
-                Ramai juga yang berdepan <span class="highlight"> masalah sakit lutut, sakit belakang atau sakit sendi</span>
-                yang disebabkan oleh kerja, sukan atau faktor usia. Kami membantu dengan penilaian
-                klinikal awal, rawatan yang sesuai dan, jika perlu, rujukan lanjut kepada pakar akan dibuat.
-            
-            <p style="margin-top:0.8rem;">
-                <strong>Siapa yang sesuai datang ke klinik ini?</strong>
-            </p>
-            <ul>
-                <li>Individu &amp; keluarga yang perlukan <span class="highlight">khidmat klinik GP yang dipercayai</span> di kawasan Putra Nilai.</li>
-                <li>Ibu bapa yang mencari tempat untuk <span class="highlight">ujian jaundis bayi, saringan asas &amp; cucian telinga</span>.</li>
-                <li>Pesakit dengan <span class="highlight">penyakit kronik</span> yang perlukan susulan &amp; pemantauan ubat.</li>
-                <li>Mereka yang mengalami <span class="highlight">sakit lutut dan sakit sendi</span>.</li>
-                <li>Lelaki yang ingin berbincang secara sulit tentang <span class="highlight">kesihatan lelaki</span>.</li>
-        
-            </p>
+    <section class="t-section reveal" style="margin-top:1rem;">
+        <h2>Pendekatan kami</h2>
+        <p>Tiga prinsip yang kami pegang dalam setiap konsultasi.</p>
+        <div class="t-why">
+            <div>🩺<b>Rawatan yang menyeluruh</b>Daripada demam dan batuk hinggalah pemantauan darah tinggi dan kencing manis, kebanyakan keperluan kesihatan harian boleh diuruskan di satu tempat.</div>
+            <div>🛡️<b>Mengutamakan pencegahan</b>Saringan berkala, pemantauan tekanan darah dan ujian darah asas membantu mengesan masalah lebih awal, sebelum menjadi lebih serius.</div>
+            <div>🧭<b>Rujukan apabila perlu</b>Jika keadaan anda memerlukan pemeriksaan lanjut atau rawatan pakar, kami akan menerangkan pilihan yang ada dan mengatur rujukan yang sesuai.</div>
         </div>
-    </div>
+    </section>
+
+    <section class="t-section reveal">
+        <h2>Bidang tumpuan</h2>
+        <p>Selain rawatan am, kami memberi perhatian khusus kepada tiga bidang ini.</p>
+        <div class="a-areas">
+            <div class="a-area"><div class="ic">👨‍👩‍👧‍👦</div><h3>Kesihatan keluarga</h3>Rawatan penyakit harian, ujian jaundis bayi, cucian telinga, serta susulan dan pemantauan ubat bagi pesakit penyakit kronik.<br><a href="services.html">Lihat perkhidmatan &rarr;</a></div>
+            <div class="a-area"><div class="ic">🦵</div><h3>Sakit lutut &amp; sendi</h3>Sakit lutut, belakang dan sendi akibat kerja, sukan atau faktor usia dinilai secara klinikal sebelum pilihan rawatan dibincangkan bersama anda.<br><a href="services.html">Lihat perkhidmatan &rarr;</a></div>
+            <div class="a-area"><div class="ic">💬</div><h3>Kesihatan lelaki</h3>Ruang yang selesa dan sulit untuk berbincang tentang tenaga, tekanan darah, risiko jantung dan isu kesihatan lain yang menjejaskan kualiti hidup.<br><a href="services.html">Lihat perkhidmatan &rarr;</a></div>
+        </div>
+    </section>
+
+    <section class="t-section reveal">
+        <h2>Siapa yang kami bantu</h2>
+        <p>Antara pesakit yang kerap datang ke klinik kami.</p>
+        <div class="a-who">
+            <span>👨‍👩‍👧 Individu &amp; keluarga</span>
+            <span>👶 Ibu bapa dengan bayi &amp; kanak-kanak</span>
+            <span>❤️ Pesakit penyakit kronik</span>
+            <span>🎓 Pelajar &amp; pekerja</span>
+            <span>🦵 Pesakit sakit lutut &amp; sendi</span>
+            <span>🧔 Lelaki dewasa</span>
+            <span>🧓 Warga emas</span>
+        </div>
+    </section>
+
+    <section class="t-section reveal">
+        <h2>Maklumat klinik</h2>
+        <p>Semua yang anda perlu tahu sebelum datang.</p>
+        <div class="a-facts">
+            <div class="a-fact"><b>📍 Lokasi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai, Negeri Sembilan</div>
+            <div class="a-fact"><b>🕙 Waktu operasi</b>Isnin – Jumaat<br>10:00 pagi – 10:00 malam<br>Rehat: 2:00 – 4:00 petang<br>Sabtu &amp; Ahad: Tutup</div>
+            <div class="a-fact"><b>🪪 Panel</b>PMCare, CompuMed, Great Eastern, RedAlert, FOMEMA dan PEKA B40</div>
+            <div class="a-fact"><b>📞 Hubungi</b>Telefon / WhatsApp<br>+60 10‑343 4711</div>
+        </div>
+    </section>
+
+    <section class="t-cta reveal">
+        <h2>Ada soalan tentang kesihatan anda?</h2>
+        <p>Hubungi kami melalui WhatsApp atau kenali team kami terlebih dahulu.</p>
+        <a href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20ada%20pertanyaan." target="_blank">WhatsApp kami</a>
+        <a href="team.html" class="ghost">Kenali team kami</a>
+    </section>
 </main>
 
 <footer>
-    &copy; <span>Klinik Dr. Al Baghdadi </span> ·
+    &copy; <span>Klinik Dr. Al Baghdadi</span> ·
     Semua hak cipta terpelihara.
 </footer>
 
 <script>
     const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
-    navToggle?.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-    });
+    const navLinks  = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => navLinks.classList.toggle("open"));
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); } }), { threshold: 0.12 });
+    els.forEach((el, i) => { el.style.transitionDelay = (i % 3) * 0.08 + "s"; io.observe(el); });
 </script>
 </body>
 </html>
