@@ -351,6 +351,39 @@
         .pp-foot > div { display:flex; gap:1.4cqw; align-items:flex-start; }
         .pp-foot i { font-style:normal; font-size:3.4cqw; line-height:1; }
         .pp-foot b { display:block; font-size:2.5cqw; }
+
+        /* ===== Animasi poster (gaya video PRP) ===== */
+        .pp { animation:ppZoom 9s ease-in-out 1.8s infinite alternate; transform-origin:50% 40%; }
+        @keyframes ppZoom { from { transform:scale(1); } to { transform:scale(1.035); } }
+        .pp > * { opacity:0; animation:ppIn .6s cubic-bezier(.2,.8,.2,1) forwards; }
+        .pp > :nth-child(1) { animation-delay:.05s; } .pp > :nth-child(2) { animation-delay:.2s; } .pp > :nth-child(3) { animation-delay:.38s; }
+        .pp > :nth-child(4) { animation-delay:.6s; } .pp > :nth-child(5) { animation-delay:.85s; } .pp > :nth-child(6) { animation-delay:1.05s; }
+        .pp > :nth-child(7) { animation-delay:1.2s; } .pp > :nth-child(8) { animation-delay:1.35s; }
+        @keyframes ppIn { from { opacity:0; transform:translateY(4cqw); } to { opacity:1; transform:none; } }
+        .pp-hook h3 { animation:ppSlideL .7s cubic-bezier(.2,.8,.2,1) .2s both; }
+        @keyframes ppSlideL { from { opacity:0; transform:translateX(-8cqw); } to { opacity:1; transform:none; } }
+        .pp-circle { animation:ppCircle .9s cubic-bezier(.2,.9,.3,1.25) .4s both, ppGlow 2.6s ease-in-out 1.4s infinite; }
+        @keyframes ppCircle { from { opacity:0; transform:translateX(-14cqw) scale(.5) rotate(-20deg); } to { opacity:1; transform:none; } }
+        @keyframes ppGlow { 0%,100% { box-shadow:0 2cqw 5cqw rgba(15,23,42,.25), 0 0 0 0 var(--glow); } 50% { box-shadow:0 2cqw 5cqw rgba(15,23,42,.25), 0 0 0 2.4cqw rgba(255,255,255,0); } }
+        .pp-ribbon { position:relative; overflow:hidden; animation:ppSlideR .7s cubic-bezier(.2,.8,.2,1) .5s both; }
+        @keyframes ppSlideR { from { opacity:0; transform:translateX(12cqw); } to { opacity:1; transform:none; } }
+        .pp-ribbon::after { content:""; position:absolute; top:0; bottom:0; left:-40%; width:30%; background:linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+            transform:skewX(-20deg); animation:ppShine 3.2s ease-in-out 1.6s infinite; }
+        @keyframes ppShine { 0% { left:-40%; } 55%,100% { left:130%; } }
+        .pp-feats > div { animation:ppPop .5s cubic-bezier(.2,.9,.3,1.4) both; }
+        .pp-feats > div:nth-child(1) { animation-delay:.75s; } .pp-feats > div:nth-child(2) { animation-delay:.85s; }
+        .pp-feats > div:nth-child(3) { animation-delay:.95s; } .pp-feats > div:nth-child(4) { animation-delay:1.05s; }
+        @keyframes ppPop { from { opacity:0; transform:scale(.4); } to { opacity:1; transform:none; } }
+        .pp-feats i { animation:ppBob 3s ease-in-out 1.6s infinite; }
+        .pp-feats > div:nth-child(2) i { animation-delay:1.9s; } .pp-feats > div:nth-child(3) i { animation-delay:2.2s; } .pp-feats > div:nth-child(4) i { animation-delay:2.5s; }
+        @keyframes ppBob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-1cqw); } }
+        .pp-tier, .pp-checks li { animation:ppIn .5s ease both; }
+        .pp-tier:nth-child(1), .pp-checks li:nth-child(1) { animation-delay:1s; } .pp-tier:nth-child(2), .pp-checks li:nth-child(2) { animation-delay:1.1s; }
+        .pp-tier:nth-child(3), .pp-checks li:nth-child(3) { animation-delay:1.2s; } .pp-tier:nth-child(4), .pp-checks li:nth-child(4) { animation-delay:1.3s; }
+        .pp-tier.top { animation:ppIn .5s ease 1.3s both, ppPulse 2.4s ease-in-out 2s infinite; }
+        .pp-big b { display:inline-block; animation:ppPop .7s cubic-bezier(.2,.9,.3,1.5) 1s both, ppPulse 2.4s ease-in-out 2s infinite; }
+        .pp-cta { animation:ppIn .6s ease 1.2s both, ppPulse 2.8s ease-in-out 2.2s infinite; }
+        @keyframes ppPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.03); } }
         .pp.t-teal { --c1:#0c8a96; --c2:#0b4f6c; --strip:#a7f3d0; --glow:#ccfbf1; --bg2:#e0f7fa; }
         .pp.t-gold { --c1:#b45309; --c2:#6b2410; --strip:#fde68a; --glow:#fef3c7; --bg2:#fdf2dc; }
         .pp.t-red  { --c1:#c81e1e; --c2:#7f1d1d; --strip:#fecaca; --glow:#fee2e2; --bg2:#fff1f2; }
