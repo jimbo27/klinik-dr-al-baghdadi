@@ -302,6 +302,59 @@
         .hp-big { margin:3cqw 5cqw 0; text-align:center; }
         .hp-big b { display:block; font-size:22cqw; line-height:.9; color:#b91c1c; font-weight:800; letter-spacing:-.02em; }
         .hp-big span { font-size:4.2cqw; font-weight:700; color:#7f1d1d; letter-spacing:.08em; }
+
+        /* ===== Poster gaya PRP ===== */
+        .pp { container-type:inline-size; width:100%; height:100%; display:flex; flex-direction:column; overflow:hidden; font-family:"Poppins",sans-serif; color:#0f172a; line-height:1.3;
+              background:radial-gradient(circle at 85% 18%, var(--glow) 0%, rgba(255,255,255,0) 45%), linear-gradient(180deg,#ffffff 0%, var(--bg2) 100%); }
+        .pp-head { display:flex; align-items:center; justify-content:space-between; padding:2.6cqw 4.5cqw 0; }
+        .pp-head .brand { display:flex; align-items:center; gap:2cqw; }
+        .pp-head img { height:8cqw; width:auto; }
+        .pp-head b { display:block; font-size:3.4cqw; color:var(--c1); line-height:1.05; }
+        .pp-head small { font-size:2.1cqw; color:#64748b; }
+        .pp-head i { font-size:2.5cqw; color:var(--c1); font-weight:600; text-align:right; line-height:1.2; }
+        .pp-hook { padding:1.8cqw 4.5cqw 0; }
+        .pp-hook h3 { margin:0; font-size:6cqw; line-height:1.02; font-weight:800; color:var(--c2); letter-spacing:-.01em; }
+        .pp-hook h3 span { color:var(--c1); }
+        .pp-hook p { margin:.8cqw 0 0; font-size:2.6cqw; color:#334155; }
+        .pp-vis { display:flex; align-items:center; margin:2cqw 4.5cqw 0; position:relative; }
+        .pp-circle { flex:none; width:17cqw; height:17cqw; border-radius:50%; background:radial-gradient(circle at 35% 30%, #fff, var(--glow)); border:1.2cqw solid #fff;
+                     box-shadow:0 2cqw 5cqw rgba(15,23,42,.25); display:flex; align-items:center; justify-content:center; font-size:8.5cqw; z-index:2; }
+        .pp-ribbon { flex:1; margin-left:-5cqw; padding:1.8cqw 3cqw 1.8cqw 6.5cqw; border-radius:0 3cqw 3cqw 0; background:var(--c1); color:#fff; box-shadow:0 1.5cqw 4cqw rgba(15,23,42,.2); }
+        .pp-ribbon b { display:block; font-size:4.8cqw; line-height:1.05; letter-spacing:.01em; }
+        .pp-ribbon span { display:inline-block; margin-top:.9cqw; background:var(--strip); color:var(--c2); font-weight:700; font-size:2.5cqw; padding:.6cqw 2cqw; border-radius:99cqw; }
+        .pp-feats { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5cqw; margin:2.2cqw 4.5cqw 0; text-align:center; }
+        .pp-feats div { font-size:2.05cqw; color:#475569; line-height:1.25; }
+        .pp-feats i { display:flex; width:7cqw; height:7cqw; margin:0 auto .7cqw; border-radius:50%; background:var(--c1); color:#fff; font-style:normal; font-size:3.6cqw; align-items:center; justify-content:center; }
+        .pp-feats b { display:block; color:#0f172a; font-size:2.3cqw; }
+        .pp-body { margin:2.2cqw 4.5cqw 0; }
+        .pp-box { background:#fff; border-radius:2.5cqw; padding:1.8cqw 3cqw; box-shadow:0 1cqw 3cqw rgba(15,23,42,.08); }
+        .pp-box h4 { margin:0 0 1cqw; font-size:2.8cqw; color:#fff; background:var(--c1); display:inline-block; padding:.5cqw 2cqw; border-radius:1.5cqw; }
+        .pp-checks { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.8cqw 3cqw; }
+        .pp-checks li { font-size:2.45cqw; display:flex; gap:1.4cqw; align-items:flex-start; margin:0; }
+        .pp-checks li::before { content:"✓"; flex:none; width:3.4cqw; height:3.4cqw; border-radius:.8cqw; background:var(--c1); color:#fff; font-size:2.3cqw; font-weight:700; display:flex; align-items:center; justify-content:center; }
+        .pp-tiers { display:grid; grid-template-columns:1fr 1fr; gap:1.5cqw; }
+        .pp-tier { background:#fff; border-radius:2.4cqw; padding:1.3cqw 2.2cqw; box-shadow:0 1cqw 3cqw rgba(15,23,42,.09); border-left:1.2cqw solid var(--c1); position:relative; }
+        .pp-tier em { font-style:normal; font-size:2.2cqw; font-weight:700; color:var(--c1); text-transform:uppercase; letter-spacing:.05em; }
+        .pp-tier b { display:block; font-size:4.4cqw; color:var(--c2); line-height:1.05; }
+        .pp-tier small { display:block; font-size:2.1cqw; color:#475569; line-height:1.3; margin-top:.4cqw; }
+        .pp-tier.top { background:var(--c2); border-left-color:var(--strip); }
+        .pp-tier.top em { color:var(--strip); } .pp-tier.top b { color:#fff; } .pp-tier.top small { color:rgba(255,255,255,.85); }
+        .pp-big { display:flex; align-items:center; gap:3cqw; }
+        .pp-big b { font-size:14cqw; font-weight:800; color:var(--c2); line-height:.9; letter-spacing:-.02em; }
+        .pp-big span { font-size:2.7cqw; color:#334155; }
+        .pp-big span strong { display:block; font-size:4cqw; color:var(--c1); }
+        .pp-note { margin:1.3cqw 4.5cqw 1.6cqw; font-size:2cqw; color:#64748b; }
+        .pp-cta { margin:auto 4.5cqw 0; background:var(--c2); color:#fff; border-radius:2.4cqw; padding:1.7cqw 3cqw; text-align:center; }
+        .pp-cta b { display:block; font-size:3.1cqw; }
+        .pp-cta span { font-size:2.3cqw; opacity:.85; }
+        .pp-foot { margin-top:2.2cqw; background:var(--c2); color:#fff; display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:2cqw; padding:2.2cqw 4cqw; font-size:2.05cqw; line-height:1.28; }
+        .pp-foot > div { display:flex; gap:1.4cqw; align-items:flex-start; }
+        .pp-foot i { font-style:normal; font-size:3.4cqw; line-height:1; }
+        .pp-foot b { display:block; font-size:2.5cqw; }
+        .pp.t-teal { --c1:#0c8a96; --c2:#0b4f6c; --strip:#a7f3d0; --glow:#ccfbf1; --bg2:#e0f7fa; }
+        .pp.t-gold { --c1:#b45309; --c2:#6b2410; --strip:#fde68a; --glow:#fef3c7; --bg2:#fdf2dc; }
+        .pp.t-red  { --c1:#c81e1e; --c2:#7f1d1d; --strip:#fecaca; --glow:#fee2e2; --bg2:#fff1f2; }
+        .pp.t-blue { --c1:#1d4ed8; --c2:#172554; --strip:#bfdbfe; --glow:#dbeafe; --bg2:#eef4ff; }
         @media (max-width:900px) { .pkg-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .pkg-card.wide { grid-column:1 / -1; } }
         @media (max-width:700px) { .pkg-grid { grid-template-columns:minmax(0,1fr); } .pkg-card.wide { grid-column:auto; } .tiers { grid-template-columns:1fr; } }
     </style>
@@ -416,10 +469,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pkg-hint">👆 Klik untuk lihat poster</div>
             <div class="pkg-desc">Persediaan kesihatan dan vaksinasi sebelum berangkat ke Tanah Suci. Pilih pakej yang sesuai:</div>
             <div class="tiers">
-                <div class="tier"><b>RM120</b><span>Pakej Asas</span><small>Pemeriksaan kesihatan, ujian darah FBC &amp; RBS (gula), pemeriksaan jantung (ECG)</small></div>
-                <div class="tier"><b>RM250</b><span>Pakej Asas + Vaksin</span><small>Pakej Asas + vaksin Meningococcal</small></div>
-                <div class="tier"><b>RM470</b><span>Pakej Vaksin</span><small>Vaksin Meningococcal, Pneumococcal &amp; Influenza</small></div>
-                <div class="tier best"><b>RM570</b><span>Pakej Lengkap</span><small>Ketiga-tiga vaksin + pemeriksaan kesihatan, ujian darah &amp; ECG</small></div>
+                <div class="tier"><b>RM120</b><span>Pakej Musafir</span><small>Pemeriksaan kesihatan, ujian darah FBC &amp; RBS (gula), pemeriksaan jantung (ECG)</small></div>
+                <div class="tier"><b>RM250</b><span>Pakej Labbaik</span><small>Pakej Musafir + vaksin Meningococcal</small></div>
+                <div class="tier"><b>RM470</b><span>Pakej Perisai</span><small>Vaksin sahaja: Meningococcal, Pneumococcal &amp; Influenza</small></div>
+                <div class="tier best"><b>RM570</b><span>Pakej Mabrur</span><small>Ketiga-tiga vaksin + pemeriksaan kesihatan, ujian darah &amp; ECG</small></div>
             </div>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Haji%20%26%20Umrah.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
             <div class="pkg-note">Sijil vaksin Meningococcal diperlukan bagi jemaah haji &amp; umrah. Kesesuaian vaksin ditentukan oleh doktor.</div>
@@ -440,43 +493,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="poster-cta" id="posterCta" href="#" target="_blank">Tempah melalui WhatsApp</a>
     </div>
 </div>
-<template id="tpl-darah"><div class="hp"><div class="hp-top"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
-<div class="hp-kicker">Kenali kesihatan anda lebih awal</div>
-<div class="hp-title">PAKEJ<br>UJIAN DARAH</div>
-<div class="hp-sub">Saringan kesihatan menyeluruh dengan penerangan keputusan bersama doktor.</div>
-<ul class="hp-list"><li><i>🧪</i>Kiraan darah penuh (FBC)</li><li><i>🫘</i>Fungsi buah pinggang</li><li><i>🫀</i>Profil kolesterol penuh</li><li><i>🧬</i>Fungsi hati</li><li><i>🍬</i>Paras gula dalam darah</li><li><i>🦶</i>Asid urik (gout)</li><li><i>📊</i>HbA1c (kencing manis)</li><li><i>👨‍⚕️</i>Penerangan keputusan oleh doktor</li></ul>
-<div class="hp-note">* Sesetengah ujian memerlukan puasa 8–10 jam.</div>
-<div class="hp-price"><b>RM68 sahaja</b><span>Tempah slot anda hari ini</span></div>
-<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
-<template id="tpl-hero"><div class="hp red"><div class="hp-top"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
-<div class="hp-kicker">Terima kasih, barisan hadapan negara</div>
-<div class="hp-title">PAKEJ HERO</div>
-<div class="hp-big"><b>10%</b><span>DISKAUN RAWATAN</span></div>
-<ul class="hp-list"><li><i>🏥</i>Warga KKM</li><li><i>🚒</i>Bomba &amp; Penyelamat</li><li><i>👮</i>Polis (PDRM)</li><li><i>🪖</i>Tentera (ATM)</li></ul>
-<div class="hp-note">* Tunjukkan kad kuasa / kad pekerja yang sah semasa pendaftaran. Tertakluk kepada terma &amp; syarat.</div>
-<div class="hp-price"><b>WhatsApp untuk temu janji</b><span>Konsultasi, rawatan &amp; pakej kesihatan</span></div>
-<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
-<template id="tpl-haji"><div class="hp gold"><div class="hp-top"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
-<div class="hp-kicker">Persediaan kesihatan ke Tanah Suci</div>
-<div class="hp-title">PAKEJ HAJI<br>&amp; UMRAH</div>
-<div class="hp-tiers">
-<div class="hp-tier"><b>RM120</b><span>Pakej Asas</span><small>Pemeriksaan kesihatan, ujian darah FBC &amp; RBS, pemeriksaan jantung (ECG)</small></div>
-<div class="hp-tier"><b>RM250</b><span>Asas + Vaksin</span><small>Pakej Asas + vaksin Meningococcal</small></div>
-<div class="hp-tier"><b>RM470</b><span>Pakej Vaksin</span><small>Meningococcal, Pneumococcal &amp; Influenza</small></div>
-<div class="hp-tier"><b>RM570</b><span>Pakej Lengkap</span><small>3 vaksin + pemeriksaan kesihatan, ujian darah &amp; ECG</small></div>
-</div>
-<div class="hp-note">* Sijil vaksin Meningococcal diperlukan bagi jemaah haji &amp; umrah. Kesesuaian vaksin ditentukan oleh doktor.</div>
-<div class="hp-price" style="border-color:#d97706"><b style="color:#7c2d12">WhatsApp untuk tempahan</b><span>Datang sekurang-kurangnya 2 minggu sebelum berlepas</span></div>
-<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
-<template id="tpl-pelajar"><div class="hp"><div class="hp-top"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
-<div class="hp-kicker">Masuk IPT · Asrama · Kerja baharu</div>
-<div class="hp-title">PAKEJ PELAJAR<br>&amp; PEKERJA</div>
-<div class="hp-sub">Pemeriksaan kesihatan & pengesahan borang perubatan, cepat dan mudah.</div>
-<div class="hp-band">🎓💼 Harga istimewa untuk pelajar &amp; pekerja</div>
-<ul class="hp-list"><li><i>🩺</i>Pemeriksaan fizikal oleh doktor</li><li><i>💓</i>Tekanan darah</li><li><i>⚖️</i>Berat, tinggi & BMI</li><li><i>👁️</i>Ujian penglihatan</li><li><i>🧪</i>Ujian air kencing</li><li><i>📝</i>Pengesahan borang IPT / majikan</li></ul>
-<div class="hp-note">* Sila bawa IC, kad pelajar / surat tawaran kerja, dan borang perubatan anda.</div>
-<div class="hp-price"><b>WhatsApp untuk harga</b><span>Tempah slot anda hari ini</span></div>
-<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
+<template id="tpl-darah"><div class="pp t-teal">
+<div class="pp-head"><div class="brand"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><small>Klinik Keluarga · Putra Nilai</small></div></div><i>Kesihatan Anda,<br>Keutamaan Kami</i></div>
+<div class="pp-hook"><h3>BILA KALI TERAKHIR <span>ANDA BUAT UJIAN DARAH?</span></h3><p>Banyak masalah kesihatan tidak menunjukkan tanda awal.</p></div>
+<div class="pp-vis"><div class="pp-circle">🩸</div><div class="pp-ribbon"><b>PAKEJ UJIAN DARAH</b><span>RM68 sahaja · 7 ujian penting</span></div></div>
+<div class="pp-feats"><div><i>🧪</i><b>FBC</b>Kiraan darah penuh</div><div><i>🫘</i><b>Buah pinggang</b>Fungsi ginjal</div><div><i>🧬</i><b>Hati</b>Fungsi hati</div><div><i>🫀</i><b>Kolesterol</b>Profil penuh</div></div>
+<div class="pp-body"><div class="pp-box"><h4>Turut termasuk</h4><ul class="pp-checks"><li>Paras gula dalam darah</li><li>Asid urik (gout)</li><li>HbA1c (kencing manis)</li><li>Penerangan keputusan oleh doktor</li></ul></div></div>
+<div class="pp-note">* Sesetengah ujian memerlukan puasa 8–10 jam.</div>
+<div class="pp-cta"><b>Kesan lebih awal, rawat lebih mudah.</b><span>WhatsApp untuk tempah slot anda</span></div>
+<div class="pp-foot"><div><i>💬</i><div><b>WhatsApp</b>+60 10‑343 4711</div></div><div><i>📍</i><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div></div><div><i>🕙</i><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div>
+</div></template>
+<template id="tpl-hero"><div class="pp t-red">
+<div class="pp-head"><div class="brand"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><small>Klinik Keluarga · Putra Nilai</small></div></div><i>Kesihatan Anda,<br>Keutamaan Kami</i></div>
+<div class="pp-hook"><h3>TERIMA KASIH, <span>WIRA NEGARA!</span></h3><p>Penghargaan khas untuk barisan hadapan yang menjaga kita.</p></div>
+<div class="pp-vis"><div class="pp-circle">🦸</div><div class="pp-ribbon"><b>PAKEJ HERO</b><span>10% diskaun rawatan</span></div></div>
+<div class="pp-feats"><div><i>🏥</i><b>KKM</b>Warga kesihatan</div><div><i>🚒</i><b>Bomba</b>&amp; Penyelamat</div><div><i>👮</i><b>PDRM</b>Polis</div><div><i>🪖</i><b>ATM</b>Tentera</div></div>
+<div class="pp-body"><div class="pp-box"><div class="pp-big"><b>10%</b><span><strong>DISKAUN</strong>bagi konsultasi, rawatan &amp; pakej kesihatan di klinik</span></div></div></div>
+<div class="pp-note">* Tunjukkan kad kuasa / kad pekerja yang sah semasa pendaftaran. Tertakluk kepada terma &amp; syarat.</div>
+<div class="pp-cta"><b>Anda menjaga kami, kami menjaga kesihatan anda.</b><span>WhatsApp untuk temu janji</span></div>
+<div class="pp-foot"><div><i>💬</i><div><b>WhatsApp</b>+60 10‑343 4711</div></div><div><i>📍</i><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div></div><div><i>🕙</i><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div>
+</div></template>
+<template id="tpl-haji"><div class="pp t-gold">
+<div class="pp-head"><div class="brand"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><small>Klinik Keluarga · Putra Nilai</small></div></div><i>Kesihatan Anda,<br>Keutamaan Kami</i></div>
+<div class="pp-hook"><h3>BERSEDIA KE <span>TANAH SUCI?</span></h3><p>Pastikan tubuh sihat untuk ibadah yang lebih tenang.</p></div>
+<div class="pp-vis"><div class="pp-circle">🕋</div><div class="pp-ribbon"><b>PAKEJ HAJI &amp; UMRAH</b><span>Pemeriksaan kesihatan &amp; vaksinasi jemaah</span></div></div>
+<div class="pp-feats"><div><i>🩺</i><b>Pemeriksaan</b>Kesihatan penuh</div><div><i>🩸</i><b>Ujian darah</b>FBC &amp; RBS</div><div><i>❤️</i><b>ECG</b>Pemeriksaan jantung</div><div><i>💉</i><b>Vaksin</b>3 jenis</div></div>
+<div class="pp-body"><div class="pp-tiers"><div class="pp-tier"><em>Musafir</em><b>RM120</b><small>Pemeriksaan kesihatan, FBC &amp; RBS, ECG</small></div><div class="pp-tier"><em>Labbaik</em><b>RM250</b><small>Musafir + vaksin Meningococcal</small></div><div class="pp-tier"><em>Perisai</em><b>RM470</b><small>Vaksin Meningococcal, Pneumococcal &amp; Influenza</small></div><div class="pp-tier top"><em>★ Mabrur</em><b>RM570</b><small>3 vaksin + pemeriksaan, ujian darah &amp; ECG</small></div></div></div>
+<div class="pp-note">* Sijil vaksin Meningococcal diperlukan bagi jemaah haji &amp; umrah.</div>
+<div class="pp-cta"><b>Ibadah lebih tenang bila kesihatan terjaga.</b><span>WhatsApp untuk tempahan · datang 2 minggu sebelum berlepas</span></div>
+<div class="pp-foot"><div><i>💬</i><div><b>WhatsApp</b>+60 10‑343 4711</div></div><div><i>📍</i><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div></div><div><i>🕙</i><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div>
+</div></template>
+<template id="tpl-pelajar"><div class="pp t-blue">
+<div class="pp-head"><div class="brand"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><small>Klinik Keluarga · Putra Nilai</small></div></div><i>Kesihatan Anda,<br>Keutamaan Kami</i></div>
+<div class="pp-hook"><h3>BAKAL MASUK IPT <span>ATAU MULA KERJA BAHARU?</span></h3><p>Pemeriksaan kesihatan &amp; pengesahan borang perubatan.</p></div>
+<div class="pp-vis"><div class="pp-circle">🎓</div><div class="pp-ribbon"><b>PAKEJ PELAJAR &amp; PEKERJA</b><span>Harga istimewa pelajar &amp; pekerja</span></div></div>
+<div class="pp-feats"><div><i>🩺</i><b>Pemeriksaan</b>Oleh doktor</div><div><i>💓</i><b>Tekanan darah</b>&amp; nadi</div><div><i>👁️</i><b>Penglihatan</b>Ujian mata</div><div><i>🧪</i><b>Air kencing</b>Ujian urin</div></div>
+<div class="pp-body"><div class="pp-box"><h4>Sesuai untuk</h4><ul class="pp-checks"><li>Kemasukan IPT &amp; asrama</li><li>Kerja baharu / sambilan</li><li>Borang perubatan majikan</li><li>Berat, tinggi &amp; BMI</li></ul></div></div>
+<div class="pp-note">* Sila bawa IC, kad pelajar / surat tawaran kerja, dan borang perubatan anda.</div>
+<div class="pp-cta"><b>Urusan borang perubatan jadi lebih mudah.</b><span>WhatsApp untuk tempah slot anda</span></div>
+<div class="pp-foot"><div><i>💬</i><div><b>WhatsApp</b>+60 10‑343 4711</div></div><div><i>📍</i><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div></div><div><i>🕙</i><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div>
+</div></template>
 
 <footer class="site-footer">
     <div class="sf-inner">
