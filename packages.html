@@ -245,6 +245,36 @@
         .pkg-btn:hover { background:#065f73; }
         .pkg-note { font-size:0.78rem; color:#6b7280; margin-top:0.7rem; }
         .pkg-footer-note { margin-top:2rem; font-size:0.85rem; color:#6b7280; max-width:760px; }
+        .pkg-card { cursor:pointer; }
+        .pkg-hint { font-size:0.78rem; color:#0c9faa; font-weight:600; margin-top:0.2rem; }
+        .poster-backdrop { position:fixed; inset:0; background:rgba(15,23,42,.7); display:none; align-items:center; justify-content:center; z-index:2000; padding:1rem; }
+        .poster-wrap { position:relative; display:flex; flex-direction:column; align-items:center; gap:0.8rem; max-width:100%; }
+        .poster-close { position:absolute; top:-0.4rem; right:-0.4rem; width:2.2rem; height:2.2rem; border-radius:50%; border:none; background:#fff; font-size:1.3rem; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.3); z-index:2; }
+        .poster-media { width:min(92vw, calc(80vh * 0.707)); aspect-ratio:1210/1712; border-radius:0.8rem; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,.45); background:#fff; }
+        .poster-media > video, .poster-media > img { width:100%; height:100%; object-fit:cover; display:block; }
+        .poster-cta { background:#25d366; color:#fff; font-weight:600; padding:0.7rem 1.4rem; border-radius:999px; }
+        .poster-cta:hover { background:#1ebe5a; }
+        /* HTML poster */
+        .hp { container-type:inline-size; width:100%; height:100%; line-height:1.4; overflow:hidden; display:flex; flex-direction:column; font-family:"Poppins",sans-serif; color:#0f172a;
+              background:linear-gradient(180deg,#ffffff 0%,#e6f7fa 55%,#d6f0f5 100%); }
+        .hp-top { display:flex; align-items:center; gap:2.5cqw; padding:3cqw 5cqw 1cqw; }
+        .hp-top img { height:9cqw; width:auto; }
+        .hp-top b { display:block; font-size:3.8cqw; color:#08747c; line-height:1.1; }
+        .hp-top span { font-size:2.5cqw; color:#6b7280; }
+        .hp-kicker { margin:1.5cqw 5cqw 0; font-size:3.2cqw; font-weight:600; color:#0c9faa; }
+        .hp-title { margin:0 5cqw; font-size:8.2cqw; font-weight:800; line-height:1; color:#0b4f6c; letter-spacing:-0.02em; }
+        .hp-sub { margin:1.2cqw 5cqw 0; font-size:2.9cqw; line-height:1.35; color:#334155; }
+        .hp-emoji { position:absolute; }
+        .hp-band { margin:2.5cqw 5cqw 0; background:#08747c; color:#fff; border-radius:3cqw; padding:2cqw 4cqw; font-size:2.9cqw; line-height:1.3; font-weight:600; text-align:center; }
+        .hp-list { margin:2.5cqw 5cqw 0; display:grid; grid-template-columns:1fr 1fr; gap:1.8cqw; list-style:none; padding:0; }
+        .hp-list li { background:#fff; border-radius:2.5cqw; padding:1.5cqw 2.2cqw; font-size:2.65cqw; font-weight:500; line-height:1.25; box-shadow:0 1cqw 3cqw rgba(15,23,42,.08); display:flex; gap:2cqw; align-items:center; margin:0; }
+        .hp-list li i { font-style:normal; font-size:4cqw; }
+        .hp-note { margin:2.5cqw 5cqw 2.5cqw; font-size:2.5cqw; line-height:1.35; color:#475569; }
+        .hp-price { margin:auto 5cqw 0; background:#fff; border:0.5cqw dashed #0c9faa; border-radius:3cqw; padding:2.2cqw; line-height:1.3; text-align:center; }
+        .hp-price b { display:block; font-size:4.6cqw; color:#0b4f6c; }
+        .hp-price span { font-size:2.6cqw; color:#475569; }
+        .hp-foot { margin-top:3cqw; background:#0b4f6c; color:#fff; display:grid; grid-template-columns:1fr 1.3fr 1.1fr; gap:2.5cqw; padding:3cqw 4cqw; font-size:2.3cqw; line-height:1.3; }
+        .hp-foot b { display:block; font-size:2.6cqw; }
         @media (max-width:900px) { .pkg-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
         @media (max-width:700px) { .pkg-grid { grid-template-columns:minmax(0,1fr); } }
     </style>
@@ -284,9 +314,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 
     <div class="pkg-grid">
-        <div class="pkg-card">
+        <div class="pkg-card" data-poster="darah">
             <div class="pkg-icon">🩸</div>
             <div class="pkg-title">Pakej Ujian Darah</div>
+            <div class="pkg-hint">👆 Klik untuk lihat poster</div>
             <div class="pkg-desc">Saringan kesihatan menyeluruh untuk kesan masalah lebih awal.</div>
             <div class="pkg-label">Termasuk:</div>
             <ul>
@@ -302,9 +333,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Ujian%20Darah.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">WhatsApp untuk tempah</a>
         </div>
 
-        <div class="pkg-card">
+        <div class="pkg-card" data-poster="prp">
             <div class="pkg-icon">🦵</div>
             <div class="pkg-title">Pakej PRP Lutut</div>
+            <div class="pkg-hint">👆 Klik untuk lihat poster</div>
             <div class="pkg-desc">Suntikan Platelet‑Rich Plasma (PRP) menggunakan plasma darah anda sendiri untuk masalah lutut tertentu.</div>
             <div class="pkg-label">Termasuk:</div>
             <ul>
@@ -313,14 +345,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li>Suntikan PRP pada lutut</li>
                 <li>Nasihat penjagaan &amp; senaman selepas rawatan</li>
             </ul>
-            <div class="pkg-price">Harga: WhatsApp untuk harga terkini<small>Bilangan sesi bergantung kepada penilaian doktor.</small></div>
+            <div class="pkg-price">RM200 / sesi (kedua‑dua lutut)<small>Bilangan sesi bergantung kepada penilaian doktor.</small></div>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20PRP%20Lutut.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">WhatsApp untuk konsultasi</a>
             <div class="pkg-note">Kesesuaian rawatan ditentukan selepas pemeriksaan doktor. Hasil rawatan berbeza bagi setiap individu.</div>
         </div>
 
-        <div class="pkg-card">
+        <div class="pkg-card" data-poster="pelajar">
             <div class="pkg-icon">🎓</div>
             <div class="pkg-title">Pakej Pelajar</div>
+            <div class="pkg-hint">👆 Klik untuk lihat poster</div>
             <div class="pkg-desc">Pemeriksaan kesihatan untuk kemasukan IPT, asrama atau kerja sambilan.</div>
             <div class="pkg-label">Termasuk:</div>
             <ul>
@@ -341,6 +374,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 </main>
 
+<!-- POSTER POP-UP -->
+<div class="poster-backdrop" id="posterBackdrop">
+    <div class="poster-wrap">
+        <button class="poster-close" id="posterClose" aria-label="Tutup">×</button>
+        <div class="poster-media" id="posterMedia"></div>
+        <a class="poster-cta" id="posterCta" href="#" target="_blank">WhatsApp untuk tempah</a>
+    </div>
+</div>
+<template id="tpl-darah"><div class="hp"><div class="hp-top"><img src="images (3).jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
+<div class="hp-kicker">Kenali kesihatan anda lebih awal</div>
+<div class="hp-title">PAKEJ<br>UJIAN DARAH</div>
+<div class="hp-sub">Saringan kesihatan menyeluruh dengan penerangan keputusan bersama doktor.</div>
+<div class="hp-band">🩸 Satu kali ambil darah · Pelbagai ujian penting</div>
+<ul class="hp-list"><li><i>🧪</i>Kiraan darah penuh (FBC)</li><li><i>🫘</i>Fungsi buah pinggang</li><li><i>🫀</i>Profil kolesterol penuh</li><li><i>🧬</i>Fungsi hati</li><li><i>🍬</i>Paras gula dalam darah</li><li><i>🦶</i>Asid urik (gout)</li></ul>
+<div class="hp-note">* Sesetengah ujian memerlukan puasa 8–10 jam. Keputusan diterangkan oleh doktor.</div>
+<div class="hp-price"><b>WhatsApp untuk harga</b><span>Tempah slot anda hari ini</span></div>
+<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
+<template id="tpl-pelajar"><div class="hp"><div class="hp-top"><img src="images (3).jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><span>Klinik Keluarga · Putra Nilai</span></div></div>
+<div class="hp-kicker">Masuk IPT · Asrama · Kerja sambilan</div>
+<div class="hp-title">PAKEJ<br>PELAJAR</div>
+<div class="hp-sub">Pemeriksaan kesihatan & pengesahan borang perubatan, cepat dan mudah.</div>
+<div class="hp-band">🎓 Harga istimewa untuk pelajar</div>
+<ul class="hp-list"><li><i>🩺</i>Pemeriksaan fizikal oleh doktor</li><li><i>💓</i>Tekanan darah</li><li><i>⚖️</i>Berat, tinggi & BMI</li><li><i>👁️</i>Ujian penglihatan</li><li><i>🧪</i>Ujian air kencing</li><li><i>📝</i>Pengesahan borang perubatan</li></ul>
+<div class="hp-note">* Sila bawa kad pelajar / surat tawaran dan borang perubatan anda.</div>
+<div class="hp-price"><b>WhatsApp untuk harga</b><span>Tunjukkan kad pelajar untuk harga istimewa</span></div>
+<div class="hp-foot"><div><b>WhatsApp</b>+60 10‑343 4711</div><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div></template>
+
 <footer>
     &copy; <span>Klinik Dr. Al Baghdadi</span> ·
     Semua hak cipta terpelihara.
@@ -358,6 +418,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
     cards.forEach(c => observer.observe(c));
+    const posters = {
+        darah:   { tpl: "tpl-darah",   wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Ujian%20Darah.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
+        prp:     { video: "Animated%20PRP%20Knee%20Treatment%20Poster.mp4", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20PRP%20Lutut.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
+        pelajar: { tpl: "tpl-pelajar", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" }
+    };
+    const pBackdrop = document.getElementById("posterBackdrop");
+    const pMedia = document.getElementById("posterMedia");
+    const pCta = document.getElementById("posterCta");
+    function openPoster(key) {
+        const p = posters[key]; if (!p) return;
+        pMedia.innerHTML = "";
+        if (p.video) {
+            const v = document.createElement("video");
+            v.src = p.video; v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true; v.controls = false;
+            pMedia.appendChild(v);
+        } else {
+            pMedia.appendChild(document.getElementById(p.tpl).content.cloneNode(true));
+        }
+        pCta.href = p.wa;
+        pBackdrop.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+    function closePoster() {
+        pBackdrop.style.display = "none"; pMedia.innerHTML = ""; document.body.style.overflow = "";
+    }
+    document.getElementById("posterClose").addEventListener("click", closePoster);
+    pBackdrop.addEventListener("click", e => { if (e.target === pBackdrop) closePoster(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closePoster(); });
+    document.querySelectorAll(".pkg-card").forEach(card => {
+        card.addEventListener("click", e => {
+            if (e.target.closest("a")) return; // butang WhatsApp terus ke WhatsApp
+            openPoster(card.dataset.poster);
+        });
+    });
 </script>
 </body>
 </html>
