@@ -16,13 +16,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
     <title>Team Kami | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Kenali team Klinik Dr. Al Baghdadi di Putra Nilai – doktor dan staf yang komited untuk penjagaan kesihatan keluarga anda.">
+    <meta name="description" content="Kenali team Klinik Dr. Al Baghdadi di Putra Nilai: Dr. Adnan, doktor residen dengan lebih 20 tahun pengalaman GP, dan pembantu klinik Nur Qaseh.">
     <style>
+
         body {
             font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: #1f2933;
-            background: linear-gradient(180deg, #e0f7fa 0%, #f7f9fb 40%, #ffffff 100%);
+            background:
+                radial-gradient(circle at top, #e0f7fa 0%, #f7f9fb 45%),
+                linear-gradient(to bottom, #f7f9fb 45%, #e0f2fe 100%);
             background-attachment: fixed;
             line-height: 1.6;
         }
@@ -73,67 +77,64 @@
         main { max-width:1100px; margin:0 auto; padding:2rem 1.5rem 3rem; }
         h1 { font-size:1.9rem; margin-bottom:0.4rem; }
         .subtitle { color:#7b8794; max-width:700px; margin-bottom:1.5rem; font-size:0.95rem; }
-        .hl { color:#08747c; font-weight:600; }
 
-        .team-grid {
-            display:grid;
-            grid-template-columns:repeat(3,minmax(0,1fr));
-            gap:1.5rem;
-            margin-top:1.5rem;
-        }
-        .team-card {
-            background:#fff;
-            border-radius:1.2rem;
-            padding:1.4rem 1.3rem;
-            box-shadow:0 8px 24px rgba(15,23,42,.08);
-            text-align:center;
-            font-size:0.9rem;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-        }
-        .team-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.18);
-        }
-        .team-avatar {
-            width:72px;
-            height:72px;
-            border-radius:999px;
-            background:linear-gradient(135deg,#e0f2fe,#fce7f3);
-            margin:0 auto 0.8rem;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-weight:700;
-            color:#0f172a;
-            font-size:1.1rem;
-        }
-        .team-name {
-            font-weight:600;
-            margin-bottom:0.1rem;
-        }
-        .team-role {
-            font-size:0.85rem;
-            color:#08747c;
-            margin-bottom:0.3rem;
-        }
-        .team-meta {
-            font-size:0.8rem;
-            color:#6b7280;
-        }
+        .hl { color:#08747c; font-weight:600; }
 
         footer { padding:1.5rem; text-align:center; font-size:0.8rem; color:#7b8794; }
         footer span { color:#08747c; font-weight:600; }
 
-        @media (max-width:900px) {
-            .team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-        }
         @media (max-width:700px) {
             .nav-links { position:absolute; top:54px; right:0; background:#fff; flex-direction:column; padding:0.8rem 1.5rem 1rem; box-shadow:0 10px 20px rgba(15,23,42,.15); display:none; }
             .nav-links.open { display:flex; }
             .nav-toggle { display:flex; }
             main { padding:1.5rem 1.1rem 2.5rem; }
-            .team-grid { grid-template-columns:minmax(0,1fr); }
         }
+
+        .reveal { opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease; }
+        .reveal.in-view { opacity:1; transform:none; }
+        .t-hero { text-align:center; max-width:720px; margin:0.5rem auto 2.2rem; }
+        .t-kicker { display:inline-block; background:#ccfbf1; color:#0f766e; font-weight:600; font-size:0.8rem; padding:0.3rem 0.9rem; border-radius:999px; letter-spacing:.03em; }
+        .t-hero h1 { font-size:2.1rem; margin:0.7rem 0 0.5rem; line-height:1.2; }
+        .t-hero p { color:#64748b; }
+        .t-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; }
+        .t-card { background:#fff; border-radius:1.3rem; box-shadow:0 12px 32px rgba(15,23,42,.08); overflow:hidden; display:flex; flex-direction:column; }
+        .t-banner { height:96px; background:linear-gradient(120deg,#0b4f6c,#0c9faa); position:relative; }
+        .t-card.staff .t-banner { background:linear-gradient(120deg,#0f766e,#5eead4); }
+        .t-avatar { position:absolute; left:1.5rem; bottom:-44px; width:96px; height:96px; border-radius:50%; background:#fff; border:5px solid #fff;
+                    box-shadow:0 8px 20px rgba(15,23,42,.18); display:flex; align-items:center; justify-content:center; font-size:2.6rem; }
+        .t-avatar span { width:100%; height:100%; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#ecfeff; }
+        .t-body { padding:3.4rem 1.5rem 1.5rem; display:flex; flex-direction:column; flex:1; }
+        .t-name { font-size:1.35rem; font-weight:700; color:#0f172a; }
+        .t-role { display:inline-block; margin-top:0.3rem; font-size:0.78rem; font-weight:600; color:#0b4f6c; background:#e0f2fe; padding:0.2rem 0.75rem; border-radius:999px; }
+        .t-card.staff .t-role { color:#0f766e; background:#ccfbf1; }
+        .t-stat { display:flex; align-items:baseline; gap:0.5rem; margin:1rem 0 0.4rem; }
+        .t-stat b { font-size:2.2rem; color:#08747c; line-height:1; }
+        .t-stat span { color:#475569; font-size:0.9rem; }
+        .t-quote { color:#475569; font-size:0.92rem; margin:0.8rem 0 0.6rem; }
+        .t-label { font-weight:600; font-size:0.85rem; color:#08747c; margin-top:0.4rem; }
+        .t-tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.5rem; }
+        .t-tags span { font-size:0.8rem; background:#f1f5f9; color:#334155; padding:0.3rem 0.7rem; border-radius:999px; }
+        .t-section { margin-top:3rem; }
+        .t-section h2 { font-size:1.4rem; text-align:center; margin-bottom:0.3rem; }
+        .t-section > p { text-align:center; color:#64748b; margin-bottom:1.4rem; }
+        .t-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; counter-reset:step; }
+        .t-step { background:#fff; border-radius:1rem; padding:1.2rem 1.1rem; box-shadow:0 8px 24px rgba(15,23,42,.06); position:relative; font-size:0.88rem; }
+        .t-step::before { counter-increment:step; content:counter(step); position:absolute; top:-12px; left:1.1rem; width:26px; height:26px; border-radius:50%;
+                          background:#08747c; color:#fff; font-weight:700; font-size:0.8rem; display:flex; align-items:center; justify-content:center; }
+        .t-step .ic { font-size:1.6rem; }
+        .t-step b { display:block; margin:0.2rem 0; color:#0f172a; }
+        .t-step small { color:#6b7280; }
+        .t-why { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+        .t-why div { background:linear-gradient(180deg,#ffffff,#f0fdfa); border:1px solid #ccfbf1; border-radius:1rem; padding:1.2rem; font-size:0.88rem; color:#475569; }
+        .t-why div::first-line { font-size:1.6rem; }
+        .t-why b { display:block; color:#0f172a; font-size:0.98rem; margin:0.3rem 0; }
+        .t-cta { margin-top:3rem; background:linear-gradient(120deg,#0b4f6c,#0c9faa); color:#fff; border-radius:1.3rem; padding:2rem 1.5rem; text-align:center; }
+        .t-cta h2 { font-size:1.4rem; margin-bottom:0.4rem; }
+        .t-cta p { opacity:.9; margin-bottom:1.1rem; }
+        .t-cta a { display:inline-block; background:#25d366; color:#fff; font-weight:600; padding:0.8rem 1.6rem; border-radius:999px; }
+        .t-cta a:hover { background:#1ebe5a; }
+        @media (max-width:900px) { .t-steps { grid-template-columns:repeat(2,1fr); row-gap:1.6rem; } }
+        @media (max-width:700px) { .t-grid, .t-why { grid-template-columns:1fr; } .t-hero h1 { font-size:1.7rem; } }
     </style>
 </head>
 <body>
@@ -146,15 +147,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="index.html" class="logo">
             <img src="images (3).jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img">
             <div class="logo-text">
-                KLINIK DR AL-BAGHDADI</span>
+                <span>KLINIK DR AL‑BAGHDADI</span>
             </div>
         </a>
         <nav class="nav-links" id="navLinks">
-            <a href="index.html" class="active">Utama</a>
+            <a href="index.html">Utama</a>
             <a href="about.html">Tentang</a>
             <a href="services.html">Perkhidmatan</a>
             <a href="packages.html">Pakej</a>
-            <a href="team.html">Team Kami</a>
+            <a href="team.html" class="active">Team Kami</a>
             <a href="contact.html">Hubungi</a>
         </nav>
         <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -164,31 +165,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <main>
-    <h1>Team Kami</h1>
-    <p class="subtitle">
-        Team di <span class="hl">Klinik Dr. Al Baghdadi</span> terdiri daripada doktor dan staf
-        sokongan yang komited untuk memberikan perkhidmatan yang telus dan profesional.
-    </p>
+    <section class="t-hero reveal">
+        <span class="t-kicker">KENALI KAMI</span>
+        <h1>Klinik kecil, layanan yang <span class="hl">lebih peribadi</span></h1>
+        <p>Di Klinik Dr. Al Baghdadi, anda akan berjumpa doktor yang sama setiap kali datang. Doktor kenal sejarah kesihatan anda, dan anda tak perlu bercerita dari awal lagi.</p>
+    </section>
 
-        <div class="team-card">
-            <div class="team-avatar">AB</div>
-            <div class="team-name">Dr.Adnan</div>
-            <div class="team-role">Pengamal Perubatan </div>
-            <div class="team-meta">
-                Mempunyai pengalaman dalam Bidang GP lebih 20 tahun.
-    
+    <section class="t-grid">
+        <article class="t-card reveal">
+            <div class="t-banner"><div class="t-avatar"><span>👨‍⚕️</span></div></div>
+            <div class="t-body">
+                <div class="t-name">Dr. Adnan</div>
+                <div><span class="t-role">Doktor Residen · Pengamal Perubatan Am (GP)</span></div>
+                <div class="t-stat"><b>20+</b><span>tahun pengalaman dalam bidang GP</span></div>
+                <p class="t-quote">Doktor residen klinik yang merawat pesakit dari kanak‑kanak hingga warga emas, dengan penerangan yang mudah difahami dan nasihat yang praktikal untuk dibawa pulang.</p>
+                <div class="t-label">Fokus rawatan</div>
+                <div class="t-tags">
+                    <span>🤒 Penyakit harian</span>
+                    <span>❤️ Darah tinggi &amp; kencing manis</span>
+                    <span>🦵 Sakit lutut &amp; sendi</span>
+                    <span>🩸 Saringan kesihatan</span>
+                    <span>💪 Kesihatan lelaki</span>
+                    <span>🩹 Prosedur kecil</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="t-card staff reveal">
+            <div class="t-banner"><div class="t-avatar"><span>👩‍💼</span></div></div>
+            <div class="t-body">
+                <div class="t-name">Nur Qaseh</div>
+                <div><span class="t-role">Pembantu Klinik</span></div>
+                <div class="t-stat"><b>👋</b><span>orang pertama yang anda jumpa di kaunter</span></div>
+                <p class="t-quote">Nur Qaseh memastikan urusan anda berjalan lancar, dari pendaftaran dan temujanji WhatsApp hingga bilik rawatan yang bersih dan stok klinik yang sentiasa tersedia.</p>
+                <div class="t-label">Boleh bantu anda dengan</div>
+                <div class="t-tags">
+                    <span>📝 Pendaftaran pesakit</span>
+                    <span>💬 Temujanji WhatsApp</span>
+                    <span>🪪 Urusan panel</span>
+                    <span>🧼 Kebersihan bilik rawatan</span>
+                    <span>📦 Stok klinik</span>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section class="t-section reveal">
+        <h2>Lawatan anda, langkah demi langkah</h2>
+        <p>Ringkas dan teratur, dari mesej pertama hingga ubat di tangan.</p>
+        <div class="t-steps">
+            <div class="t-step"><div class="ic">💬</div><b>WhatsApp / Datang terus</b><small>Tanya slot atau terus ke klinik dalam waktu operasi.</small></div>
+            <div class="t-step"><div class="ic">📝</div><b>Pendaftaran</b><small>Nur Qaseh uruskan pendaftaran dan panel anda di kaunter.</small></div>
+            <div class="t-step"><div class="ic">🩺</div><b>Konsultasi</b><small>Dr. Adnan periksa, terangkan keadaan anda dan pilihan rawatan.</small></div>
+            <div class="t-step"><div class="ic">💊</div><b>Ubat &amp; susulan</b><small>Ubat, nasihat penjagaan di rumah, dan bila perlu datang semula.</small></div>
         </div>
+    </section>
 
-        <div class="team-card">
-            <div class="team-avatar">AS</div>
-            <div class="team-name">Nur Qaseh</div>
-            <div class="team-role">Pembantu Klinik</div>
-            <div class="team-meta">
-           Membantu memastikan aliran pesakit yang teratur, kebersihan bilik rawatan,
-                stok asas klinik sentiasa tersedia dan memastikan operasi klinik berjalan lancar
-        
+    <section class="t-section reveal">
+        <h2>Kenapa pesakit selesa di sini</h2>
+        <p>Dua orang, satu misi: penjagaan yang mesra dan jujur.</p>
+        <div class="t-why">
+            <div>🔁<b>Doktor yang sama</b>Rawatan susulan lebih mudah kerana doktor sudah kenal sejarah kesihatan anda.</div>
+            <div>🗣️<b>Penerangan jelas</b>Setiap langkah, manfaat dan risiko diterangkan sebelum rawatan bermula.</div>
+            <div>🤝<b>Suasana mesra</b>Klinik kecil, tak sesak, dan isu sensitif boleh dibincang secara sulit.</div>
+        </div>
+    </section>
 
-    </div>
+    <section class="t-cta reveal">
+        <h2>Nak jumpa Dr. Adnan?</h2>
+        <p>Isnin – Jumaat, 10:00 pagi – 10:00 malam (rehat 2:00 – 4:00 petang). Sabtu &amp; Ahad tutup.</p>
+        <a href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20nak%20buat%20temujanji%20dengan%20Dr.%20Adnan." target="_blank">WhatsApp untuk temujanji</a>
+    </section>
 </main>
 
 <footer>
@@ -198,10 +245,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
     const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
-    navToggle?.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-    });
+    const navLinks  = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => navLinks.classList.toggle("open"));
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); } }), { threshold: 0.12 });
+    els.forEach((el, i) => { el.style.transitionDelay = (i % 3) * 0.08 + "s"; io.observe(el); });
 </script>
 </body>
 </html>
