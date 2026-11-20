@@ -39,6 +39,16 @@
 
     /* ---------- Header + floating bar ---------- */
     var header = $(".site-header"), fab = $(".fab"), lastY = 0;
+    // Hide the floating bar while a section that already has the same buttons is on screen
+    var ctaVisible = 0;
+    if ("IntersectionObserver" in window) {
+        var ctaIO = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { e.target.__vis = e.isIntersecting; });
+            ctaVisible = $$(".cta, #contact, .site-footer").filter(function (n) { return n.__vis; }).length;
+            onScroll();
+        }, { threshold: 0.05 });
+        $$(".cta, #contact, .site-footer").forEach(function (n) { ctaIO.observe(n); });
+    }
     function onScroll() {
         var y = window.scrollY;
         if (header) {
@@ -47,7 +57,9 @@
             if (!open && y > 420 && y > lastY + 3) header.classList.add("hide");
             if (y < lastY - 3 || y < 420) header.classList.remove("hide");
         }
-        if (fab) fab.classList.toggle("show", y > 260);
+        var fabOn = !!fab && y > 260 && !ctaVisible;
+        if (fab) fab.classList.toggle("show", fabOn);
+        document.body.classList.toggle("fab-on", fabOn);
         lastY = y;
     }
     window.addEventListener("scroll", onScroll, { passive: true });

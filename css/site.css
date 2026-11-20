@@ -494,3 +494,6 @@ html { overflow-x: clip; }
 .page-head .wrap { position: relative; z-index: 1; }
 .lb-img { background: transparent; box-shadow: none; display: flex; justify-content: center; overflow: visible; }
 .lb-img img { width: auto; max-width: 100%; max-height: 74vh; border-radius: 22px; box-shadow: 0 40px 100px rgba(0,0,0,.4); }
+/* One WhatsApp button at a time: on phones the header "Book" button steps aside while the floating bar is shown */
+.nav-cta .btn { transition: opacity .3s, transform .3s; }
+@media (max-width: 820px) { body.fab-on .nav-cta .btn { opacity: 0; transform: scale(.8); pointer-events: none; } }
