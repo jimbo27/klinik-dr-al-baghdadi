@@ -19,7 +19,7 @@
 
 
     <title>Pakej Kesihatan | Klinik Dr. Al Baghdadi</title>
-    <meta name="description" content="Pakej kesihatan Klinik Dr. Al Baghdadi di Putra Nilai: Pakej Ujian Darah (RM68), Pakej PRP Lutut, Pakej Pelajar &amp; Pekerja, Pakej Hero (10% diskaun) dan Pakej Haji &amp; Umrah. WhatsApp untuk harga dan temu janji.">
+    <meta name="description" content="Pakej kesihatan Klinik Dr. Al Baghdadi di Putra Nilai: Pakej Ujian Darah (dari RM89), Pakej PRP Lutut (RM250), Pakej Pelajar &amp; Pekerja (dari RM70), Pakej Hero (10% diskaun), Pakej Haji &amp; Umrah dan Pakej Travel (dari RM45). WhatsApp untuk harga dan temu janji.">
     <style>
         body {
             font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -391,8 +391,17 @@
         .pp.t-gold { --c1:#b45309; --c2:#6b2410; --strip:#fde68a; --glow:#fef3c7; --bg2:#fdf2dc; }
         .pp.t-red  { --c1:#c81e1e; --c2:#7f1d1d; --strip:#fecaca; --glow:#fee2e2; --bg2:#fff1f2; }
         .pp.t-blue { --c1:#1d4ed8; --c2:#172554; --strip:#bfdbfe; --glow:#dbeafe; --bg2:#eef4ff; }
+        .pp.t-green { --c1:#047857; --c2:#064e3b; --strip:#a7f3d0; --glow:#d1fae5; --bg2:#ecfdf5; }
+        /* Pakej Travel */
+        .pkg-card.full { grid-column:1 / -1; }
+        .pkg-card.travel { border-top-color:#047857; }
+        .tiers.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+        .travel .tier { border-color:#a7f3d0; background:#f0fdf4; }
+        .travel .tier b { color:#065f46; }
+        .travel .tier b em { font-style:normal; font-size:0.75rem; font-weight:600; color:#047857; margin-right:0.2rem; }
+        .pp-tiers.three { grid-template-columns:repeat(3,1fr); }
         @media (max-width:900px) { .pkg-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .pkg-card.wide { grid-column:1 / -1; } }
-        @media (max-width:700px) { .pkg-grid { grid-template-columns:minmax(0,1fr); } .pkg-card.wide { grid-column:auto; } .tiers { grid-template-columns:1fr; } }
+        @media (max-width:700px) { .pkg-grid { grid-template-columns:minmax(0,1fr); } .pkg-card.wide, .pkg-card.full { grid-column:auto; } .tiers, .tiers.three { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="css/common.css">
 </head>
@@ -443,9 +452,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li>Paras gula dalam darah</li>
                 <li>Asid urik (gout)</li>
                 <li>HbA1c (kawalan kencing manis)</li>
-                <li>Sesi penerangan keputusan bersama doktor</li>
             </ul>
-            <div class="pkg-price">RM68<small>Sesetengah ujian memerlukan puasa 8–10 jam.</small></div>
+            <div class="pkg-price">Bermula dari RM89<small>Sesetengah ujian memerlukan puasa 8–10 jam.</small></div>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Ujian%20Darah.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
         </div>
 
@@ -461,7 +469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li>Suntikan PRP pada lutut</li>
                 <li>Nasihat penjagaan &amp; senaman selepas rawatan</li>
             </ul>
-            <div class="pkg-price">RM200 / sesi (kedua‑dua lutut)<small>Bilangan sesi bergantung kepada penilaian doktor.</small></div>
+            <div class="pkg-price">RM250 / sesi (kedua‑dua lutut)<small>Bilangan sesi bergantung kepada penilaian doktor.</small></div>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20PRP%20Lutut.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">Tanya melalui WhatsApp</a>
             <div class="pkg-note">Kesesuaian rawatan ditentukan selepas pemeriksaan doktor. Hasil rawatan berbeza bagi setiap individu.</div>
         </div>
@@ -479,7 +487,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li>Ujian air kencing</li>
                 <li>Pengesahan borang perubatan IPT / majikan</li>
             </ul>
-            <div class="pkg-price">Harga istimewa pelajar &amp; pekerja<small>Sila bawa IC, kad pelajar / surat tawaran kerja, dan borang perubatan anda.</small></div>
+            <div class="pkg-price">Bermula dari RM70<small>Sila bawa IC, kad pelajar / surat tawaran kerja, dan borang perubatan anda.</small></div>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar%20%26%20Pekerja.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
         </div>
         <div class="pkg-card hero-pk" id="pakej-hero" data-poster="hero">
@@ -513,6 +521,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Haji%20%26%20Umrah.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" target="_blank">Tempah melalui WhatsApp</a>
             <div class="pkg-note">Sijil vaksin Meningococcal diperlukan bagi jemaah haji &amp; umrah. Kesesuaian vaksin ditentukan oleh doktor.</div>
         </div>
+
+        <div class="pkg-card travel full" id="pakej-travel" data-poster="travel">
+            <div class="pkg-icon">🧳✈️</div>
+            <div class="pkg-title">Pakej Travel</div>
+            <div class="pkg-hint">👆 Klik untuk lihat poster</div>
+            <div class="pkg-desc">Kit ubat perjalanan untuk percutian, balik kampung atau urusan kerja di luar kawasan. Pilih kit yang sesuai:</div>
+            <div class="tiers three">
+                <div class="tier"><b><em>sekitar</em>RM45</b><span>Kit Asas Dewasa</span><small>Kit ubat asas untuk orang dewasa</small></div>
+                <div class="tier"><b><em>sekitar</em>RM75</b><span>Kit Lengkap Dewasa</span><small>Kit ubat yang lebih lengkap untuk orang dewasa</small></div>
+                <div class="tier"><b><em>sekitar</em>RM45</b><span>Kit Kanak-kanak</span><small>Kit ubat khas untuk kanak-kanak</small></div>
+            </div>
+            <a class="pkg-btn" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Travel.%20Boleh%20saya%20tahu%20kandungan%20kit%20dan%20harga%3F" target="_blank">Tanya melalui WhatsApp</a>
+            <div class="pkg-note">Harga anggaran. Kandungan kit dan kesesuaian ubat disahkan oleh doktor semasa konsultasi.</div>
+        </div>
     </div>
 
     <p class="pkg-footer-note">
@@ -532,9 +554,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <template id="tpl-darah"><div class="pp t-teal">
 <div class="pp-head"><div class="brand"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><small>Klinik Keluarga · Putra Nilai</small></div></div><i>Kesihatan Anda,<br>Keutamaan Kami</i></div>
 <div class="pp-hook"><h3>BILA KALI TERAKHIR <span>ANDA BUAT UJIAN DARAH?</span></h3><p>Banyak masalah kesihatan tidak menunjukkan tanda awal.</p></div>
-<div class="pp-vis"><div class="pp-circle">🩸</div><div class="pp-ribbon"><b>PAKEJ UJIAN DARAH</b><span>RM68 sahaja · 7 ujian penting</span></div></div>
+<div class="pp-vis"><div class="pp-circle">🩸</div><div class="pp-ribbon"><b>PAKEJ UJIAN DARAH</b><span>Bermula dari RM89 · 7 ujian penting</span></div></div>
 <div class="pp-feats"><div><i>🧪</i><b>FBC</b>Kiraan darah penuh</div><div><i>🫘</i><b>Buah pinggang</b>Fungsi ginjal</div><div><i>🧬</i><b>Hati</b>Fungsi hati</div><div><i>🫀</i><b>Kolesterol</b>Profil penuh</div></div>
-<div class="pp-body"><div class="pp-box"><h4>Turut termasuk</h4><ul class="pp-checks"><li>Paras gula dalam darah</li><li>Asid urik (gout)</li><li>HbA1c (kencing manis)</li><li>Penerangan keputusan oleh doktor</li></ul></div></div>
+<div class="pp-body"><div class="pp-box"><h4>Turut termasuk</h4><ul class="pp-checks"><li>Paras gula dalam darah</li><li>Asid urik (gout)</li><li>HbA1c (kencing manis)</li></ul></div></div>
 <div class="pp-note">* Sesetengah ujian memerlukan puasa 8–10 jam.</div>
 <div class="pp-cta"><b>Kesan lebih awal, rawat lebih mudah.</b><span>WhatsApp untuk tempah slot anda</span></div>
 <div class="pp-foot"><div><i>💬</i><div><b>WhatsApp</b>+60 10‑343 4711</div></div><div><i>📍</i><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div></div><div><i>🕙</i><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div>
@@ -562,11 +584,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <template id="tpl-pelajar"><div class="pp t-blue">
 <div class="pp-head"><div class="brand"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><small>Klinik Keluarga · Putra Nilai</small></div></div><i>Kesihatan Anda,<br>Keutamaan Kami</i></div>
 <div class="pp-hook"><h3>BAKAL MASUK IPT <span>ATAU MULA KERJA BAHARU?</span></h3><p>Pemeriksaan kesihatan &amp; pengesahan borang perubatan.</p></div>
-<div class="pp-vis"><div class="pp-circle">🎓</div><div class="pp-ribbon"><b>PAKEJ PELAJAR &amp; PEKERJA</b><span>Harga istimewa pelajar &amp; pekerja</span></div></div>
+<div class="pp-vis"><div class="pp-circle">🎓</div><div class="pp-ribbon"><b>PAKEJ PELAJAR &amp; PEKERJA</b><span>Bermula dari RM70</span></div></div>
 <div class="pp-feats"><div><i>🩺</i><b>Pemeriksaan</b>Oleh doktor</div><div><i>💓</i><b>Tekanan darah</b>&amp; nadi</div><div><i>👁️</i><b>Penglihatan</b>Ujian mata</div><div><i>🧪</i><b>Air kencing</b>Ujian urin</div></div>
 <div class="pp-body"><div class="pp-box"><h4>Sesuai untuk</h4><ul class="pp-checks"><li>Kemasukan IPT &amp; asrama</li><li>Kerja baharu / sambilan</li><li>Borang perubatan majikan</li><li>Berat, tinggi &amp; BMI</li></ul></div></div>
 <div class="pp-note">* Sila bawa IC, kad pelajar / surat tawaran kerja, dan borang perubatan anda.</div>
 <div class="pp-cta"><b>Urusan borang perubatan jadi lebih mudah.</b><span>WhatsApp untuk tempah slot anda</span></div>
+<div class="pp-foot"><div><i>💬</i><div><b>WhatsApp</b>+60 10‑343 4711</div></div><div><i>📍</i><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div></div><div><i>🕙</i><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div>
+</div></template>
+<template id="tpl-travel"><div class="pp t-green">
+<div class="pp-head"><div class="brand"><img src="img/logo-klinik.jpg" alt=""><div><b>KLINIK DR AL‑BAGHDADI</b><small>Klinik Keluarga · Putra Nilai</small></div></div><i>Kesihatan Anda,<br>Keutamaan Kami</i></div>
+<div class="pp-hook"><h3>NAK BERCUTI <span>ATAU BALIK KAMPUNG?</span></h3><p>Bawa kit ubat sendiri, perjalanan lebih tenang.</p></div>
+<div class="pp-vis"><div class="pp-circle">🧳</div><div class="pp-ribbon"><b>PAKEJ TRAVEL</b><span>Kit ubat perjalanan · dari RM45</span></div></div>
+<div class="pp-feats"><div><i>🧑</i><b>Dewasa</b>Kit asas</div><div><i>🎒</i><b>Dewasa</b>Kit lengkap</div><div><i>🧒</i><b>Kanak-kanak</b>Kit khas</div><div><i>🩺</i><b>Doktor</b>Semak kesesuaian</div></div>
+<div class="pp-body"><div class="pp-tiers three"><div class="pp-tier"><em>Asas Dewasa</em><b>RM45</b><small>sekitar</small></div><div class="pp-tier top"><em>★ Lengkap Dewasa</em><b>RM75</b><small>sekitar</small></div><div class="pp-tier"><em>Kanak-kanak</em><b>RM45</b><small>sekitar</small></div></div></div>
+<div class="pp-body"><div class="pp-box"><h4>Sesuai untuk</h4><ul class="pp-checks"><li>Percutian keluarga</li><li>Balik kampung</li><li>Outstation &amp; urusan kerja</li><li>Lawatan sekolah &amp; universiti</li></ul></div></div>
+<div class="pp-note">* Harga anggaran. Kandungan kit disahkan oleh doktor semasa konsultasi.</div>
+<div class="pp-cta"><b>Rancang percutian, sediakan ubat awal.</b><span>WhatsApp untuk tempahan kit anda</span></div>
 <div class="pp-foot"><div><i>💬</i><div><b>WhatsApp</b>+60 10‑343 4711</div></div><div><i>📍</i><div><b>Klinik Dr. Al Baghdadi</b>L1‑5A, Menara A (Akasia), Youth City Residence, Putra Nilai</div></div><div><i>🕙</i><div><b>Isnin – Jumaat</b>10 pagi – 10 malam<br>Rehat 2 – 4 petang</div></div></div>
 </div></template>
 
@@ -609,7 +642,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         prp:     { video: "media/poster-prp-lutut.mp4", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20PRP%20Lutut.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
         pelajar: { tpl: "tpl-pelajar", wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Pelajar%20%26%20Pekerja.%20Boleh%20saya%20tahu%20harga%20dan%20slot%20yang%20ada%3F" },
         hero:    { tpl: "tpl-hero",    wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Hero%20%2810%25%20diskaun%29.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" },
-        haji:    { tpl: "tpl-haji",    wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Haji%20%26%20Umrah.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" }
+        haji:    { tpl: "tpl-haji",    wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Haji%20%26%20Umrah.%20Boleh%20saya%20tahu%20slot%20yang%20ada%3F" },
+        travel:  { tpl: "tpl-travel",  wa: "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20berminat%20dengan%20Pakej%20Travel.%20Boleh%20saya%20tahu%20kandungan%20kit%20dan%20harga%3F" }
     };
     const pBackdrop = document.getElementById("posterBackdrop");
     const pMedia = document.getElementById("posterMedia");
