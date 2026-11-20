@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5HT9VD33');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https:; frame-src https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="js/boot.js"></script>
+    <script src="js/gtm.js" async></script>
     <title>Services | Klinik Dr. Al Baghdadi, Putra Nilai</title>
     <meta name="description" content="GP care, chronic care, screening, knee & joint pain, minor procedures and men's health in Putra Nilai.">
     <link rel="icon" href="img/logo-klinik.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/poppins-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/site.css">
-    <script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.add("no-motion")},2500);</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -34,7 +29,7 @@
             <a href="contact.html">Contact</a>
         </nav>
         <div class="nav-cta">
-            <a class="btn btn-primary" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span class="long">Book appointment</span><span class="short">Book</span></a>
+            <a class="btn btn-primary" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span class="long">Book appointment</span><span class="short">Book</span></a>
             <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </div>
@@ -98,8 +93,8 @@
             <h2>Need to see a doctor?</h2>
             <p>WhatsApp us to book, or walk in during opening hours.</p>
             <div class="row">
-                <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp us</a>
-                <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Get directions</a>
+                <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp us</a>
+                <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Get directions</a>
             </div>
         </div>
     </div>
@@ -108,42 +103,42 @@
 <template id="svc-gp"><div class="ph-top pop-in"><img src="img/stock/svc-gp.webp" alt="General Practice" width="960" height="720" decoding="async"></div>
 <div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">General Practice</h3><p class="pop-in">Everyday illness for adults and children.</p>
 <ul class="list pop-in"><li>Fever, cough &amp; flu</li><li>Headache &amp; migraine</li><li>Gastric &amp; diarrhoea</li><li>Skin rash &amp; allergy</li><li>Minor cuts &amp; infections</li></ul>
-<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
 <template id="svc-chronic"><div class="ph-top pop-in"><img src="img/stock/svc-chronic.webp" alt="Chronic Care" width="960" height="720" decoding="async"></div>
 <div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Chronic Care</h3><p class="pop-in">Ongoing care to keep your family well.</p>
 <ul class="list pop-in"><li>Blood pressure</li><li>Diabetes</li><li>Cholesterol</li><li>Medicine review</li><li>Baby jaundice test</li><li>Lifestyle advice</li></ul>
-<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
 <template id="svc-screening"><div class="ph-top pop-in"><img src="img/stock/svc-screening.webp" alt="Screening &amp; Tests" width="960" height="720" decoding="async"></div>
 <div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Screening &amp; Tests</h3><p class="pop-in">Rapid and lab tests for early detection.</p>
 <ul class="list pop-in"><li>Sugar, cholesterol &amp; uric acid</li><li>Dengue, Flu A/B &amp; COVID-19</li><li>Urine &amp; pregnancy test</li><li>Full blood panel &amp; HbA1c</li><li>ECG &amp; Pap smear</li><li>Medical check-ups: work, college, GDL/PSV, FOMEMA, pre-marriage</li></ul>
-<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a><a class="btn btn-soft" href="packages.html#pakej-darah"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg> Blood test package</a></div></div></template>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a><a class="btn btn-soft" href="packages.html#pakej-darah"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg> Blood test package</a></div></div></template>
 <template id="svc-knee"><div class="ph-top pop-in"><img src="img/stock/svc-knee.webp" alt="Knee &amp; Joint Pain" width="960" height="720" decoding="async"></div>
 <div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Knee &amp; Joint Pain</h3><p class="pop-in">Assessment and treatment for knee, joint and muscle pain.</p>
 <ul class="list pop-in"><li>Clinical assessment</li><li>Pain relief</li><li>PRP injection, if suitable</li><li>Stretching &amp; rehab advice</li><li>X-ray or orthopaedic referral</li></ul>
-<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a><a class="btn btn-soft" href="packages.html#pakej-prp"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg> PRP knee package</a></div></div></template>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a><a class="btn btn-soft" href="packages.html#pakej-prp"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg> PRP knee package</a></div></div></template>
 <template id="svc-procedure"><div class="ph-top pop-in"><img src="img/stock/svc-procedure.webp" alt="Minor Procedures" width="960" height="720" decoding="async"></div>
 <div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Minor Procedures</h3><p class="pop-in">Simple procedures done in the clinic.</p>
 <ul class="list pop-in"><li>Ear wash</li><li>Wound dressing</li><li>Minor surgery (small boils)</li><li>Splinter &amp; foreign body removal</li></ul>
-<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
 <template id="svc-mens"><div class="ph-top pop-in"><img src="img/stock/svc-mens.webp" alt="Men's Health" width="960" height="720" decoding="async"></div>
 <div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Men's Health</h3><p class="pop-in">A private, confidential consultation.</p>
 <ul class="list pop-in"><li>Low energy &amp; fatigue</li><li>Blood pressure</li><li>Heart risk</li><li>Lifestyle factors</li></ul>
-<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
 
 <footer class="site-footer">
     <div class="sf-inner">
         <div><img src="img/logo-gelap.png" alt="Klinik Dr. Al Baghdadi" width="130" height="52" loading="lazy"><p>Family GP clinic at Youth City Residence, Putra Nilai.</p></div>
         <div><b>Opening hours</b>Mon – Fri<br>10am – 10pm<br>Break: 2pm – 4pm<br>Sat &amp; Sun: Closed</div>
         <div><b>Address</b>L1-5A, Menara A (Akasia), Youth City Residence, Bandar Wawasan Putra Nilai, 71800 Nilai, Negeri Sembilan</div>
-        <div><b>Contact</b><a href="tel:+60103434711">+60 10-343 4711</a><br><a href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20have%20a%20question." target="_blank" rel="noopener">WhatsApp us</a><br><a href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener">Get directions</a></div>
+        <div><b>Contact</b><a href="tel:+60103434711">+60 10-343 4711</a><br><a href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer">WhatsApp us</a><br><a href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener noreferrer">Get directions</a></div>
     </div>
     <div class="sf-bottom">&copy; 2026 Klinik Dr. Al Baghdadi · All rights reserved.</div>
 </footer>
 
 <div class="fab" aria-label="Quick contact">
-    <a class="wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp</a>
+    <a class="wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp</a>
     <a href="tel:+60103434711"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call</a>
-    <a href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Directions</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Directions</a>
 </div>
 
 <script src="js/vendor/gsap-3.12.5.min.js" defer></script>
