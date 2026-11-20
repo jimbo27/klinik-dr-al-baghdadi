@@ -16,7 +16,7 @@
 
     // Hiasan latar automatik di bahagian atas halaman dalaman (selain halaman utama)
     var main = document.querySelector("main");
-    if (main && !main.classList.contains("home") && !main.querySelector(".px-deco")) {
+    if (main && !main.classList.contains("home") && !document.body.classList.contains("home-dark") && !main.querySelector(".px-deco")) {
         var deco = document.createElement("div");
         deco.className = "px-deco";
         deco.setAttribute("aria-hidden", "true");

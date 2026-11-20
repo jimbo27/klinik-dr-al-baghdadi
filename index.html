@@ -17,7 +17,7 @@
     <!-- Attractive Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
 
     <title>Klinik Dr. Al Baghdadi | Klinik Keluarga di Putra Nilai</title>
@@ -319,51 +319,14 @@
         @keyframes txtflow { to { background-position:-220% 0; } }
         @media (max-width:900px) { .h3d-anchor { left:80%; top:40%; scale:.72; } .h3d-dna { display:none; } .h3d { perspective-origin:80% 40%; } }
         @media (max-width:600px) {
-            .h3d-anchor { left:85%; top:20%; scale:.42; }
+            .h3d-anchor { left:86%; top:9%; scale:.4; }
             .h3d-scroll { opacity:.8; }
-            .h3d { perspective-origin:85% 22%; }
+            .h3d { perspective-origin:86% 12%; }
             .h3d-ecg { bottom:9%; height:70px; opacity:.6; }
             .hero-bg-wrap { opacity:.14; }
             .h3d-floor-wrap { height:40%; }
         }
 
-        /* ---------- STATS ---------- */
-        .stats { position:relative; z-index:2; margin-top:-2.2rem; display:grid; grid-template-columns:repeat(4,1fr); background:#fff; border-radius:1.2rem;
-            box-shadow:0 18px 40px rgba(15,23,42,.10); overflow:hidden; }
-        .stat { padding:1.2rem 1.3rem; border-right:1px solid #eef2f6; }
-        .stat:last-child { border-right:none; }
-        .stat b { display:block; font-size:1.6rem; color:#08747c; line-height:1.15; }
-        .stat span { font-size:.84rem; color:#64748b; }
-
-        /* ---------- SECTIONS ---------- */
-        .h-section { margin-top:3.6rem; }
-        main.home > .h-section:first-child { margin-top:1.6rem; }
-        .h-head { display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; margin-bottom:1.3rem; flex-wrap:wrap; }
-        .h-head h2 { font-size:clamp(1.25rem,2.4vw,1.5rem); margin:0; color:#0f172a; }
-        .h-head p { margin:.2rem 0 0; color:#64748b; font-size:.92rem; }
-        .h-head a { color:#08747c; font-weight:600; font-size:.9rem; text-decoration:none; white-space:nowrap; }
-        .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
-        .svc { display:flex; gap:.9rem; align-items:flex-start; background:#fff; border-radius:1rem; padding:1.1rem 1.2rem; text-decoration:none; color:inherit;
-            box-shadow:0 8px 24px rgba(15,23,42,.06); transition:transform .18s, box-shadow .18s; }
-        .svc:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(15,23,42,.12); }
-        .svc .ic { flex:none; width:46px; height:46px; border-radius:12px; background:#ecfeff; display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
-        .svc b { display:block; color:#0f172a; font-size:.95rem; }
-        .svc span { color:#64748b; font-size:.84rem; line-height:1.45; }
-
-        .doc { display:grid; grid-template-columns:auto 1fr auto; gap:1.6rem; align-items:center; background:linear-gradient(120deg,#ffffff,#f0fdfa); border:1px solid #ccfbf1;
-            border-radius:1.3rem; padding:1.6rem 1.8rem; }
-        .doc .av { width:88px; height:88px; border-radius:50%; background:#fff; box-shadow:0 8px 20px rgba(15,23,42,.12); display:flex; align-items:center; justify-content:center; font-size:2.6rem; }
-        .doc small { color:#0c9faa; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.75rem; }
-        .doc h3 { margin:.15rem 0 .3rem; font-size:1.2rem; color:#0f172a; }
-        .doc p { margin:0; color:#475569; font-size:.9rem; }
-        .doc .btn-line { border:2px solid #08747c; color:#08747c; padding:.65rem 1.2rem; border-radius:999px; font-weight:600; text-decoration:none; white-space:nowrap; }
-        .doc .btn-line:hover { background:#08747c; color:#fff; }
-
-        .gal { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
-        .gal figure { margin:0; position:relative; border-radius:1.2rem; overflow:hidden; box-shadow:0 12px 28px rgba(15,23,42,.12); aspect-ratio:4/5; cursor:zoom-in; background:#e2e8f0; }
-        .gal figure.wide { grid-column:span 2; aspect-ratio:auto; }
-        .gal img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; scale:1.14; will-change:translate; }
-        /* Jalur parallax */
         .pband { position:relative; overflow:hidden; isolation:isolate; margin-top:3.6rem; border-radius:1.4rem; min-height:340px; display:flex; align-items:center; color:#fff; box-shadow:0 18px 40px rgba(11,79,108,.25); }
         .pband-bg { position:absolute; inset:-22% 0; z-index:-2; background:#0b4f6c url("img/klinik-ruang-menunggu.jpg") 50% 50%/cover no-repeat; will-change:translate; }
         .pband::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(100deg, rgba(6,45,64,.92) 0%, rgba(8,116,124,.78) 55%, rgba(12,159,170,.35) 100%); }
@@ -376,9 +339,6 @@
         .pband-chips { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem; }
         .pband-chips span { background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); border-radius:999px; padding:.35rem .85rem; font-size:.85rem; backdrop-filter:blur(4px); }
         @media (max-width:700px) { .pband { min-height:300px; border-radius:1.1rem; } .pband-in { padding:2rem 1.3rem; } .pband::before { background:linear-gradient(180deg, rgba(6,45,64,.9), rgba(8,116,124,.8)); } }
-        .gal figure:hover img { transform:scale(1.06); }
-        .gal figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.2rem 1rem .9rem; color:#fff; font-weight:600; font-size:.88rem;
-            background:linear-gradient(0deg, rgba(5,34,48,.85), rgba(5,34,48,0)); }
         .lightbox { position:fixed; inset:0; z-index:3000; background:rgba(3,20,30,.97); display:none; flex-direction:column; justify-content:center; }
         .lightbox.open { display:flex; animation:fadeIn .25s ease; }
         @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -392,42 +352,16 @@
         .lb-nav.prev { left:.8rem; } .lb-nav.next { right:.8rem; }
         .lb-count { position:absolute; bottom:1.2rem; left:0; right:0; text-align:center; color:#cbd5e1; font-size:.85rem; letter-spacing:.08em; }
         @media (max-width:600px) { .lb-slide { padding:0 .8rem; } .lb-nav { width:2.3rem; height:2.3rem; font-size:1.3rem; background:rgba(255,255,255,.75); } }
-        .pk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
-        .pk { position:relative; overflow:hidden; border-radius:1.1rem; padding:1.3rem 1.3rem 1.2rem; color:#fff; text-decoration:none; min-height:150px;
-            display:flex; flex-direction:column; justify-content:space-between; transition:transform .18s, box-shadow .18s; box-shadow:0 10px 26px rgba(15,23,42,.12); }
-        .pk:hover { transform:translateY(-3px); box-shadow:0 16px 34px rgba(15,23,42,.2); }
-        .pk.a { background:linear-gradient(135deg,#0b4f6c,#0c9faa); } .pk.b { background:linear-gradient(135deg,#0f766e,#14b8a6); } .pk.c { background:linear-gradient(135deg,#1e3a8a,#0ea5e9); }
-        .pk .em { position:absolute; right:-6px; top:-10px; font-size:4.6rem; opacity:.18; }
-        .pk b { font-size:1.1rem; display:block; }
-        .pk span { font-size:.85rem; opacity:.9; }
-        .pk em { font-style:normal; font-weight:600; font-size:.85rem; margin-top:.8rem; }
-
-        .loc { display:grid; grid-template-columns:1.1fr 1fr; gap:1.4rem; align-items:stretch; }
-        .loc-map { border-radius:1.2rem; overflow:hidden; min-height:300px; box-shadow:0 10px 26px rgba(15,23,42,.08); background:#e2e8f0; }
-        .loc-map iframe { width:100%; height:100%; min-height:300px; border:0; display:block; }
-        .loc-info { background:#fff; border-radius:1.2rem; padding:1.5rem; box-shadow:0 10px 26px rgba(15,23,42,.06); display:flex; flex-direction:column; gap:1rem; font-size:.92rem; color:#475569; }
-        .loc-info b { display:block; color:#08747c; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.15rem; }
-        .loc-btns { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:auto; }
-        .loc-btns a { flex:1; text-align:center; padding:.7rem 1rem; border-radius:999px; font-weight:600; font-size:.88rem; text-decoration:none; border:2px solid #08747c; color:#08747c; }
-        .loc-btns a:first-child { background:#08747c; color:#fff; }
-
-        @media (max-width:900px) {
-            .stats { grid-template-columns:1fr 1fr; } .stat:nth-child(2) { border-right:none; } .stat:nth-child(-n+2) { border-bottom:1px solid #eef2f6; }
-            .svc-grid, .pk-grid { grid-template-columns:1fr 1fr; } .gal { grid-template-columns:1fr 1fr; } .gal figure.wide { aspect-ratio:16/10; } .loc { grid-template-columns:1fr; }
-            .doc { grid-template-columns:auto 1fr; } .doc .btn-line { grid-column:1 / -1; text-align:center; }
-        }
         @media (max-width:600px) {
             .hero { min-height:auto; } .hero-bg { background-image:url("img/hero-klinik-mobile.jpg"); background-position:50% 30%; } .hero-inner { padding:3rem 1.2rem 5.5rem; }
             .hero-overlay { background:linear-gradient(180deg, rgba(4,31,48,.55) 0%, rgba(4,31,48,.78) 45%, rgba(6,52,70,.6) 100%); }
             .hero-chips { grid-template-columns:1fr; gap:.6rem; } .hero-cta { flex-direction:column; } .btn { width:100%; justify-content:center; padding:.8rem 1.2rem; } .chip { padding:.65rem .9rem; }
-            main.home { padding:0 1.1rem 2.5rem; }
-            .svc-grid, .pk-grid { grid-template-columns:1fr; }
-            .doc { grid-template-columns:1fr; text-align:center; justify-items:center; padding:1.4rem; }
         }
     </style>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home-dark.css">
 </head>
-<body>
+<body class="home-dark">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HT9VD33"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -435,7 +369,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
     <div class="nav">
         <a href="index.html" class="logo">
-            <img src="img/logo-klinik.jpg" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img" width="105" height="58" fetchpriority="high">
+            <img src="img/logo-gelap.png" alt="Logo Klinik Dr. Al Baghdadi" class="logo-img" width="145" height="58" fetchpriority="high">
             <div class="logo-text"><span>KLINIK DR AL‑BAGHDADI</span></div>
         </a>
         <nav class="nav-links" id="navLinks">
@@ -465,21 +399,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a class="btn btn-ghost" href="services.html">Lihat perkhidmatan</a>
         </div>
     </div>
-    <div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0 40 C 240 80 480 0 720 26 S 1200 70 1440 30 V70 H0Z" fill="#f4fbfc"/></svg></div>
+    <div class="hero-scroll" aria-hidden="true">SKROL<i></i></div>
 </section>
 
-<main class="home" style="padding-top:0;">
+<main class="home-x">
 
+    <!-- 01 PERKHIDMATAN: tulisan 3D melengkung -->
+    <section class="svc3d" id="perkhidmatan" data-liquid>
+        <div class="svc3d-pin">
+            <div class="sec-label">01 / Perkhidmatan</div>
+            <h2 class="sr-only">Perkhidmatan</h2>
+            <div class="cyl-stage" aria-hidden="true"><div class="cyl" data-word="PERKHIDMATAN"></div></div>
+            <p class="svc3d-sub">Penjagaan kesihatan untuk <b>seisi keluarga</b>, dari rawatan harian hingga saringan dan prosedur kecil.</p>
+        </div>
+    </section>
 
+    <section class="cards-sec" aria-label="Senarai perkhidmatan">
+        <div class="ghost" aria-hidden="true">PERKHIDMATAN ✚ PERKHIDMATAN ✚ PERKHIDMATAN</div>
+        <span class="xh" style="left:4%;top:3rem"></span><span class="xh" style="right:4%;bottom:3rem"></span>
+        <div class="wrap">
+            <div class="gcard-grid" id="svcGrid">
+            <a class="gcard" href="services.html"><span class="no">01</span><span class="ic" aria-hidden="true">🩺</span><h3>Perubatan Am (GP)</h3><p>Rawatan untuk masalah kesihatan harian bagi dewasa dan kanak-kanak.</p><span class="go">LIHAT BUTIRAN →</span></a>
+            <a class="gcard" href="services.html"><span class="no">02</span><span class="ic" aria-hidden="true">👨‍👩‍👧‍👦</span><h3>Kesihatan Keluarga &amp; Penyakit Kronik</h3><p>Saringan asas, pemantauan darah tinggi dan kencing manis, serta semakan ubat.</p><span class="go">LIHAT BUTIRAN →</span></a>
+            <a class="gcard" href="services.html"><span class="no">03</span><span class="ic" aria-hidden="true">🧪</span><h3>Ujian Saringan &amp; Diagnostik</h3><p>Ujian pantas, ujian darah makmal, ECG dan pemeriksaan perubatan rasmi.</p><span class="go">LIHAT BUTIRAN →</span></a>
+            <a class="gcard" href="services.html"><span class="no">04</span><span class="ic" aria-hidden="true">🦵</span><h3>Sakit Lutut &amp; Sendi</h3><p>Penilaian klinikal, ubat, suntikan PRP bagi kes yang sesuai dan rujukan.</p><span class="go">LIHAT BUTIRAN →</span></a>
+            <a class="gcard" href="services.html"><span class="no">05</span><span class="ic" aria-hidden="true">🩹</span><h3>Prosedur Klinik</h3><p>Cucian telinga, pembedahan kecil dan penjagaan luka.</p><span class="go">LIHAT BUTIRAN →</span></a>
+            <a class="gcard" href="services.html"><span class="no">06</span><span class="ic" aria-hidden="true">💬</span><h3>Kesihatan Lelaki</h3><p>Perbincangan sulit tentang tenaga, tekanan darah dan risiko jantung.</p><span class="go">LIHAT BUTIRAN →</span></a>
+            </div>
+            <div class="cards-more"><a class="link-line" href="services.html">SEMUA PERKHIDMATAN →</a></div>
+        </div>
+    </section>
 
-    <section class="h-section reveal">
-        <div class="h-head"><div><h2>Suasana klinik kami</h2><p>Bersih, tenang dan teratur, dari kaunter hingga bilik rawatan. Tekan gambar untuk lihat lebih besar.</p></div></div>
-        <div class="gal">
-            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-kaunter.jpg" alt="Kaunter pendaftaran Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Kaunter pendaftaran</figcaption></figure>
-            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-ruang-menunggu.jpg" alt="Ruang menunggu yang selesa" width="720" height="900" loading="lazy" decoding="async"><figcaption>Ruang menunggu</figcaption></figure>
-            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-bilik-rawatan.jpg" alt="Bilik rawatan dengan tirai privasi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Bilik rawatan dengan tirai privasi</figcaption></figure>
-            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-peralatan.jpg" alt="Troli prosedur dan ubat yang tersusun" width="720" height="900" loading="lazy" decoding="async"><figcaption>Peralatan prosedur yang tersusun</figcaption></figure>
-            <figure class="wide"><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-sijil.jpg" alt="Sijil pendaftaran klinik dan doktor dipamerkan" width="1000" height="569" loading="lazy" decoding="async"><figcaption>Sijil pendaftaran doktor &amp; klinik dipamerkan di klinik</figcaption></figure>
+    <!-- 02 SUASANA KLINIK: galeri 3D mendatar -->
+    <section class="hgal" id="suasana" data-liquid>
+        <div class="hgal-pin">
+            <div class="wrap hgal-head">
+                <div>
+                    <div class="sec-label">02 / Suasana klinik</div>
+                    <h2 class="sec-title">Suasana <span>klinik kami</span></h2>
+                    <p class="sec-sub">Bersih, tenang dan teratur, dari kaunter hingga bilik rawatan. Tekan gambar untuk lihat lebih besar.</p>
+                </div>
+                <div class="hgal-count"><b>01</b> / 05</div>
+            </div>
+            <div class="hgal-stage">
+                <div class="gal hgal-track">
+                <figure data-cap="Kaunter pendaftaran"><img src="img/klinik-kaunter.jpg" alt="Kaunter pendaftaran Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption><i>01 · PENDAFTARAN</i><b>Kaunter pendaftaran</b></figcaption></figure>
+                <figure data-cap="Ruang menunggu"><img src="img/klinik-ruang-menunggu.jpg" alt="Ruang menunggu yang selesa" width="720" height="900" loading="lazy" decoding="async"><figcaption><i>02 · RUANG MENUNGGU</i><b>Ruang menunggu</b></figcaption></figure>
+                <figure data-cap="Bilik rawatan dengan tirai privasi"><img src="img/klinik-bilik-rawatan.jpg" alt="Bilik rawatan dengan tirai privasi" width="720" height="900" loading="lazy" decoding="async"><figcaption><i>03 · BILIK RAWATAN</i><b>Bilik rawatan dengan tirai privasi</b></figcaption></figure>
+                <figure data-cap="Peralatan prosedur yang tersusun"><img src="img/klinik-peralatan.jpg" alt="Troli prosedur dan ubat yang tersusun" width="720" height="900" loading="lazy" decoding="async"><figcaption><i>04 · PERALATAN</i><b>Peralatan prosedur yang tersusun</b></figcaption></figure>
+                <figure class="wide" data-cap="Sijil pendaftaran doktor &amp; klinik dipamerkan di klinik"><img src="img/klinik-sijil.jpg" alt="Sijil pendaftaran klinik dan doktor dipamerkan" width="1000" height="569" loading="lazy" decoding="async"><figcaption><i>05 · PENDAFTARAN SAH</i><b>Sijil pendaftaran doktor &amp; klinik dipamerkan di klinik</b></figcaption></figure>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -491,7 +461,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="lb-count" id="lbCount"></div>
     </div>
 
-
+    <section class="pband-sec">
+        <div class="wrap">
     <!-- JALUR PARALLAX -->
     <section class="pband reveal" aria-label="Kesihatan anda, keutamaan kami">
         <div class="pband-bg" data-parallax="0.22" role="img" aria-label="Ruang menunggu Klinik Dr. Al Baghdadi"></div>
@@ -503,7 +474,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="pband-chips"><span>🕙 Buka hingga 10 malam</span><span>💳 Panel &amp; insurans</span><span>🎓 Pelajar &amp; pekerja</span></div>
         </div>
     </section>
+        </div>
+    </section>
 
+    <!-- 03 PAKEJ -->
+    <section class="pk-sec" id="pakej">
+        <div class="ghost" aria-hidden="true">PAKEJ ✚ PAKEJ ✚ PAKEJ ✚ PAKEJ ✚ PAKEJ</div>
+        <div class="wrap">
+            <div class="sec-label">03 / Pakej kesihatan</div>
+            <h2 class="sec-title">Pakej <span>kesihatan</span></h2>
+            <p class="sec-sub">Harga jelas sebelum rawatan. Tekan mana-mana pakej untuk butiran penuh dan poster.</p>
+            <div class="gcard-grid" id="pkGrid">
+            <a class="gcard" href="packages.html#pakej-darah"><span class="no">01</span><span class="ic" aria-hidden="true">🩸</span><h3>Pakej Ujian Darah</h3><p>FBC, buah pinggang, hati, kolesterol, gula, asid urik &amp; HbA1c.</p><span class="price"><small>Bermula dari</small>RM89</span></a>
+            <a class="gcard" href="packages.html#pakej-pelajar"><span class="no">02</span><span class="ic" aria-hidden="true">🎓</span><h3>Pakej Pelajar &amp; Pekerja</h3><p>Pemeriksaan untuk kemasukan IPT, asrama dan kerja baharu.</p><span class="price"><small>Bermula dari</small>RM70</span></a>
+            <a class="gcard" href="packages.html#pakej-prp"><span class="no">03</span><span class="ic" aria-hidden="true">🦵</span><h3>Pakej PRP Lutut</h3><p>Suntikan PRP kedua-dua lutut, selepas penilaian doktor.</p><span class="price"><small>Setiap sesi</small>RM250</span></a>
+            <a class="gcard" href="packages.html#pakej-haji"><span class="no">04</span><span class="ic" aria-hidden="true">🕋</span><h3>Pakej Haji &amp; Umrah</h3><p>Pemeriksaan kesihatan dan vaksinasi sebelum ke Tanah Suci.</p><span class="price"><small>Bermula dari</small>RM120</span></a>
+            <a class="gcard" href="packages.html#pakej-travel"><span class="no">05</span><span class="ic" aria-hidden="true">🧳</span><h3>Pakej Travel</h3><p>Kit ubat perjalanan untuk dewasa dan kanak-kanak.</p><span class="price"><small>Sekitar</small>RM45</span></a>
+            <a class="gcard" href="packages.html#pakej-hero"><span class="no">06</span><span class="ic" aria-hidden="true">🦸</span><h3>Pakej Hero</h3><p>Untuk warga KKM, Bomba, Polis dan ATM.</p><span class="price"><small>Diskaun</small>10%</span></a>
+            </div>
+            <div class="cards-more"><a class="link-line" href="packages.html">SEMUA PAKEJ →</a></div>
+        </div>
+    </section>
+
+    <!-- 04 PANEL -->
+    <section class="panel-sec">
+        <div class="wrap">
+            <div class="sec-label">04 / Panel &amp; insurans</div>
     <!-- PANEL LOGO BERGERAK -->
     <section class="logo-panel">
         <div class="logo-panel-title">Panel &amp; Rakan Kerjasama</div>
@@ -591,12 +587,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         </div>
     </section>
+        </div>
+    </section>
 
-
-    <section class="t-cta reveal">
-        <h2>Perlu berjumpa doktor?</h2>
-        <p>Hantar mesej WhatsApp untuk bertanya atau menempah slot. Kami akan membalas dalam waktu operasi.</p>
-        <a href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20ingin%20membuat%20temu%20janji." target="_blank">WhatsApp kami</a>
+    <!-- 05 HUBUNGI + logo penutup -->
+    <section class="outro" id="hubungi" data-liquid>
+        <span class="xh" style="left:6%;top:4rem"></span><span class="xh" style="right:6%;top:4rem"></span>
+        <div class="wrap">
+            <div class="sec-label" style="justify-content:center">05 / Hubungi</div>
+            <div class="outro-logo" id="outroLogo"><img src="img/logo-gelap.png" alt="Klinik Dr. Al Baghdadi" width="826" height="330" loading="lazy"></div>
+            <h2>Perlu berjumpa doktor?</h2>
+            <p>Hantar mesej WhatsApp untuk bertanya atau menempah slot. Kami akan membalas dalam waktu operasi.</p>
+            <div class="outro-cta">
+                <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20saya%20ingin%20membuat%20temu%20janji." target="_blank">💬 WhatsApp kami</a>
+                <a class="btn btn-line" href="contact.html">📍 Lokasi &amp; waktu operasi</a>
+            </div>
+            <div class="outro-meta"><div>Waktu<b>Isnin – Jumaat · 10 pagi – 10 malam</b></div><div>Rehat<b>2:00 – 4:00 petang</b></div><div>Lokasi<b>Youth City Residence, Putra Nilai</b></div></div>
+        </div>
     </section>
 </main>
 
@@ -610,89 +617,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="sf-bottom">&copy; 2026 <span>Klinik Dr. Al Baghdadi</span> · Semua hak cipta terpelihara.</div>
 </footer>
 
-<script>
-    const navToggle = document.getElementById("navToggle");
-    const navLinks  = document.getElementById("navLinks");
-    navToggle?.addEventListener("click", () => navLinks.classList.toggle("open"));
-
-    // Animasi muncul bila skrol
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); } }), { threshold: 0.1 });
-    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
-    // Lightbox galeri: leret kiri/kanan untuk gambar lain
-    const lb = document.getElementById("lightbox"), lbTrack = document.getElementById("lbTrack"), lbCount = document.getElementById("lbCount");
-    const figs = [...document.querySelectorAll(".gal figure")];
-    figs.forEach(fg => {
-        const im = fg.querySelector("img"), sl = document.createElement("div");
-        sl.className = "lb-slide";
-        sl.innerHTML = '<img loading="lazy" alt=""><p></p>';
-        sl.querySelector("img").src = im.getAttribute("src"); sl.querySelector("img").alt = im.alt;
-        sl.querySelector("p").textContent = fg.querySelector("figcaption").textContent;
-        lbTrack.appendChild(sl);
-    });
-    const slideW = () => lbTrack.clientWidth;
-    const curIdx = () => Math.round(lbTrack.scrollLeft / slideW());
-    const showCount = () => { lbCount.textContent = (curIdx() + 1) + " / " + figs.length; };
-    const goTo = (i, smooth = true) => { i = (i + figs.length) % figs.length; lbTrack.scrollTo({ left: i * slideW(), behavior: smooth ? "smooth" : "auto" }); };
-    figs.forEach((fg, i) => fg.addEventListener("click", () => {
-        lb.classList.add("open"); document.body.style.overflow = "hidden";
-        requestAnimationFrame(() => { goTo(i, false); showCount(); });
-    }));
-    lbTrack.addEventListener("scroll", () => requestAnimationFrame(showCount), { passive: true });
-    lb.querySelector(".lb-nav.prev").addEventListener("click", () => goTo(curIdx() - 1));
-    lb.querySelector(".lb-nav.next").addEventListener("click", () => goTo(curIdx() + 1));
-    const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
-    lb.querySelector(".lb-close").addEventListener("click", closeLb);
-    lb.addEventListener("click", e => { if (e.target.classList.contains("lb-slide")) closeLb(); });
-    document.addEventListener("keydown", e => {
-        if (!lb.classList.contains("open")) return;
-        if (e.key === "Escape") closeLb();
-        if (e.key === "ArrowRight") goTo(curIdx() + 1);
-        if (e.key === "ArrowLeft") goTo(curIdx() - 1);
-    });
-
-    // Panel: bergerak sendiri, boleh leret / seret / anak panah
-    (function () {
-        const sc = document.getElementById("panelScroll"); if (!sc) return;
-        const track = sc.querySelector(".logo-panel-track");
-        let paused = false, resumeT, x = 0;
-        const half = () => track.scrollWidth / 2;
-        const pause = (ms = 2500) => { paused = true; clearTimeout(resumeT); resumeT = setTimeout(() => { paused = false; x = sc.scrollLeft; }, ms); };
-        const wrap = () => { const h = half(); if (sc.scrollLeft >= h) sc.scrollLeft -= h; else if (sc.scrollLeft <= 0) sc.scrollLeft += h; };
-        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        function tick() {
-            if (!paused && !reduce && document.visibilityState === "visible") { x += 0.5; sc.scrollLeft = x; if (sc.scrollLeft >= half()) { x -= half(); sc.scrollLeft = x; } }
-            requestAnimationFrame(tick);
-        }
-        sc.addEventListener("scroll", () => { if (paused) wrap(); }, { passive: true });
-        ["touchstart", "wheel"].forEach(ev => sc.addEventListener(ev, () => pause(), { passive: true }));
-        let down = false, sx = 0, sl = 0, moved = false;
-        sc.addEventListener("mousedown", e => { down = true; moved = false; sx = e.pageX; sl = sc.scrollLeft; pause(4000); });
-        window.addEventListener("mousemove", e => { if (!down) return; const d = e.pageX - sx; if (Math.abs(d) > 3) { moved = true; sc.classList.add("dragging"); } sc.scrollLeft = sl - d; wrap(); });
-        window.addEventListener("mouseup", () => { if (down) { down = false; sc.classList.remove("dragging"); pause(); } });
-        const step = () => Math.min(320, sc.clientWidth * 0.7);
-        document.querySelector(".lp-arrow.next").addEventListener("click", () => { pause(3500); sc.scrollBy({ left: step(), behavior: "smooth" }); });
-        document.querySelector(".lp-arrow.prev").addEventListener("click", () => { pause(3500); if (sc.scrollLeft < step()) sc.scrollLeft += half(); sc.scrollBy({ left: -step(), behavior: "smooth" }); });
-        x = sc.scrollLeft = 1; requestAnimationFrame(tick);
-    })();
-
-    // Status buka / rehat / tutup (waktu Malaysia)
-    (function () {
-        const el = document.getElementById("openStatus"), txt = document.getElementById("openText");
-        const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" }));
-        const d = now.getDay(), m = now.getHours() * 60 + now.getMinutes();
-        const weekday = d >= 1 && d <= 5;
-        let cls = "tutup", t;
-        if (weekday && ((m >= 600 && m < 840) || (m >= 960 && m < 1320))) { cls = "buka"; t = "Sedang dibuka · tutup 10:00 malam"; if (m < 840) t = "Sedang dibuka · rehat 2:00 petang"; }
-        else if (weekday && m >= 840 && m < 960) { cls = "rehat"; t = "Waktu rehat · dibuka semula 4:00 petang"; }
-        else if (weekday && m < 600) t = "Tutup · dibuka hari ini 10:00 pagi";
-        else if (d >= 1 && d <= 4) t = "Tutup · dibuka esok 10:00 pagi";
-        else t = "Tutup · dibuka Isnin 10:00 pagi";
-        el.classList.add(cls); txt.textContent = t;
-    })();
-</script>
 <script src="js/parallax.js" defer></script>
 <script src="js/vendor/motion-11.18.2.min.js" defer></script>
+<script src="js/logo-paths.js" defer></script>
+<script src="js/liquid.js" defer></script>
 <script src="js/hero3d.js" defer></script>
+<script src="js/home.js" defer></script>
 </body>
 </html>
