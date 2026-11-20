@@ -44,10 +44,10 @@
     if ("IntersectionObserver" in window) {
         var ctaIO = new IntersectionObserver(function (es) {
             es.forEach(function (e) { e.target.__vis = e.isIntersecting; });
-            ctaVisible = $$(".cta, #contact, .site-footer").filter(function (n) { return n.__vis; }).length;
+            ctaVisible = $$(".cta, #contact, .site-footer, [data-nofab]").filter(function (n) { return n.__vis; }).length;
             onScroll();
         }, { threshold: 0.05 });
-        $$(".cta, #contact, .site-footer").forEach(function (n) { ctaIO.observe(n); });
+        $$(".cta, #contact, .site-footer, [data-nofab]").forEach(function (n) { ctaIO.observe(n); });
     }
     function onScroll() {
         var y = window.scrollY;
