@@ -1,34 +1,52 @@
-/* Shared behaviour for every page:
- * header state, mobile menu, scroll reveal (Motion), card tilt, curved 3D page titles,
- * floating contact bar, opening status, gallery lightbox, FAQ.
+/* Klinik Dr. Al Baghdadi – shared behaviour (GSAP + ScrollTrigger + Lenis)
+ * Smooth scroll, header, scroll reveals, 3D card entrance + tilt, curved 3D titles,
+ * image parallax, FAQ, opening status, floating bar, and the 3D pop-up system (window.Pop).
  */
 (function () {
     "use strict";
-    var M = window.Motion || {};
-    var animate = M.animate, stagger = M.stagger, inView = M.inView;
+    var root = document.documentElement;
+    var gsap = window.gsap, ST = window.ScrollTrigger;
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var hover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    var motionOK = !!(animate && inView && !reduce);
-    var root = document.documentElement;
+    var ok = !!(gsap && ST && !reduce);
     var $ = function (s, r) { return (r || document).querySelector(s); };
     var $$ = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
-    var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
-    var lerp = function (a, b, t) { return a + (b - a) * t; };
     window.__siteReady = true;
-    if (!motionOK) root.classList.add("no-motion");
-    var EASE = [0.16, 1, 0.3, 1];
+    if (!ok) root.classList.add("no-motion");
+    if (gsap && ST) gsap.registerPlugin(ST);
 
-    /* ---------- Header ---------- */
-    var header = $(".site-header"), lastY = 0;
+    /* ---------- Lenis smooth scroll ---------- */
+    var lenis = null;
+    if (ok && window.Lenis) {
+        lenis = new window.Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+        lenis.on("scroll", ST.update);
+        gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+        gsap.ticker.lagSmoothing(0);
+        $$('a[href^="#"]').forEach(function (a) {
+            a.addEventListener("click", function (e) {
+                var id = a.getAttribute("href"); if (id.length < 2) return;
+                var el = $(id); if (!el) return;
+                e.preventDefault(); lenis.scrollTo(el, { offset: -70 });
+            });
+        });
+    }
+    window.SiteScroll = {
+        stop: function () { if (lenis) lenis.stop(); root.classList.add("lock"); },
+        start: function () { if (lenis) lenis.start(); root.classList.remove("lock"); },
+        to: function (t, o) { if (lenis) lenis.scrollTo(t, o || {}); else (typeof t === "number" ? window.scrollTo(0, t) : t.scrollIntoView({ behavior: "smooth", block: "center" })); },
+        lenis: lenis
+    };
+
+    /* ---------- Header + floating bar ---------- */
+    var header = $(".site-header"), fab = $(".fab"), lastY = 0;
     function onScroll() {
         var y = window.scrollY;
         if (header) {
             header.classList.toggle("scrolled", y > 8);
             var open = $(".nav-links.open");
-            header.classList.toggle("hide", !open && y > 420 && y > lastY + 4);
-            if (y < lastY - 4) header.classList.remove("hide");
+            if (!open && y > 420 && y > lastY + 3) header.classList.add("hide");
+            if (y < lastY - 3 || y < 420) header.classList.remove("hide");
         }
-        var fab = $(".fab");
         if (fab) fab.classList.toggle("show", y > 260);
         lastY = y;
     }
@@ -37,102 +55,136 @@
     var tg = $(".nav-toggle"), links = $(".nav-links");
     if (tg && links) tg.addEventListener("click", function () {
         var o = links.classList.toggle("open"); tg.classList.toggle("open", o); tg.setAttribute("aria-expanded", o);
+        if (o && ok) gsap.from($$("a", links), { y: -10, opacity: 0, stagger: 0.04, duration: 0.35, ease: "power2.out" });
     });
 
-    /* ---------- Scroll reveal ---------- */
-    if (motionOK) {
-        $$("[data-reveal]").forEach(function (el) {
-            var kind = el.getAttribute("data-reveal");
-            inView(el, function () {
-                var from = kind === "tilt" ? { opacity: [0, 1], y: [60, 0], rotateX: [22, 0] }
-                    : kind === "left" ? { opacity: [0, 1], x: [-50, 0] }
-                    : kind === "zoom" ? { opacity: [0, 1], scale: [0.92, 1] }
-                    : { opacity: [0, 1], y: [36, 0] };
-                animate(el, from, { duration: 0.9, ease: EASE, delay: parseFloat(el.getAttribute("data-delay") || 0) });
-            }, { amount: 0.15 });
+    /* ---------- Split headings into words ---------- */
+    function splitWords(el) {
+        var walk = function (node) {
+            [].slice.call(node.childNodes).forEach(function (n) {
+                if (n.nodeType === 3) {
+                    var frag = document.createDocumentFragment();
+                    n.textContent.split(/(\s+)/).forEach(function (part) {
+                        if (!part) return;
+                        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+                        var o = document.createElement("span"); o.className = "w";
+                        var i = document.createElement("span"); i.className = "wi"; i.textContent = part;
+                        o.appendChild(i); frag.appendChild(o);
+                    });
+                    node.replaceChild(frag, n);
+                } else if (n.nodeType === 1) walk(n);
+            });
+        };
+        walk(el);
+        return $$(".wi", el);
+    }
+
+    if (ok) {
+        /* headings: words rise out of a mask */
+        $$("[data-split]").forEach(function (h) {
+            var words = splitWords(h);
+            gsap.set(h, { opacity: 1 });
+            gsap.from(words, { yPercent: 110, rotate: 4, duration: 1.05, ease: "expo.out", stagger: 0.06,
+                scrollTrigger: { trigger: h, start: "top 88%", once: true } });
         });
+        /* single elements */
+        $$("[data-reveal]").forEach(function (el) {
+            var k = el.getAttribute("data-reveal");
+            var from = k === "zoom" ? { opacity: 0, scale: 0.9, rotateX: 18, transformPerspective: 1000 }
+                : k === "tilt" ? { opacity: 0, y: 70, rotateX: 24, transformPerspective: 1000 }
+                : { opacity: 0, y: 40 };
+            gsap.fromTo(el, from, { opacity: 1, y: 0, scale: 1, rotateX: 0, duration: 1.1, ease: "expo.out", delay: parseFloat(el.getAttribute("data-delay") || 0),
+                scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+        });
+        /* groups: 3D cards fly in one after another */
         $$("[data-stagger]").forEach(function (g) {
             var kids = [].slice.call(g.children);
-            kids.forEach(function (k) { k.style.opacity = 0; });
-            inView(g, function () {
-                animate(kids, { opacity: [0, 1], y: [70, 0], rotateX: [28, 0], z: [-80, 0] },
-                    { duration: 1, delay: stagger(0.08), ease: EASE });
-            }, { amount: 0.12 });
+            gsap.set(kids, { transformPerspective: 1200, transformOrigin: "50% 100%" });
+            ST.batch(kids, {
+                start: "top 92%", once: true,
+                onEnter: function (batch) {
+                    gsap.fromTo(batch, { opacity: 0, y: 90, rotateX: -35, z: -120 },
+                        { opacity: 1, y: 0, rotateX: 0, z: 0, duration: 1.2, ease: "expo.out", stagger: 0.09, clearProps: "transform" });
+                }
+            });
+        });
+        /* image parallax inside frames */
+        $$(".thumb img, .gallery img, .ph img").forEach(function (img) {
+            gsap.fromTo(img, { yPercent: -7, scale: 1.16 }, { yPercent: 7, scale: 1.16, ease: "none",
+                scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
+        });
+        /* soft blobs drift */
+        $$(".blob").forEach(function (b, i) {
+            gsap.to(b, { yPercent: (i % 2 ? -1 : 1) * 30, xPercent: (i % 2 ? 1 : -1) * 10, ease: "none",
+                scrollTrigger: { trigger: b.closest("section"), start: "top top", end: "bottom top", scrub: true } });
         });
     }
 
-    /* ---------- Card tilt ---------- */
-    if (motionOK && hover) {
+    /* ---------- Card tilt (mouse) ---------- */
+    if (ok && hover) {
         $$(".tilt").forEach(function (c) {
+            gsap.set(c, { transformPerspective: 900 });
+            var rx = gsap.quickTo(c, "rotateX", { duration: 0.5, ease: "power3.out" });
+            var ry = gsap.quickTo(c, "rotateY", { duration: 0.5, ease: "power3.out" });
+            var sh = $(".shine", c);
             c.addEventListener("pointermove", function (e) {
-                var r = c.getBoundingClientRect();
-                var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-                animate(c, { rotateY: (x - 0.5) * 12, rotateX: (0.5 - y) * 10, z: 24 }, { type: "spring", stiffness: 260, damping: 22 });
+                var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+                rx((0.5 - y) * 10); ry((x - 0.5) * 12);
+                if (sh) { sh.style.setProperty("--x", x * 100 + "%"); sh.style.setProperty("--y", y * 100 + "%"); }
             });
-            c.addEventListener("pointerleave", function () {
-                animate(c, { rotateY: 0, rotateX: 0, z: 0 }, { type: "spring", stiffness: 180, damping: 18 });
-            });
+            c.addEventListener("pointerleave", function () { rx(0); ry(0); });
         });
     }
 
-    /* ---------- Curved 3D word ---------- */
+    /* ---------- Curved 3D words ---------- */
     var ctx = document.createElement("canvas").getContext("2d");
-    function buildCurved(el, word, arc) {
+    function Curved(el, word, arc) {
         var letters = word.split("").map(function (ch) {
-            var d = document.createElement("div");
-            d.className = "cl";
+            var d = document.createElement("div"); d.className = "cl";
             var c = ch === " " ? "&nbsp;" : ch;
             d.innerHTML = '<span class="l3">' + c + '</span><span class="l2">' + c + '</span><span class="l1">' + c + "</span>";
-            el.appendChild(d);
-            return d;
+            el.appendChild(d); return d;
         });
-        var api = { R: 600 };
+        var api = { R: 600, th: 0, z: 0, rx: 0, mx: 0, my: 0 };
         api.layout = function () {
             var fs = parseFloat(getComputedStyle(el).fontSize);
             ctx.font = "800 " + fs + "px Poppins, sans-serif";
             var ws = word.split("").map(function (ch) { return (ch === " " ? fs * 0.28 : ctx.measureText(ch).width) + fs * 0.02; });
             var L = ws.reduce(function (a, b) { return a + b; }, 0);
-            api.R = L / (arc || 2.1);
+            api.R = L / (typeof arc === "function" ? arc() : arc);
             var s = 0;
             letters.forEach(function (l, i) {
                 var c = s + ws[i] / 2; s += ws[i];
-                var a = (c - L / 2) / api.R;
                 l.style.width = ws[i] + "px"; l.style.marginLeft = (-ws[i] / 2) + "px";
-                l.style.transform = "rotateY(" + a.toFixed(4) + "rad) translateZ(" + api.R.toFixed(1) + "px)";
+                l.style.transform = "rotateY(" + ((c - L / 2) / api.R).toFixed(4) + "rad) translateZ(" + api.R.toFixed(1) + "px)";
             });
+            api.draw();
         };
-        api.set = function (th, z, rx) {
-            el.style.transform = "translateZ(" + (-api.R + (z || 0)).toFixed(1) + "px) rotateX(" + (rx || 0).toFixed(2) + "deg) rotateY(" + th.toFixed(2) + "deg)";
+        api.draw = function () {
+            el.style.transform = "translateZ(" + (-api.R + api.z).toFixed(1) + "px) rotateX(" + (api.rx + api.my).toFixed(2) + "deg) rotateY(" + (api.th + api.mx).toFixed(2) + "deg)";
         };
         api.layout();
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { api.layout(); if (api.onLayout) api.onLayout(); });
-        window.addEventListener("resize", function () { api.layout(); if (api.onLayout) api.onLayout(); });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(api.layout);
+        window.addEventListener("resize", api.layout);
         return api;
     }
-    window.Curved = buildCurved;
+    window.Curved = Curved;
 
-    // Page titles: fly in, follow the mouse gently, tilt away on scroll
     $$(".ptitle[data-word]").forEach(function (el) {
-        var c = buildCurved(el, el.getAttribute("data-word"), window.innerWidth < 640 ? 1.5 : 1.25);
-        var st = { th: 0, z: 0, rx: 0, mx: 0, my: 0, sc: 0 };
-        function draw() { c.set(st.th + st.mx, st.z, st.rx + st.my + st.sc); }
-        c.onLayout = draw;
-        if (!motionOK) { draw(); return; }
-        animate(48, 0, { duration: 1.6, ease: EASE, onUpdate: function (v) { st.th = v; draw(); } });
-        animate(-420, 0, { duration: 1.6, ease: EASE, onUpdate: function (v) { st.z = v; draw(); } });
-        animate(el, { opacity: [0, 1] }, { duration: 0.8 });
+        var c = Curved(el, el.getAttribute("data-word"), function () { return window.innerWidth < 640 ? 1.5 : 1.25; });
+        if (!ok) { el.style.opacity = 1; return; }
+        c.th = 50; c.z = -420; c.draw();
+        gsap.to(el, { opacity: 1, duration: 0.8 });
+        gsap.to(c, { th: 0, z: 0, duration: 1.8, ease: "expo.out", onUpdate: c.draw });
+        gsap.to(c, { rx: 32, z: -160, ease: "none", onUpdate: c.draw,
+            scrollTrigger: { trigger: el.closest(".page-head"), start: "top top", end: "bottom top", scrub: true } });
         if (hover) {
-            var tx = 0, ty = 0, running = false;
-            var ease = function () {
-                st.mx += (tx - st.mx) * 0.08; st.my += (ty - st.my) * 0.08; draw();
-                if (Math.abs(tx - st.mx) + Math.abs(ty - st.my) > 0.02) requestAnimationFrame(ease); else running = false;
-            };
+            var qx = gsap.quickTo(c, "mx", { duration: 1.2, ease: "power3.out", onUpdate: c.draw });
+            var qy = gsap.quickTo(c, "my", { duration: 1.2, ease: "power3.out", onUpdate: c.draw });
             window.addEventListener("pointermove", function (e) {
-                tx = (e.clientX / window.innerWidth - 0.5) * 14; ty = -(e.clientY / window.innerHeight - 0.5) * 8;
-                if (!running) { running = true; requestAnimationFrame(ease); }
+                qx((e.clientX / window.innerWidth - 0.5) * 16); qy(-(e.clientY / window.innerHeight - 0.5) * 9);
             });
         }
-        window.addEventListener("scroll", function () { st.sc = clamp(window.scrollY / 8, 0, 35); draw(); }, { passive: true });
     });
 
     /* ---------- Opening status (Malaysia time) ---------- */
@@ -149,40 +201,102 @@
         el.classList.add(cls); if (txt) txt.textContent = t;
     });
 
-    /* ---------- Gallery lightbox ---------- */
-    (function () {
-        var figs = $$(".gallery figure"), lb = $("#lightbox");
-        if (!figs.length || !lb) return;
-        var track = $(".lb-track", lb), count = $(".lb-count", lb);
-        figs.forEach(function (fg) {
-            var im = $("img", fg), sl = document.createElement("div");
-            sl.className = "lb-slide"; sl.innerHTML = '<img alt=""><p></p>';
-            $("img", sl).src = im.getAttribute("src"); $("img", sl).alt = im.alt;
-            $("p", sl).textContent = (fg.querySelector("figcaption") || {}).textContent || im.alt;
-            track.appendChild(sl);
+    /* ---------- FAQ ---------- */
+    $$(".faq details").forEach(function (d) {
+        var sum = $("summary", d), ans = $(".ans", d);
+        sum.addEventListener("click", function (e) {
+            if (!ok) return;
+            e.preventDefault();
+            if (d.open) {
+                gsap.to(ans, { height: 0, opacity: 0, duration: 0.4, ease: "power2.inOut", onComplete: function () { d.open = false; gsap.set(ans, { clearProps: "all" }); ST.refresh(); } });
+            } else {
+                d.open = true;
+                gsap.fromTo(ans, { height: 0, opacity: 0 }, { height: "auto", opacity: 1, duration: 0.5, ease: "power3.out", onComplete: function () { ST.refresh(); } });
+            }
         });
-        var w = function () { return track.clientWidth; };
-        var cur = function () { return Math.round(track.scrollLeft / w()); };
-        var show = function () { count.textContent = (cur() + 1) + " / " + figs.length; };
-        var go = function (i, s) { i = (i + figs.length) % figs.length; track.scrollTo({ left: i * w(), behavior: s === false ? "auto" : "smooth" }); };
-        figs.forEach(function (fg, i) { fg.addEventListener("click", function () { lb.classList.add("open"); root.classList.add("lock"); requestAnimationFrame(function () { go(i, false); show(); }); }); });
-        track.addEventListener("scroll", function () { requestAnimationFrame(show); }, { passive: true });
-        $(".lb-nav.prev", lb).addEventListener("click", function () { go(cur() - 1); });
-        $(".lb-nav.next", lb).addEventListener("click", function () { go(cur() + 1); });
-        var close = function () { lb.classList.remove("open"); root.classList.remove("lock"); };
-        $(".lb-close", lb).addEventListener("click", close);
-        lb.addEventListener("click", function (e) { if (e.target.classList.contains("lb-slide")) close(); });
+    });
+
+    /* =================== 3D pop-up system =================== */
+    var pop = document.createElement("div");
+    pop.className = "pop"; pop.setAttribute("role", "dialog"); pop.setAttribute("aria-modal", "true");
+    pop.innerHTML = '<div class="pop-bg"></div><div class="pop-stage"><div class="pop-card"><button class="pop-x" type="button" aria-label="Close">' +
+        '<svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div class="pop-body"></div></div></div>';
+    document.body.appendChild(pop);
+    var pBg = $(".pop-bg", pop), pCard = $(".pop-card", pop), pBody = $(".pop-body", pop), isOpen = false, onCloseCb = null;
+    function popOpen(content, opts) {
+        opts = opts || {};
+        pBody.innerHTML = ""; pBody.appendChild(content);
+        pCard.className = "pop-card" + (opts.cls ? " " + opts.cls : "");
+        pop.classList.add("open"); isOpen = true; onCloseCb = opts.onClose || null;
+        window.SiteScroll.stop();
+        if (!ok) return;
+        var ox = 0, oy = 0;
+        if (opts.from) { var r = opts.from.getBoundingClientRect(); ox = r.left + r.width / 2 - window.innerWidth / 2; oy = r.top + r.height / 2 - window.innerHeight / 2; }
+        gsap.killTweensOf([pBg, pCard]);
+        var tl = gsap.timeline();
+        tl.fromTo(pBg, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, 0)
+          .fromTo(pCard, { x: ox * 0.6, y: oy * 0.6 + 60, z: -700, rotateX: -62, rotateY: ox > 0 ? -28 : 28, scale: 0.55, opacity: 0, transformPerspective: 1400 },
+                  { x: 0, y: 0, z: 0, rotateX: 0, rotateY: 0, scale: 1, opacity: 1, duration: 1.05, ease: "expo.out" }, 0)
+          .from($$(".pop-in", pBody), { y: 30, opacity: 0, rotateX: -30, stagger: 0.06, duration: 0.7, ease: "power3.out" }, 0.25);
+    }
+    function popClose() {
+        if (!isOpen) return; isOpen = false;
+        var done = function () { pop.classList.remove("open"); pBody.innerHTML = ""; window.SiteScroll.start(); if (onCloseCb) onCloseCb(); };
+        if (!ok) { done(); return; }
+        gsap.timeline({ onComplete: done })
+            .to(pCard, { rotateX: 55, y: 120, z: -500, scale: 0.6, opacity: 0, duration: 0.55, ease: "power3.in", transformPerspective: 1400 }, 0)
+            .to(pBg, { opacity: 0, duration: 0.45 }, 0.1);
+    }
+    function popSwap(content, dir) {   // 3D flip between items (gallery next/prev)
+        if (!ok) { pBody.innerHTML = ""; pBody.appendChild(content); return; }
+        gsap.timeline()
+            .to(pCard, { rotateY: -dir * 90, duration: 0.32, ease: "power2.in", transformPerspective: 1400 })
+            .add(function () { pBody.innerHTML = ""; pBody.appendChild(content); })
+            .fromTo(pCard, { rotateY: dir * 90 }, { rotateY: 0, duration: 0.55, ease: "expo.out" });
+    }
+    $(".pop-x", pop).addEventListener("click", popClose);
+    pBg.addEventListener("click", popClose);
+    $(".pop-stage", pop).addEventListener("click", function (e) { if (e.target === e.currentTarget) popClose(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") popClose(); });
+    window.Pop = { open: popOpen, close: popClose, swap: popSwap, el: pop, isOpen: function () { return isOpen; } };
+
+    /* ---------- Service detail pop-ups ---------- */
+    $$("[data-svc]").forEach(function (card) {
+        card.addEventListener("click", function (e) {
+            if (e.target.closest("a")) return;
+            var tpl = document.getElementById("svc-" + card.getAttribute("data-svc"));
+            if (tpl) popOpen(tpl.content.cloneNode(true), { from: card, cls: "pop-svc" });
+        });
+        card.addEventListener("keydown", function (e) { if (e.key === "Enter") card.click(); });
+    });
+
+    /* ---------- Gallery: 3D lightbox ---------- */
+    (function () {
+        var figs = $$(".gallery figure"); if (!figs.length) return;
+        var cur = 0;
+        function slide(i) {
+            var f = figs[i], im = $("img", f), wrap = document.createElement("div");
+            wrap.className = "lb";
+            wrap.innerHTML = '<div class="lb-img pop-in"><img alt=""></div><div class="lb-bar pop-in"><button class="lb-nav" data-d="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>' +
+                '<p></p><span class="lb-count"></span><button class="lb-nav" data-d="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div>';
+            $("img", wrap).src = im.getAttribute("src"); $("img", wrap).alt = im.alt;
+            $("p", wrap).textContent = ($("figcaption", f) || {}).textContent || im.alt;
+            $(".lb-count", wrap).textContent = (i + 1) + " / " + figs.length;
+            $$(".lb-nav", wrap).forEach(function (b) { b.addEventListener("click", function () { go(+b.getAttribute("data-d")); }); });
+            return wrap;
+        }
+        function go(d) { cur = (cur + d + figs.length) % figs.length; popSwap(slide(cur), d); }
+        figs.forEach(function (f, i) {
+            f.setAttribute("tabindex", "0");
+            f.addEventListener("click", function () { cur = i; popOpen(slide(i), { from: f, cls: "pop-lb" }); });
+            f.addEventListener("keydown", function (e) { if (e.key === "Enter") f.click(); });
+        });
         document.addEventListener("keydown", function (e) {
-            if (!lb.classList.contains("open")) return;
-            if (e.key === "Escape") close(); if (e.key === "ArrowRight") go(cur() + 1); if (e.key === "ArrowLeft") go(cur() - 1);
+            if (!isOpen || !pCard.classList.contains("pop-lb")) return;
+            if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1);
         });
     })();
 
-    /* ---------- FAQ: smooth open ---------- */
-    if (motionOK) $$(".faq details").forEach(function (d) {
-        d.addEventListener("toggle", function () { if (d.open) { var a = $(".ans", d); if (a) animate(a, { opacity: [0, 1], y: [-8, 0] }, { duration: 0.4 }); } });
-    });
-
-    /* expose helpers for page scripts */
-    window.Site = { motionOK: motionOK, hover: hover, clamp: clamp, lerp: lerp, EASE: EASE };
+    window.Site = { ok: ok, hover: hover };
+    if (ok) window.addEventListener("load", function () { ST.refresh(); });
 })();

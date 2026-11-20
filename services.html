@@ -35,7 +35,7 @@
             <a href="contact.html">Contact</a>
         </nav>
         <div class="nav-cta">
-            <a class="btn btn-primary" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">💬 <span class="long">Book appointment</span><span class="short">Book</span></a>
+            <a class="btn btn-primary" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> <span class="long">Book appointment</span><span class="short">Book</span></a>
             <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </div>
@@ -47,23 +47,47 @@
         <span class="eyebrow">Services</span>
         <h1 class="sr-only">Services</h1>
         <div class="ptitle-stage" aria-hidden="true"><div class="ptitle" data-word="SERVICES"></div></div>
-        <p class="lead" data-reveal>Care for the whole family. Walk in or book on WhatsApp.</p>
+        <p class="lead" data-reveal>Care for the whole family. Tap a service for details.</p>
     </div>
 </section>
 
 <main>
     <section class="sec" style="padding-top:2rem">
         <div class="wrap">
-            <div class="grid g3 tilt-grid" data-stagger>
-            <div class="card tilt"><span class="ico" aria-hidden="true">🩺</span><h3>General Practice</h3><div class="chips"><span class="chip">Fever &amp; flu</span><span class="chip">Cough</span><span class="chip">Headache</span><span class="chip">Gastric</span><span class="chip">Skin rash</span><span class="chip">Minor infections</span></div></div>
-            <div class="card tilt"><span class="ico" aria-hidden="true">❤️</span><h3>Chronic Care</h3><div class="chips"><span class="chip">Blood pressure</span><span class="chip">Diabetes</span><span class="chip">Cholesterol</span><span class="chip">Medicine review</span><span class="chip">Baby jaundice test</span></div></div>
-            <div class="card tilt"><span class="ico" aria-hidden="true">🧪</span><h3>Screening &amp; Tests</h3><div class="chips"><span class="chip">Rapid tests</span><span class="chip">Blood tests</span><span class="chip">ECG</span><span class="chip">Pap smear</span><span class="chip">Medical check-ups</span></div><a class="more" href="packages.html#pakej-darah" style="text-decoration:none">Blood test package →</a></div>
-            <div class="card tilt"><span class="ico" aria-hidden="true">🦵</span><h3>Knee &amp; Joint Pain</h3><div class="chips"><span class="chip">Assessment</span><span class="chip">Pain relief</span><span class="chip">PRP injection</span><span class="chip">Rehab advice</span><span class="chip">Referral</span></div><a class="more" href="packages.html#pakej-prp" style="text-decoration:none">PRP knee package →</a></div>
-            <div class="card tilt"><span class="ico" aria-hidden="true">🩹</span><h3>Minor Procedures</h3><div class="chips"><span class="chip">Ear wash</span><span class="chip">Wound dressing</span><span class="chip">Minor surgery</span><span class="chip">Splinter removal</span></div></div>
-            <div class="card tilt"><span class="ico" aria-hidden="true">💬</span><h3>Men's Health</h3><div class="chips"><span class="chip">Private consult</span><span class="chip">Low energy</span><span class="chip">Blood pressure</span><span class="chip">Heart risk</span></div></div>
+            <div class="grid g3" data-stagger>
+            <article class="card media tilt" data-svc="gp" tabindex="0" role="button" aria-label="General Practice: details">
+                <span class="shine"></span>
+                <div class="thumb"><img src="img/stock/svc-gp.webp" alt="General Practice" width="960" height="720" loading="lazy" decoding="async"></div>
+                <div class="body"><h3>General Practice</h3><div class="chips"><span class="chip">Fever, cough &amp; flu</span><span class="chip">Headache &amp; migraine</span><span class="chip">Gastric &amp; diarrhoea</span><span class="chip">Skin rash &amp; allergy</span><span class="chip">Minor cuts &amp; infections</span></div><span class="open-hint">Details <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+            </article>
+            <article class="card media tilt" data-svc="chronic" tabindex="0" role="button" aria-label="Chronic Care: details">
+                <span class="shine"></span>
+                <div class="thumb"><img src="img/stock/svc-chronic.webp" alt="Chronic Care" width="960" height="720" loading="lazy" decoding="async"></div>
+                <div class="body"><h3>Chronic Care</h3><div class="chips"><span class="chip">Blood pressure</span><span class="chip">Diabetes</span><span class="chip">Cholesterol</span><span class="chip">Medicine review</span><span class="chip">Baby jaundice test</span></div><span class="open-hint">Details <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+            </article>
+            <article class="card media tilt" data-svc="screening" tabindex="0" role="button" aria-label="Screening &amp; Tests: details">
+                <span class="shine"></span>
+                <div class="thumb"><img src="img/stock/svc-screening.webp" alt="Screening &amp; Tests" width="960" height="720" loading="lazy" decoding="async"></div>
+                <div class="body"><h3>Screening &amp; Tests</h3><div class="chips"><span class="chip">Sugar, cholesterol &amp; uric acid</span><span class="chip">Dengue, Flu A/B &amp; COVID-19</span><span class="chip">Urine &amp; pregnancy test</span><span class="chip">Full blood panel &amp; HbA1c</span><span class="chip">ECG &amp; Pap smear</span></div><span class="open-hint">Details <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+            </article>
+            <article class="card media tilt" data-svc="knee" tabindex="0" role="button" aria-label="Knee &amp; Joint Pain: details">
+                <span class="shine"></span>
+                <div class="thumb"><img src="img/stock/svc-knee.webp" alt="Knee &amp; Joint Pain" width="960" height="720" loading="lazy" decoding="async"></div>
+                <div class="body"><h3>Knee &amp; Joint Pain</h3><div class="chips"><span class="chip">Clinical assessment</span><span class="chip">Pain relief</span><span class="chip">PRP injection, if suitable</span><span class="chip">Stretching &amp; rehab advice</span><span class="chip">X-ray or orthopaedic referral</span></div><span class="open-hint">Details <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+            </article>
+            <article class="card media tilt" data-svc="procedure" tabindex="0" role="button" aria-label="Minor Procedures: details">
+                <span class="shine"></span>
+                <div class="thumb"><img src="img/stock/svc-procedure.webp" alt="Minor Procedures" width="960" height="720" loading="lazy" decoding="async"></div>
+                <div class="body"><h3>Minor Procedures</h3><div class="chips"><span class="chip">Ear wash</span><span class="chip">Wound dressing</span><span class="chip">Minor surgery (small boils)</span><span class="chip">Splinter &amp; foreign body removal</span></div><span class="open-hint">Details <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+            </article>
+            <article class="card media tilt" data-svc="mens" tabindex="0" role="button" aria-label="Men's Health: details">
+                <span class="shine"></span>
+                <div class="thumb"><img src="img/stock/svc-mens.webp" alt="Men's Health" width="960" height="720" loading="lazy" decoding="async"></div>
+                <div class="body"><h3>Men's Health</h3><div class="chips"><span class="chip">Low energy &amp; fatigue</span><span class="chip">Blood pressure</span><span class="chip">Heart risk</span><span class="chip">Lifestyle factors</span></div><span class="open-hint">Details <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+            </article>
             </div>
-            <div class="card" data-reveal style="margin-top:1.4rem;flex-direction:row;align-items:center;gap:1rem;background:linear-gradient(135deg,var(--mint-50),var(--sky))">
-                <span class="ico" aria-hidden="true">🤔</span>
+            <div class="card" data-reveal="tilt" style="margin-top:1.4rem;flex-direction:row;align-items:center;gap:1rem;background:linear-gradient(135deg,var(--mint-50),var(--sky))">
+                <span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
                 <div><h3>Not sure what you need?</h3><p>Walk in. The doctor will assess you and suggest only what you need.</p></div>
             </div>
         </div>
@@ -75,13 +99,37 @@
             <h2>Need to see a doctor?</h2>
             <p>WhatsApp us to book, or walk in during opening hours.</p>
             <div class="row">
-                <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">💬 WhatsApp us</a>
-                <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener">📍 Get directions</a>
+                <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp us</a>
+                <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Get directions</a>
             </div>
         </div>
     </div>
 </section>
 </main>
+<template id="svc-gp"><div class="ph-top pop-in"><img src="img/stock/svc-gp.webp" alt="General Practice" width="960" height="720" decoding="async"></div>
+<div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">General Practice</h3><p class="pop-in">Everyday illness for adults and children.</p>
+<ul class="list pop-in"><li>Fever, cough &amp; flu</li><li>Headache &amp; migraine</li><li>Gastric &amp; diarrhoea</li><li>Skin rash &amp; allergy</li><li>Minor cuts &amp; infections</li></ul>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
+<template id="svc-chronic"><div class="ph-top pop-in"><img src="img/stock/svc-chronic.webp" alt="Chronic Care" width="960" height="720" decoding="async"></div>
+<div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Chronic Care</h3><p class="pop-in">Ongoing care to keep your family well.</p>
+<ul class="list pop-in"><li>Blood pressure</li><li>Diabetes</li><li>Cholesterol</li><li>Medicine review</li><li>Baby jaundice test</li><li>Lifestyle advice</li></ul>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
+<template id="svc-screening"><div class="ph-top pop-in"><img src="img/stock/svc-screening.webp" alt="Screening &amp; Tests" width="960" height="720" decoding="async"></div>
+<div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Screening &amp; Tests</h3><p class="pop-in">Rapid and lab tests for early detection.</p>
+<ul class="list pop-in"><li>Sugar, cholesterol &amp; uric acid</li><li>Dengue, Flu A/B &amp; COVID-19</li><li>Urine &amp; pregnancy test</li><li>Full blood panel &amp; HbA1c</li><li>ECG &amp; Pap smear</li><li>Medical check-ups: work, college, GDL/PSV, FOMEMA, pre-marriage</li></ul>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a><a class="btn btn-soft" href="packages.html#pakej-darah"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg> Blood test package</a></div></div></template>
+<template id="svc-knee"><div class="ph-top pop-in"><img src="img/stock/svc-knee.webp" alt="Knee &amp; Joint Pain" width="960" height="720" decoding="async"></div>
+<div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Knee &amp; Joint Pain</h3><p class="pop-in">Assessment and treatment for knee, joint and muscle pain.</p>
+<ul class="list pop-in"><li>Clinical assessment</li><li>Pain relief</li><li>PRP injection, if suitable</li><li>Stretching &amp; rehab advice</li><li>X-ray or orthopaedic referral</li></ul>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a><a class="btn btn-soft" href="packages.html#pakej-prp"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg> PRP knee package</a></div></div></template>
+<template id="svc-procedure"><div class="ph-top pop-in"><img src="img/stock/svc-procedure.webp" alt="Minor Procedures" width="960" height="720" decoding="async"></div>
+<div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Minor Procedures</h3><p class="pop-in">Simple procedures done in the clinic.</p>
+<ul class="list pop-in"><li>Ear wash</li><li>Wound dressing</li><li>Minor surgery (small boils)</li><li>Splinter &amp; foreign body removal</li></ul>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
+<template id="svc-mens"><div class="ph-top pop-in"><img src="img/stock/svc-mens.webp" alt="Men's Health" width="960" height="720" decoding="async"></div>
+<div class="pb"><span class="eyebrow pop-in">Our services</span><h3 class="pop-in">Men's Health</h3><p class="pop-in">A private, confidential consultation.</p>
+<ul class="list pop-in"><li>Low energy &amp; fatigue</li><li>Blood pressure</li><li>Heart risk</li><li>Lifestyle factors</li></ul>
+<div class="row pop-in"><a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a></div></div></template>
 
 <footer class="site-footer">
     <div class="sf-inner">
@@ -94,12 +142,14 @@
 </footer>
 
 <div class="fab" aria-label="Quick contact">
-    <a class="wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">💬 WhatsApp</a>
-    <a href="tel:+60103434711">📞 Call</a>
-    <a href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener">📍 Directions</a>
+    <a class="wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp</a>
+    <a href="tel:+60103434711"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Directions</a>
 </div>
 
-<script src="js/vendor/motion-11.18.2.min.js" defer></script>
+<script src="js/vendor/gsap-3.12.5.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger-3.12.5.min.js" defer></script>
+<script src="js/vendor/lenis-1.1.13.min.js" defer></script>
 <script src="js/site.js" defer></script>
 </body>
 </html>
