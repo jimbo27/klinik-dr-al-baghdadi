@@ -93,3 +93,22 @@ footer.site-footer {
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- Parallax (js/parallax.js) ---------- */
+body { overflow-x: clip; }
+main.px-host { position: relative; isolation: isolate; }
+.px-deco { position: absolute; top: 0; left: 50%; width: 100vw; margin-left: -50vw; height: 560px; z-index: -1; pointer-events: none; overflow: hidden; }
+.px-blob { position: absolute; display: block; border-radius: 50%; filter: blur(2px); will-change: translate; }
+.px-blob.b1 { width: 340px; height: 340px; right: 6%; top: -90px; background: radial-gradient(circle at 35% 35%, rgba(94,234,212,.38), rgba(12,159,170,.08) 70%, transparent 72%); }
+.px-blob.b2 { width: 220px; height: 220px; left: 3%; top: 150px; background: radial-gradient(circle at 40% 40%, rgba(12,159,170,.22), rgba(12,159,170,.05) 70%, transparent 72%); }
+.px-blob.b3 { width: 130px; height: 130px; right: 30%; top: 60px; background: radial-gradient(circle at 40% 40%, rgba(14,62,150,.16), rgba(14,62,150,.03) 70%, transparent 72%); }
+.px-plus { position: absolute; display: block; font-style: normal; font-weight: 700; color: rgba(12,159,170,.28); line-height: 1; will-change: translate; }
+.px-plus.p1 { left: 46%; top: 30px; font-size: 1.4rem; }
+.px-plus.p2 { right: 12%; top: 250px; font-size: 2rem; }
+.px-plus.p3 { left: 12%; top: 40px; font-size: 1.1rem; }
+@media (max-width: 700px) {
+    .px-deco { height: 420px; }
+    .px-blob.b1 { width: 220px; height: 220px; right: -60px; }
+    .px-blob.b2 { width: 150px; height: 150px; left: -50px; top: 200px; }
+    .px-plus.p1 { left: 70%; }
+}

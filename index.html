@@ -295,7 +295,20 @@
         .gal { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
         .gal figure { margin:0; position:relative; border-radius:1.2rem; overflow:hidden; box-shadow:0 12px 28px rgba(15,23,42,.12); aspect-ratio:4/5; cursor:zoom-in; background:#e2e8f0; }
         .gal figure.wide { grid-column:span 2; aspect-ratio:auto; }
-        .gal img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+        .gal img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; scale:1.14; will-change:translate; }
+        /* Jalur parallax */
+        .pband { position:relative; overflow:hidden; isolation:isolate; margin-top:3.6rem; border-radius:1.4rem; min-height:340px; display:flex; align-items:center; color:#fff; box-shadow:0 18px 40px rgba(11,79,108,.25); }
+        .pband-bg { position:absolute; inset:-22% 0; z-index:-2; background:#0b4f6c url("img/klinik-ruang-menunggu.jpg") 50% 50%/cover no-repeat; will-change:translate; }
+        .pband::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(100deg, rgba(6,45,64,.92) 0%, rgba(8,116,124,.78) 55%, rgba(12,159,170,.35) 100%); }
+        .pband-deco { position:absolute; inset:0; z-index:-1; pointer-events:none; }
+        .pband-deco i { position:absolute; font-style:normal; font-weight:700; color:rgba(255,255,255,.2); line-height:1; }
+        .pband-in { padding:2.6rem 2.2rem; max-width:620px; }
+        .pband-in small { display:inline-block; font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#5eead4; }
+        .pband-in h2 { font-size:clamp(1.5rem,3.4vw,2.2rem); line-height:1.15; margin:.4rem 0 .6rem; }
+        .pband-in p { margin:0; color:rgba(255,255,255,.88); }
+        .pband-chips { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem; }
+        .pband-chips span { background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); border-radius:999px; padding:.35rem .85rem; font-size:.85rem; backdrop-filter:blur(4px); }
+        @media (max-width:700px) { .pband { min-height:300px; border-radius:1.1rem; } .pband-in { padding:2rem 1.3rem; } .pband::before { background:linear-gradient(180deg, rgba(6,45,64,.9), rgba(8,116,124,.8)); } }
         .gal figure:hover img { transform:scale(1.06); }
         .gal figcaption { position:absolute; left:0; right:0; bottom:0; padding:2.2rem 1rem .9rem; color:#fff; font-weight:600; font-size:.88rem;
             background:linear-gradient(0deg, rgba(5,34,48,.85), rgba(5,34,48,0)); }
@@ -373,11 +386,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <section class="hero" id="hero">
-    <div class="hero-bg-wrap" id="heroBg"><div class="hero-bg" role="img" aria-label="Kaunter pendaftaran Klinik Dr. Al Baghdadi"></div></div>
+    <div class="hero-bg-wrap" id="heroBg" data-parallax="0.4" data-parallax-mode="scroll"><div class="hero-bg" role="img" aria-label="Kaunter pendaftaran Klinik Dr. Al Baghdadi"></div></div>
     <div class="hero-overlay"></div>
     <div class="hero-shine"></div>
-    <div class="hero-float" aria-hidden="true"><i style="left:58%;top:18%;font-size:1.6rem;animation-delay:0s">+</i><i style="left:70%;top:62%;font-size:1.1rem;animation-delay:1.5s">+</i><i style="left:86%;top:28%;font-size:2.1rem;animation-delay:3s">+</i><i style="left:48%;top:78%;font-size:1.3rem;animation-delay:4.5s">+</i><i style="left:92%;top:74%;font-size:1.4rem;animation-delay:2.2s">+</i><i style="left:64%;top:40%;font-size:0.9rem;animation-delay:6s">+</i></div>
-    <div class="hero-inner hero-anim">
+    <div class="hero-float" aria-hidden="true" data-parallax="0.2" data-parallax-mode="scroll"><i style="left:58%;top:18%;font-size:1.6rem;animation-delay:0s">+</i><i style="left:70%;top:62%;font-size:1.1rem;animation-delay:1.5s">+</i><i style="left:86%;top:28%;font-size:2.1rem;animation-delay:3s">+</i><i style="left:48%;top:78%;font-size:1.3rem;animation-delay:4.5s">+</i><i style="left:92%;top:74%;font-size:1.4rem;animation-delay:2.2s">+</i><i style="left:64%;top:40%;font-size:0.9rem;animation-delay:6s">+</i></div>
+    <div class="hero-inner hero-anim" data-parallax="-0.08" data-parallax-mode="scroll" data-parallax-fade>
         <div><span class="status" id="openStatus"><span class="dot"></span><span id="openText">Isnin – Jumaat · 10:00 pagi – 10:00 malam</span></span></div>
         <h1>Klinik keluarga anda di <span>Putra Nilai</span></h1>
         <p class="lead">Klinik perubatan am (GP) di Youth City Residence untuk rawatan harian, penyakit kronik, saringan kesihatan dan sakit sendi, dengan doktor yang sama setiap kali anda datang.</p>
@@ -396,11 +409,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="h-section reveal">
         <div class="h-head"><div><h2>Suasana klinik kami</h2><p>Bersih, tenang dan teratur, dari kaunter hingga bilik rawatan. Tekan gambar untuk lihat lebih besar.</p></div></div>
         <div class="gal">
-            <figure><img src="img/klinik-kaunter.jpg" alt="Kaunter pendaftaran Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Kaunter pendaftaran</figcaption></figure>
-            <figure><img src="img/klinik-ruang-menunggu.jpg" alt="Ruang menunggu yang selesa" width="720" height="900" loading="lazy" decoding="async"><figcaption>Ruang menunggu</figcaption></figure>
-            <figure><img src="img/klinik-bilik-rawatan.jpg" alt="Bilik rawatan dengan tirai privasi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Bilik rawatan dengan tirai privasi</figcaption></figure>
-            <figure><img src="img/klinik-peralatan.jpg" alt="Troli prosedur dan ubat yang tersusun" width="720" height="900" loading="lazy" decoding="async"><figcaption>Peralatan prosedur yang tersusun</figcaption></figure>
-            <figure class="wide"><img src="img/klinik-sijil.jpg" alt="Sijil pendaftaran klinik dan doktor dipamerkan" width="1000" height="569" loading="lazy" decoding="async"><figcaption>Sijil pendaftaran doktor &amp; klinik dipamerkan di klinik</figcaption></figure>
+            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-kaunter.jpg" alt="Kaunter pendaftaran Klinik Dr. Al Baghdadi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Kaunter pendaftaran</figcaption></figure>
+            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-ruang-menunggu.jpg" alt="Ruang menunggu yang selesa" width="720" height="900" loading="lazy" decoding="async"><figcaption>Ruang menunggu</figcaption></figure>
+            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-bilik-rawatan.jpg" alt="Bilik rawatan dengan tirai privasi" width="720" height="900" loading="lazy" decoding="async"><figcaption>Bilik rawatan dengan tirai privasi</figcaption></figure>
+            <figure><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-peralatan.jpg" alt="Troli prosedur dan ubat yang tersusun" width="720" height="900" loading="lazy" decoding="async"><figcaption>Peralatan prosedur yang tersusun</figcaption></figure>
+            <figure class="wide"><img data-parallax="0.1" data-parallax-clamp="0.06" src="img/klinik-sijil.jpg" alt="Sijil pendaftaran klinik dan doktor dipamerkan" width="1000" height="569" loading="lazy" decoding="async"><figcaption>Sijil pendaftaran doktor &amp; klinik dipamerkan di klinik</figcaption></figure>
         </div>
     </section>
 
@@ -412,6 +425,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="lb-count" id="lbCount"></div>
     </div>
 
+
+    <!-- JALUR PARALLAX -->
+    <section class="pband reveal" aria-label="Kesihatan anda, keutamaan kami">
+        <div class="pband-bg" data-parallax="0.22" role="img" aria-label="Ruang menunggu Klinik Dr. Al Baghdadi"></div>
+        <div class="pband-deco" aria-hidden="true" data-parallax="-0.12"><i style="right:8%;top:18%;font-size:2.4rem">+</i><i style="right:22%;top:64%;font-size:1.4rem">+</i><i style="right:4%;top:72%;font-size:1rem">+</i></div>
+        <div class="pband-in">
+            <small>Klinik Dr. Al Baghdadi</small>
+            <h2>Kesihatan anda, keutamaan kami</h2>
+            <p>Klinik keluarga di Youth City Residence, Putra Nilai, untuk penduduk, pelajar dan pekerja di sekitar Nilai.</p>
+            <div class="pband-chips"><span>🕙 Buka hingga 10 malam</span><span>💳 Panel &amp; insurans</span><span>🎓 Pelajar &amp; pekerja</span></div>
+        </div>
+    </section>
 
     <!-- PANEL LOGO BERGERAK -->
     <section class="logo-panel">
@@ -528,17 +553,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); } }), { threshold: 0.1 });
     document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-    // Kesan parallax pada gambar latar
-    const heroBg = document.getElementById("heroBg");
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!reduce) {
-        let ticking = false;
-        window.addEventListener("scroll", () => {
-            if (ticking) return; ticking = true;
-            requestAnimationFrame(() => { const y = Math.min(window.scrollY, 800); heroBg.style.transform = "translate3d(0," + (y * 0.3) + "px,0)"; ticking = false; });
-        }, { passive: true });
-    }
-
     // Lightbox galeri: leret kiri/kanan untuk gambar lain
     const lb = document.getElementById("lightbox"), lbTrack = document.getElementById("lbTrack"), lbCount = document.getElementById("lbCount");
     const figs = [...document.querySelectorAll(".gal figure")];
@@ -611,5 +625,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         el.classList.add(cls); txt.textContent = t;
     })();
 </script>
+<script src="js/parallax.js" defer></script>
 </body>
 </html>
