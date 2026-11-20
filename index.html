@@ -223,7 +223,7 @@
         .hero-bg { position:absolute; inset:0; background:#0b4f6c url("img/hero-klinik.jpg") 50% 40%/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; transform-origin:70% 40%; }
         @keyframes kenburns { from { transform:scale(1); } to { transform:scale(1.14) translate3d(-2%,-1.5%,0); } }
         .hero-overlay { position:absolute; inset:0; z-index:-2;
-            background:linear-gradient(90deg, #062d40 0%, #062d40 34%, rgba(6,45,64,.75) 46%, rgba(6,45,64,.25) 66%, rgba(6,45,64,.05) 100%),
+            background:linear-gradient(90deg, rgba(4,31,48,.92) 0%, rgba(4,31,48,.8) 34%, rgba(4,31,48,.35) 52%, rgba(4,31,48,0) 70%),
                        linear-gradient(0deg, rgba(5,34,48,.45), rgba(5,34,48,0) 40%); }
         @media (min-width:601px) { .hero-bg-wrap { left:34%; } }
         .hero-shine { position:absolute; inset:0; z-index:-1; pointer-events:none;
@@ -259,6 +259,73 @@
         .hero-anim > *:nth-child(2) { animation-delay:.12s; } .hero-anim > *:nth-child(3) { animation-delay:.24s; }
         .hero-anim > *:nth-child(4) { animation-delay:.36s; } .hero-anim > *:nth-child(5) { animation-delay:.48s; }
         @keyframes up { to { opacity:1; transform:none; } }
+
+        /* ---------- HERO 3D (js/hero3d.js + Motion) ---------- */
+        .hero { background:radial-gradient(ellipse at 72% 45%, #0b5d73 0%, #073a52 38%, #041f30 75%); }
+        .hero-bg-wrap { opacity:.2; filter:saturate(.7); }
+        .h3d { position:absolute; inset:0; z-index:-1; pointer-events:none; overflow:hidden; perspective:1100px; perspective-origin:74% 42%; }
+        .h3d * { box-sizing:border-box; }
+        .h3d-glow { position:absolute; inset:0; background:
+            radial-gradient(circle at 72% 46%, rgba(45,212,191,.28) 0%, rgba(45,212,191,0) 32%),
+            radial-gradient(circle at 92% 30%, rgba(37,99,235,.22) 0%, rgba(37,99,235,0) 30%); }
+        .h3d-floor-wrap { position:absolute; left:-40%; right:-40%; bottom:-6%; height:62%; transform-style:preserve-3d; opacity:0; }
+        .h3d-floor { position:absolute; inset:0; transform:rotateX(78deg); transform-origin:50% 100%;
+            background-image:linear-gradient(rgba(94,234,212,.42) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(94,234,212,.42) 1.5px, transparent 1.5px);
+            background-size:64px 64px;
+            -webkit-mask-image:linear-gradient(to top, #000 0%, rgba(0,0,0,.55) 45%, transparent 92%); mask-image:linear-gradient(to top, #000 0%, rgba(0,0,0,.55) 45%, transparent 92%); }
+        .h3d-ecg { position:absolute; left:0; right:0; bottom:16%; height:110px; opacity:.85; }
+        .h3d-ecg svg { width:100%; height:100%; display:block; overflow:visible; }
+        .h3d-ecg path { fill:none; stroke-linejoin:round; stroke-linecap:round; }
+        .h3d-ecg .ecg-base { stroke:rgba(94,234,212,.14); stroke-width:2; vector-effect:non-scaling-stroke; }
+        .h3d-ecg .ecg-pulse { stroke:#5eead4; stroke-width:3; stroke-dasharray:180 1000; stroke-dashoffset:1180; vector-effect:non-scaling-stroke;
+            filter:drop-shadow(0 0 7px #2dd4bf); }
+        .h3d-scroll, .h3d-scene { position:absolute; inset:0; transform-style:preserve-3d; }
+        .h3d-scroll { transform-origin:72% 60%; }
+        .h3d-anchor { position:absolute; left:74%; top:46%; width:0; height:0; transform-style:preserve-3d; opacity:0; }
+        .h3d-halo { position:absolute; left:-190px; top:-190px; width:380px; height:380px; border-radius:50%; transform:translateZ(-160px);
+            background:radial-gradient(circle, rgba(94,234,212,.55) 0%, rgba(20,184,166,.18) 40%, rgba(20,184,166,0) 70%); }
+        .h3d-bob, .h3d-cross { position:absolute; left:0; top:0; transform-style:preserve-3d; }
+        .h3d-cross .x-cap, .h3d-cross .x-shine { position:absolute; left:-85px; top:-85px; width:170px; height:170px;
+            clip-path:polygon(33.5% 0, 66.5% 0, 66.5% 33.5%, 100% 33.5%, 100% 66.5%, 66.5% 66.5%, 66.5% 100%, 33.5% 100%, 33.5% 66.5%, 0 66.5%, 0 33.5%, 33.5% 33.5%);
+            background:linear-gradient(140deg, #ccfbf1 0%, #5eead4 22%, #14b8a6 50%, #0c8a96 78%, #0b5d73 100%); }
+        .h3d-cross .x-shine { background:linear-gradient(155deg, rgba(255,255,255,.7) 0%, rgba(255,255,255,.12) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,.1) 100%); }
+        .h3d-cross .x-side { position:absolute; left:0; top:0; background:linear-gradient(180deg, #0c9faa, #08707c); }
+        .h3d-cross .x-side.top { background:linear-gradient(90deg, #2dd4bf, #14a3ad); }
+        .h3d-cross .x-side.bottom { background:linear-gradient(90deg, #075866, #064554); }
+        .h3d-cross .x-side.side { background:linear-gradient(180deg, #0e9aa5, #076270); }
+        .h3d-ringtilt { position:absolute; left:0; top:0; transform-style:preserve-3d; }
+        .h3d-ring { position:absolute; left:-200px; top:-200px; width:400px; height:400px; border-radius:50%;
+            border:2px solid rgba(94,234,212,.55); box-shadow:0 0 18px rgba(45,212,191,.45), inset 0 0 18px rgba(45,212,191,.3); }
+        .h3d-ring.r2 { left:-250px; top:-250px; width:500px; height:500px; border-color:rgba(96,165,250,.38); box-shadow:0 0 16px rgba(59,130,246,.35); }
+        .h3d-ring.r3 { left:-150px; top:-150px; width:300px; height:300px; border-style:dashed; border-color:rgba(167,243,208,.45); box-shadow:none; }
+        .h3d-ring i { position:absolute; left:50%; top:-6px; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:#ecfeff; box-shadow:0 0 12px 4px #2dd4bf; }
+        .h3d-ring.r2 i { background:#dbeafe; box-shadow:0 0 12px 4px #3b82f6; }
+        .h3d-orbit, .h3d-pillpos, .h3d-pill { position:absolute; left:0; top:0; transform-style:preserve-3d; }
+        .h3d-pill .p-slice { position:absolute; left:-38px; top:-14px; width:76px; height:28px; border-radius:14px; }
+        .h3d-pill .p-slice.cap { box-shadow:inset 0 -6px 8px rgba(0,0,0,.18), inset 0 5px 6px rgba(255,255,255,.55); }
+        .h3d-dna { position:absolute; left:91%; top:50%; width:0; height:0; transform-style:preserve-3d; opacity:0; }
+        .dna-bar { position:absolute; top:0; height:2px; background:linear-gradient(90deg, rgba(94,234,212,.75), rgba(96,165,250,.75)); }
+        .dna-dot { position:absolute; left:0; top:0; width:14px; height:14px; border-radius:50%; }
+        .dna-dot.a { background:radial-gradient(circle at 35% 30%, #ffffff 0%, #5eead4 35%, #0d9488 100%); box-shadow:0 0 12px rgba(45,212,191,.8); }
+        .dna-dot.b { background:radial-gradient(circle at 35% 30%, #ffffff 0%, #93c5fd 35%, #1d4ed8 100%); box-shadow:0 0 12px rgba(59,130,246,.8); }
+        .h3d-parthold { position:absolute; transform-style:preserve-3d; }
+        .h3d-part { border-radius:50%; background:radial-gradient(circle, #ffffff 0%, #99f6e4 35%, rgba(45,212,191,0) 70%); transform:scale(2.4); opacity:.5; }
+        .h3d.static .h3d-anchor, .h3d.static .h3d-dna, .h3d.static .h3d-floor-wrap { opacity:1; }
+        .h3d.static .h3d-cross { transform:rotateY(-30deg) rotateX(12deg); }
+        .h3d.static .h3d-orbit { transform:rotateY(70deg); }
+        .hero h1, .hero p.lead { text-shadow:0 2px 18px rgba(4,31,48,.65); }
+        .hero h1 span { background:linear-gradient(90deg, #5eead4, #a7f3d0, #67e8f9, #5eead4); background-size:220% 100%;
+            -webkit-background-clip:text; background-clip:text; color:transparent; animation:txtflow 6s linear infinite; }
+        @keyframes txtflow { to { background-position:-220% 0; } }
+        @media (max-width:900px) { .h3d-anchor { left:80%; top:40%; scale:.72; } .h3d-dna { display:none; } .h3d { perspective-origin:80% 40%; } }
+        @media (max-width:600px) {
+            .h3d-anchor { left:85%; top:20%; scale:.42; }
+            .h3d-scroll { opacity:.8; }
+            .h3d { perspective-origin:85% 22%; }
+            .h3d-ecg { bottom:9%; height:70px; opacity:.6; }
+            .hero-bg-wrap { opacity:.14; }
+            .h3d-floor-wrap { height:40%; }
+        }
 
         /* ---------- STATS ---------- */
         .stats { position:relative; z-index:2; margin-top:-2.2rem; display:grid; grid-template-columns:repeat(4,1fr); background:#fff; border-radius:1.2rem;
@@ -351,7 +418,7 @@
         }
         @media (max-width:600px) {
             .hero { min-height:auto; } .hero-bg { background-image:url("img/hero-klinik-mobile.jpg"); background-position:50% 30%; } .hero-inner { padding:3rem 1.2rem 5.5rem; }
-            .hero-overlay { background:linear-gradient(180deg, rgba(5,34,48,.9) 0%, rgba(6,52,70,.78) 60%, rgba(6,60,78,.55) 100%); }
+            .hero-overlay { background:linear-gradient(180deg, rgba(4,31,48,.55) 0%, rgba(4,31,48,.78) 45%, rgba(6,52,70,.6) 100%); }
             .hero-chips { grid-template-columns:1fr; gap:.6rem; } .hero-cta { flex-direction:column; } .btn { width:100%; justify-content:center; padding:.8rem 1.2rem; } .chip { padding:.65rem .9rem; }
             main.home { padding:0 1.1rem 2.5rem; }
             .svc-grid, .pk-grid { grid-template-columns:1fr; }
@@ -389,7 +456,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-bg-wrap" id="heroBg" data-parallax="0.4" data-parallax-mode="scroll"><div class="hero-bg" role="img" aria-label="Kaunter pendaftaran Klinik Dr. Al Baghdadi"></div></div>
     <div class="hero-overlay"></div>
     <div class="hero-shine"></div>
-    <div class="hero-float" aria-hidden="true" data-parallax="0.2" data-parallax-mode="scroll"><i style="left:58%;top:18%;font-size:1.6rem;animation-delay:0s">+</i><i style="left:70%;top:62%;font-size:1.1rem;animation-delay:1.5s">+</i><i style="left:86%;top:28%;font-size:2.1rem;animation-delay:3s">+</i><i style="left:48%;top:78%;font-size:1.3rem;animation-delay:4.5s">+</i><i style="left:92%;top:74%;font-size:1.4rem;animation-delay:2.2s">+</i><i style="left:64%;top:40%;font-size:0.9rem;animation-delay:6s">+</i></div>
     <div class="hero-inner hero-anim" data-parallax="-0.08" data-parallax-mode="scroll" data-parallax-fade>
         <div><span class="status" id="openStatus"><span class="dot"></span><span id="openText">Isnin – Jumaat · 10:00 pagi – 10:00 malam</span></span></div>
         <h1>Klinik keluarga anda di <span>Putra Nilai</span></h1>
@@ -626,5 +692,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
 </script>
 <script src="js/parallax.js" defer></script>
+<script src="js/vendor/motion-11.18.2.min.js" defer></script>
+<script src="js/hero3d.js" defer></script>
 </body>
 </html>
