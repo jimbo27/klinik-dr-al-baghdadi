@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/posters.css">
+    <link rel="stylesheet" href="css/docs.css">
     <script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.add("no-motion")},2500);</script>
 </head>
 <body>
@@ -41,104 +42,145 @@
     </div>
 </header>
 
-<section class="page-head">
-    <div class="blobs" aria-hidden="true"><span class="blob a"></span><span class="blob b"></span><span class="blob c"></span></div>
-    <div class="wrap">
-        <span class="eyebrow">Health packages</span>
-        <h1 class="sr-only">Health packages</h1>
-        <div class="ptitle-stage" aria-hidden="true"><div class="ptitle" data-word="PACKAGES"></div></div>
-        <p class="lead" data-reveal>Clear prices. Tap a package to see its poster.</p>
-    </div>
-</section>
-
-<main>
-    <section class="sec" style="padding-top:2rem">
-        <div class="wrap">
-            <div class="grid g3 pk-grid" data-stagger>
-            <article class="card media tilt pk" id="pakej-darah" data-poster="darah" tabindex="0">
-                <span class="shine"></span>
-                <div class="thumb"><img src="img/stock/pk-blood.webp" alt="Blood Test" width="960" height="720" loading="lazy" decoding="async"><span class="tag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</span></div>
-                <div class="body">
-                    <h3>Blood Test</h3>
-                    <div class="chips"><span class="chip">FBC</span><span class="chip">Kidney</span><span class="chip">Liver</span><span class="chip">Cholesterol</span><span class="chip">Sugar</span><span class="chip">Uric acid</span><span class="chip">HbA1c</span></div>
-                    <span class="price"><small>From</small>RM89</span>
+<div class="docs-mbar"><button type="button" class="docs-open" aria-label="Open packages menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg><span>Packages</span><b id="mbarTitle">Overview</b></button></div>
+<div class="docs">
+    <aside class="docs-side" id="docsSide" data-lenis-prevent>
+        <div class="side-search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" id="sideSearch" placeholder="Search packages" aria-label="Search packages"></div>
+        <div class="side-group">HEALTH PACKAGES</div>
+        <nav class="side-nav" id="sideNav"><span class="side-ind" aria-hidden="true"></span><a class="side-link" href="#overview" data-name="overview"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg><span>Overview</span></a><a class="side-link" href="#pakej-darah" data-name="blood test"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg><span>Blood Test</span><em>RM89</em></a><a class="side-link" href="#pakej-prp" data-name="prp knee"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/></svg><span>PRP Knee</span><em>RM250</em></a><a class="side-link" href="#pakej-pelajar" data-name="student &amp; worker"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span>Student &amp; Worker</span><em>RM70</em></a><a class="side-link" href="#pakej-haji" data-name="hajj &amp; umrah"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21v-7h14v7M12 3c-2 2-4 3.5-4 6v5h8V9c0-2.5-2-4-4-6zM10 21v-3a2 2 0 0 1 4 0v3"/></svg><span>Hajj &amp; Umrah</span><em>RM120</em></a><a class="side-link" href="#pakej-travel" data-name="travel kit"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M12 11v5M9.5 13.5h5"/></svg><span>Travel Kit</span><em>RM45</em></a><a class="side-link" href="#pakej-hero" data-name="hero"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span>Hero</span><em>10% off</em></a></nav>
+    </aside>
+    <main class="docs-main" id="docsMain">
+            <article class="doc" id="overview" data-title="Overview">
+                <nav class="crumbs" aria-label="Breadcrumb">Packages <span>/</span> Overview</nav>
+                <div class="doc-head"><span class="doc-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a2.41 2.41 0 0 0 3.42 0l6.58-6.58a2.41 2.41 0 0 0 0-3.42Z"/><circle cx="7" cy="7" r="1.2"/></svg></span><div><h1>Health packages</h1><p class="doc-lead">Clear prices for common check-ups and treatments. Pick a package to see what's included.</p></div></div>
+                <h2 id="overview-all">All packages</h2>
+                <div class="doc-cards"><a class="doc-card" href="#pakej-darah"><span class="dc-img"><img src="img/stock/pk-blood.webp" alt="Blood Test" width="960" height="720" loading="lazy" decoding="async"></span><span class="dc-body"><b>Blood Test</b><small>From <strong>RM89</strong></small></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="doc-card" href="#pakej-prp"><span class="dc-img"><img src="img/stock/pk-prp.webp" alt="PRP Knee" width="960" height="720" loading="lazy" decoding="async"></span><span class="dc-body"><b>PRP Knee</b><small>Per session · both knees <strong>RM250</strong></small></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="doc-card" href="#pakej-pelajar"><span class="dc-img"><img src="img/stock/pk-student.webp" alt="Student &amp; Worker" width="960" height="720" loading="lazy" decoding="async"></span><span class="dc-body"><b>Student &amp; Worker</b><small>From <strong>RM70</strong></small></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="doc-card" href="#pakej-haji"><span class="dc-img"><img src="img/stock/pk-hajj.webp" alt="Hajj &amp; Umrah" width="960" height="720" loading="lazy" decoding="async"></span><span class="dc-body"><b>Hajj &amp; Umrah</b><small>From <strong>RM120</strong></small></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="doc-card" href="#pakej-travel"><span class="dc-img"><img src="img/stock/pk-travel.webp" alt="Travel Kit" width="960" height="720" loading="lazy" decoding="async"></span><span class="dc-body"><b>Travel Kit</b><small>Around <strong>RM45</strong></small></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="doc-card" href="#pakej-hero"><span class="dc-img"><img src="img/stock/pk-hero.webp" alt="Hero" width="960" height="720" loading="lazy" decoding="async"></span><span class="dc-body"><b>Hero</b><small>Discount <strong>10% off</strong></small></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+                <h2 id="overview-hours">Opening hours</h2>
+                <div class="hint info"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><div>Mon – Fri, 10am – 10pm (break 2pm – 4pm). Prices may change, so WhatsApp us for the latest.</div></div>
+                <div class="pager"><span></span><a class="pn next" href="#pakej-darah"><small>Next</small><b>Blood Test <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></b></a></div>
+            </article>
+            <article class="doc" id="pakej-darah" data-title="Blood Test" hidden>
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="#overview">Packages</a> <span>/</span> Blood Test</nav>
+                <div class="doc-head">
+                    <span class="doc-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
+                    <div><h1>Blood Test</h1><p class="doc-lead">A full blood screening to catch problems early.</p></div>
+                    <div class="doc-price"><small>From</small><b>RM89</b></div>
+                </div>
+                <div class="doc-actions">
                     <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Blood%20Test%20package.%20May%20I%20know%20the%20available%20slots%3F" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a>
-                    <p class="note">Some tests need 8–10 hrs fasting.</p>
+                    <button class="btn btn-ghost" type="button" data-poster="darah"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</button>
                 </div>
+                <figure class="doc-fig"><img src="img/stock/pk-blood.webp" alt="Blood Test" width="960" height="720" decoding="async"></figure>
+                
+<h2 id="pakej-darah-included">What's included</h2>
+<div class="tbl"><table><thead><tr><th>Test</th><th>Checks</th></tr></thead><tbody><tr><td>FBC</td><td>Full blood count</td></tr><tr><td>Kidney function</td><td>Urea, creatinine</td></tr><tr><td>Liver function</td><td>Liver enzymes</td></tr><tr><td>Cholesterol</td><td>Full lipid profile</td></tr><tr><td>Blood sugar</td><td>Glucose level</td></tr><tr><td>Uric acid</td><td>Gout</td></tr><tr><td>HbA1c</td><td>Diabetes control</td></tr></tbody></table></div>
+<h2 id="pakej-darah-before">Before you come</h2>
+<div class="hint info"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><div>Some tests need <b>8–10 hours of fasting</b>. Plain water is fine.</div></div>
+                <div class="pager"><a class="pn prev" href="#overview"><small>Previous</small><b><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> Overview</b></a><a class="pn next" href="#pakej-prp"><small>Next</small><b>PRP Knee <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></b></a></div>
             </article>
-            <article class="card media tilt pk" id="pakej-prp" data-poster="prp" tabindex="0">
-                <span class="shine"></span>
-                <div class="thumb"><img src="img/stock/pk-prp.webp" alt="PRP Knee" width="960" height="720" loading="lazy" decoding="async"><span class="tag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</span></div>
-                <div class="body">
-                    <h3>PRP Knee</h3>
-                    <div class="chips"><span class="chip">Knee assessment</span><span class="chip">PRP preparation</span><span class="chip">Injection</span><span class="chip">Aftercare</span></div>
-                    <span class="price"><small>Per session · both knees</small>RM250</span>
+            <article class="doc" id="pakej-prp" data-title="PRP Knee" hidden>
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="#overview">Packages</a> <span>/</span> PRP Knee</nav>
+                <div class="doc-head">
+                    <span class="doc-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/></svg></span>
+                    <div><h1>PRP Knee</h1><p class="doc-lead">Platelet-rich plasma from your own blood, injected into the knee.</p></div>
+                    <div class="doc-price"><small>Per session · both knees</small><b>RM250</b></div>
+                </div>
+                <div class="doc-actions">
                     <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20PRP%20Knee%20package.%20May%20I%20know%20the%20available%20slots%3F" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a>
-                    <p class="note">Suitability confirmed by the doctor.</p>
+                    <button class="btn btn-ghost" type="button" data-poster="prp"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</button>
                 </div>
+                <figure class="doc-fig"><img src="img/stock/pk-prp.webp" alt="PRP Knee" width="960" height="720" decoding="async"></figure>
+                
+<h2 id="pakej-prp-included">What's included</h2>
+<div class="tbl"><table><thead><tr><th>Step</th><th>Details</th></tr></thead><tbody><tr><td>Assessment</td><td>Knee check by the doctor</td></tr><tr><td>Preparation</td><td>Blood draw &amp; PRP processing</td></tr><tr><td>Injection</td><td>PRP into both knees</td></tr><tr><td>Aftercare</td><td>Care &amp; exercise advice</td></tr></tbody></table></div>
+<h2 id="pakej-prp-suitability">Is it right for me?</h2>
+<div class="hint warning"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.5 8 11 4.6-1.5 8-6 8-11V5l-8-3z"/><path d="M12 8v4M12 16h.01"/></svg><div>Suitability is confirmed <b>after the doctor examines your knee</b>. The number of sessions depends on the assessment, and results vary.</div></div>
+                <div class="pager"><a class="pn prev" href="#pakej-darah"><small>Previous</small><b><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> Blood Test</b></a><a class="pn next" href="#pakej-pelajar"><small>Next</small><b>Student &amp; Worker <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></b></a></div>
             </article>
-            <article class="card media tilt pk" id="pakej-pelajar" data-poster="pelajar" tabindex="0">
-                <span class="shine"></span>
-                <div class="thumb"><img src="img/stock/pk-student.webp" alt="Student &amp; Worker" width="960" height="720" loading="lazy" decoding="async"><span class="tag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</span></div>
-                <div class="body">
-                    <h3>Student &amp; Worker</h3>
-                    <div class="chips"><span class="chip">Physical exam</span><span class="chip">BP &amp; BMI</span><span class="chip">Vision</span><span class="chip">Urine test</span><span class="chip">Form endorsement</span></div>
-                    <span class="price"><small>From</small>RM70</span>
+            <article class="doc" id="pakej-pelajar" data-title="Student &amp; Worker" hidden>
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="#overview">Packages</a> <span>/</span> Student &amp; Worker</nav>
+                <div class="doc-head">
+                    <span class="doc-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                    <div><h1>Student &amp; Worker</h1><p class="doc-lead">Medical check-up for college, hostel or a new job.</p></div>
+                    <div class="doc-price"><small>From</small><b>RM70</b></div>
+                </div>
+                <div class="doc-actions">
                     <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Student%20%26%20Worker%20package.%20May%20I%20know%20the%20available%20slots%3F" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a>
-                    <p class="note">Bring IC &amp; medical form.</p>
+                    <button class="btn btn-ghost" type="button" data-poster="pelajar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</button>
                 </div>
+                <figure class="doc-fig"><img src="img/stock/pk-student.webp" alt="Student &amp; Worker" width="960" height="720" decoding="async"></figure>
+                
+<h2 id="pakej-pelajar-included">What's included</h2>
+<div class="tbl"><table><thead><tr><th>Check</th><th>Details</th></tr></thead><tbody><tr><td>Physical exam</td><td>By the doctor</td></tr><tr><td>Vitals</td><td>Blood pressure, weight, height &amp; BMI</td></tr><tr><td>Vision test</td><td>Eye chart</td></tr><tr><td>Urine test</td><td>Urinalysis</td></tr><tr><td>Form endorsement</td><td>College / employer medical form</td></tr></tbody></table></div>
+<h2 id="pakej-pelajar-bring">What to bring</h2>
+<div class="hint info"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><div>Your <b>IC</b>, <b>student card or offer letter</b>, and the <b>medical form</b>.</div></div>
+                <div class="pager"><a class="pn prev" href="#pakej-prp"><small>Previous</small><b><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> PRP Knee</b></a><a class="pn next" href="#pakej-haji"><small>Next</small><b>Hajj &amp; Umrah <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></b></a></div>
             </article>
-            <article class="card media tilt pk" id="pakej-hero" data-poster="hero" tabindex="0">
-                <span class="shine"></span>
-                <div class="thumb"><img src="img/stock/pk-hero.webp" alt="Hero" width="960" height="720" loading="lazy" decoding="async"><span class="tag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</span></div>
-                <div class="body">
-                    <h3>Hero</h3>
-                    <div class="chips"><span class="chip">MOH (KKM)</span><span class="chip">Fire &amp; Rescue</span><span class="chip">Police</span><span class="chip">Armed Forces</span></div>
-                    <span class="price"><small>Discount</small>10%</span>
-                    <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Hero%20%2810%25%20off%29%20package.%20May%20I%20know%20the%20available%20slots%3F" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a>
-                    <p class="note">Show a valid staff card. Terms apply.</p>
+            <article class="doc" id="pakej-haji" data-title="Hajj &amp; Umrah" hidden>
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="#overview">Packages</a> <span>/</span> Hajj &amp; Umrah</nav>
+                <div class="doc-head">
+                    <span class="doc-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21v-7h14v7M12 3c-2 2-4 3.5-4 6v5h8V9c0-2.5-2-4-4-6zM10 21v-3a2 2 0 0 1 4 0v3"/></svg></span>
+                    <div><h1>Hajj &amp; Umrah</h1><p class="doc-lead">Health check and vaccines before you travel to the Holy Land.</p></div>
+                    <div class="doc-price"><small>From</small><b>RM120</b></div>
                 </div>
-            </article>
-            <article class="card media tilt pk wide" id="pakej-haji" data-poster="haji" tabindex="0">
-                <span class="shine"></span>
-                <div class="thumb"><img src="img/stock/pk-hajj.webp" alt="Hajj &amp; Umrah" width="960" height="720" loading="lazy" decoding="async"><span class="tag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</span></div>
-                <div class="body">
-                    <h3>Hajj &amp; Umrah</h3>
-                    <div class="tiers"><div class="tier"><b>RM120</b><span>Musafir</span><small>Check-up, blood test, ECG</small></div><div class="tier"><b>RM250</b><span>Labbaik</span><small>Musafir + Meningococcal</small></div><div class="tier"><b>RM470</b><span>Perisai</span><small>3 vaccines only</small></div><div class="tier"><b>RM570</b><span>Mabrur ★</span><small>3 vaccines + full check-up</small></div></div>
-                    <span class="price"><small>From</small>RM120</span>
+                <div class="doc-actions">
                     <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Hajj%20%26%20Umrah%20package.%20May%20I%20know%20the%20available%20slots%3F" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a>
-                    <p class="note">Meningococcal certificate required.</p>
+                    <button class="btn btn-ghost" type="button" data-poster="haji"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</button>
                 </div>
+                <figure class="doc-fig"><img src="img/stock/pk-hajj.webp" alt="Hajj &amp; Umrah" width="960" height="720" decoding="async"></figure>
+                
+<h2 id="pakej-haji-options">Choose an option</h2>
+<div class="tbl"><table><thead><tr><th>Option</th><th>Includes</th><th>Price</th></tr></thead><tbody><tr><td>Musafir</td><td>Check-up, FBC &amp; RBS, ECG</td><td><b>RM120</b></td></tr><tr><td>Labbaik</td><td>Musafir + Meningococcal vaccine</td><td><b>RM250</b></td></tr><tr><td>Perisai</td><td>Meningococcal, Pneumococcal &amp; Influenza vaccines</td><td><b>RM470</b></td></tr><tr><td>Mabrur ★</td><td>3 vaccines + check-up, blood test &amp; ECG</td><td><b>RM570</b></td></tr></tbody></table></div>
+<h2 id="pakej-haji-required">Required</h2>
+<div class="hint warning"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.5 8 11 4.6-1.5 8-6 8-11V5l-8-3z"/><path d="M12 8v4M12 16h.01"/></svg><div>A <b>Meningococcal vaccine certificate</b> is required for pilgrims. Vaccine suitability is confirmed by the doctor.</div></div>
+<h2 id="pakej-haji-timing">When to come</h2>
+<div class="hint success"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div>Come at least <b>2 weeks before departure</b>.</div></div>
+                <div class="pager"><a class="pn prev" href="#pakej-pelajar"><small>Previous</small><b><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> Student &amp; Worker</b></a><a class="pn next" href="#pakej-travel"><small>Next</small><b>Travel Kit <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></b></a></div>
             </article>
-            <article class="card media tilt pk full" id="pakej-travel" data-poster="travel" tabindex="0">
-                <span class="shine"></span>
-                <div class="thumb"><img src="img/stock/pk-travel.webp" alt="Travel Kit" width="960" height="720" loading="lazy" decoding="async"><span class="tag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</span></div>
-                <div class="body">
-                    <h3>Travel Kit</h3>
-                    <div class="tiers t3"><div class="tier"><b>~RM45</b><span>Adult Basic</span></div><div class="tier"><b>~RM75</b><span>Adult Complete</span></div><div class="tier"><b>~RM45</b><span>Kids</span></div></div>
-                    <span class="price"><small>Around</small>RM45</span>
+            <article class="doc" id="pakej-travel" data-title="Travel Kit" hidden>
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="#overview">Packages</a> <span>/</span> Travel Kit</nav>
+                <div class="doc-head">
+                    <span class="doc-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M12 11v5M9.5 13.5h5"/></svg></span>
+                    <div><h1>Travel Kit</h1><p class="doc-lead">A medicine kit for holidays, balik kampung or work trips.</p></div>
+                    <div class="doc-price"><small>Around</small><b>RM45</b></div>
+                </div>
+                <div class="doc-actions">
                     <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Travel%20Kit%20package.%20May%20I%20know%20the%20available%20slots%3F" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a>
-                    <p class="note">Approximate prices. Contents confirmed by the doctor.</p>
+                    <button class="btn btn-ghost" type="button" data-poster="travel"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</button>
                 </div>
+                <figure class="doc-fig"><img src="img/stock/pk-travel.webp" alt="Travel Kit" width="960" height="720" decoding="async"></figure>
+                
+<h2 id="pakej-travel-options">Choose a kit</h2>
+<div class="tbl"><table><thead><tr><th>Kit</th><th>For</th><th>Price</th></tr></thead><tbody><tr><td>Basic</td><td>Adults</td><td><b>~RM45</b></td></tr><tr><td>Complete</td><td>Adults</td><td><b>~RM75</b></td></tr><tr><td>Kids</td><td>Children</td><td><b>~RM45</b></td></tr></tbody></table></div>
+<h2 id="pakej-travel-note">Good to know</h2>
+<div class="hint info"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><div>Prices are approximate. Kit contents are <b>confirmed by the doctor</b> during consultation.</div></div>
+                <div class="pager"><a class="pn prev" href="#pakej-haji"><small>Previous</small><b><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> Hajj &amp; Umrah</b></a><a class="pn next" href="#pakej-hero"><small>Next</small><b>Hero <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></b></a></div>
             </article>
-            </div>
-            <p class="note" style="margin-top:1.6rem;text-align:center">Mon – Fri, 10am – 10pm (break 2pm – 4pm). Prices may change; WhatsApp us for the latest.</p>
-        </div>
-    </section>
-
-<section class="sec">
-    <div class="wrap">
-        <div class="cta" data-reveal="zoom">
-            <h2>Need to see a doctor?</h2>
-            <p>WhatsApp us to book, or walk in during opening hours.</p>
-            <div class="row">
-                <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> WhatsApp us</a>
-                <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Klinik%20Dr.%20Al%20Baghdadi%20Youth%20City%20Residence%20Putra%20Nilai" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Get directions</a>
-            </div>
-        </div>
-    </div>
-</section>
-</main>
+            <article class="doc" id="pakej-hero" data-title="Hero" hidden>
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="#overview">Packages</a> <span>/</span> Hero</nav>
+                <div class="doc-head">
+                    <span class="doc-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                    <div><h1>Hero</h1><p class="doc-lead">A thank-you discount for our frontliners.</p></div>
+                    <div class="doc-price"><small>Discount</small><b>10% off</b></div>
+                </div>
+                <div class="doc-actions">
+                    <a class="btn btn-wa" href="https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Hero%20%2810%25%20off%29%20package.%20May%20I%20know%20the%20available%20slots%3F" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Book on WhatsApp</a>
+                    <button class="btn btn-ghost" type="button" data-poster="hero"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View poster</button>
+                </div>
+                <figure class="doc-fig"><img src="img/stock/pk-hero.webp" alt="Hero" width="960" height="720" decoding="async"></figure>
+                
+<h2 id="pakej-hero-who">Who it's for</h2>
+<div class="tbl"><table><thead><tr><th>Agency</th><th></th></tr></thead><tbody><tr><td>MOH (KKM)</td><td>Health staff</td></tr><tr><td>Fire &amp; Rescue</td><td>Bomba</td></tr><tr><td>Police</td><td>PDRM</td></tr><tr><td>Armed Forces</td><td>ATM</td></tr></tbody></table></div>
+<h2 id="pakej-hero-covers">What it covers</h2>
+<p>10% off consultation, treatment and health packages.</p>
+<h2 id="pakej-hero-how">How to claim</h2>
+<div class="hint info"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><div>Show a <b>valid authority or staff card</b> at registration. Terms apply.</div></div>
+                <div class="pager"><a class="pn prev" href="#pakej-travel"><small>Previous</small><b><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> Travel Kit</b></a><span></span></div>
+            </article>
+    </main>
+    <aside class="docs-toc"><div class="toc-title">On this page</div><nav id="toc"></nav></aside>
+</div>
+<div class="docs-scrim" id="docsScrim"></div>
 <template id="tpl-darah"><div class="pp t-teal">
 <div class="pp-head"><div class="brand"><img src="img/logo-klinik-telus.png" alt=""><div><b>KLINIK DR AL-BAGHDADI</b><small>Family Clinic · Putra Nilai</small></div></div><i>Your Health,<br>Our Priority</i></div>
 <div class="pp-hook"><h3>WHEN DID YOU LAST <span>CHECK YOUR BLOOD?</span></h3><p>Many health problems show no early signs.</p></div>
@@ -210,35 +252,7 @@
 <script src="js/vendor/ScrollTrigger-3.12.5.min.js" defer></script>
 <script src="js/vendor/lenis-1.1.13.min.js" defer></script>
 <script src="js/site.js" defer></script>
-<script>
-    (function () {
-        var POSTERS = {"darah": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Blood%20Test%20package.%20May%20I%20know%20the%20available%20slots%3F"},"hero": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Hero%20%2810%25%20off%29%20package.%20May%20I%20know%20the%20available%20slots%3F"},"haji": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Hajj%20%26%20Umrah%20package.%20May%20I%20know%20the%20available%20slots%3F"},"pelajar": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Student%20%26%20Worker%20package.%20May%20I%20know%20the%20available%20slots%3F"},"travel": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Travel%20Kit%20package.%20May%20I%20know%20the%20available%20slots%3F"},"prp": {"video": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20PRP%20Knee%20package.%20May%20I%20know%20the%20available%20slots%3F"}};
-        function build(key) {
-            var p = POSTERS[key]; if (!p) return null;
-            var wrap = document.createElement("div"); wrap.style.display = "contents";
-            var media = document.createElement("div"); media.className = "poster-media pop-in";
-            if (p.video) {
-                var v = document.createElement("video");
-                v.src = "media/poster-prp-lutut.mp4"; v.poster = "media/poster-prp-lutut.jpg"; v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
-                media.appendChild(v);
-            } else media.appendChild(document.getElementById("tpl-" + key).content.cloneNode(true));
-            var a = document.createElement("a"); a.className = "btn btn-wa pop-in"; a.href = p.wa; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Book on WhatsApp";
-            wrap.appendChild(media); wrap.appendChild(a); return wrap;
-        }
-        document.querySelectorAll("[data-poster]").forEach(function (c) {
-            c.addEventListener("click", function (e) {
-                if (e.target.closest("a")) return;
-                var n = build(c.getAttribute("data-poster")); if (n && window.Pop) window.Pop.open(n, { from: c, cls: "pop-poster" });
-            });
-            c.addEventListener("keydown", function (e) { if (e.key === "Enter") c.click(); });
-        });
-        function go() {
-            var el = location.hash && document.querySelector(location.hash);
-            if (!el || !el.classList.contains("pk")) return;
-            setTimeout(function () { el.style.opacity = 1; window.SiteScroll ? window.SiteScroll.to(el, { offset: -120 }) : el.scrollIntoView(); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); }, 500);
-        }
-        window.addEventListener("load", go); window.addEventListener("hashchange", go);
-    })();
-</script>
+<script src="js/docs.js" defer></script>
+<script>var POSTERS = {"darah": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Blood%20Test%20package.%20May%20I%20know%20the%20available%20slots%3F"},"hero": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Hero%20%2810%25%20off%29%20package.%20May%20I%20know%20the%20available%20slots%3F"},"haji": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Hajj%20%26%20Umrah%20package.%20May%20I%20know%20the%20available%20slots%3F"},"pelajar": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Student%20%26%20Worker%20package.%20May%20I%20know%20the%20available%20slots%3F"},"travel": {"tpl": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20Travel%20Kit%20package.%20May%20I%20know%20the%20available%20slots%3F"},"prp": {"video": true, "wa": "https://wa.me/60103434711?text=Hi%20Klinik%20Dr%20Al%20Baghdadi%2C%20I%20am%20interested%20in%20the%20PRP%20Knee%20package.%20May%20I%20know%20the%20available%20slots%3F"}};</script>
 </body>
 </html>
