@@ -1,0 +1,4 @@
+Contact: mailto:info@klinikalbaghdadi.com
+Expires: 2027-11-21T00:00:00.000Z
+Preferred-Languages: en, ms
+Canonical: https://klinikalbaghdadi.com/.well-known/security.txt
