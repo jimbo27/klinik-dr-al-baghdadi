@@ -160,7 +160,7 @@
         var api = { R: 600, th: 0, z: 0, rx: 0, mx: 0, my: 0 };
         api.layout = function () {
             var fs = parseFloat(getComputedStyle(el).fontSize);
-            ctx.font = "800 " + fs + "px Poppins, sans-serif";
+            var cs = getComputedStyle(el); ctx.font = cs.fontWeight + " " + fs + "px " + cs.fontFamily;
             var ws = word.split("").map(function (ch) { return (ch === " " ? fs * 0.28 : ctx.measureText(ch).width) + fs * 0.02; });
             var L = ws.reduce(function (a, b) { return a + b; }, 0);
             api.R = L / (typeof arc === "function" ? arc() : arc);
