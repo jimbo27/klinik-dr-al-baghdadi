@@ -38,33 +38,33 @@
     hero.appendChild(defs);
     var grads = [].slice.call(defs.querySelectorAll("linearGradient"));
 
-    var root = el("div", "hl"); root.setAttribute("aria-hidden", "true");
+    var root = el("div", "hlg"); root.setAttribute("aria-hidden", "true");
     hero.insertBefore(root, hero.querySelector(".hero-overlay").nextSibling);
-    el("div", "hl-wash", root);
-    var scrollLayer = el("div", "hl-scroll", root);
-    var anchor = el("div", "hl-anchor", scrollLayer);
-    var bob = el("div", "hl-bob", anchor);
-    var logo = el("div", "hl-logo", bob);
+    el("div", "hlg-wash", root);
+    var scrollLayer = el("div", "hlg-scroll", root);
+    var anchor = el("div", "hlg-anchor", scrollLayer);
+    var bob = el("div", "hlg-bob", anchor);
+    var logo = el("div", "hlg-logo", bob);
     logo.style.width = (L.w * K) + "px"; logo.style.height = (L.h * K) + "px";
     logo.style.margin = (-L.h * K / 2) + "px 0 0 " + (-L.w * K / 2) + "px";
-    var glow = el("div", "hl-glow", logo);
-    var wave = el("div", "hl-wave", logo);
-    var flash = el("div", "hl-flash", logo);
+    var glow = el("div", "hlg-glow", logo);
+    var wave = el("div", "hlg-wave", logo);
+    var flash = el("div", "hlg-flash", logo);
 
     // build each glyph as an extruded piece
     var pieces = L.glyphs.map(function (g, i) {
         var b = g.box, pad = 2, x = b[0] - pad, y = b[1] - pad, w = b[2] - b[0] + pad * 2, h = b[3] - b[1] + pad * 2;
-        var outer = el("div", "hl-piece", logo);   // scroll scatter
-        var inner = el("div", "hl-pin", outer);    // entrance + hover depth
+        var outer = el("div", "hlg-piece", logo);   // scroll scatter
+        var inner = el("div", "hlg-pin", outer);    // entrance + hover depth
         outer.style.left = (x * K) + "px"; outer.style.top = (y * K) + "px";
         outer.style.width = (w * K) + "px"; outer.style.height = (h * K) + "px";
         var navy = !!NAVY[i], vb = x + " " + y + " " + w + " " + h;
         var html = "";
         for (var l = 0; l < DEPTH; l++) {
-            html += '<svg class="hl-side ' + (navy ? "n" : "c") + '" viewBox="' + vb + '" style="transform:translateZ(' +
+            html += '<svg class="hlg-side ' + (navy ? "n" : "c") + '" viewBox="' + vb + '" style="transform:translateZ(' +
                     ((l - DEPTH) * STEP).toFixed(1) + 'px);opacity:' + (0.55 + 0.45 * l / DEPTH).toFixed(2) + '"><path d="' + g.d + '"/></svg>';
         }
-        html += '<svg class="hl-face" viewBox="' + vb + '"><path fill="url(#' + (navy ? "hlNavy" : "hlCyan") + ')" d="' + g.d + '"/></svg>';
+        html += '<svg class="hlg-face" viewBox="' + vb + '"><path fill="url(#' + (navy ? "hlNavy" : "hlCyan") + ')" d="' + g.d + '"/></svg>';
         inner.innerHTML = html;
         return { i: i, outer: outer, inner: inner, cx: (b[0] + b[2]) / 2, cy: (b[1] + b[3]) / 2 };
     });

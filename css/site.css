@@ -504,35 +504,35 @@ html { overflow-x: clip; }
 .nav-cta .btn { transition: opacity .3s, transform .3s; }
 @media (max-width: 820px) { body.fab-on .nav-cta .btn { opacity: 0; transform: scale(.8); pointer-events: none; } }
 /* Hero: 3D logo assembled from its pieces (js/hero-logo.js) */
-.hl { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; perspective: 1300px; perspective-origin: 73% 47%; }
-.hl-wash { position: absolute; inset: 0; background: radial-gradient(ellipse at 73% 47%, rgba(0,163,196,.13) 0%, rgba(0,163,196,0) 38%), radial-gradient(circle at 88% 22%, rgba(12,58,145,.08) 0%, rgba(12,58,145,0) 30%); }
-.hl-scroll { position: absolute; inset: 0; transform-style: preserve-3d; }
-.hl-anchor { position: absolute; left: 73%; top: 47%; width: 0; height: 0; transform-style: preserve-3d; }
-.hl-bob, .hl-logo { position: absolute; left: 0; top: 0; transform-style: preserve-3d; }
-.hl-piece, .hl-pin { position: absolute; transform-style: preserve-3d; }
-.hl-pin { inset: 0; }
-.hl-piece svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.hl-side.n path { fill: #071f55; } .hl-side.c path { fill: #006a80; }
-.hl-face { transform: translateZ(.6px); }
-.hl-glow { position: absolute; left: 5%; right: 5%; top: 20%; bottom: -10%; transform: translateZ(-70px); border-radius: 50%;
+.hlg { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; perspective: 1300px; perspective-origin: 73% 47%; }
+.hlg-wash { position: absolute; inset: 0; background: radial-gradient(ellipse at 73% 47%, rgba(0,163,196,.13) 0%, rgba(0,163,196,0) 38%), radial-gradient(circle at 88% 22%, rgba(12,58,145,.08) 0%, rgba(12,58,145,0) 30%); }
+.hlg-scroll { position: absolute; inset: 0; transform-style: preserve-3d; }
+.hlg-anchor { position: absolute; left: 73%; top: 47%; width: 0; height: 0; transform-style: preserve-3d; }
+.hlg-bob, .hlg-logo { position: absolute; left: 0; top: 0; transform-style: preserve-3d; }
+.hlg-piece, .hlg-pin { position: absolute; transform-style: preserve-3d; }
+.hlg-pin { inset: 0; }
+.hlg-piece svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hlg-side.n path { fill: #071f55; } .hlg-side.c path { fill: #006a80; }
+.hlg-face { transform: translateZ(.6px); }
+.hlg-glow { position: absolute; left: 5%; right: 5%; top: 20%; bottom: -10%; transform: translateZ(-70px); border-radius: 50%;
     background: radial-gradient(ellipse, rgba(0,163,196,.38) 0%, rgba(12,58,145,.16) 45%, rgba(0,163,196,0) 72%); filter: blur(18px); }
-.hl-wave { position: absolute; left: 50%; top: 50%; width: 260px; height: 260px; margin: -130px 0 0 -130px; border-radius: 50%; opacity: 0;
+.hlg-wave { position: absolute; left: 50%; top: 50%; width: 260px; height: 260px; margin: -130px 0 0 -130px; border-radius: 50%; opacity: 0;
     border: 3px solid rgba(0,163,196,.65); box-shadow: 0 0 30px rgba(0,163,196,.45), inset 0 0 30px rgba(0,163,196,.35); transform: translateZ(-10px); }
-.hl-flash { position: absolute; inset: -30%; opacity: 0; transform: translateZ(40px);
+.hlg-flash { position: absolute; inset: -30%; opacity: 0; transform: translateZ(40px);
     background: radial-gradient(circle at 42% 40%, rgba(255,255,255,.95) 0%, rgba(255,255,255,0) 55%); }
-@media (max-width: 1180px) { .hl-anchor { left: 76%; scale: .8; } .hl { perspective-origin: 76% 47%; } }
+@media (max-width: 1180px) { .hlg-anchor { left: 76%; scale: .8; } .hlg { perspective-origin: 76% 47%; } }
 @media (max-width: 960px) {
     .hero .hero-inner { padding-bottom: 13rem; }
-    .hl-anchor { left: 50%; top: auto; bottom: 7.5rem; scale: .78; }
-    .hl { perspective-origin: 50% 85%; }
-    .hl-wash { background: radial-gradient(ellipse at 50% 86%, rgba(0,163,196,.15) 0%, rgba(0,163,196,0) 45%); }
+    .hlg-anchor { left: 50%; top: auto; bottom: 7.5rem; scale: .78; }
+    .hlg { perspective-origin: 50% 85%; }
+    .hlg-wash { background: radial-gradient(ellipse at 50% 86%, rgba(0,163,196,.15) 0%, rgba(0,163,196,0) 45%); }
 }
 @media (max-width: 640px) {
     .hero .hero-inner { padding-top: 3rem; padding-bottom: 4rem; }
     .hero h1 { margin-top: 4.4rem; }
-    .hl-anchor { left: 50%; top: 92px; bottom: auto; scale: .66; }
-    .hl { perspective-origin: 50% 92px; }
-    .hl-wash { background: radial-gradient(ellipse at 50% 92px, rgba(0,163,196,.12) 0%, rgba(0,163,196,0) 55%); }
+    .hlg-anchor { left: 50%; top: 92px; bottom: auto; scale: .66; }
+    .hlg { perspective-origin: 50% 92px; }
+    .hlg-wash { background: radial-gradient(ellipse at 50% 92px, rgba(0,163,196,.12) 0%, rgba(0,163,196,0) 55%); }
 }
 /* section labels used as the section heading (no big headline) */
 .sec-head h2.eyebrow { font-size: .78rem; margin-top: 0; letter-spacing: .14em; line-height: 1.5; }
