@@ -12,6 +12,8 @@
     var gsap = window.gsap, ST = window.ScrollTrigger;
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var small = window.matchMedia("(max-width: 960px)").matches;
+    var phone = window.matchMedia("(max-width: 640px)").matches;   // phones: logo sits behind the headline
+    var SHOW = phone ? 0.55 : 1, FINAL = phone ? 0.16 : 1;          // entrance strength, resting strength
     var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     var NS = "http://www.w3.org/2000/svg";
     var K = 1.06;                          // px per logo unit (logo is 413 x 165 units)
@@ -86,24 +88,24 @@
 
     var tl = gsap.timeline({ paused: true, onComplete: ready });
     // 1. the D slams in from the camera
-    tl.to(pieces[D].inner, { opacity: 1, duration: 0.12 }, 0)
+    tl.to(pieces[D].inner, { opacity: SHOW, duration: 0.12 }, 0)
       .to(pieces[D].inner, { z: 0, rotationX: 0, rotationY: 0, duration: 0.55, ease: "power4.in" }, 0)
       .add("impact", 0.55)
       .fromTo(wave, { scale: 0.2, opacity: 0.9 }, { scale: 2.6, opacity: 0, duration: 0.9, ease: "expo.out" }, "impact")
       .fromTo(flash, { opacity: 0.85 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, "impact")
       .fromTo(anchor, { x: -7, y: 5 }, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1.2, 0.25)" }, "impact")
-      .to(glow, { opacity: 1, scale: 1, duration: 1.2, ease: "expo.out" }, "impact")
+      .to(glow, { opacity: phone ? 0.5 : 1, scale: 1, duration: 1.2, ease: "expo.out" }, "impact")
       // 2. R swings open like a door
-      .to(pieces[R].inner, { opacity: 1, duration: 0.15 }, "impact+=0.12")
+      .to(pieces[R].inner, { opacity: SHOW, duration: 0.15 }, "impact+=0.12")
       .to(pieces[R].inner, { rotationY: 0, x: 0, z: 0, duration: 0.9, ease: "back.out(1.6)" }, "impact+=0.12")
       // 3. the dot drops and bounces
-      .to(pieces[DOT].inner, { opacity: 1, duration: 0.1 }, "impact+=0.45")
+      .to(pieces[DOT].inner, { opacity: SHOW, duration: 0.1 }, "impact+=0.45")
       .to(pieces[DOT].inner, { y: 0, z: 0, duration: 0.8, ease: "bounce.out" }, "impact+=0.45")
       // 4. KLINIK flips up letter by letter
-      .to(byIdx(KLINIK), { opacity: 1, duration: 0.15, stagger: 0.06 }, "impact+=0.35")
+      .to(byIdx(KLINIK), { opacity: SHOW, duration: 0.15, stagger: 0.06 }, "impact+=0.35")
       .to(byIdx(KLINIK), { rotationX: 0, y: 0, duration: 0.7, ease: "back.out(2)", stagger: 0.06 }, "impact+=0.35")
       // 5. AL BAGHDADI pieces fly together
-      .to(al, { opacity: 1, duration: 0.3, stagger: { each: 0.05, from: "random" } }, "impact+=0.2")
+      .to(al, { opacity: SHOW, duration: 0.3, stagger: { each: 0.05, from: "random" } }, "impact+=0.2")
       .to(al, { x: 0, y: 0, z: 0, rotationX: 0, rotationY: 0, rotationZ: 0, scale: 1, duration: 1.3, ease: "expo.out", stagger: { each: 0.05, from: "random" } }, "impact+=0.2");
 
     // wait for the home intro (logo-build overlay) to finish, then play
@@ -111,7 +113,7 @@
     function start(wait) {
         var go = function () { gsap.delayedCall(wait, function () { tl.play(); }); };
         // on phones the logo sits below the buttons: play the entrance when it scrolls into view
-        if (small && "IntersectionObserver" in window) {
+        if (small && !phone && "IntersectionObserver" in window) {
             var io = new IntersectionObserver(function (es) {
                 if (es[0].isIntersecting) { io.disconnect(); wait = 0.1; go(); }
             }, { threshold: 0.6 });
@@ -132,6 +134,7 @@
     var idle, sheenT;
     function ready() {
         root.classList.add("on");
+        if (phone) gsap.to(all, { opacity: FINAL, duration: 1.2, ease: "power2.inOut" });
         idle = gsap.timeline({ repeat: -1, yoyo: true });
         idle.to(bob, { y: -8, rotationY: 7, rotationX: 3, duration: 3.2, ease: "sine.inOut" })
             .to(bob, { y: 6, rotationY: -7, rotationX: -2, duration: 3.4, ease: "sine.inOut" });
@@ -159,7 +162,7 @@
 
     /* ---------- scroll: the logo breaks apart ---------- */
     if (ST) {
-        var st = gsap.timeline({ scrollTrigger: { trigger: anchor, start: "center 42%", end: "center -15%", scrub: 0.6 } });
+        var st = gsap.timeline({ scrollTrigger: { trigger: anchor, start: phone ? "center 12%" : "center 42%", end: phone ? "center -45%" : "center -15%", scrub: 0.6 } });
         pieces.forEach(function (p) {
             var dx = (p.cx - L.w / 2) / (L.w / 2), dy = (p.cy - L.h / 2) / (L.h / 2);
             st.to(p.outer, { x: dx * rnd(160, 320), y: dy * rnd(90, 200) + rnd(-40, 40), z: rnd(-300, 260),
