@@ -5,16 +5,6 @@
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var g = document.createElement("div"); g.className = "cg-grain"; g.setAttribute("aria-hidden", "true"); document.body.appendChild(g);
 
-    // header: wordmark instead of the blue logo
-    var logo = document.querySelector(".site-header .brand, .site-header a[href='index.html']");
-    if (logo) { logo.classList.add("cg-brand"); logo.innerHTML = "Klinik Dr. Al Baghdadi"; }
-
-    // footer wordmark + doctor portrait in a spotlight
-    var flogo = document.querySelector(".sf-inner img");
-    if (flogo) { var w = document.createElement("div"); w.className = "cg-brand"; w.textContent = "Klinik Dr. Al Baghdadi"; flogo.replaceWith(w); }
-    var dimg = document.querySelector(".doc-photo img");
-    if (dimg) { var pic = dimg.closest("picture"); if (pic) pic.querySelectorAll("source").forEach(function (s) { s.remove(); }); dimg.src = "img/dr-adnan-cut.webp"; dimg.closest(".doc-photo").classList.add("cg-spot"); }
-
     // page openings
     var PH = { "about.html": "img/klinik-kaunter.jpg", "services.html": "img/klinik-bilik-rawatan.jpg", "packages.html": "img/klinik-peralatan.jpg", "contact.html": "img/klinik-ruang-menunggu.jpg" };
     var page = location.pathname.split("/").pop() || "index.html";
