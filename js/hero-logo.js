@@ -2,8 +2,8 @@
  * Every glyph of the logo (js/logo-paths.js) is its own extruded 3D piece.
  * Entrance: the big "D" slams in from the camera with a shockwave, "R" swings in, the dot drops,
  * KLINIK flips in letter by letter and AL BAGHDADI flies together from scattered pieces.
- * Then: a light sheen sweeps across, the logo floats, tilts with the mouse, the pieces separate
- * in depth while the cursor is over the hero, and the logo breaks apart as you scroll away.
+ * Then: a light sheen sweeps across, the logo floats and tilts with the mouse, and the whole logo
+ * tilts back and fades (in one piece) as you scroll away.
  */
 (function () {
     "use strict";
@@ -145,30 +145,20 @@
 
     /* ---------- mouse: tilt + pieces separate in depth ---------- */
     function depthOnHover() {
-        var depthTo = pieces.map(function (p) {
-            var target = p.i === D ? 34 : p.i === R ? 58 : p.i === DOT ? 80 : KLINIK.indexOf(p.i) >= 0 ? 22 : rnd(14, 46);
-            return { set: gsap.quickTo(p.inner, "z", { duration: 0.8, ease: "power3.out" }), target: target };
-        });
-        var spread = function (on) { depthTo.forEach(function (d) { d.set(on ? d.target : 0); }); };
         var rx = gsap.quickTo(anchor, "rotationX", { duration: 0.9, ease: "power3.out" });
         var ry = gsap.quickTo(anchor, "rotationY", { duration: 0.9, ease: "power3.out" });
-        hero.addEventListener("pointerenter", function () { spread(true); });
         hero.addEventListener("pointermove", function (e) {
             var r = hero.getBoundingClientRect();
-            ry(((e.clientX - r.left) / r.width - 0.5) * 40); rx(-((e.clientY - r.top) / r.height - 0.5) * 26);
+            ry(((e.clientX - r.left) / r.width - 0.5) * 30); rx(-((e.clientY - r.top) / r.height - 0.5) * 18);
         });
-        hero.addEventListener("pointerleave", function () { spread(false); rx(0); ry(0); });
+        hero.addEventListener("pointerleave", function () { rx(0); ry(0); });
     }
 
-    /* ---------- scroll: the logo breaks apart ---------- */
+    /* ---------- scroll: the whole logo tilts back and fades, in one piece ---------- */
     if (ST) {
-        var st = gsap.timeline({ scrollTrigger: { trigger: anchor, start: phone ? "center 12%" : "center 42%", end: phone ? "center -45%" : "center -15%", scrub: 0.6 } });
-        pieces.forEach(function (p) {
-            var dx = (p.cx - L.w / 2) / (L.w / 2), dy = (p.cy - L.h / 2) / (L.h / 2);
-            st.to(p.outer, { x: dx * rnd(160, 320), y: dy * rnd(90, 200) + rnd(-40, 40), z: rnd(-300, 260),
-                             rotationX: rnd(-80, 80), rotationY: rnd(-80, 80), rotationZ: rnd(-40, 40), opacity: 0.15, ease: "none" }, 0);
-        });
-        st.to(glow, { opacity: 0, ease: "none" }, 0);
+        gsap.timeline({ scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 0.5 } })
+            .to(scrollLayer, { rotationX: 18, y: phone ? 40 : 70, ease: "none" }, 0)
+            .to(root, { opacity: 0, ease: "none" }, 0);
     }
 
     /* ---------- pause loops off-screen ---------- */
