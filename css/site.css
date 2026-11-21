@@ -534,3 +534,5 @@ html { overflow-x: clip; }
     .hl { perspective-origin: 50% 92px; }
     .hl-wash { background: radial-gradient(ellipse at 50% 92px, rgba(0,163,196,.12) 0%, rgba(0,163,196,0) 55%); }
 }
+/* section labels used as the section heading (no big headline) */
+.sec-head h2.eyebrow { font-size: .78rem; margin-top: 0; letter-spacing: .14em; line-height: 1.5; }

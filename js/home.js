@@ -98,12 +98,11 @@
         if (!ok) { c.draw(); el.style.opacity = 1; if (sub) sub.style.opacity = 1; return; }
         var W = wide() ? 66 : 46;
         c.th = W; c.z = -260; c.rx = 14; c.draw();
-        var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "+=" + (wide() ? 140 : 110) + "%", pin: pin, scrub: 1, anticipatePin: 1 } });
+        var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "+=" + (wide() ? 60 : 50) + "%", pin: pin, scrub: 1, anticipatePin: 1 } });
         tl.to(el, { opacity: 1, duration: 0.08, ease: "none" }, 0)
           .to(c, { th: -W, rx: -10, duration: 1, ease: "none", onUpdate: c.draw }, 0)
           .to(c, { z: wide() ? 110 : 40, duration: 0.75, ease: "power1.out", onUpdate: c.draw }, 0)
-          .fromTo(sub, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.2 }, 0.35)
-          .to([el, sub], { opacity: 0, duration: 0.1 }, 0.92);
+          .fromTo(sub, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.2 }, 0.35);
     })();
 
     /* ---------- Closing logo build ---------- */
