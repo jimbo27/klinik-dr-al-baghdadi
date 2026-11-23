@@ -1,0 +1,20 @@
+# Cloudflare Worker for staff.klinikalbaghdadi.com
+name = "klinik-kehadiran"
+main = "src/worker.js"
+compatibility_date = "2024-11-01"
+
+[build]
+command = "node build.mjs"
+watch_dir = "src"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kehadiran"
+database_id = "2786f00e-7531-4ce2-9aff-6130d3689289"
+
+[[routes]]
+pattern = "staff.klinikalbaghdadi.com"
+custom_domain = true
+
+[observability]
+enabled = true

@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="app-version" content="__VERSION__" />
+    <meta name="theme-color" content="#0d6b63" />
+    <title>Attendance Admin | Klinik Dr. Al Baghdadi</title>
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/admin.js" defer></script>
+  </head>
+  <body>
+    <header class="bar">
+      <img src="/icon.svg" alt="" />
+      <div class="t">
+        <b>Attendance Record · Admin</b><small>Klinik Dr. Al Baghdadi</small>
+      </div>
+      <button class="btn ghost sm" id="logoutBtn" type="button" hidden>
+        Log keluar
+      </button>
+    </header>
+    <nav class="tabs" id="tabs" role="tablist" hidden>
+      <button role="tab" data-tab="today" aria-selected="true">Hari ini</button
+      ><button role="tab" data-tab="records" aria-selected="false">Rekod</button
+      ><button role="tab" data-tab="monthly" aria-selected="false">
+        Bulanan</button
+      ><button role="tab" data-tab="staff" aria-selected="false">Staff</button
+      ><button role="tab" data-tab="settings" aria-selected="false">
+        Tetapan
+      </button>
+    </nav>
+    <main class="wrap wide">
+      <p id="boot" class="empty">Memuatkan…</p>
+      <section id="authView" class="login" hidden>
+        <div class="card">
+          <img class="logo" src="/icon.svg" alt="" />
+          <h1 id="authTitle">Log masuk admin</h1>
+          <p class="sub" id="authSub"></p>
+          <form id="authForm">
+            <input
+              type="text"
+              name="username"
+              autocomplete="username"
+              value="admin"
+              hidden
+            /><label for="pw">Kata laluan</label
+            ><input
+              id="pw"
+              type="password"
+              autocomplete="current-password"
+              required
+              minlength="10"
+            />
+            <div id="pw2Wrap" hidden>
+              <label for="pw2">Ulang kata laluan</label
+              ><input id="pw2" type="password" autocomplete="new-password" />
+            </div>
+            <button class="btn block mt16" type="submit" id="authBtn">
+              Log masuk
+            </button>
+            <div id="authMsg" class="msg err" hidden></div>
+          </form>
+        </div>
+      </section>
+      <section id="tab-today" class="tab" hidden>
+        <div class="section-h">
+          <h2 id="todayTitle">Hari ini</h2>
+          <div class="row">
+            <input type="date" id="todayDay" aria-label="Tarikh" /><button
+              class="btn line sm"
+              id="todayRefresh"
+              type="button"
+            >
+              Muat semula
+            </button>
+          </div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b id="kIn">0</b><span>Sedang bertugas</span></div>
+          <div class="kpi"><b id="kDone">0</b><span>Sudah clock out</span></div>
+          <div class="kpi">
+            <b id="kAbsent">0</b><span>Belum / tidak hadir</span>
+          </div>
+          <div class="kpi"><b id="kLate">0</b><span>Lewat</span></div>
+        </div>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Staff</th>
+                  <th>Status</th>
+                  <th>Syif</th>
+                  <th>Masuk</th>
+                  <th>Keluar</th>
+                  <th class="num">Jam</th>
+                  <th>Catatan</th>
+                </tr>
+              </thead>
+              <tbody id="todayBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section id="tab-records" class="tab" hidden>
+        <div class="section-h">
+          <h2>Rekod clock in / out</h2>
+          <button class="btn sm" id="addPunchBtn" type="button">
+            + Rekod manual
+          </button>
+        </div>
+        <div class="card">
+          <div class="toolbar">
+            <div>
+              <label for="rFrom">Dari</label><input type="date" id="rFrom" />
+            </div>
+            <div>
+              <label for="rTo">Hingga</label><input type="date" id="rTo" />
+            </div>
+            <div class="grow">
+              <label for="rStaff">Staff</label
+              ><select id="rStaff">
+                <option value="">Semua staff</option>
+              </select>
+            </div>
+            <button class="btn line" id="rGo" type="button">Papar</button
+            ><button class="btn line" id="rCsv" type="button">
+              Download CSV
+            </button>
+          </div>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tarikh</th>
+                  <th>Masa</th>
+                  <th>Staff</th>
+                  <th>Jenis</th>
+                  <th class="num">Jarak</th>
+                  <th class="num">GPS ±</th>
+                  <th>Catatan</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="recBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section id="tab-monthly" class="tab" hidden>
+        <div class="section-h">
+          <h2>Ringkasan bulanan</h2>
+          <div class="row">
+            <input type="month" id="mMonth" aria-label="Bulan" /><button
+              class="btn line sm"
+              id="mCsv"
+              type="button"
+            >
+              Download CSV
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Staff</th>
+                  <th class="num">Hari hadir</th>
+                  <th class="num">Jumlah jam</th>
+                  <th class="num">Purata/hari</th>
+                  <th class="num">Kali lewat</th>
+                  <th class="num">Minit lewat</th>
+                  <th class="num">Tiada clock out</th>
+                  <th class="num">Ditanda</th>
+                </tr>
+              </thead>
+              <tbody id="monBody"></tbody>
+            </table>
+          </div>
+          <p class="muted small mt10">
+            "Ditanda" = hari yang ada rekod manual atau clock in dari peranti
+            lain. Semak di tab Rekod.
+          </p>
+        </div>
+      </section>
+      <section id="tab-staff" class="tab" hidden>
+        <div class="section-h">
+          <h2>Senarai staff</h2>
+          <button class="btn sm" id="addStaffBtn" type="button">
+            + Tambah staff
+          </button>
+        </div>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Kod</th>
+                  <th>Nama</th>
+                  <th>Jawatan</th>
+                  <th>Mula syif</th>
+                  <th>Status</th>
+                  <th>Peranti</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="staffBody"></tbody>
+            </table>
+          </div>
+          <p class="muted small mt10">
+            Staff log masuk di <b>staff.klinikalbaghdadi.com</b> dengan kod +
+            PIN. Telefon pertama yang digunakan untuk clock in akan didaftarkan;
+            clock in dari telefon lain akan ditanda.
+          </p>
+        </div>
+      </section>
+      <section id="tab-settings" class="tab" hidden>
+        <div class="grid2">
+          <div class="card">
+            <h2 class="h17">Lokasi &amp; peraturan</h2>
+            <form id="setForm">
+              <label class="check"
+                ><input type="checkbox" id="sGeo" /> Wajibkan lokasi dalam
+                radius klinik</label
+              >
+              <div class="grid2">
+                <div>
+                  <label for="sLat">Latitud klinik</label
+                  ><input id="sLat" type="text" inputmode="decimal" />
+                </div>
+                <div>
+                  <label for="sLng">Longitud klinik</label
+                  ><input id="sLng" type="text" inputmode="decimal" />
+                </div>
+              </div>
+              <button class="btn line sm mt10" type="button" id="useHere">
+                Guna lokasi saya sekarang (bila berada di klinik)
+              </button>
+              <div class="grid2">
+                <div>
+                  <label for="sRad">Radius dibenarkan (m)</label
+                  ><input id="sRad" type="number" min="30" max="2000" />
+                </div>
+                <div>
+                  <label for="sAcc">Had ketepatan GPS (m)</label
+                  ><input id="sAcc" type="number" min="20" max="2000" />
+                </div>
+              </div>
+              <label for="sGrace">Tempoh ihsan lewat (minit)</label
+              ><input id="sGrace" type="number" min="0" max="120" /><button
+                class="btn mt16"
+                type="submit"
+              >
+                Simpan tetapan
+              </button>
+              <div id="setMsg" class="msg" hidden></div>
+            </form>
+          </div>
+          <div>
+            <div class="card">
+              <h2 class="h17">Tukar kata laluan admin</h2>
+              <form id="pwForm">
+                <input
+                  type="text"
+                  name="username"
+                  autocomplete="username"
+                  value="admin"
+                  hidden
+                /><label for="pwCur">Kata laluan semasa</label
+                ><input
+                  id="pwCur"
+                  type="password"
+                  autocomplete="current-password"
+                /><label for="pwNew">Kata laluan baharu (min. 10 aksara)</label
+                ><input
+                  id="pwNew"
+                  type="password"
+                  autocomplete="new-password"
+                  minlength="10"
+                /><button class="btn mt16" type="submit">Tukar</button>
+                <div id="pwMsg" class="msg" hidden></div>
+              </form>
+            </div>
+            <div class="card">
+              <h2 class="h17">Log audit</h2>
+              <ul class="list small" id="auditList"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <dialog id="staffDlg">
+      <form id="staffForm" method="dialog">
+        <h3 id="staffDlgTitle">Tambah staff</h3>
+        <label for="fName">Nama penuh</label
+        ><input id="fName" type="text" maxlength="60" required />
+        <div class="grid2">
+          <div>
+            <label for="fRole">Jawatan</label
+            ><input
+              id="fRole"
+              type="text"
+              maxlength="40"
+              placeholder="cth. Pembantu Klinik"
+            />
+          </div>
+          <div>
+            <label for="fShift">Mula syif</label
+            ><input id="fShift" type="time" value="10:00" />
+          </div>
+        </div>
+        <div id="fNewOnly">
+          <div class="grid2">
+            <div>
+              <label for="fCode">Kod (kosong = auto)</label
+              ><input id="fCode" type="text" maxlength="12" placeholder="S01" />
+            </div>
+            <div>
+              <label for="fPin">PIN awal (4–8 digit)</label
+              ><input
+                id="fPin"
+                type="text"
+                inputmode="numeric"
+                maxlength="8"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+        </div>
+        <label class="check" id="fActiveWrap"
+          ><input type="checkbox" id="fActive" checked /> Aktif</label
+        >
+        <div id="staffMsg" class="msg" hidden></div>
+        <div class="dlg-actions">
+          <button class="btn line" type="button" data-close>Batal</button
+          ><button class="btn" type="submit">Simpan</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="pinDlg">
+      <form id="pinForm" method="dialog">
+        <h3>Reset PIN</h3>
+        <p class="muted small" id="pinWho"></p>
+        <label for="pNew">PIN baharu (4–8 digit)</label
+        ><input
+          id="pNew"
+          type="text"
+          inputmode="numeric"
+          maxlength="8"
+          autocomplete="off"
+        />
+        <div id="pinMsg" class="msg" hidden></div>
+        <div class="dlg-actions">
+          <button class="btn line" type="button" data-close>Batal</button
+          ><button class="btn" type="submit">Simpan PIN</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="punchDlg">
+      <form id="punchForm" method="dialog">
+        <h3>Rekod manual</h3>
+        <p class="muted small">
+          Untuk staff yang terlupa clock in/out. Rekod akan ditanda "manual" dan
+          masuk log audit.
+        </p>
+        <label for="mpStaff">Staff</label
+        ><select id="mpStaff"></select>
+        <div class="grid2">
+          <div>
+            <label for="mpType">Jenis</label
+            ><select id="mpType">
+              <option value="in">Masuk (in)</option>
+              <option value="out">Keluar (out)</option>
+            </select>
+          </div>
+          <div>
+            <label for="mpDay">Tarikh</label><input id="mpDay" type="date" />
+          </div>
+        </div>
+        <label for="mpTime">Masa</label><input id="mpTime" type="time" />
+        <p class="muted small mt10">
+          Masukkan tarikh &amp; masa sebenar. Masa sebelum 5 pagi dikira untuk
+          syif hari sebelumnya.
+        </p>
+        <label
+          for="mpNote"
+          >Sebab</label
+        ><input
+          id="mpNote"
+          type="text"
+          maxlength="200"
+          placeholder="cth. Lupa clock out, disahkan oleh Dr."
+        />
+        <div id="mpMsg" class="msg" hidden></div>
+        <div class="dlg-actions">
+          <button class="btn line" type="button" data-close>Batal</button
+          ><button class="btn" type="submit">Simpan</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="voidDlg">
+      <form id="voidForm" method="dialog">
+        <h3>Batal rekod</h3>
+        <p class="muted small" id="voidWho"></p>
+        <label for="vNote">Sebab pembatalan</label
+        ><input id="vNote" type="text" maxlength="200" />
+        <div id="vMsg" class="msg" hidden></div>
+        <div class="dlg-actions">
+          <button class="btn line" type="button" data-close>Batal</button
+          ><button class="btn danger" type="submit">Batalkan rekod</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

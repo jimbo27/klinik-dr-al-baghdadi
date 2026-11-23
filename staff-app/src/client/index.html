@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="app-version" content="__VERSION__" />
+    <meta name="theme-color" content="#0d6b63" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Attendance" />
+    <title>Attendance Record | Klinik Dr. Al Baghdadi</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link
+      rel="apple-touch-icon"
+      href="https://klinikalbaghdadi.com/img/apple-touch-icon.png"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="bar">
+      <img src="/icon.svg" alt="" />
+      <div class="t">
+        <b>Attendance Record</b><small>Klinik Dr. Al Baghdadi</small>
+      </div>
+      <button class="btn ghost sm" id="menuBtn" type="button" hidden>
+        Akaun
+      </button>
+    </header>
+    <main class="wrap">
+      <p id="boot" class="empty">Memuatkan…</p>
+      <section id="loginView" class="login" hidden>
+        <div class="card">
+          <img class="logo" src="/icon.svg" alt="" />
+          <h1>Log masuk staff</h1>
+          <p class="sub">Guna kod staff dan PIN yang diberi oleh admin.</p>
+          <form id="loginForm" autocomplete="off">
+            <label for="code">Kod staff</label
+            ><input
+              id="code"
+              type="text"
+              autocapitalize="characters"
+              spellcheck="false"
+              maxlength="12"
+              placeholder="cth. S01"
+              required
+            /><label for="pin">PIN</label
+            ><input
+              id="pin"
+              type="password"
+              inputmode="numeric"
+              pattern="[0-9]{4,8}"
+              maxlength="8"
+              autocomplete="current-password"
+              required
+            /><button class="btn block mt16" type="submit">Log masuk</button>
+            <div id="loginMsg" class="msg err" hidden></div>
+          </form>
+        </div>
+      </section>
+      <section id="mainView" hidden>
+        <div class="card hello">
+          <p class="muted small" id="role"></p>
+          <h1 id="hello"></h1>
+          <div class="clock" id="clock">--:--:--</div>
+          <div class="date" id="date"></div>
+          <div class="status" id="status">
+            <span class="dot"></span><span id="statusText"></span>
+          </div>
+          <button class="punch" id="punchBtn" type="button">
+            <span
+              ><span id="punchLabel">CLOCK IN</span
+              ><small id="punchSub">Tekan untuk rekod</small></span
+            >
+          </button>
+          <p class="hint" id="geoHint"></p>
+          <div id="punchMsg" class="msg" hidden></div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <h2 class="grow h17">Hari ini</h2>
+            <span class="pill" id="todayHours">0j 0m</span>
+          </div>
+          <ul class="list" id="todayList"></ul>
+        </div>
+        <div class="card">
+          <h2 class="h17">Bulan ini</h2>
+          <div class="stats">
+            <div class="stat"><b id="mDays">0</b><span>Hari hadir</span></div>
+            <div class="stat"><b id="mHours">0j</b><span>Jumlah jam</span></div>
+            <div class="stat"><b id="mLate">0</b><span>Kali lewat</span></div>
+          </div>
+          <p class="muted small mt10" id="shiftInfo"></p>
+        </div>
+      </section>
+    </main>
+    <dialog id="acctDlg">
+      <form id="pinForm" method="dialog">
+        <h3>Akaun</h3>
+        <p class="muted small" id="acctWho"></p>
+        <label for="pinCur">PIN semasa</label
+        ><input
+          id="pinCur"
+          type="password"
+          inputmode="numeric"
+          maxlength="8"
+          autocomplete="current-password"
+        /><label for="pinNew">PIN baharu (4–8 digit)</label
+        ><input
+          id="pinNew"
+          type="password"
+          inputmode="numeric"
+          maxlength="8"
+          autocomplete="new-password"
+        />
+        <div id="pinMsg" class="msg" hidden></div>
+        <div class="dlg-actions">
+          <button class="btn line" type="button" id="logoutBtn">
+            Log keluar</button
+          ><span class="grow"></span
+          ><button class="btn line" type="button" id="acctClose">Tutup</button
+          ><button class="btn" type="submit">Tukar PIN</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

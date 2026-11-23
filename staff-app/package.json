@@ -1,0 +1,16 @@
+{
+  "name": "klinik-kehadiran",
+  "private": true,
+  "description": "Staff attendance app for Klinik Dr. Al Baghdadi (staff.klinikalbaghdadi.com), a Cloudflare Worker + D1.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node build.mjs && node --test --no-warnings test/*.test.js",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "wrangler": "^3.90.0"
+  }
+}
