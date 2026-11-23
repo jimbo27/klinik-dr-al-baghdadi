@@ -3,6 +3,7 @@
 // (see [build] in wrangler.toml) and by `npm test`.
 import { build, transform } from "esbuild";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 
 const here = (p) => new URL(p, import.meta.url);
 const read = (p) => readFile(here(p), "utf8");
@@ -13,7 +14,7 @@ const VERSION = new Date(Date.now() + 8 * 3600e3).toISOString().replace(/\D/g, "
 
 const bundle = async (entry) => {
   const out = await build({
-    entryPoints: [here(entry).pathname],
+    entryPoints: [fileURLToPath(here(entry))],
     bundle: true,
     minify: true,
     format: "iife",
